@@ -7,10 +7,18 @@ type Product = { descripcion: string; link: string };
 
 export default function CheckerPage() {
   const [loading, setLoading] = useState(false);
-  const [notice, setNotice] = useState<string | null>(null); // solo errores
+  const [notice, setNotice] = useState<string | null>(null);
   const [ok, setOk] = useState<boolean | null>(null);
+
+  // Modal éxito
   const [showModal, setShowModal] = useState(false);
 
+  // Modal confirmación (eliminar uno / todos)
+  const [confirm, setConfirm] = useState<{ open: boolean; idx: number | null; type: "one" | "all" | null }>({
+    open: false,
+    idx: null,
+    type: null,
+  });
   // Datos
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -20,9 +28,7 @@ export default function CheckerPage() {
   const [destino] = useState("Argentina");
 
   // Productos
-  const [productos, setProductos] = useState<Product[]>([
-    { descripcion: "", link: "" },
-  ]);
+  const [productos, setProductos] = useState<Product[]>([{ descripcion: "", link: "" }]);
 
   const canSubmit = useMemo(
     () => productos.some((p) => p.descripcion.trim().length > 0),
@@ -33,11 +39,21 @@ export default function CheckerPage() {
     setProductos((p) => [...p, { descripcion: "", link: "" }]);
   }
 
-  function removeProducto(idx: number) {
-    const num = idx + 1;
-    const ok = window.confirm(`¿Eliminar producto ${num}?`);
-    if (!ok) return;
-    setProductos((p) => p.filter((_, i) => i !== idx));
+  function askRemoveProducto(idx: number) {
+    setConfirm({ open: true, idx, type: "one" });
+  }
+
+  function askRemoveTodos() {
+    setConfirm({ open: true, idx: null, type: "all" });
+  }
+
+  function doConfirmedRemove() {
+    if (confirm.type === "one" && confirm.idx !== null) {
+      setProductos((p) => p.filter((_, i) => i !== confirm.idx));
+    } else if (confirm.type === "all") {
+      setProductos([{ descripcion: "", link: "" }]);
+    }
+    setConfirm({ open: false, idx: null, type: null });
   }
 
   function resetForm() {
@@ -70,36 +86,48 @@ export default function CheckerPage() {
       .filter(Boolean)
       .join(", ");
 
-    const origenFinal =
-      origen === "Otro" && otroPais.trim() ? otroPais.trim() : origen;
+      const origenFinal = origen === "Otro" && otroPais.trim() ? otroPais.trim() : origen;
 
-    const payload = {
-      nombre: nombre.trim(),
-      email: email.trim(),
-      telefono: telefono.trim(),
-      origen: origenFinal,
-      destino,
-      producto_descripcion: descripciones || "",
-      producto_link: links || "",
-      _hp: "",
-    };
-
-    try {
-      const webhook = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
-      if (!webhook) throw new Error("Falta NEXT_PUBLIC_N8N_WEBHOOK_URL");
-
-      const res = await fetch(webhook as string, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      let j: any = null;
+      const productosLimpios = productos
+        .map((p) => ({
+          descripcion: p.descripcion.trim(),
+          link: p.link.trim(),
+        }))
+        .filter((p) => p.descripcion.length > 0);
+      
+        const payload = {
+            timestamp: new Date().toISOString(),
+            origen: "nextjs-courier-checker",
+            contacto: {
+              nombre: nombre.trim(),
+              email: email.trim(),
+              telefono: telefono.trim(),
+            },
+            pais_origen: origenFinal,
+            productos: productos.map((p) => ({
+              descripcion: p.descripcion.trim(),
+              link: p.link.trim(),
+            })),
+          };
+          
+      // --- enviar al webhook de n8n ---
       try {
-        j = await res.json();
-      } catch {
-        j = { ok: res.ok };
-      }
+        const webhook = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+        if (!webhook) throw new Error("Falta NEXT_PUBLIC_N8N_WEBHOOK_URL");
+      
+        const res = await fetch(webhook as string, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      
+        let j: any = null;
+        try {
+          j = await res.json();
+        } catch {
+          j = { ok: res.ok };
+        }
+      
 
       const okResp = j?.ok ?? res.ok ?? true;
       setOk(okResp);
@@ -120,23 +148,13 @@ export default function CheckerPage() {
 
   return (
     <main className="mx-auto max-w-6xl p-6 space-y-8">
-      {/* Header suave */}
+      {/* Header */}
       <div className="flex items-center gap-5 rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
-        <Image
-          src="/logo.png"
-          alt="GlobalTrip Logo"
-          width={160}
-          height={60}
-          priority
-          unoptimized
-        />
+        <Image src="/logo.png" alt="GlobalTrip Logo" width={160} height={60} priority unoptimized />
         <div>
-          <h1 className="text-3xl font-extrabold text-brand-dark">
-            Chequeá tu importación antes de comprar
-          </h1>
+          <h1 className="text-3xl font-extrabold text-brand-dark">Chequeá tu importación antes de comprar</h1>
           <p className="mt-2 text-base text-brand-medium">
-            ⚡ Ingresá la info del producto y validá si cumple con las reglas de
-            courier.
+            ⚡ Ingresá la info del producto y validá si cumple con las reglas de courier.
           </p>
         </div>
       </div>
@@ -145,14 +163,13 @@ export default function CheckerPage() {
       <div className="rounded-2xl border border-brand-border/90 bg-brand-light p-4 text-brand-dark shadow-sm">
         <p className="font-semibold">Recordá las reglas del courier:</p>
         <p className="mt-1 italic text-brand-medium">
-          El valor total de la compra no puede superar los{" "}
-          <span className="font-bold">3000 dólares</span> y el{" "}
-          <span className="font-bold">peso de cada bulto</span> no puede superar
-          los <span className="font-bold">50 kilogramos brutos</span>.
+          El valor total de la compra no puede superar los <span className="font-bold">3000 dólares</span> y el{" "}
+          <span className="font-bold">peso de cada bulto</span> no puede superar los{" "}
+          <span className="font-bold">50 kilogramos brutos</span>.
         </p>
       </div>
 
-      {/* Banner de error (solo si falla) */}
+      {/* Banner de error */}
       {notice && (
         <div className="rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-800">
           {notice}
@@ -192,12 +209,8 @@ export default function CheckerPage() {
 
         {/* País de origen */}
         <section className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
-          <h2 className="text-lg font-semibold">
-            País de origen de los productos a validar
-          </h2>
-          <p className="mt-2 text-sm text-brand-medium">
-            Seleccioná el país de origen:
-          </p>
+          <h2 className="text-lg font-semibold">País de origen de los productos a validar</h2>
+          <p className="mt-2 text-sm text-brand-medium">Seleccioná el país de origen:</p>
           <div className="mt-3 flex items-center gap-6">
             <label className="inline-flex items-center gap-2 text-sm">
               <input
@@ -245,15 +258,11 @@ export default function CheckerPage() {
           <div className="mt-4 space-y-6">
             {productos.map((p, idx) => (
               <div key={idx} className="space-y-2">
-                <div className="text-sm font-medium text-brand-dark">
-                  Producto {idx + 1}
-                </div>
+                <div className="text-sm font-medium text-brand-dark">Producto {idx + 1}</div>
 
                 <div className="grid gap-3 md:grid-cols-[1fr_320px]">
                   <div className="grid gap-1.5">
-                    <label className="text-xs font-medium text-brand-medium">
-                      Descripción*
-                    </label>
+                    <label className="text-xs font-medium text-brand-medium">Descripción*</label>
                     <textarea
                       required
                       rows={3}
@@ -261,10 +270,7 @@ export default function CheckerPage() {
                       onChange={(e) =>
                         setProductos((list) => {
                           const copy = [...list];
-                          copy[idx] = {
-                            ...copy[idx],
-                            descripcion: e.target.value,
-                          };
+                          copy[idx] = { ...copy[idx], descripcion: e.target.value };
                           return copy;
                         })
                       }
@@ -274,9 +280,7 @@ export default function CheckerPage() {
                   </div>
 
                   <div className="grid gap-1.5">
-                    <label className="text-xs font-medium text-brand-medium">
-                      Link (opcional)
-                    </label>
+                    <label className="text-xs font-medium text-brand-medium">Link (opcional)</label>
                     <input
                       type="url"
                       value={p.link}
@@ -296,7 +300,7 @@ export default function CheckerPage() {
                 <div className="flex items-center gap-3">
                   <button
                     type="button"
-                    onClick={() => removeProducto(idx)}
+                    onClick={() => askRemoveProducto(idx)}
                     disabled={productos.length === 1}
                     className="inline-flex h-10 items-center justify-center rounded-xl 
                                border border-brand-border/90 bg-brand-light px-4 text-sm font-medium 
@@ -322,7 +326,7 @@ export default function CheckerPage() {
             </button>
             <button
               type="button"
-              onClick={() => setProductos([{ descripcion: "", link: "" }])}
+              onClick={askRemoveTodos}
               className="inline-flex h-10 flex-1 items-center justify-center rounded-xl 
                          border border-brand-border/90 bg-brand-light px-4 text-sm font-semibold text-brand-dark shadow-sm hover:bg-white"
             >
@@ -368,17 +372,12 @@ export default function CheckerPage() {
             <h2 className="text-xl font-bold text-brand-dark">¡Listo!</h2>
             <p className="mt-3 text-brand-dark">
               Recibimos tu solicitud. En breve te llegará el resultado a{" "}
-              <a
-                href={`mailto:${email}`}
-                className="font-semibold underline"
-              >
+              <a href={`mailto:${email}`} className="font-semibold underline">
                 {email || "tu correo"}
               </a>
               .
             </p>
-            <p className="mt-2 text-sm text-brand-medium">
-              Podés cargar otro si querés.
-            </p>
+            <p className="mt-2 text-sm text-brand-medium">Podés cargar otro si querés.</p>
 
             <div className="mt-6 flex justify-end gap-4">
               <button
@@ -395,6 +394,45 @@ export default function CheckerPage() {
                 className="px-4 py-2 rounded-lg bg-brand-dark text-white text-sm font-medium"
               >
                 Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de confirmación (eliminar) */}
+      {confirm.open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
+            <button
+              onClick={() => setConfirm({ open: false, idx: null, type: null })}
+              className="absolute right-4 top-4 text-slate-400 hover:text-slate-600"
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-xl font-bold text-brand-dark">
+              {confirm.type === "all"
+                ? "¿Eliminar todos los productos?"
+                : `¿Eliminar producto ${((confirm.idx ?? 0) as number) + 1}?`}
+            </h2>
+            <p className="mt-2 text-sm text-brand-medium">
+            Recorda que esta acción es permanente y no podrás recuperar la información de este producto.
+            </p>
+
+            <div className="mt-6 flex justify-end gap-3">
+              <button
+                onClick={() => setConfirm({ open: false, idx: null, type: null })}
+                className="px-4 py-2 rounded-lg border border-brand-border bg-white text-sm font-medium text-brand-dark"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={doConfirmedRemove}
+                className="px-4 py-2 rounded-lg bg-red-600 text-white text-sm font-medium"
+              >
+                Eliminar
               </button>
             </div>
           </div>
