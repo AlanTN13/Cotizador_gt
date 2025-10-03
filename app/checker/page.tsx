@@ -14,11 +14,12 @@ export default function CheckerPage() {
   const [showModal, setShowModal] = useState(false);
 
   // Modal confirmación (eliminar uno / todos)
-  const [confirm, setConfirm] = useState<{ open: boolean; idx: number | null; type: "one" | "all" | null }>({
-    open: false,
-    idx: null,
-    type: null,
-  });
+  const [confirm, setConfirm] = useState<{
+    open: boolean;
+    idx: number | null;
+    type: "one" | "all" | null;
+  }>({ open: false, idx: null, type: null });
+
   // Datos
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +29,9 @@ export default function CheckerPage() {
   const [destino] = useState("Argentina");
 
   // Productos
-  const [productos, setProductos] = useState<Product[]>([{ descripcion: "", link: "" }]);
+  const [productos, setProductos] = useState<Product[]>([
+    { descripcion: "", link: "" },
+  ]);
 
   const canSubmit = useMemo(
     () => productos.some((p) => p.descripcion.trim().length > 0),
@@ -73,63 +76,43 @@ export default function CheckerPage() {
     setNotice(null);
     setOk(null);
 
-    const descripciones = productos
-      .map((p, i) => {
-        const t = p.descripcion.trim();
-        return t ? `Producto ${i + 1}: ${t}` : "";
-      })
-      .filter(Boolean)
-      .join("\n");
+    const origenFinal =
+      origen === "Otro" && otroPais.trim() ? otroPais.trim() : origen;
 
-    const links = productos
-      .map((p) => p.link.trim())
-      .filter(Boolean)
-      .join(", ");
-
-      const origenFinal = origen === "Otro" && otroPais.trim() ? otroPais.trim() : origen;
-
-      const productosLimpios = productos
+    // shape que espera n8n (ideal)
+    const payload = {
+      timestamp: new Date().toISOString(),
+      origen: "nextjs-courier-checker",
+      contacto: {
+        nombre: nombre.trim(),
+        email: email.trim(),
+        telefono: telefono.trim(),
+      },
+      pais_origen: origenFinal,
+      productos: productos
+        .filter((p) => p.descripcion.trim().length > 0)
         .map((p) => ({
-          descripcion: p.descripcion.trim(),
+          descripcion: p.descripcion.trim().replace(/^Producto \d+:\s*/, ""),
           link: p.link.trim(),
-        }))
-        .filter((p) => p.descripcion.length > 0);
-      
-        const payload = {
-            timestamp: new Date().toISOString(),
-            origen: "nextjs-courier-checker", // identificador de este sistema
-            contacto: {
-              nombre: nombre.trim(),
-              email: email.trim(),
-              telefono: telefono.trim(),
-            },
-            pais_origen: origenFinal,
-            productos: productos
-              .filter((p) => p.descripcion.trim().length > 0)
-              .map((p) => ({
-                descripcion: p.descripcion.trim().replace(/^Producto \d+:\s*/, ""), // limpia "Producto 1:"
-                link: p.link.trim(),
-              })),
-          };          
-          
-      // --- enviar al webhook de n8n ---
+        })),
+    };
+
+    try {
+      const webhook = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+      if (!webhook) throw new Error("Falta NEXT_PUBLIC_N8N_WEBHOOK_URL");
+
+      const res = await fetch(webhook as string, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      let j: any = null;
       try {
-        const webhook = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
-        if (!webhook) throw new Error("Falta NEXT_PUBLIC_N8N_WEBHOOK_URL");
-      
-        const res = await fetch(webhook as string, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      
-        let j: any = null;
-        try {
-          j = await res.json();
-        } catch {
-          j = { ok: res.ok };
-        }
-      
+        j = await res.json();
+      } catch {
+        j = { ok: res.ok };
+      }
 
       const okResp = j?.ok ?? res.ok ?? true;
       setOk(okResp);
@@ -149,14 +132,25 @@ export default function CheckerPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl p-6 space-y-8">
+    <main className="mx-auto max-w-6xl p-4 sm:p-6 space-y-6 sm:space-y-8">
       {/* Header */}
-      <div className="flex items-center gap-5 rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
-        <Image src="/logo.png" alt="GlobalTrip Logo" width={160} height={60} priority unoptimized />
+      <div className="flex items-center gap-4 sm:gap-5 rounded-2xl bg-white p-4 sm:p-6 shadow-md ring-1 ring-brand-border/80">
+        <Image
+          src="/logo.png"
+          alt="GlobalTrip Logo"
+          width={140}
+          height={52}
+          priority
+          unoptimized
+          className="shrink-0"
+        />
         <div>
-          <h1 className="text-3xl font-extrabold text-brand-dark">Chequeá tu importación antes de comprar</h1>
-          <p className="mt-2 text-base text-brand-medium">
-            ⚡ Ingresá la info del producto y validá si cumple con las reglas de courier.
+          <h1 className="text-xl sm:text-3xl font-extrabold text-brand-dark">
+            Chequeá tu importación antes de comprar
+          </h1>
+          <p className="mt-2 text-sm sm:text-base text-brand-medium">
+            ⚡ Ingresá la info del producto y validá si cumple con las reglas de
+            courier.
           </p>
         </div>
       </div>
@@ -164,10 +158,11 @@ export default function CheckerPage() {
       {/* Aviso courier */}
       <div className="rounded-2xl border border-brand-border/90 bg-brand-light p-4 text-brand-dark shadow-sm">
         <p className="font-semibold">Recordá las reglas del courier:</p>
-        <p className="mt-1 italic text-brand-medium">
-          El valor total de la compra no puede superar los <span className="font-bold">3000 dólares</span> y el{" "}
-          <span className="font-bold">peso de cada bulto</span> no puede superar los{" "}
-          <span className="font-bold">50 kilogramos brutos</span>.
+        <p className="mt-1 text-sm sm:text-base italic text-brand-medium">
+          El valor total de la compra no puede superar los{" "}
+          <span className="font-bold">3000 dólares</span> y el{" "}
+          <span className="font-bold">peso de cada bulto</span> no puede superar
+          los <span className="font-bold">50 kilogramos brutos</span>.
         </p>
       </div>
 
@@ -179,11 +174,11 @@ export default function CheckerPage() {
       )}
 
       {/* Formulario */}
-      <form onSubmit={onSubmit} className="space-y-10 text-brand-dark">
+      <form onSubmit={onSubmit} className="space-y-8 sm:space-y-10 text-brand-dark">
         {/* Datos de contacto */}
-        <section className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
+        <section className="rounded-2xl bg-white p-4 sm:p-6 shadow-md ring-1 ring-brand-border/80">
           <h2 className="text-lg font-semibold">Datos de contacto</h2>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             <input
               required
               value={nombre}
@@ -210,9 +205,13 @@ export default function CheckerPage() {
         </section>
 
         {/* País de origen */}
-        <section className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
-          <h2 className="text-lg font-semibold">País de origen de los productos a validar</h2>
-          <p className="mt-2 text-sm text-brand-medium">Seleccioná el país de origen:</p>
+        <section className="rounded-2xl bg-white p-4 sm:p-6 shadow-md ring-1 ring-brand-border/80">
+          <h2 className="text-lg font-semibold">
+            País de origen de los productos a validar
+          </h2>
+          <p className="mt-2 text-sm text-brand-medium">
+            Seleccioná el país de origen:
+          </p>
           <div className="mt-3 flex items-center gap-6">
             <label className="inline-flex items-center gap-2 text-sm">
               <input
@@ -251,7 +250,7 @@ export default function CheckerPage() {
         </section>
 
         {/* Productos */}
-        <section className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-brand-border/80">
+        <section className="rounded-2xl bg-white p-4 sm:p-6 shadow-md ring-1 ring-brand-border/80">
           <h2 className="text-lg font-semibold">Productos</h2>
           <p className="mt-1 text-xs text-brand-medium">
             Cargá descripción y link del/los producto(s). Podés agregar varios.
@@ -260,11 +259,15 @@ export default function CheckerPage() {
           <div className="mt-4 space-y-6">
             {productos.map((p, idx) => (
               <div key={idx} className="space-y-2">
-                <div className="text-sm font-medium text-brand-dark">Producto {idx + 1}</div>
+                <div className="text-sm font-medium text-brand-dark">
+                  Producto {idx + 1}
+                </div>
 
-                <div className="grid gap-3 md:grid-cols-[1fr_320px]">
+                <div className="grid gap-3 sm:grid-cols-[1fr_320px]">
                   <div className="grid gap-1.5">
-                    <label className="text-xs font-medium text-brand-medium">Descripción*</label>
+                    <label className="text-xs font-medium text-brand-medium">
+                      Descripción*
+                    </label>
                     <textarea
                       required
                       rows={3}
@@ -272,7 +275,10 @@ export default function CheckerPage() {
                       onChange={(e) =>
                         setProductos((list) => {
                           const copy = [...list];
-                          copy[idx] = { ...copy[idx], descripcion: e.target.value };
+                          copy[idx] = {
+                            ...copy[idx],
+                            descripcion: e.target.value,
+                          };
                           return copy;
                         })
                       }
@@ -282,7 +288,9 @@ export default function CheckerPage() {
                   </div>
 
                   <div className="grid gap-1.5">
-                    <label className="text-xs font-medium text-brand-medium">Link (opcional)</label>
+                    <label className="text-xs font-medium text-brand-medium">
+                      Link (opcional)
+                    </label>
                     <input
                       type="url"
                       value={p.link}
@@ -317,11 +325,11 @@ export default function CheckerPage() {
             ))}
           </div>
 
-          <div className="mt-4 flex gap-4">
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <button
               type="button"
               onClick={addProducto}
-              className="inline-flex h-10 flex-1 items-center justify-center rounded-xl 
+              className="inline-flex h-10 w-full sm:w-auto flex-1 items-center justify-center rounded-xl 
                          border border-brand-border/90 bg-brand-light px-4 text-sm font-semibold text-brand-dark shadow-sm hover:bg-white"
             >
               ➕ Agregar producto
@@ -329,7 +337,7 @@ export default function CheckerPage() {
             <button
               type="button"
               onClick={askRemoveTodos}
-              className="inline-flex h-10 flex-1 items-center justify-center rounded-xl 
+              className="inline-flex h-10 w-full sm:w-auto flex-1 items-center justify-center rounded-xl 
                          border border-brand-border/90 bg-brand-light px-4 text-sm font-semibold text-brand-dark shadow-sm hover:bg-white"
             >
               🗑️ Eliminar todos
@@ -343,8 +351,8 @@ export default function CheckerPage() {
             <div className="flex justify-center">
               <button
                 disabled={loading || !canSubmit}
-                className="inline-flex h-11 min-w-[240px] items-center justify-center rounded-xl 
-                           border border-brand-border/90 bg-brand-light px-6 font-semibold text-brand-dark
+                className="w-full sm:w-auto inline-flex h-11 items-center justify-center rounded-xl 
+                           border border-brand-border/90 bg-brand-light px-4 sm:px-6 font-semibold text-brand-dark
                            transition disabled:opacity-50 hover:bg-white"
               >
                 {loading ? "Enviando..." : "🔎 Validar productos"}
@@ -379,7 +387,9 @@ export default function CheckerPage() {
               </a>
               .
             </p>
-            <p className="mt-2 text-sm text-brand-medium">Podés cargar otro si querés.</p>
+            <p className="mt-2 text-sm text-brand-medium">
+              Podés cargar otro si querés.
+            </p>
 
             <div className="mt-6 flex justify-end gap-4">
               <button
@@ -420,7 +430,8 @@ export default function CheckerPage() {
                 : `¿Eliminar producto ${((confirm.idx ?? 0) as number) + 1}?`}
             </h2>
             <p className="mt-2 text-sm text-brand-medium">
-            Recorda que esta acción es permanente y no podrás recuperar la información de este producto.
+              Recordá que esta acción es permanente y no podrás recuperar la
+              información de este producto.
             </p>
 
             <div className="mt-6 flex justify-end gap-3">
