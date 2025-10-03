@@ -97,18 +97,20 @@ export default function CheckerPage() {
       
         const payload = {
             timestamp: new Date().toISOString(),
-            origen: "nextjs-courier-checker",
+            origen: "nextjs-courier-checker", // identificador de este sistema
             contacto: {
               nombre: nombre.trim(),
               email: email.trim(),
               telefono: telefono.trim(),
             },
             pais_origen: origenFinal,
-            productos: productos.map((p) => ({
-              descripcion: p.descripcion.trim(),
-              link: p.link.trim(),
-            })),
-          };
+            productos: productos
+              .filter((p) => p.descripcion.trim().length > 0)
+              .map((p) => ({
+                descripcion: p.descripcion.trim().replace(/^Producto \d+:\s*/, ""), // limpia "Producto 1:"
+                link: p.link.trim(),
+              })),
+          };          
           
       // --- enviar al webhook de n8n ---
       try {
