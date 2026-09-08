@@ -209,6 +209,11 @@ export default function CourierForm({
         </div>
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_290px]">
           <form
+            onChange={() => setResult(null)}
+            onClickCapture={(e) => {
+              if ((e.target as HTMLElement).closest("button[type=button]"))
+                setResult(null);
+            }}
             onSubmit={send}
             className="min-w-0 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8"
           >
