@@ -82,7 +82,12 @@ function doPost(e) {
         safe_(r.submission.contact.email),
         submission,
         output,
-        result.simulation ? "PRUEBA" : "OPERATIVO",
+        r.environment === "preview" || result.simulation ? "PRUEBA" : "OPERATIVO",
+        safe_((r.submission.products || []).map(function(p) { return p.description || p.url; }).join(" | ")),
+        (r.submission.products || []).reduce(function(sum, p) { return sum + p.valueUsd; }, 0),
+        (r.submission.parcels || []).reduce(function(sum, p) { return sum + p.quantity; }, 0),
+        result.calculation ? result.calculation.totalServiceUsd : "",
+        safe_((result.reasons || []).map(function(r) { return r.message; }).join(" | ")),
       ]);
       SpreadsheetApp.flush();
       return reply_({ ok: true, result: result });
@@ -118,11 +123,16 @@ function setupCourierRegistry() {
       "Entrada JSON",
       "Resultado JSON",
       "Entorno",
+      "Productos",
+      "Valor FOB USD",
+      "Bultos",
+      "Total servicio USD",
+      "Motivos",
     ]);
     sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, 10).setFontWeight("bold");
+    sheet.getRange(1, 1, 1, 15).setFontWeight("bold");
     sheet.getRange(1, 1, sheet.getMaxRows(), 2).setNumberFormat("@");
     sheet.getRange(1, 8, sheet.getMaxRows(), 2).setNumberFormat("@");
-    sheet.getRange(1, 1, sheet.getMaxRows(), 10).createFilter();
+    sheet.getRange(1, 1, sheet.getMaxRows(), 15).createFilter();
   }
 }

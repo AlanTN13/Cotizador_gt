@@ -108,3 +108,34 @@ it("actual Apps Script code authenticates, persists, deduplicates and detects co
   );
   expect(h.isLocked()).toBe(false);
 });
+it("labels preview records as tests and preserves zero and readable multi-product summaries", () => {
+  const h = harness();
+  const id = "9b7be7a7-0664-4da2-95cb-5cc1c533b778";
+  const response = h.post({
+    action: "commit",
+    record: {
+      requestId: id,
+      fingerprint: "c".repeat(64),
+      environment: "preview",
+      result: {
+        requestId: id,
+        status: "COTIZADO",
+        simulation: false,
+        calculation: { totalServiceUsd: 0 },
+        reasons: [{ message: "@Texto sin ejecutar" }],
+      },
+      submission: {
+        contact: { name: "QA", email: "qa@example.com" },
+        products: [
+          { description: "=Producto A", valueUsd: 100 },
+          { description: "Producto B", valueUsd: 50 },
+        ],
+        parcels: [{ quantity: 2 }, { quantity: 3 }],
+      },
+    },
+  });
+  expect(response.ok).toBe(true);
+  expect(h.rows[1].slice(9)).toEqual([
+    "PRUEBA", "'=Producto A | Producto B", 150, 5, 0, "'@Texto sin ejecutar",
+  ]);
+});

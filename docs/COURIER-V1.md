@@ -39,9 +39,9 @@ Cada resultado conserva la entrada, interpretación/evidencia, motivos, engineVe
 
 ## Registro de preview
 
-Crear una Sheet y un Apps Script exclusivos para preview. Cargar `google-apps-script/courier-registry.gs`; configurar las propiedades COURIER_SHEET_ID y COURIER_SECRET y ejecutar setupCourierRegistry. Publicar el receptor ejecutando como la cuenta de integración; el acceso HTTP público se protege dentro del código con firma privada. Guardar URL/secret en Vercel solo para Preview y la rama codex/courier-aereo-v1. Nunca reutilizar los secretos de otra integración.
+Destino de preview proporcionado por el usuario: [Cotizador Global Trip — Solicitudes](https://docs.google.com/spreadsheets/d/1_urrE5nzWxccP2tvqrSWh9QgmRmZFuSaFJBj5fPDRJw/edit?gid=230908#gid=230908). Se preparó la pestaña Solicitudes sin modificar Hoja 1. Receptor dedicado: GlobalTrip — Registro Courier Preview, vinculado a esta hoja y autorizado bajo info@nexopstech.com. Para reproducir la instalación: Cargar `google-apps-script/courier-registry.gs`; configurar las propiedades COURIER_SHEET_ID y COURIER_SECRET y ejecutar setupCourierRegistry. Publicar el receptor ejecutando como la cuenta de integración; el acceso HTTP público se protege dentro del código con firma privada. Guardar URL/secret en Vercel solo para Preview y la rama codex/courier-aereo-v1. Nunca reutilizar los secretos de otra integración.
 
-La pestaña Solicitudes incluye UUID, huella, fecha, estado, equipo, nombre/email, entrada JSON, resultado JSON y entorno. Filtrar REQUIERE_REVISION forma la cola funcional inicial; gestionar notas/asignación en columnas adicionales sin alterar UUID, huella ni JSON originales.
+La pestaña Solicitudes incluye UUID, huella, fecha, estado, equipo, nombre/email, entrada JSON, resultado JSON, entorno y un resumen legible de productos, FOB, bultos, total del servicio y motivos. Todo registro originado en preview se marca PRUEBA, incluso si no usa el catálogo sintético. Filtrar REQUIERE_REVISION forma la cola funcional inicial; gestionar notas/asignación en columnas adicionales sin alterar UUID, huella ni JSON originales.
 
 ## Verificación
 
@@ -51,7 +51,7 @@ La pestaña Solicitudes incluye UUID, huella, fecha, estado, equipo, nombre/emai
 
 `npm run build` y `npx tsc --noEmit`: build y tipado. La dependencia Next.js heredada 14.2.5 se actualiza a 15.5.24 y React 19; PostCSS se fija por override a una versión corregida. No hay uso de APIs de Next modificadas por la migración que requiera codemods.
 
-Actualización de integración (2026-09-08): el usuario proporcionó una clave de otra cuenta mediante el portapapeles. Se reemplazó en .env.local (ignorado por Git) y se configuró OPENAI_API_KEY como Secret de Vercel exclusivamente en Preview para codex/courier-aereo-v1. La prueba real de interpretación con gpt-4.1-mini pasó: 5/5 pruebas del archivo classifier.test.ts, incluida la optativa contra OpenAI. Se verificó identificación no vacía y ausencia de IDs inventados frente al catálogo operativo vacío. El rechazo de saldo de la cuenta anterior quedó resuelto con la nueva clave. La creación del registro en info@nexopstech.com sigue pendiente de la confirmación requerida por la revisión automática de acceso. No se afirma persistencia real ni prueba punta a punta mientras ese paso no esté completado.
+Actualización de integración (2026-09-08): el usuario proporcionó una clave de otra cuenta mediante el portapapeles. Se reemplazó en .env.local (ignorado por Git) y se configuró OPENAI_API_KEY como Secret de Vercel exclusivamente en Preview para codex/courier-aereo-v1. La prueba real de interpretación con gpt-4.1-mini pasó: 5/5 pruebas del archivo classifier.test.ts, incluida la optativa contra OpenAI. Se verificó identificación no vacía y ausencia de IDs inventados frente al catálogo operativo vacío. El rechazo de saldo de la cuenta anterior quedó resuelto con la nueva clave. El usuario autorizó expresamente el permiso de Google Sheets del receptor el 2026-09-08. Se configuraron URL y firma privada exclusivamente en el Preview de la rama; la verificación de persistencia real se documenta por separado.
 
 ## Fuentes funcionales y normativas
 
