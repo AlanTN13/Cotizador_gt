@@ -51,7 +51,7 @@ La pestaña Solicitudes incluye UUID, huella, fecha, estado, equipo, nombre/emai
 
 `npm run build` y `npx tsc --noEmit`: build y tipado. La dependencia Next.js heredada 14.2.5 se actualiza a 15.5.24 y React 19; PostCSS se fija por override a una versión corregida. No hay uso de APIs de Next modificadas por la migración que requiera codemods.
 
-Estado de integración al preparar la rama: OpenAI respondió HTTP 429 credit_balance_exhausted (insufficient_quota). Falta saldo en la organización seleccionada para validar interpretación real. La creación del registro en info@nexopstech.com está pendiente de la confirmación requerida por la revisión automática de acceso. No se afirma persistencia real ni prueba punta a punta mientras ese paso no esté completado.
+Actualización de integración (2026-09-08): el usuario proporcionó una clave de otra cuenta mediante el portapapeles. Se reemplazó en .env.local (ignorado por Git) y se configuró OPENAI_API_KEY como Secret de Vercel exclusivamente en Preview para codex/courier-aereo-v1. La prueba real de interpretación con gpt-4.1-mini pasó: 5/5 pruebas del archivo classifier.test.ts, incluida la optativa contra OpenAI. Se verificó identificación no vacía y ausencia de IDs inventados frente al catálogo operativo vacío. El rechazo de saldo de la cuenta anterior quedó resuelto con la nueva clave. La creación del registro en info@nexopstech.com sigue pendiente de la confirmación requerida por la revisión automática de acceso. No se afirma persistencia real ni prueba punta a punta mientras ese paso no esté completado.
 
 ## Fuentes funcionales y normativas
 
