@@ -12,6 +12,7 @@ export class SheetRegistry implements Registry {
       );
     const body = JSON.stringify({ timestamp: Date.now(), payload });
     const signature = createHmac("sha256", secret).update(body).digest("hex");
+    let failure = "NETWORK";
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -21,7 +22,9 @@ export class SheetRegistry implements Registry {
         redirect: "follow",
         cache: "no-store",
       });
+      failure = "HTTP_" + response.status;
       if (!response.ok) throw Error("Registry HTTP");
+      failure = "INVALID_RESPONSE";
       const data = await response.json();
       if (data.code === "IDEMPOTENCY_CONFLICT")
         throw new CourierError(
@@ -29,10 +32,17 @@ export class SheetRegistry implements Registry {
           "La solicitud cambió. Volvé a enviarla con los datos actualizados.",
           409,
         );
+      failure = ["BUSY", "NOT_CONFIGURED", "REGISTRY_ERROR"].includes(data.code)
+        ? data.code
+        : "AUTH_OR_REQUEST_REJECTED";
       if (!data.ok) throw Error("Registry rejected");
       return data;
     } catch (e) {
       if (e instanceof CourierError) throw e;
+      console.error(JSON.stringify({
+        event: "courier_registry_error",
+        reason: e instanceof Error && e.name === "TimeoutError" ? "TIMEOUT" : failure,
+      }));
       throw new CourierError(
         "REGISTRY_UNAVAILABLE",
         "No pudimos guardar tu solicitud. Conservamos los datos; volvé a intentar.",
