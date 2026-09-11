@@ -1,0 +1,36 @@
+
+> checker-gt@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.24
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.2s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/8) ...
+   Generating static pages (2/8) 
+   Generating static pages (4/8) 
+   Generating static pages (6/8) 
+ ✓ Generating static pages (8/8)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      133 B         103 kB
+├ ○ /_not-found                            994 B         104 kB
+├ ƒ /api/checker                           133 B         103 kB
+├ ƒ /api/cotizaciones                      133 B         103 kB
+├ ƒ /api/cotizador                         133 B         103 kB
+├ ○ /cotizador                           17.7 kB         120 kB
+└ ƒ /cotizador/referencia                5.42 kB         108 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/255-c5a697ddbf82d774.js       46.4 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)           1.9 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

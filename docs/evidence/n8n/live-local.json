@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-11T16:36:56Z",
+  "mode": "REAL_TEST_URL_SYNTHETIC_INPUT",
+  "solicitud_id": "da61121d-b548-4928-b9ef-0d076512083f",
+  "browser_request": "POST http://localhost:3018/api/cotizador",
+  "browser_status": 503,
+  "upstream_status": 404,
+  "authenticated": false,
+  "code": "N8N_TEST_NOT_LISTENING",
+  "fields_retained": true,
+  "workflow_executed": false,
+  "classification_verified": false
+}
