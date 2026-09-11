@@ -15,11 +15,10 @@ function call(...args) {
 }
 const evaluate = source => call('eval',source).result;
 const fill = (label,value) => call('find','label',label,'fill',String(value));
-const click = label => { call('find','role','button','click','--name',label,'--exact'); call('wait','500'); };
+const click = label => { evaluate('Array.from(document.querySelectorAll("button")).find(b => b.textContent.trim() === '+JSON.stringify(label)+').focus()'); call('press','Enter'); call('wait','500'); };
 const capture = name => call('screenshot',resolve(out,name+'.png'),'--full');
 call('open', 'http://localhost:3018/cotizador');
 evaluate(`(() => {
- HTMLElement.prototype.scrollIntoView = function() {};
  window.__cases=[]; window.__queue=[
  {status:'falta_info',preguntas_faltantes:[{id:'material',pregunta:'¿Cuál es el material?',motivo:'Identifica la variante.'},{id:'uso',pregunta:'¿Cuál es su uso?',motivo:'Confirma la función.'}]},
  {status:'falta_info',preguntas_faltantes:[{id:'potencia',pregunta:'¿Qué potencia tiene?',motivo:'Distingue la variante.'}]},

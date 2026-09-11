@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "url": "https://cotizador-in6qkwaum-alan-fernandezs-projects-f6e1f457.vercel.app/api/cotizador",
+  "status": 503,
+  "postData": "{\"link\":\"https://example.com/producto-ficticio-prueba\",\"descripcion\":\"PRUEBA TECNICA CON DATOS SINTETICOS. Producto ficticio sin operación comercial real. No emitir una cotización comercial.\",\"fob_usd\":1,\"cantidad\":1,\"bultos\":[{\"cantidad\":1,\"peso_kg\":1,\"largo_cm\":1,\"ancho_cm\":1,\"alto_cm\":1}],\"solicitud_id\":\"8541abb4-9158-437d-8614-8762290aa5f2\",\"aclaraciones\":[]}",
+  "responseBody": "{\"code\":\"N8N_TEST_NOT_LISTENING\",\"message\":\"La prueba todavía no está disponible. Cuando se habilite, podés reintentar con estos mismos datos.\"}",
+  "timestamp": 1789145342639
+}
