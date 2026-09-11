@@ -8,6 +8,7 @@ module.exports = {
      // colores calcados del look streamlit-like
 extend: {
     colors: {
+      primary: "#0b0c49",
       brand: {
         dark: "#0B1B3B",   // azul muy oscuro (títulos)
         text: "#0E2A5A",   // azul para texto normal/labels

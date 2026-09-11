@@ -18,3 +18,9 @@ Verificación:
 - Logo cargado y Manrope aplicada, comprobados en DOM y capturas del navegador.
 - No se envió una nueva cotización ni se modificó n8n: tarea exclusivamente visual.
 - Trabajo y despliegue limitados a Preview, rama codex/globaltrip-form-n8n.
+
+## Corrección: componentes originales completos
+
+Esta revisión reemplaza el header simplificado y el footer adaptado de la revisión anterior. Se usan Header, Footer y NewsletterSignup originales de `globaltrip-react@5116260`, con ajustes únicamente de plataforma documentados en `components/globaltrip/README.md`.
+
+Comparación con el sitio publicado a 1280px: header 113px, logo 96px, footer 493px; tamaños de texto, pesos, paddings y radios coincidentes en los elementos comparados. Navegación completa, selector de idiomas y formulario de suscripción presentes. Menú móvil a 390px verificado sin desborde horizontal. Cambio ES/EN/ES y validación de email vacío verificados sin enviar una suscripción. Build y 86 pruebas aprobados; dos omisiones preexistentes. Formulario, API y contrato n8n sin cambios.

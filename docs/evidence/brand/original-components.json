@@ -1,0 +1,16 @@
+{
+  "Header.jsx": {
+    "original_sha256": "8fe374ed6275f6e3b49a4c3541377d6689a0d8256a6743b3c60d623b732bce5f",
+    "matches_original_except_platform_adapters": true
+  },
+  "Footer.jsx": {
+    "original_sha256": "81178b2288d51e149f418abcb327c489b571f20dd86cefb4003e476e53b3f28c",
+    "matches_original_except_platform_adapters": true
+  },
+  "NewsletterSignup.jsx": {
+    "original_sha256": "2f9d026b5fccf05eb2dc985b892d0f640da634db30a35eab4094c67cddae2b3c",
+    "matches_original_except_platform_adapters": true
+  },
+  "source_commit": "5116260615e22b31914f87517a0acfc793244472",
+  "quote_form_api_and_contract_unchanged": true
+}

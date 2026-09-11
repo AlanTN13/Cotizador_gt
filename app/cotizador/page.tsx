@@ -1,7 +1,10 @@
 import CourierForm from "./courier-form";
 import localFont from "next/font/local";
-import GlobalTripHeader from "./globaltrip-header";
-import GlobalTripFooter from "./globaltrip-footer";
+import GlobalTripHeader from "@/components/globaltrip/components/Header";
+import GlobalTripFooter from "@/components/globaltrip/components/Footer";
+
+import { LanguageProvider } from "@/components/globaltrip/context/LanguageContext";
+import styles from "./globaltrip.module.css";
 
 const manrope = localFont({
   src: [
@@ -19,10 +22,12 @@ export const metadata = {
 };
 export default function Page() {
   return (
-    <div className={`${manrope.className} min-h-screen bg-white text-slate-900 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4 [&_a:focus-visible]:outline-[#0b0c49] [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-[#0b0c49]`}>
+    <div className={`${manrope.className} ${styles.site} min-h-screen bg-white text-slate-900 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4 [&_a:focus-visible]:outline-[#0b0c49] [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-[#0b0c49]`}>
+      <LanguageProvider>
       <GlobalTripHeader />
       <CourierForm />
       <GlobalTripFooter />
+      </LanguageProvider>
     </div>
   );
 }
