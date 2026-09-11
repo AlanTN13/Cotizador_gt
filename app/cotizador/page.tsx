@@ -5,6 +5,8 @@ import GlobalTripFooter from "@/components/globaltrip/components/Footer";
 
 import { LanguageProvider } from "@/components/globaltrip/context/LanguageContext";
 import styles from "./globaltrip.module.css";
+import "@/components/globaltrip/styles/fonts.css";
+import "@/components/globaltrip/styles/chrome.css";
 
 const manrope = localFont({
   src: [
@@ -24,7 +26,9 @@ export default function Page() {
   return (
     <div className={`${manrope.className} ${styles.site} min-h-screen bg-white text-slate-900 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4 [&_a:focus-visible]:outline-[#0b0c49] [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-[#0b0c49]`}>
       <LanguageProvider>
-      <GlobalTripHeader />
+      <div className={styles.headerBoundary}>
+        <GlobalTripHeader />
+      </div>
       <CourierForm />
       <GlobalTripFooter />
       </LanguageProvider>

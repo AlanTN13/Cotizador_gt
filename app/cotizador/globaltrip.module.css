@@ -6,6 +6,13 @@
   src: url("/brand/material-symbols-send.ttf") format("truetype");
 }
 
+/* The original site's overflow container prevents its sticky header from
+   following the page scroll. Contain only the header here so the quote form's
+   own sticky summary retains its existing behavior. */
+.headerBoundary {
+  display: flow-root;
+}
+
 .site :global(.material-symbols-outlined) {
   font-family: "Material Symbols Outlined";
   font-weight: normal;

@@ -31,7 +31,7 @@ const Header = () => {
     }, [location.pathname]);
 
     return (
-        <header className="sticky top-0 z-[100] border-b border-slate-50 bg-white px-6 py-2 shadow-sm md:px-12">
+        <header data-globaltrip-chrome="" className="sticky top-0 z-[100] border-b border-slate-50 bg-white px-6 py-2 shadow-sm md:px-12">
             <div className="flex items-center justify-between">
                 <Link to="/" className="flex items-center" onClick={() => window.scrollTo(0, 0)}>
                     <img

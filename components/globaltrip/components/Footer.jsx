@@ -8,7 +8,7 @@ const Footer = () => {
     const { t } = useLanguage();
 
     return (
-        <footer className="bg-slate-50 pt-20 pb-12 px-6 md:px-12 border-t border-slate-100">
+        <footer data-globaltrip-chrome="" className="bg-slate-50 pt-20 pb-12 px-6 md:px-12 border-t border-slate-100">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.9fr_1fr] mb-20">
 
