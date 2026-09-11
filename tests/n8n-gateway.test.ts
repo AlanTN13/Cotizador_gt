@@ -46,11 +46,12 @@ describe("server-side n8n gateway", () => {
     expect(res.status).toBe(status === 500 ? 502 : 503);
     expect(await res.text()).not.toMatch(/test-secret|nexops\.app/);
   });
-  it("can diagnose the test listener without inventing auth if both credential fields are absent", async () => {
-    vi.stubEnv("N8N_COURIER_HEADER_NAME", ""); vi.stubEnv("N8N_COURIER_WEBHOOK_SECRET", "");
-    fetchMock.mockResolvedValue(new Response("Unauthorized", { status: 403 }));
-    expect((await (await POST(request())).json()).code).toBe("N8N_AUTH_REQUIRED");
-    expect(fetchMock.mock.calls[0][1].headers).toEqual({ "Content-Type": "application/json" });
+  it.each([["", ""], [" ", " "], ["X-Test-Auth", " "]])("requires configured Header Auth without calling n8n (%j)", async (name, value) => {
+    vi.stubEnv("N8N_COURIER_HEADER_NAME", name); vi.stubEnv("N8N_COURIER_WEBHOOK_SECRET", value);
+    const res = await POST(request());
+    expect(res.status).toBe(503);
+    expect((await res.json()).code).toBe("N8N_AUTH_CONFIG_INCOMPLETE");
+    expect(fetchMock).not.toHaveBeenCalled();
   });
   it("refuses half-configured auth", async () => {
     vi.stubEnv("N8N_COURIER_HEADER_NAME", "");

@@ -20,7 +20,7 @@ Joaco debe verificar la credencial del nodo OpenAI Chat Model dentro de n8n y pu
 
 No colocar estos valores en `NEXT_PUBLIC_*`, el formulario, repositorio, capturas ni mensajes. No hace falta una clave OpenAI en la landing: la conserva n8n. La variable histórica `NEXT_PUBLIC_N8N_WEBHOOK_URL` existe en el proyecto pero no se usa en esta conexión. No se modificó su configuración global.
 
-La API está limitada a la Test URL autorizada y rechaza `VERCEL_ENV=production`. No sigue redirecciones, no hace reintentos automáticos, valida la entrada y la respuesta, y no devuelve errores crudos de n8n. Si faltan ambos campos de Header Auth, realiza un único intento sin credencial para diagnosticar listener/autenticación. Si falta solo uno, detiene el envío por configuración incompleta. No inventa credenciales.
+La API está limitada a la Test URL autorizada y rechaza `VERCEL_ENV=production`. No sigue redirecciones, no hace reintentos automáticos, valida la entrada y la respuesta, y no devuelve errores crudos de n8n. La API ahora exige ambos campos de Header Auth: si falta cualquiera o está vacío, responde `503 N8N_AUTH_CONFIG_INCOMPLETE` antes de llamar al webhook. El formulario conserva los datos. No inventa credenciales. La evidencia del 404 de más abajo corresponde a la prueba anterior a este ajuste.
 
 [Referencia oficial de variables server-side en Next.js 15](https://nextjs.org/docs/15/app/guides/environment-variables).
 

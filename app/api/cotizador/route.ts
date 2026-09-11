@@ -57,12 +57,13 @@ export async function POST(req: Request) {
     // This integration is deliberately restricted to the authorized test endpoint.
     if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook-test/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash || process.env.VERCEL_ENV === "production")
       throw new GatewayError("N8N_TEST_ONLY", "Esta conexión está habilitada únicamente para pruebas.", 503);
-    if (Boolean(headerName) !== Boolean(secret) || (headerName && (!/^[!#$%&'*+.^_`|~0-9A-Za-z-]+$/.test(headerName) || /^(host|content-type|content-length|connection|transfer-encoding|cookie)$/i.test(headerName))) || (secret && /[\r\n]/.test(secret)))
+    // The imported workflow requires Header Auth. Do not submit cases until
+    // both server-side credential fields have been configured in Preview.
+    if (!headerName?.trim() || !secret?.trim() || !/^[!#$%&'*+.^_`|~0-9A-Za-z-]+$/.test(headerName) || /^(host|content-type|content-length|connection|transfer-encoding|cookie)$/i.test(headerName) || /[\r\n]/.test(secret))
       throw new GatewayError("N8N_AUTH_CONFIG_INCOMPLETE", "Falta completar la autenticación del cotizador. Tus datos se conservan.", 503);
     const upstreamHeaders: Record<string, string> = { "Content-Type": "application/json" };
-    if (headerName && secret) upstreamHeaders[headerName] = secret;
-    // No automatic retries: a test webhook can be single use. With no auth pair,
-    // one unauthenticated request identifies whether the listener/auth is ready.
+    upstreamHeaders[headerName] = secret;
+    // No automatic retries: a test webhook can be single use.
     const response = await fetch(url, { method: "POST", headers: upstreamHeaders,
       body: JSON.stringify(parsed.data), signal: AbortSignal.timeout(110000), redirect: "error", cache: "no-store" });
     console.info(JSON.stringify({ event: "courier_n8n_http", solicitud_id: solicitudId, http_status: response.status, authenticated: Boolean(secret) }));
