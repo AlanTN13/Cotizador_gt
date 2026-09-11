@@ -2,7 +2,7 @@
 
 El formulario existente `/cotizador` envía `POST /api/cotizador`; el servidor llama a la Test URL y devuelve los campos permitidos del resultado a la misma pantalla. La portada de la preview abre el cotizador. Se conserva el diseño y los grupos de bultos; V1 recibe un producto por caso. Los campos de contacto se retiraron de este recorrido porque el workflow no los recibe ni registra contactos. La pantalla de referencia anterior conserva su implementación separada.
 
-Preview **READY**: https://cotizador-in6qkwaum-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador (protegida por Vercel; se entregó acceso temporal por separado). Rama publicada: `codex/globaltrip-form-n8n`. El código ejecutable de esta preview corresponde a `7dfbb58`; el commit posterior completa documentación y evidencia.
+Preview **READY**: https://cotizador-4getpt69j-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador (protegida por Vercel; se entregó acceso temporal por separado). Rama publicada: `codex/globaltrip-form-n8n`. El código ejecutable de esta preview corresponde a `dbe1d1d`; el commit posterior completa documentación y evidencia.
 
 ## Configuración que deben cargar Alan / Joaco
 
@@ -46,8 +46,12 @@ La primera propuesta de enviar el ejemplo del ventilador fue rechazada por revis
 - `tests/n8n-gateway.test.ts`: contrato, filtrado, Header Auth, errores y compatibilidad con funciones literales del workflow.
 - `tests/fixtures/n8n-workflow-source.mjs`: copia del código fuente usado para generar el JSON entregado; únicamente fixture, nunca parte del flujo publicado.
 
-**Resultado final:** 84 pruebas locales aprobadas, 0 fallidas y 2 omitidas del conjunto previo por requerir servicios externos. Build local y build de Vercel aprobados. Prueba de navegador simulada completa aprobada. La inspección de `.next/static` no encontró la URL del webhook ni referencias a las variables server-side de esta conexión.
+**Resultado final:** 86 pruebas locales aprobadas, 0 fallidas y 2 omitidas del conjunto previo por requerir servicios externos. Build local y build de Vercel aprobados. Prueba de navegador simulada completa aprobada. La inspección de `.next/static` no encontró la URL del webhook ni referencias a las variables server-side de esta conexión.
 
 Ejecutar `npm test`, `npm run build`. Con el servidor local en puerto 3018 y `agent-browser` disponible, ejecutar `node tests/browser-n8n.mjs` (o indicar el CLI mediante `AGENT_BROWSER_BIN`). La prueba de navegador intercepta solamente su propio fetch con respuestas ficticias y nunca llama a n8n.
 
 Bloqueos reales para completar la prueba del workflow: listener TEST sin habilitar y nombre/valor de Header Auth todavía no disponibles. El 404 no permite verificar si la credencial importada funciona ni si el agente ejecuta correctamente.
+
+## Actualización: Vercel y API, sin intervención en n8n
+
+La preview actual exige Header Auth antes de enviar un caso. Prueba desde el formulario el 11/09/2026 a las 17:33:37 UTC: `POST /api/cotizador` respondió 503 con `N8N_AUTH_CONFIG_INCOMPLETE`, confirmado en logs de Vercel (solicitud `26d394a6-ab6e-4f32-a40c-5dd023e514d1`). El navegador conservó link, descripción, unidades, FOB y todos los datos del bulto. No hubo llamada al webhook en esta prueba. No se accedió ni se cambió configuración en n8n. El siguiente paso sigue siendo cargar en Vercel el Name y Value exactos que provea Joaco, como `N8N_COURIER_HEADER_NAME` y `N8N_COURIER_WEBHOOK_SECRET`, y redesplegar Preview.
