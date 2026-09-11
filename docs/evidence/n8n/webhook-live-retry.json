@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "## Runtime Logs\n\n**Project:** prj_ForvYYAAi2CXboN3X1wdROszScfl\n**Deployment:** dpl_5z8tqnAgtcScjRReVSWVEw18zkqJ\n**Time range:** 2026-09-11T18:39:11.066Z → 2026-09-11T18:49:11.066Z\n\n### 18:47:25 POST /api/cotizador 200 [info/serverless]\ndep=dpl_5z8tqnAgtcScjRReVSWVEw18zkqJ cache=MISS\n    {\"event\":\"courier_n8n_http\",\"solicitud_id\":\"6904e229-06f9-4b93-bebd-e368fadaa489\",\"http_status\":200,\"authenticated\":true}\n\n### 18:45:11 POST /api/cotizador 200 [info/serverless]\ndep=dpl_5z8tqnAgtcScjRReVSWVEw18zkqJ cache=MISS\n    {\"event\":\"courier_n8n_http\",\"solicitud_id\":\"6904e229-06f9-4b93-bebd-e368fadaa489\",\"http_status\":200,\"authenticated\":true}\n\n### 18:44:48 OPTIONS / 307 [info/static]\ndep=dpl_5z8tqnAgtcScjRReVSWVEw18zkqJ cache=PRERENDER\n\n### 18:44:46 GET /cotizador 200 [info/static]\ndep=dpl_5z8tqnAgtcScjRReVSWVEw18zkqJ cache=PRERENDER\n"
+    }
+  ],
+  "isError": false
+}

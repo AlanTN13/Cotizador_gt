@@ -1,5 +1,7 @@
 # GlobalTrip — formulario conectado a n8n (preview)
 
+> Estado actual al 11/09/2026: [webhook permanente validado desde Preview](N8N-WEBHOOK-ACTUAL.md). El detalle de Test URL y los bloqueos de listener de este archivo son históricos.
+
 El formulario existente `/cotizador` envía `POST /api/cotizador`; el servidor llama a la Test URL y devuelve los campos permitidos del resultado a la misma pantalla. La portada de la preview abre el cotizador. Se conserva el diseño y los grupos de bultos; V1 recibe un producto por caso. Los campos de contacto se retiraron de este recorrido porque el workflow no los recibe ni registra contactos. La pantalla de referencia anterior conserva su implementación separada.
 
 Preview **READY**: https://cotizador-ncithvqbw-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador (protegida por Vercel; se entregó acceso temporal por separado). Rama publicada: `codex/globaltrip-form-n8n`. El código ejecutable de esta preview corresponde a `dbe1d1d`; el commit posterior completa documentación y evidencia.
