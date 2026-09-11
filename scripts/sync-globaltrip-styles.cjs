@@ -9,7 +9,9 @@ const components = ['Header', 'Footer', 'NewsletterSignup'].map(name =>
   fs.readFileSync(path.join(root, `components/globaltrip/components/${name}.jsx`), 'utf8')
 ).join('\n');
 const scope = '[data-globaltrip-chrome]';
-const output = postcss.parse(`${scope}, ${scope} * { all: revert; }`);
+// SVG presentation attributes (especially path d) belong to the author origin;
+// reverting all properties would erase the original social icon shapes.
+const output = postcss.parse(`${scope}, ${scope} *:not(svg, svg *) { all: revert; }`);
 
 function scopedSelector(selector) {
   return postcss.list.comma(selector).flatMap(s => {
