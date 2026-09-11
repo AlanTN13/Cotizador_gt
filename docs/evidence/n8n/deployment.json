@@ -1,21 +1,25 @@
 {
-  "id": "dpl_BA1Xvz22WSYm2sN29JpZYkJLQuUC",
-  "url": "https://cotizador-4getpt69j-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador",
+  "id": "dpl_xiLS2pkMswNAuwHTvQ9bQVqz1bu4",
+  "url": "https://cotizador-ncithvqbw-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador",
   "target": "preview",
   "state": "READY",
   "branch": "codex/globaltrip-form-n8n",
   "runtimeCommit": "dbe1d1d",
   "formTest": {
-    "at": "2026-09-11T17:33:37Z",
-    "solicitud_id": "26d394a6-ab6e-4f32-a40c-5dd023e514d1",
-    "httpStatus": 503,
-    "code": "N8N_AUTH_CONFIG_INCOMPLETE",
+    "at": "2026-09-11T17:54:50Z",
+    "solicitud_id": "f22d1498-afd5-441a-a2f7-fe1576a9dbe3",
+    "upstreamStatus": 404,
+    "code": "N8N_TEST_NOT_LISTENING",
     "fieldsRetained": true,
-    "webhookCalled": false
+    "webhookCalled": true,
+    "headerAttached": true,
+    "upstreamAuthenticationValidated": false
   },
   "unitTests": {
     "passed": 86,
     "failed": 0,
     "skipped": 2
-  }
+  },
+  "sourceCommit": "e82f57a",
+  "credentialsConfigured": true
 }

@@ -2,25 +2,25 @@
 
 El formulario existente `/cotizador` envía `POST /api/cotizador`; el servidor llama a la Test URL y devuelve los campos permitidos del resultado a la misma pantalla. La portada de la preview abre el cotizador. Se conserva el diseño y los grupos de bultos; V1 recibe un producto por caso. Los campos de contacto se retiraron de este recorrido porque el workflow no los recibe ni registra contactos. La pantalla de referencia anterior conserva su implementación separada.
 
-Preview **READY**: https://cotizador-4getpt69j-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador (protegida por Vercel; se entregó acceso temporal por separado). Rama publicada: `codex/globaltrip-form-n8n`. El código ejecutable de esta preview corresponde a `dbe1d1d`; el commit posterior completa documentación y evidencia.
+Preview **READY**: https://cotizador-ncithvqbw-alan-fernandezs-projects-f6e1f457.vercel.app/cotizador (protegida por Vercel; se entregó acceso temporal por separado). Rama publicada: `codex/globaltrip-form-n8n`. El código ejecutable de esta preview corresponde a `dbe1d1d`; el commit posterior completa documentación y evidencia.
 
-## Configuración que deben cargar Alan / Joaco
+## Configuración actual en Vercel
 
 Proyecto Vercel: **cotizador-gt**. Ambiente: **Preview**, rama **codex/globaltrip-form-n8n**.
 
 | Variable server-side | Valor necesario |
 |---|---|
 | `N8N_COURIER_WEBHOOK_URL` | `https://nexops.app.n8n.cloud/webhook-test/globaltrip-courier-v1` |
-| `N8N_COURIER_HEADER_NAME` | El campo **Name** exacto de la credencial Header Auth seleccionada en el nodo Webhook de n8n. No se conoce todavía. |
-| `N8N_COURIER_WEBHOOK_SECRET` | El campo **Value** exacto de esa misma credencial. Cargar como Secret en Vercel. No se conoce todavía. |
+| `N8N_COURIER_HEADER_NAME` | El campo **Name** exacto de la credencial Header Auth seleccionada en el nodo Webhook de n8n. Ya cargado como Secret, sin registrar su valor en el repositorio. |
+| `N8N_COURIER_WEBHOOK_SECRET` | El campo **Value** exacto de esa misma credencial. Cargar como Secret en Vercel. Ya cargado como Secret, sin registrar su valor en el repositorio. |
 
-La variable `N8N_COURIER_WEBHOOK_URL` ya quedó cargada como Secret únicamente en Preview para esta rama. Faltan las otras dos.
+Las tres variables ya están cargadas como Secret únicamente en Preview para esta rama. La preview fue redesplegada después de cargar la credencial proporcionada por Alan.
 
-Joaco debe verificar la credencial del nodo OpenAI Chat Model dentro de n8n y pulsar **Listen for test event / Execute workflow** antes del envío. Si el listener de prueba atiende una sola ejecución, volver a habilitarlo antes de cada reintento o envío de aclaraciones. No activar producción. Después de cargar las dos variables de autenticación, volver a desplegar esta rama como Preview para que se apliquen.
+Joaco debe verificar la credencial del nodo OpenAI Chat Model dentro de n8n y pulsar **Listen for test event / Execute workflow** antes del envío. Si el listener de prueba atiende una sola ejecución, volver a habilitarlo antes de cada reintento o envío de aclaraciones. No activar producción. La configuración de Vercel ya está aplicada al despliegue actual.
 
 No colocar estos valores en `NEXT_PUBLIC_*`, el formulario, repositorio, capturas ni mensajes. No hace falta una clave OpenAI en la landing: la conserva n8n. La variable histórica `NEXT_PUBLIC_N8N_WEBHOOK_URL` existe en el proyecto pero no se usa en esta conexión. No se modificó su configuración global.
 
-La API está limitada a la Test URL autorizada y rechaza `VERCEL_ENV=production`. No sigue redirecciones, no hace reintentos automáticos, valida la entrada y la respuesta, y no devuelve errores crudos de n8n. La API ahora exige ambos campos de Header Auth: si falta cualquiera o está vacío, responde `503 N8N_AUTH_CONFIG_INCOMPLETE` antes de llamar al webhook. El formulario conserva los datos. No inventa credenciales. La evidencia del 404 de más abajo corresponde a la prueba anterior a este ajuste.
+La API está limitada a la Test URL autorizada y rechaza `VERCEL_ENV=production`. No sigue redirecciones, no hace reintentos automáticos, valida la entrada y la respuesta, y no devuelve errores crudos de n8n. La API ahora exige ambos campos de Header Auth: si falta cualquiera o está vacío, responde `503 N8N_AUTH_CONFIG_INCOMPLETE` antes de llamar al webhook. El formulario conserva los datos. No inventa credenciales. Se conservan evidencias históricas; la última prueba con Header Auth enviado se detalla al final.
 
 [Referencia oficial de variables server-side en Next.js 15](https://nextjs.org/docs/15/app/guides/environment-variables).
 
@@ -50,8 +50,12 @@ La primera propuesta de enviar el ejemplo del ventilador fue rechazada por revis
 
 Ejecutar `npm test`, `npm run build`. Con el servidor local en puerto 3018 y `agent-browser` disponible, ejecutar `node tests/browser-n8n.mjs` (o indicar el CLI mediante `AGENT_BROWSER_BIN`). La prueba de navegador intercepta solamente su propio fetch con respuestas ficticias y nunca llama a n8n.
 
-Bloqueos reales para completar la prueba del workflow: listener TEST sin habilitar y nombre/valor de Header Auth todavía no disponibles. El 404 no permite verificar si la credencial importada funciona ni si el agente ejecuta correctamente.
+Bloqueo actual para completar la prueba del workflow: listener TEST sin habilitar. Las credenciales ya están cargadas en Vercel. El 404 no permite verificar si la credencial importada funciona ni si el agente ejecuta correctamente.
 
-## Actualización: Vercel y API, sin intervención en n8n
+## Evidencia histórica: falta de credencial
 
-La preview actual exige Header Auth antes de enviar un caso. Prueba desde el formulario el 11/09/2026 a las 17:33:37 UTC: `POST /api/cotizador` respondió 503 con `N8N_AUTH_CONFIG_INCOMPLETE`, confirmado en logs de Vercel (solicitud `26d394a6-ab6e-4f32-a40c-5dd023e514d1`). El navegador conservó link, descripción, unidades, FOB y todos los datos del bulto. No hubo llamada al webhook en esta prueba. No se accedió ni se cambió configuración en n8n. El siguiente paso sigue siendo cargar en Vercel el Name y Value exactos que provea Joaco, como `N8N_COURIER_HEADER_NAME` y `N8N_COURIER_WEBHOOK_SECRET`, y redesplegar Preview.
+La API exige Header Auth antes de enviar un caso. Prueba desde el formulario el 11/09/2026 a las 17:33:37 UTC: `POST /api/cotizador` respondió 503 con `N8N_AUTH_CONFIG_INCOMPLETE`, confirmado en logs de Vercel (solicitud `26d394a6-ab6e-4f32-a40c-5dd023e514d1`). El navegador conservó link, descripción, unidades, FOB y todos los datos del bulto. No hubo llamada al webhook en esta prueba. No se accedió ni se cambió configuración en n8n. Este bloqueo de configuración quedó resuelto al cargar la credencial proporcionada por Alan y redesplegar.
+
+## Última prueba: Header Auth cargado y enviado
+
+El 11/09/2026 a las 17:54:50 UTC se envió desde la nueva preview un caso enteramente sintético. Los logs de Vercel registraron `courier_n8n_http`, `http_status: 404` y `authenticated: true` para la solicitud `f22d1498-afd5-441a-a2f7-fe1576a9dbe3`. Este booleano indica que la API adjuntó la credencial; no prueba que n8n la haya validado, porque el listener no estaba disponible. La API devolvió el aviso `N8N_TEST_NOT_LISTENING` y el formulario conservó todos los campos. No se modificó n8n ni producción. Falta que Joaco habilite Listen for test event para obtener una respuesta del workflow.
