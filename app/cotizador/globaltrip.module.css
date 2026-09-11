@@ -13,6 +13,12 @@
   display: flow-root;
 }
 
+/* Match the source site's effective non-sticky scrolling without relying on
+   a sticky compositing layer inside a container of the same height. */
+.headerBoundary :global(header) {
+  position: relative;
+}
+
 .site :global(.material-symbols-outlined) {
   font-family: "Material Symbols Outlined";
   font-weight: normal;
