@@ -14,7 +14,7 @@ Una solicitud finalizada queda COTIZADO, REQUIERE_REVISION o NO_APTO_COURIER. No
 - Hasta 10 variantes de producto, 20 grupos de bultos. Cada grupo identifica cantidad de cajas iguales, peso bruto unitario y medidas externas.
 - Valor de producto = FOB total de todas sus unidades, sin multiplicarlo nuevamente por cantidad.
 - Límite de USD 3.000 FOB por envío y 50 kg brutos por bulto, verificados en fuentes oficiales durante discovery. No se importan reglas de pequeños envíos personales de tres unidades/franquicia USD 400.
-- El catálogo operativo se entrega sin perfiles ni tarifas aprobados. **Cobertura automática comercial inicial: cero productos**. Una interpretación de IA no constituye aprobación de una posición o tasa. Los casos operativos se derivan a revisión hasta incorporar datos validados.
+- El catálogo incluye cinco variantes de referencia aportadas el 11/09/2026 para reconocimiento, todavía sin aprobación de aptitud ni tarifas. **Cobertura automática comercial inicial: cero productos**. Una interpretación de IA no constituye aprobación de una posición o tasa. Los casos operativos se derivan a revisión hasta incorporar datos validados.
 - El catálogo de referencia permite verificar la aritmética con productos ficticios. Solo se activa en desarrollo o preview con COURIER_REFERENCE_MODE=true. La API rechaza su activación desde producción aun si el cliente manda reference=true.
 - Impuestos internos distintos de cero, origen no confirmado, variantes ambiguas, falta de posición/tasa, configuración vencida o inválida y rangos sin tarifa se derivan a revisión.
 - No hay tasa 20% por defecto, ni regla histórica USD 0,80/kg + 1% + 1,2%. No hay modo marítimo.
@@ -58,3 +58,7 @@ Actualización de integración (2026-09-08): el usuario proporcionó una clave d
 - https://www.arca.gob.ar/envios-internacionales/courier/conceptos-generales/conceptos-generales.asp
 - https://www.argentina.gob.ar/normativa/nacional/norma-406708/actualizacion
 - Hoja histórica: 1MhZ8E73lZAqFjFIKpTVNftb9bhyneIJi3wMxSVTlG5g; documento de tarifario: 1v3AXSptxcnqH0P1M2trTf0gnJsWLCRstYG5JgnOV-PM. Sus datos no se incorporan como aprobaciones.
+
+## Evaluación de ejemplos funcionales (11/09/2026)
+
+Ver `CASOS-FUNCIONALES-CLASIFICACION.md` y las evidencias de `evidence/`. Se incorporaron los cinco perfiles suministrados y se probó selección real con OpenAI, manteniendo bloqueado el precio comercial.

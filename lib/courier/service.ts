@@ -8,7 +8,7 @@ import type {
   Result,
   Submission,
 } from "./types";
-export const CLASSIFIER_VERSION = "product-interpreter-1";
+export const CLASSIFIER_VERSION = "product-interpreter-2";
 function canonical(v: unknown): string {
   if (Array.isArray(v)) return "[" + v.map(canonical).join(",") + "]";
   if (v && typeof v === "object")

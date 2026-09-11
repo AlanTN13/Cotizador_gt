@@ -80,5 +80,7 @@ export function getCatalog(reference: boolean): Catalog {
       );
     return referenceCatalog;
   }
-  return operational as Catalog;
+  // JSON inference adds optional undefined keys across heterogeneous `required`
+  // objects; actual JSON objects contain only each variant's string attributes.
+  return operational as unknown as Catalog;
 }
