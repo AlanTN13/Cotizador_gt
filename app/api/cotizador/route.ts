@@ -54,8 +54,8 @@ export async function POST(req: Request) {
     if (!urlValue) throw new GatewayError("N8N_NOT_CONFIGURED", "La conexión del cotizador está pendiente de configuración.", 503);
     let url: URL;
     try { url = new URL(urlValue); } catch { throw new GatewayError("N8N_CONFIG_INVALID", "La conexión del cotizador necesita revisión.", 503); }
-    // This integration is deliberately restricted to the authorized test endpoint.
-    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook-test/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash || process.env.VERCEL_ENV === "production")
+    // This integration is deliberately restricted to the authorized webhook, in Preview only.
+    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash || process.env.VERCEL_ENV === "production")
       throw new GatewayError("N8N_TEST_ONLY", "Esta conexión está habilitada únicamente para pruebas.", 503);
     // The imported workflow requires Header Auth. Do not submit cases until
     // both server-side credential fields have been configured in Preview.

@@ -10,7 +10,7 @@ const question = { id: "material", pregunta: "¿De qué material es?", motivo: "
 const request = (data: unknown = body, headers = {}) => new Request("http://localhost:3018/api/cotizador", { method: "POST", headers: { "content-type": "application/json", origin: "http://localhost:3018", ...headers }, body: JSON.stringify(data) });
 let fetchMock: ReturnType<typeof vi.fn>;
 beforeEach(() => {
-  vi.stubEnv("N8N_COURIER_WEBHOOK_URL", "https://nexops.app.n8n.cloud/webhook-test/globaltrip-courier-v1");
+  vi.stubEnv("N8N_COURIER_WEBHOOK_URL", "https://nexops.app.n8n.cloud/webhook/globaltrip-courier-v1");
   vi.stubEnv("N8N_COURIER_HEADER_NAME", "X-Test-Auth");
   vi.stubEnv("N8N_COURIER_WEBHOOK_SECRET", "test-secret-never-echo");
   vi.stubEnv("VERCEL_ENV", "preview");
@@ -63,7 +63,7 @@ describe("server-side n8n gateway", () => {
   it("refuses production runtime", async () => {
     vi.stubEnv("VERCEL_ENV", "production"); expect((await POST(request())).status).toBe(503); expect(fetchMock).not.toHaveBeenCalled();
   });
-  it.each(["https://nexops.app.n8n.cloud/webhook/globaltrip-courier-v1", "https://other.example/webhook-test/globaltrip-courier-v1"])("refuses unauthorized URL %s", async url => {
+  it.each(["https://nexops.app.n8n.cloud/webhook-test/globaltrip-courier-v1", "https://other.example/webhook/globaltrip-courier-v1"])("refuses unauthorized URL %s", async url => {
     vi.stubEnv("N8N_COURIER_WEBHOOK_URL", url); expect((await POST(request())).status).toBe(503); expect(fetchMock).not.toHaveBeenCalled();
   });
   it.each([{ ...body, fob_usd: 0 }, { ...body, bultos: [] }, { ...body, link: "http://localhost" }, { ...body, aclaraciones: [{ pregunta: "x", respuesta: "" }] }])("rejects invalid form data", async data => {
