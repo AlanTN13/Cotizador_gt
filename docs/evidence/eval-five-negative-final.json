@@ -1,0 +1,169 @@
+{
+  "executedAt": "2026-09-11T12:27:56.911Z",
+  "mode": "live-negative-variants",
+  "model": "gpt-4.1-mini",
+  "catalogVersion": "2026-09-11.functional-examples.1",
+  "total": 5,
+  "matched": 5,
+  "status": "REQUIERE_REVISION",
+  "calculation": null,
+  "rows": [
+    {
+      "id": "pedestal-fan-50w",
+      "expected": {
+        "sim": "84145190100R",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": null,
+        "dieRate": null
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 0,
+        "name": "Ventilador de mesa de 50 W, sin columna ni caño extensible, para uso doméstico.",
+        "candidateIds": [],
+        "attributes": {
+          "motor": "50 W",
+          "tipo": "ventilador de mesa",
+          "columna": "no tiene"
+        },
+        "missing": [
+          "tension",
+          "diametro",
+          "oscilante"
+        ],
+        "evidence": [
+          "Ventilador de mesa de 50 W, sin columna ni caño extensible, para uso doméstico."
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "cotton-tshirt-adult",
+      "expected": {
+        "sim": "61091000190Z",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": null,
+        "dieRate": null
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 1,
+        "name": "T-shirt de punto para adulto de 100% poliéster, sin algodón.",
+        "candidateIds": [],
+        "attributes": {
+          "prenda": "T-shirt para adulto",
+          "tejido": "punto",
+          "composicion": "100% poliéster"
+        },
+        "missing": [
+          "cuello",
+          "talle",
+          "manga",
+          "botones",
+          "cierre"
+        ],
+        "evidence": [
+          "T-shirt de punto para adulto de 100% poliéster, sin algodón."
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "stainless-steel-teaspoon",
+      "expected": {
+        "sim": "82159910130F",
+        "dieRate": 0.18
+      },
+      "actual": {
+        "sim": null,
+        "dieRate": null
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 2,
+        "name": "Cuchara para té de acero inoxidable con mango de plástico; no es íntegramente de acero.",
+        "candidateIds": [],
+        "attributes": {
+          "material": "acero inoxidable y plástico",
+          "uso": "cuchara para té"
+        },
+        "missing": [
+          "presentacion",
+          "bano_metales_preciosos",
+          "capacidad"
+        ],
+        "evidence": [
+          "Cuchara para té de acero inoxidable con mango de plástico; no es íntegramente de acero."
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "residential-led-e27-9w",
+      "expected": {
+        "sim": "85395200900Z",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": null,
+        "dieRate": null
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 3,
+        "name": "Lámpara LED diseñada exclusivamente como recambio de faro de automóvil, alimentación 12 V.",
+        "candidateIds": [],
+        "attributes": {
+          "tecnologia": "LED",
+          "uso": "repuesto faro automóvil",
+          "tension": "12 V"
+        },
+        "missing": [
+          "potencia",
+          "casquillo",
+          "formato"
+        ],
+        "evidence": [
+          "Lámpara LED diseñada exclusivamente como recambio de faro de automóvil, alimentación 12 V."
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "stoneware-food-contact-mug",
+      "expected": {
+        "sim": "69120000191F",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": null,
+        "dieRate": null
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 4,
+        "name": "Taza individual de porcelana para café, apta para contacto con alimentos; no es gres.",
+        "candidateIds": [],
+        "attributes": {
+          "material": "porcelana",
+          "contacto_alimentos": "apto",
+          "presentacion": "individual"
+        },
+        "missing": [
+          "capacidad",
+          "asa",
+          "esmaltada"
+        ],
+        "evidence": [
+          "Taza individual de porcelana para café, apta para contacto con alimentos; no es gres."
+        ],
+        "issue": null
+      }
+    }
+  ],
+  "classifierVersion": "product-interpreter-2"
+}

@@ -1,0 +1,155 @@
+{
+  "version": "2026-09-11.functional-examples.1",
+  "scope": "operational",
+  "owner": "Germán Jiménez",
+  "profiles": [
+    {
+      "id": "pedestal-fan-50w",
+      "name": "Ventilador de pie doméstico 50 W",
+      "aliases": [
+        "ventilador de pedestal telescópico",
+        "pedestal fan with adjustable height"
+      ],
+      "sim": "84145190100R",
+      "origin": "China",
+      "required": {
+        "tipo": "ventilador de pie",
+        "motor": "50 W",
+        "columna": "regulable en altura",
+        "aire_acondicionado": "no",
+        "tension": "230 V",
+        "diametro": "16 pulgadas",
+        "oscilante": "sí"
+      },
+      "decision": "review",
+      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "taxes": {
+        "duty": 0.2,
+        "statistical": null,
+        "vat": null,
+        "additionalVat": null,
+        "income": null,
+        "internal": null
+      },
+      "approval": null
+    },
+    {
+      "id": "cotton-tshirt-adult",
+      "name": "T-shirt 100% algodón, talle M",
+      "aliases": [
+        "camiseta de algodón de punto para adulto",
+        "cotton knitted T-shirt"
+      ],
+      "sim": "61091000190Z",
+      "origin": "China",
+      "required": {
+        "prenda": "T-shirt para adulto",
+        "tejido": "punto",
+        "composicion": "100% algodón",
+        "cuello": "redondo, sin cuello tipo camisa",
+        "talle": "M",
+        "manga": "corta",
+        "botones": "no",
+        "cierre": "no"
+      },
+      "decision": "review",
+      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "taxes": {
+        "duty": 0.2,
+        "statistical": null,
+        "vat": null,
+        "additionalVat": null,
+        "income": null,
+        "internal": null
+      },
+      "approval": null
+    },
+    {
+      "id": "stainless-steel-teaspoon",
+      "name": "Cuchara de té íntegramente de acero inoxidable",
+      "aliases": [
+        "cucharita para té de acero inoxidable",
+        "stainless steel table teaspoon"
+      ],
+      "sim": "82159910130F",
+      "origin": "China",
+      "required": {
+        "uso": "servicio de mesa, para té",
+        "material": "íntegramente acero inoxidable",
+        "presentacion": "individual",
+        "bano_metales_preciosos": "no",
+        "capacidad": "5 ml"
+      },
+      "decision": "review",
+      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "taxes": {
+        "duty": 0.18,
+        "statistical": null,
+        "vat": null,
+        "additionalVat": null,
+        "income": null,
+        "internal": null
+      },
+      "approval": null
+    },
+    {
+      "id": "residential-led-e27-9w",
+      "name": "Bombilla LED E27 de 9 W",
+      "aliases": [
+        "bombilla LED doméstica",
+        "residential LED light bulb"
+      ],
+      "sim": "85395200900Z",
+      "origin": "China",
+      "required": {
+        "tecnologia": "LED",
+        "uso": "iluminación residencial, no específicamente automotriz",
+        "potencia": "9 W",
+        "tension": "220-240 V AC",
+        "casquillo": "E27",
+        "formato": "A60"
+      },
+      "decision": "review",
+      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "taxes": {
+        "duty": 0.2,
+        "statistical": null,
+        "vat": null,
+        "additionalVat": null,
+        "income": null,
+        "internal": null
+      },
+      "approval": null
+    },
+    {
+      "id": "stoneware-food-contact-mug",
+      "name": "Taza individual de gres apta para alimentos",
+      "aliases": [
+        "taza de gres para café",
+        "stoneware coffee mug"
+      ],
+      "sim": "69120000191F",
+      "origin": "China",
+      "required": {
+        "material": "gres, no porcelana",
+        "contacto_alimentos": "apto",
+        "presentacion": "individual, no juego",
+        "capacidad": "350 ml",
+        "asa": "sí",
+        "esmaltada": "sí"
+      },
+      "decision": "review",
+      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "taxes": {
+        "duty": 0.2,
+        "statistical": null,
+        "vat": null,
+        "additionalVat": null,
+        "income": null,
+        "internal": null
+      },
+      "approval": null
+    }
+  ],
+  "tariff": null
+}

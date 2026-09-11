@@ -1,0 +1,179 @@
+{
+  "executedAt": "2026-09-11T12:27:32.490Z",
+  "mode": "live-description-only-catalog-selection",
+  "model": "gpt-4.1-mini",
+  "catalogVersion": "2026-09-11.functional-examples.1",
+  "total": 5,
+  "matched": 5,
+  "status": "REQUIERE_REVISION",
+  "calculation": null,
+  "rows": [
+    {
+      "id": "pedestal-fan-50w",
+      "expected": {
+        "sim": "84145190100R",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": "84145190100R",
+        "dieRate": 0.2
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 0,
+        "name": "Ventilador de pie doméstico 50 W",
+        "candidateIds": [
+          "pedestal-fan-50w"
+        ],
+        "attributes": {
+          "motor": "50 W",
+          "tension": "230 V",
+          "diametro": "16 pulgadas",
+          "oscilante": "sí",
+          "columna": "regulable en altura",
+          "aire_acondicionado": "no",
+          "tipo": "ventilador de pie"
+        },
+        "missing": [],
+        "evidence": [
+          "motor eléctrico incorporado de 50 W",
+          "alimentación 230 V",
+          "16 pulgadas",
+          "oscilante",
+          "con columna/caño regulable en altura. No posee función de aire acondicionado"
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "cotton-tshirt-adult",
+      "expected": {
+        "sim": "61091000190Z",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": "61091000190Z",
+        "dieRate": 0.2
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 1,
+        "name": "T-shirt 100% algodón, talle M",
+        "candidateIds": [
+          "cotton-tshirt-adult"
+        ],
+        "attributes": {
+          "prenda": "T-shirt para adulto",
+          "tejido": "punto",
+          "composicion": "100% algodón",
+          "cuello": "redondo, sin cuello tipo camisa",
+          "talle": "M",
+          "manga": "corta",
+          "botones": "no",
+          "cierre": "no"
+        },
+        "missing": [],
+        "evidence": [
+          "T-shirt para adulto, talle M, confeccionada en tejido de punto 100% algodón, manga corta, cuello redondo, sin botones, sin cierre y sin cuello tipo camisa"
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "stainless-steel-teaspoon",
+      "expected": {
+        "sim": "82159910130F",
+        "dieRate": 0.18
+      },
+      "actual": {
+        "sim": "82159910130F",
+        "dieRate": 0.18
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 2,
+        "name": "Cuchara de té íntegramente de acero inoxidable",
+        "candidateIds": [
+          "stainless-steel-teaspoon"
+        ],
+        "attributes": {
+          "uso": "servicio de mesa, para té",
+          "material": "íntegramente acero inoxidable",
+          "presentacion": "individual",
+          "bano_metales_preciosos": "no",
+          "capacidad": "5 ml"
+        },
+        "missing": [],
+        "evidence": [
+          "Cuchara de té individual de 5 ml, íntegramente fabricada en acero inoxidable, sin mango de madera ni plástico, sin baño de oro, plata o platino. Para servicio de mesa"
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "residential-led-e27-9w",
+      "expected": {
+        "sim": "85395200900Z",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": "85395200900Z",
+        "dieRate": 0.2
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 3,
+        "name": "Bombilla LED E27 de 9 W",
+        "candidateIds": [
+          "residential-led-e27-9w"
+        ],
+        "attributes": {
+          "tecnologia": "LED",
+          "uso": "iluminación residencial, no específicamente automotriz",
+          "potencia": "9 W",
+          "tension": "220-240 V AC",
+          "casquillo": "E27",
+          "formato": "A60"
+        },
+        "missing": [],
+        "evidence": [
+          "Lámpara eléctrica LED tipo bombilla A60, potencia 9 W, tensión 220-240 V AC, casquillo roscado E27, destinada a iluminación residencial. No destinada específicamente a vehículos automóviles"
+        ],
+        "issue": null
+      }
+    },
+    {
+      "id": "stoneware-food-contact-mug",
+      "expected": {
+        "sim": "69120000191F",
+        "dieRate": 0.2
+      },
+      "actual": {
+        "sim": "69120000191F",
+        "dieRate": 0.2
+      },
+      "match": true,
+      "interpretation": {
+        "productIndex": 4,
+        "name": "Taza individual de gres apta para alimentos",
+        "candidateIds": [
+          "stoneware-food-contact-mug"
+        ],
+        "attributes": {
+          "material": "gres, no porcelana",
+          "contacto_alimentos": "apto",
+          "presentacion": "individual, no juego",
+          "capacidad": "350 ml",
+          "asa": "sí",
+          "esmaltada": "sí"
+        },
+        "missing": [],
+        "evidence": [
+          "Taza individual para café de 350 ml, fabricada en gres (stoneware), es decir cerámica distinta de porcelana, con asa, esmaltada y apta para estar en contacto con alimentos. Se importa individualmente y no formando un juego de café o té"
+        ],
+        "issue": null
+      }
+    }
+  ],
+  "classifierVersion": "product-interpreter-2"
+}
