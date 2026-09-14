@@ -83,12 +83,12 @@ export function parseAgent(raw,s,schema){
     if(a.aptitud_courier!=='no_apto') return invalid();
     return finish('no_apto','NO_APTO_COURIER',a.motivo,info);
   }
-  if(!a.clasificacion?.trim() || (a.SIM!==null && !/^\d{11}[A-Z]$/.test(a.SIM||'')) || typeof a.DIE!=='number' || a.DIE<0 || a.DIE>100 || a.aptitud_courier!=='apto' || a.restricciones.some(r=>r.estado!=='resuelta')) return finish('revision','CLASIFICACION_INCOMPLETA','No pudimos cerrar la clasificación y aptitud con seguridad.');
+  if(!a.clasificacion?.trim() || (a.SIM!==null && !/^\d{11}[A-Z]$/.test(a.SIM||'')) || typeof a.DIE!=='number' || a.DIE<0 || a.DIE>100 || a.aptitud_courier!=='apto' || a.restricciones.some(r=>r.estado!=='resuelta' && !(r.estado==='pendiente' && r.tipo.trim().toLowerCase()==='antidumping'))) return finish('revision','CLASIFICACION_INCOMPLETA','No pudimos cerrar la clasificación y aptitud con seguridad.');
   return {solicitud:s.solicitud,siguiente:'cotizar',respuesta:{...s.respuesta,...info,codigo:'CLASIFICADO',mensaje:a.motivo}};
 }
 export function calculate(s){
   const fail=(codigo,mensaje)=>({respuesta:{...s.respuesta,status:'revision',codigo,mensaje}});
-  if(s.siguiente!=='cotizar' || !s.solicitud || s.respuesta.aptitud_courier!=='apto' || typeof s.respuesta.DIE!=='number' || !Number.isFinite(s.respuesta.DIE) || s.respuesta.DIE<0 || s.respuesta.DIE>100 || (s.respuesta.SIM!==null && !/^\d{11}[A-Z]$/.test(s.respuesta.SIM||'')) || s.respuesta.restricciones.some(r=>r.estado!=='resuelta')) return fail('CLASIFICACION_INCOMPLETA','No hay una clasificación completa para calcular.');
+  if(s.siguiente!=='cotizar' || !s.solicitud || s.respuesta.aptitud_courier!=='apto' || typeof s.respuesta.DIE!=='number' || !Number.isFinite(s.respuesta.DIE) || s.respuesta.DIE<0 || s.respuesta.DIE>100 || (s.respuesta.SIM!==null && !/^\d{11}[A-Z]$/.test(s.respuesta.SIM||'')) || s.respuesta.restricciones.some(r=>r.estado!=='resuelta' && !(r.estado==='pendiente' && r.tipo.trim().toLowerCase()==='antidumping'))) return fail('CLASIFICACION_INCOMPLETA','No hay una clasificación completa para calcular.');
   // Exact rational math, positive values; no intermediate rounding or runtime dependency.
   function gcd(a,b){while(b){[a,b]=[b,a%b];}return a;}
   function r(n,d=1n){const g=gcd(n<0n?-n:n,d);return {n:n/g,d:d/g};}
@@ -116,6 +116,7 @@ export function calculate(s){
     const derechos=div(mul(cif,dec(s.respuesta.DIE)),dec(100)),estadistica=mul(cif,dec(0.03));
     const iva=mul(sum([cif,derechos,estadistica]),dec(0.21)),debitos=mul(sum([derechos,estadistica,iva]),dec(0.012));
     const impuestos=sum([derechos,estadistica,iva,debitos]),total=sum([flete,handling,impuestos]);
+    if(s.respuesta.restricciones.some(r=>r.estado==='pendiente')) return {respuesta:{...s.respuesta,status:'revision',codigo:'ESTIMACION_BASE',mensaje:'Podemos darte una base orientativa. Este producto tiene un posible recargo especial que GlobalTrip debe confirmar.',estimacion_base:{importe_base_usd:money(total),flete_internacional_usd:money(flete),handling_con_iva_usd:money(handling),impuestos_y_tasas_usd:money(impuestos),peso_considerado_kg:num(peso),SIM:s.respuesta.SIM,DIE:s.respuesta.DIE,exclusion:'Antidumping pendiente de confirmar y no incluido. No es el costo total del envío.'}}};
     return {respuesta:{...s.respuesta,status:'cotizado',codigo:'COTIZADO',mensaje:'Estimación en USD, sujeta a validación de GlobalTrip. El valor de la mercadería no está incluido.',total_usd:money(total),flete_internacional_usd:money(flete),handling_con_iva_usd:money(handling),impuestos_y_tasas_usd:money(impuestos),peso_considerado_kg:num(peso),moneda:'USD',incluye_mercaderia:false,reglas_version:'german-aereo-v1-2026-09-11',detalle_calculo:{peso_real_total_kg:num(real),peso_volumetrico_total_kg:num(vol),peso_volumetrico_redondeado_kg:num(volRound),tarifa_usd_kg:tarifa,flete_aduanero_usd:money(fleteAduanero),seguro_aduanero_usd:money(seguro),cif_usd:money(cif),derechos_usd:money(derechos),tasa_estadistica_usd:money(estadistica),iva_usd:money(iva),debitos_creditos_usd:money(debitos)}}};
   }catch{return fail('DATOS_CALCULO_INVALIDOS','No pudimos completar el cálculo con los datos recibidos.');}
 }

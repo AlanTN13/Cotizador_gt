@@ -117,3 +117,44 @@ describe("literal imported workflow compatibility", () => {
     expect(courierResponseSchema.parse(incomplete.respuesta).status).toBe("falta_info");
   });
 });
+
+
+describe("base estimate for pending antidumping", () => {
+  async function run(overrides = {}) {
+    const { validateInput, parseAgent, agentSchema, calculate } = await import("./fixtures/n8n-workflow-source.mjs");
+    const validated = validateInput({ ...body, bultos: [{ cantidad: 1, peso_kg: 12, largo_cm: 50, ancho_cm: 40, alto_cm: 40 }] }, "test");
+    const agent = { status: "clasificado", clasificacion: "8414.51", SIM: null, DIE: 20,
+      restricciones: [{ tipo: "antidumping", estado: "pendiente", detalle: "Recargo identificado, porcentaje no verificado." }],
+      aptitud_courier: "apto", preguntas_faltantes: [], evidencia: [{ url: "https://www.argentina.gob.ar/normativa", detalle: "Fixture sintético, no validación arancelaria." }],
+      lectura_link: "inaccesible", motivo: "Descripción suficiente.", ...overrides };
+    const parsed = parseAgent({ output: agent }, validated, agentSchema);
+    return parsed.siguiente === "cotizar" ? calculate(parsed).respuesta : parsed.respuesta;
+  }
+  it("passes base amounts through the internal API without pretending they are a total", async () => {
+    const result = await run();
+    expect(result).toMatchObject({ status: "revision", codigo: "ESTIMACION_BASE", estimacion_base: {
+      importe_base_usd: 980.24, flete_internacional_usd: 384, handling_con_iva_usd: 90.75,
+      impuestos_y_tasas_usd: 505.49, peso_considerado_kg: 16, DIE: 20, SIM: null,
+    } });
+    expect(result).not.toHaveProperty("total_usd");
+    fetchMock.mockResolvedValue(Response.json(result));
+    const response = await POST(request());
+    expect(response.status).toBe(200);
+    const delivered = await response.json();
+    expect(delivered.estimacion_base.exclusion).toContain("No es el costo total");
+    expect(delivered.estimacion_base.importe_base_usd).toBe(980.24);
+    expect(delivered).not.toHaveProperty("total_usd");
+    expect(courierResponseSchema.safeParse({ ...delivered, estimacion_base: { ...delivered.estimacion_base, exclusion: undefined } }).success).toBe(false);
+  });
+  it.each([
+    { aptitud_courier: "indeterminada" }, { aptitud_courier: "no_apto" }, { DIE: null }, { DIE: 136.92 },
+    { restricciones: [{ tipo: "antidumping", estado: "prohibida", detalle: "Prohibición" }] },
+    { restricciones: [{ tipo: "seguridad", estado: "pendiente", detalle: "Intervención no resuelta" }] },
+    { restricciones: [{ tipo: "antidumping", estado: "pendiente", detalle: "Recargo" }, { tipo: "prohibicion", estado: "prohibida", detalle: "No permitido" }] },
+  ])("does not issue even a base estimate for unresolved eligibility or duty: %j", async overrides => {
+    const result = await run(overrides);
+    expect(result.status).toBe("revision");
+    expect(result).not.toHaveProperty("estimacion_base");
+    expect(result).not.toHaveProperty("total_usd");
+  });
+});

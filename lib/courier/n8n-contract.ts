@@ -26,6 +26,12 @@ const base = z.object({
   codigo: z.string().max(100).nullable().optional(),
 });
 const money = z.number().finite().nonnegative();
+const baseEstimate = z.object({
+  importe_base_usd: money, flete_internacional_usd: money, handling_con_iva_usd: money,
+  impuestos_y_tasas_usd: money, peso_considerado_kg: z.number().finite().positive(),
+  SIM: z.string().regex(/^\d{11}[A-Z]$/).nullable(), DIE: z.number().finite().min(0).max(100),
+  exclusion: z.literal("Antidumping pendiente de confirmar y no incluido. No es el costo total del envío."),
+});
 export const courierResponseSchema = z.discriminatedUnion("status", [
   base.extend({ status: z.literal("cotizado"), total_usd: money,
     flete_internacional_usd: money, handling_con_iva_usd: money, impuestos_y_tasas_usd: money,
@@ -33,7 +39,7 @@ export const courierResponseSchema = z.discriminatedUnion("status", [
     DIE: z.number().finite().min(0).max(100),
   }),
   base.extend({ status: z.literal("falta_info"), preguntas_faltantes: z.array(question).min(1).max(3).refine(qs => new Set(qs.map(q => q.id)).size === qs.length) }),
-  base.extend({ status: z.literal("revision") }),
+  base.extend({ status: z.literal("revision"), estimacion_base: baseEstimate.optional() }),
   base.extend({ status: z.literal("no_apto") }),
 ]);
 export type CourierRequest = z.infer<typeof courierRequestSchema>;

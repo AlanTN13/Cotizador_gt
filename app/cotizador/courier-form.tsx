@@ -152,13 +152,21 @@ export default function CourierForm() {
                 <dl className="mt-3 space-y-3">{clarifications.map((a, i) => <div key={i}><dt className="font-medium">{a.pregunta}</dt><dd className="mt-1 whitespace-pre-wrap">{a.respuesta}</dd></div>)}</dl>
               </details>}
               {result && <div ref={resultArea} tabIndex={-1} className="scroll-mt-32 rounded-3xl border border-slate-200 bg-slate-50/60 p-5 outline-none sm:p-6" role="region" aria-label="Resultado del cotizador" data-status={result.status}>
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{ {cotizado: "Cotizado", falta_info: "Falta información", revision: "Revisión", no_apto: "No apto"}[result.status] }</p>
-                <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0b0c49]">{ {cotizado: "Tu cotización está lista", falta_info: "Unos datos más para continuar", revision: "Este caso necesita revisión", no_apto: "Este producto no es apto para este courier"}[result.status] }</h2>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{result.status === "revision" && result.estimacion_base ? "Estimación base" : {cotizado: "Cotizado", falta_info: "Falta información", revision: "Revisión", no_apto: "No apto"}[result.status] }</p>
+                <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0b0c49]">{result.status === "revision" && result.estimacion_base ? "Tu estimación base está lista" : {cotizado: "Tu cotización está lista", falta_info: "Unos datos más para continuar", revision: "Este caso necesita revisión", no_apto: "Este producto no es apto para este courier"}[result.status] }</h2>
                 <p className="mt-3 whitespace-pre-wrap text-sm text-slate-600">{result.mensaje}</p>
                 {result.status === "falta_info" && <div className="mt-5 space-y-5">{result.preguntas_faltantes.map(q => <label key={q.id} className="block text-[11px] font-extrabold uppercase tracking-[.12em] text-[#0b0c49]">{q.pregunta}
                   <span className="mt-1 block text-sm font-normal normal-case tracking-normal text-slate-500">{q.motivo}</span>
                   <textarea className={inputClass} required rows={2} maxLength={3000} value={answers[q.id] || ""} onChange={e => setAnswers(a => ({ ...a, [q.id]: e.target.value }))} />
                 </label>)}</div>}
+                {result.status === "revision" && result.estimacion_base && <>
+                  <div className="mt-5 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm font-semibold text-amber-950" role="note">{result.estimacion_base.exclusion}</div>
+                  <dl className="mt-6 grid gap-5 sm:grid-cols-2">{[
+                    ["Flete internacional", result.estimacion_base.flete_internacional_usd], ["Handling con IVA", result.estimacion_base.handling_con_iva_usd], ["Impuestos ordinarios estimados", result.estimacion_base.impuestos_y_tasas_usd],
+                  ].map(([label, value]) => <div key={label}><dt className="text-sm text-slate-500">{label}</dt><dd className="mt-1 font-semibold">{usd(Number(value))}</dd></div>)}</dl>
+                  <div className="mt-6 rounded-xl bg-slate-50 p-5"><p className="text-sm text-slate-600">Importe base — sin antidumping (USD)</p><p className="mt-2 text-3xl font-extrabold tracking-tight text-[#0b0c49]">{usd(result.estimacion_base.importe_base_usd)}</p><p className="mt-2 text-sm text-slate-600">No incluye la compra de mercadería. El costo final será mayor si corresponde el recargo.</p></div>
+                  <dl className="mt-5 grid gap-4 text-sm sm:grid-cols-3"><div><dt>Peso considerado</dt><dd>{result.estimacion_base.peso_considerado_kg} kg</dd></div><div><dt>SIM</dt><dd>{result.estimacion_base.SIM ?? "A confirmar"}</dd></div><div><dt>Derecho de importación estimado</dt><dd>{result.estimacion_base.DIE}%</dd></div></dl>
+                </>}
                 {result.status === "cotizado" && <>
                   <dl className="mt-6 grid gap-5 sm:grid-cols-2">{[
                     ["Flete internacional", result.flete_internacional_usd], ["Handling con IVA", result.handling_con_iva_usd], ["Impuestos y tasas", result.impuestos_y_tasas_usd],
