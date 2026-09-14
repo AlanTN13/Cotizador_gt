@@ -164,7 +164,7 @@ export default function CourierForm() {
                     ["Flete internacional", result.flete_internacional_usd], ["Handling con IVA", result.handling_con_iva_usd], ["Impuestos y tasas", result.impuestos_y_tasas_usd],
                   ].map(([label, value]) => <div key={label}><dt className="text-sm text-slate-500">{label}</dt><dd className="mt-1 font-semibold">{usd(Number(value))}</dd></div>)}</dl>
                   <div className="mt-6 rounded-xl bg-slate-50 p-5"><p className="text-sm text-slate-500">Total aproximado (USD)</p><p className="mt-2 text-3xl font-extrabold tracking-tight text-[#0b0c49]">{usd(result.total_usd)}</p><p className="mt-2 text-sm text-slate-500">No incluye la compra de mercadería.</p></div>
-                  <dl className="mt-5 grid gap-4 text-sm sm:grid-cols-3"><div><dt>Peso considerado</dt><dd className="mt-1 font-semibold">{result.peso_considerado_kg} kg</dd></div><div><dt>SIM</dt><dd className="mt-1 break-all font-semibold">{result.SIM}</dd></div><div><dt>DIE</dt><dd className="mt-1 font-semibold">{result.DIE}%</dd></div></dl>
+                  <dl className="mt-5 grid gap-4 text-sm sm:grid-cols-3"><div><dt>Peso considerado</dt><dd className="mt-1 font-semibold">{result.peso_considerado_kg} kg</dd></div><div><dt>SIM</dt><dd className="mt-1 break-all font-semibold">{result.SIM ?? "A confirmar"}</dd></div><div><dt>Derecho de importación estimado</dt><dd className="mt-1 font-semibold">{result.DIE}%</dd></div></dl>
                 </>}
                 <p className="mt-5 break-all text-xs text-slate-500">Referencia: {result.solicitud_id}</p>
               </div>}

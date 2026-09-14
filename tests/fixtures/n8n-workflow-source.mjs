@@ -83,12 +83,12 @@ export function parseAgent(raw,s,schema){
     if(a.aptitud_courier!=='no_apto') return invalid();
     return finish('no_apto','NO_APTO_COURIER',a.motivo,info);
   }
-  if(!a.clasificacion?.trim() || !/^\d{11}[A-Z]$/.test(a.SIM||'') || typeof a.DIE!=='number' || a.DIE<0 || a.DIE>100 || a.aptitud_courier!=='apto' || a.restricciones.some(r=>r.estado!=='resuelta')) return finish('revision','CLASIFICACION_INCOMPLETA','No pudimos cerrar la clasificación y aptitud con seguridad.');
+  if(!a.clasificacion?.trim() || (a.SIM!==null && !/^\d{11}[A-Z]$/.test(a.SIM||'')) || typeof a.DIE!=='number' || a.DIE<0 || a.DIE>100 || a.aptitud_courier!=='apto' || a.restricciones.some(r=>r.estado!=='resuelta')) return finish('revision','CLASIFICACION_INCOMPLETA','No pudimos cerrar la clasificación y aptitud con seguridad.');
   return {solicitud:s.solicitud,siguiente:'cotizar',respuesta:{...s.respuesta,...info,codigo:'CLASIFICADO',mensaje:a.motivo}};
 }
 export function calculate(s){
   const fail=(codigo,mensaje)=>({respuesta:{...s.respuesta,status:'revision',codigo,mensaje}});
-  if(s.siguiente!=='cotizar' || !s.solicitud || s.respuesta.aptitud_courier!=='apto' || typeof s.respuesta.DIE!=='number' || !Number.isFinite(s.respuesta.DIE) || s.respuesta.DIE<0 || s.respuesta.DIE>100 || !/^\d{11}[A-Z]$/.test(s.respuesta.SIM||'') || s.respuesta.restricciones.some(r=>r.estado!=='resuelta')) return fail('CLASIFICACION_INCOMPLETA','No hay una clasificación completa para calcular.');
+  if(s.siguiente!=='cotizar' || !s.solicitud || s.respuesta.aptitud_courier!=='apto' || typeof s.respuesta.DIE!=='number' || !Number.isFinite(s.respuesta.DIE) || s.respuesta.DIE<0 || s.respuesta.DIE>100 || (s.respuesta.SIM!==null && !/^\d{11}[A-Z]$/.test(s.respuesta.SIM||'')) || s.respuesta.restricciones.some(r=>r.estado!=='resuelta')) return fail('CLASIFICACION_INCOMPLETA','No hay una clasificación completa para calcular.');
   // Exact rational math, positive values; no intermediate rounding or runtime dependency.
   function gcd(a,b){while(b){[a,b]=[b,a%b];}return a;}
   function r(n,d=1n){const g=gcd(n<0n?-n:n,d);return {n:n/g,d:d/g};}

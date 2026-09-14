@@ -29,7 +29,7 @@ const money = z.number().finite().nonnegative();
 export const courierResponseSchema = z.discriminatedUnion("status", [
   base.extend({ status: z.literal("cotizado"), total_usd: money,
     flete_internacional_usd: money, handling_con_iva_usd: money, impuestos_y_tasas_usd: money,
-    peso_considerado_kg: z.number().finite().positive(), SIM: z.string().regex(/^\d{11}[A-Z]$/),
+    peso_considerado_kg: z.number().finite().positive(), SIM: z.string().regex(/^\d{11}[A-Z]$/).nullable(),
     DIE: z.number().finite().min(0).max(100),
   }),
   base.extend({ status: z.literal("falta_info"), preguntas_faltantes: z.array(question).min(1).max(3).refine(qs => new Set(qs.map(q => q.id)).size === qs.length) }),

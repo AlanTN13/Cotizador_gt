@@ -30,6 +30,12 @@ describe("server-side n8n gateway", () => {
     expect(JSON.parse(options.body)).toEqual(body);
     expect(res.headers.get("cache-control")).toBe("no-store");
   });
+  it("accepts an estimate with SIM pending but still requires a valid duty", async () => {
+    fetchMock.mockResolvedValue(Response.json({ ...quote, SIM: null }));
+    expect((await POST(request())).status).toBe(200);
+    fetchMock.mockResolvedValue(Response.json({ ...quote, SIM: null, DIE: 136.92 }));
+    expect((await POST(request())).status).toBe(502);
+  });
   it.each(["revision", "no_apto"])("discards prices in %s", async status => {
     fetchMock.mockResolvedValue(Response.json({ ...quote, status }));
     expect(await (await POST(request())).json()).toEqual({ ...base, status });
@@ -81,6 +87,23 @@ describe("server-side n8n gateway", () => {
 });
 
 describe("literal imported workflow compatibility", () => {
+  it("passes a supported estimate with pending SIM from agent through calculator and API schema", async () => {
+    const { validateInput, parseAgent, agentSchema, calculate } = await import("./fixtures/n8n-workflow-source.mjs");
+    const validated = validateInput(body, "test");
+    const agent = { status: "clasificado", clasificacion: "Clasificación preliminar de prueba", SIM: null, DIE: 20,
+      restricciones: [], aptitud_courier: "apto", preguntas_faltantes: [],
+      evidencia: [{ url: "https://www.argentina.gob.ar/normativa", detalle: "Fuente sintética para la prueba de contrato, no clasificación real." }],
+      lectura_link: "inaccesible", motivo: "Estimado basado en descripción; SIM a confirmar." };
+    const parsed = parseAgent({ output: agent }, validated, agentSchema);
+    expect(parsed.siguiente).toBe("cotizar");
+    const result = calculate(parsed).respuesta;
+    expect(result.status).toBe("cotizado");
+    expect(result.SIM).toBeNull();
+    expect(courierResponseSchema.parse(result).status).toBe("cotizado");
+    expect(parseAgent({ output: { ...agent, DIE: 136.92 } }, validated, agentSchema).siguiente).toBe("responder");
+    expect(parseAgent({ output: { ...agent, restricciones: [{ tipo: "Prueba", detalle: "Bloqueo concreto", estado: "prohibida" }] } }, validated, agentSchema).siguiente).toBe("responder");
+  });
+
   it("accepts literal validation and calculator responses, including follow-up", async () => {
     // Run the very functions inlined into the supplied n8n JSON, not a second calculator.
     const { validateInput, calculate } = await import("./fixtures/n8n-workflow-source.mjs");
