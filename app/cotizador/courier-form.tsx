@@ -1,6 +1,8 @@
 "use client";
 import { useRef, useState } from "react";
 import { courierResponseSchema, type CourierRequest, type CourierResponse } from "@/lib/courier/n8n-contract";
+import QuotationLoading from "./quotation-loading";
+import loadingStyles from "./quotation-loading.module.css";
 const blankParcel = () => ({ cantidad: 1, peso_kg: 0, largo_cm: 0, ancho_cm: 0, alto_cm: 0 });
 const usd = (n: number) =>
   new Intl.NumberFormat("es-AR", {
@@ -100,7 +102,7 @@ export default function CourierForm() {
         </div>
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_280px] xl:gap-10">
           <form onSubmit={send} className="min-w-0 rounded-3xl border border-slate-100 bg-white p-5 shadow-[0_8px_40px_-20px_rgba(11,12,73,0.18)] sm:p-8 xl:p-10">
-            <fieldset disabled={busy} className="min-w-0 space-y-10 disabled:opacity-70">
+            <fieldset disabled={busy} className="min-w-0 space-y-10 [&:disabled>section]:opacity-60">
               <section aria-labelledby="products-heading">
                 <h2 id="products-heading" className="text-2xl font-extrabold tracking-tight text-[#0b0c49]">1. Tus productos</h2>
                 <p className="mt-2 text-sm text-slate-500">Agregá una descripción por producto. Si el link no está disponible, usamos la descripción.</p>
@@ -148,7 +150,8 @@ export default function CourierForm() {
                 <p className="font-extrabold">NO PAGAR AL EXTERIOR HASTA NO TENER NUESTRO OK.</p>
                 <p>Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.</p>
               </div>
-              {result && <div ref={resultArea} tabIndex={-1} className="scroll-mt-32 rounded-3xl border border-slate-200 bg-slate-50/60 p-5 outline-none sm:p-6" role="region" aria-label="Resultado del cotizador" data-status={result.status}>
+              {busy && <QuotationLoading />}
+              {result && <div ref={resultArea} tabIndex={-1} className={`${loadingStyles.reveal} scroll-mt-32 rounded-3xl border border-slate-200 bg-slate-50/60 p-5 outline-none sm:p-6`} role="region" aria-label="Resultado del cotizador" data-status={result.status}>
                 {result.status === "cotizado" ? <>
                   <p className="text-sm font-bold text-slate-500">TOTAL APROXIMADO</p>
                   <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#0b0c49]">{usd(result.total_usd)}</p>
@@ -161,13 +164,13 @@ export default function CourierForm() {
                 </> : <><h2 className="text-xl font-bold text-[#0b0c49]">No pudimos completar la estimación</h2><p className="mt-3 text-sm text-slate-600">{result.mensaje}</p></>}
                 <p className="mt-5 break-all text-xs text-slate-500">Referencia: {result.solicitud_id}</p>
               </div>}
-              {error && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{error}</div>}
+              {error && <div role="alert" className={`${loadingStyles.reveal} rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800`}>{error}</div>}
               <button type="submit" className="min-h-[4.5rem] w-full rounded-2xl bg-[#0b0c49] px-6 py-5 text-base font-extrabold text-white shadow-xl shadow-[#0b0c49]/10 transition-colors hover:bg-[#161865] disabled:cursor-wait sm:text-lg" disabled={busy}>
-                {busy ? "Analizando productos y calculando…" : error ? "Reintentar solicitud" : "Cotizar mi envío →"}
+                {busy ? "Preparando tu estimación…" : error ? "Reintentar solicitud" : "Cotizar mi envío →"}
               </button>
               {result && <button type="button" className="w-full text-sm text-slate-600 underline" onClick={() => { setProducts([{ link: "", descripcion: "" }]); setOperation({ fob_usd: 0, cantidad: 1 }); setParcels([blankParcel()]); attempt.current = null; edited(); }}>Empezar otro caso</button>}
             </fieldset>
-            <div aria-live="polite" className="sr-only">{busy ? "Estamos procesando tu solicitud." : result ? result.mensaje : ""}</div>
+            <div aria-live="polite" className="sr-only">{!busy && result ? result.mensaje : ""}</div>
           </form>
           <aside className="rounded-3xl border border-slate-100 bg-slate-50 p-6 lg:sticky lg:top-36">
             <h2 className="font-extrabold tracking-tight text-[#0b0c49]">Tu envío, con claridad.</h2>

@@ -1,0 +1,43 @@
+.panel {
+  scroll-margin-top: 8rem;
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+  border: 1px solid #dce3ef;
+  border-radius: 1.5rem;
+  background: linear-gradient(155deg, #f8faff, #fff 70%);
+  color: #0b0c49;
+  outline: none;
+}
+.illustration { position: relative; display: flex; align-items: center; justify-content: space-between; height: 5rem; max-width: 19rem; margin: 0 auto 1.5rem; }
+.origin, .destination { z-index: 1; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid #dce3ef; border-radius: 50%; background: #fff; font-size: .65rem; font-weight: 800; letter-spacing: .06em; }
+.flightLine { position: absolute; inset: 50% 1.5rem auto; border-top: 1px dashed #a4b3cd; }
+.plane { z-index: 1; width: 4.5rem; height: 4.5rem; display: grid; place-items: center; background: #0b0c49; border-radius: 1.25rem; box-shadow: 0 10px 24px -12px #0b0c4950; animation: flight 5s ease-in-out infinite; }
+.plane svg { width: 2.3rem; height: 2.3rem; color: #fff; }
+.title { text-align: center; font-size: clamp(1.35rem, 3vw, 1.75rem); line-height: 1.25; font-weight: 800; letter-spacing: -.025em; }
+.description { max-width: 34rem; margin: 1rem auto 0; text-align: center; color: #526078; font-size: .9rem; line-height: 1.7; }
+.route { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: .4rem; margin: 2rem 0; list-style: none; padding: 0; }
+.stop { position: relative; display: flex; flex-direction: column; align-items: center; gap: .75rem; text-align: center; font-size: .68rem; font-weight: 700; line-height: 1.4; }
+.routeIcon { width: 2.5rem; height: 2.5rem; padding: .6rem; border: 1px solid #dce3ef; border-radius: .8rem; background: #fff; }
+.routeIcon svg { width: 100%; height: 100%; }
+.arrow { position: absolute; right: -.5rem; top: .5rem; color: #8797b3; font-size: 1rem; font-weight: 400; }
+.message { display: flex; align-items: center; justify-content: center; gap: .7rem; min-height: 3.5rem; padding: .8rem; border-radius: .9rem; background: #eef2f9; font-size: .85rem; font-weight: 700; text-align: center; }
+.pulse { width: .4rem; height: .4rem; flex-shrink: 0; border-radius: 50%; background: #0b0c49; animation: breathe 2.8s ease-in-out infinite; }
+.messageText { animation: appear .45s ease-out both; }
+.caption { margin-top: .85rem; text-align: center; color: #6a7890; font-size: .7rem; line-height: 1.5; }
+.reveal { animation: appear .45s ease-out both; }
+@keyframes flight { 0%,100% { transform: translate(-3px,3px); } 50% { transform: translate(3px,-3px); } }
+@keyframes breathe { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 540px) {
+  .panel { padding: 1.5rem 1rem; }
+  .illustration { height: 4rem; margin-bottom: 1.25rem; }
+  .plane { width: 3.5rem; height: 3.5rem; border-radius: 1rem; }
+  .route { grid-template-columns: 1fr; gap: .85rem; margin: 1.5rem auto; max-width: 15rem; }
+  .stop { flex-direction: row; gap: .85rem; text-align: left; font-size: .8rem; }
+  .routeIcon { width: 2rem; height: 2rem; padding: .4rem; border-radius: .6rem; flex-shrink: 0; }
+  .arrow { top: 1.95rem; left: .7rem; right: auto; transform: rotate(90deg); font-size: .85rem; line-height: .85rem; }
+  .message { min-height: 4rem; font-size: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plane, .pulse, .messageText, .reveal { animation: none; }
+}
