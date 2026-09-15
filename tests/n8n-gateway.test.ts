@@ -59,8 +59,11 @@ describe("server-side n8n gateway", () => {
   it.each(["Host", "Content-Type", "bad\r\nheader"])("refuses invalid header %s", async name => {
     vi.stubEnv("N8N_COURIER_HEADER_NAME", name); expect((await POST(request())).status).toBe(503); expect(fetchMock).not.toHaveBeenCalled();
   });
-  it("refuses production runtime", async () => {
-    vi.stubEnv("VERCEL_ENV", "production"); expect((await POST(request())).status).toBe(503); expect(fetchMock).not.toHaveBeenCalled();
+  it("allows the authorized authenticated webhook in production", async () => {
+    vi.stubEnv("VERCEL_ENV", "production");
+    expect((await POST(request())).status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1].headers["X-Test-Auth"]).toBe("test-secret-never-echo");
   });
   it.each(["https://nexops.app.n8n.cloud/webhook-test/globaltrip-courier-v1", "https://other.example/webhook/globaltrip-courier-v1"])("refuses unauthorized URL %s", async url => {
     vi.stubEnv("N8N_COURIER_WEBHOOK_URL", url); expect((await POST(request())).status).toBe(503); expect(fetchMock).not.toHaveBeenCalled();

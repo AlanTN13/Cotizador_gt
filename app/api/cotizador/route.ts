@@ -54,16 +54,16 @@ export async function POST(req: Request) {
     if (!urlValue) throw new GatewayError("N8N_NOT_CONFIGURED", "La conexión del cotizador está pendiente de configuración.", 503);
     let url: URL;
     try { url = new URL(urlValue); } catch { throw new GatewayError("N8N_CONFIG_INVALID", "La conexión del cotizador necesita revisión.", 503); }
-    // This integration is deliberately restricted to the authorized webhook, in Preview only.
-    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash || process.env.VERCEL_ENV === "production")
-      throw new GatewayError("N8N_TEST_ONLY", "Esta conexión está habilitada únicamente para pruebas.", 503);
+    // Keep Preview and Production restricted to the same authorized webhook.
+    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash)
+      throw new GatewayError("N8N_CONFIG_INVALID", "La conexión del cotizador necesita revisión.", 503);
     // The imported workflow requires Header Auth. Do not submit cases until
-    // both server-side credential fields have been configured in Preview.
+    // both server-side credential fields have been configured.
     if (!headerName?.trim() || !secret?.trim() || !/^[!#$%&'*+.^_`|~0-9A-Za-z-]+$/.test(headerName) || /^(host|content-type|content-length|connection|transfer-encoding|cookie)$/i.test(headerName) || /[\r\n]/.test(secret))
       throw new GatewayError("N8N_AUTH_CONFIG_INCOMPLETE", "Falta completar la autenticación del cotizador. Tus datos se conservan.", 503);
     const upstreamHeaders: Record<string, string> = { "Content-Type": "application/json" };
     upstreamHeaders[headerName] = secret;
-    // No automatic retries: a test webhook can be single use.
+    // No automatic retries: avoid processing the same operation twice.
     const response = await fetch(url, { method: "POST", headers: upstreamHeaders,
       body: JSON.stringify(parsed.data), signal: AbortSignal.timeout(110000), redirect: "error", cache: "no-store" });
     console.info(JSON.stringify({ event: "courier_n8n_http", solicitud_id: solicitudId, http_status: response.status, authenticated: Boolean(secret) }));
