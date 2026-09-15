@@ -69,3 +69,49 @@
   .totalBox { padding: 1rem; }
   .breakdown { gap: 1rem; }
 }
+
+/* Keep the entire estimate visible at normal desktop and phone sizes. */
+.dialog { width: min(64rem, calc(100% - 2rem)); }
+.result { padding: 1.5rem; }
+.resultColumns { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.75rem; align-items: start; margin-top: 1.25rem; }
+.resultColumns .totalBox { margin: 0 0 1rem; padding: 1.25rem; }
+.resultColumns .breakdown { margin-bottom: 0; gap: 1rem; }
+.resultColumns .notice { padding-top: .25rem; }
+.result .primaryAction { margin-top: 1.25rem; }
+@media (max-width: 680px) {
+  .result { padding: 1rem; }
+  .resultTitle { font-size: 1.35rem; }
+  .resultColumns { grid-template-columns: 1fr; gap: .85rem; margin-top: .85rem; }
+  .resultColumns .totalBox { padding: .85rem; margin-bottom: .85rem; }
+  .resultColumns .total { font-size: 2.25rem; margin: .3rem 0 .4rem; }
+  .resultColumns .totalLabel, .resultColumns .explanation, .resultColumns .notice { font-size: .75rem; line-height: 1.5; }
+  .resultColumns .notice h3 { font-size: .8rem; margin-bottom: .25rem; }
+  .resultColumns .breakdown { gap: .65rem 1rem; }
+  .resultColumns .breakdown dt { font-size: .7rem; }
+  .resultColumns .breakdown dd { font-size: .9rem; margin-top: .15rem; }
+  .resultColumns .paymentNotice { padding: .65rem .75rem; margin-top: .65rem; }
+  .resultColumns .disclaimer { margin-top: .6rem; font-size: .65rem; }
+  .result .primaryAction { margin-top: .85rem; padding: .85rem; font-size: .9rem; }
+}
+@media (max-height: 740px) and (max-width: 680px) {
+  .dialog .panel { padding: 1rem; }
+  .illustration { height: 3rem; margin-bottom: .75rem; }
+  .plane { width: 3rem; height: 3rem; }
+  .description { margin-top: .65rem; font-size: .8rem; line-height: 1.5; }
+  .eta { margin-top: .75rem; font-size: .8rem; }
+  .route { margin: 1rem auto; gap: .5rem; }
+  .arrow { top: 1.8rem; font-size: .65rem; }
+  .message { min-height: 2.75rem; }
+}
+.dialog:has(.panel) { width: min(46rem, calc(100% - 2rem)); }
+@media (max-width: 680px) {
+  .dialog { max-width: calc(100% - 1rem); }
+}
+@media (max-height: 700px) and (max-width: 680px) {
+  .result { padding: .85rem; }
+  .resultColumns { gap: .65rem; margin-top: .65rem; }
+  .resultColumns .totalBox { padding: .65rem; margin-bottom: .65rem; }
+  .resultColumns .total { font-size: 2rem; }
+  .resultColumns .breakdown { gap: .45rem 1rem; }
+  .result .primaryAction { margin-top: .65rem; padding: .7rem; }
+}

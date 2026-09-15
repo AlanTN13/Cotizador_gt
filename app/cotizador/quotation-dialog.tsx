@@ -43,6 +43,7 @@ export default function QuotationDialog({ open, busy, result, error, fob, onRese
     {open && (busy ? <QuotationLoading /> : <div key={success ? "result" : "error"} className={`${styles.result} ${styles.reveal}`}>
       <h2 ref={heading} tabIndex={-1} id="quotation-result-title" className={styles.resultTitle}>{success ? "Tu estimación está lista" : "No pudimos completar tu estimación"}</h2>
       {success ? <>
+        <div className={styles.resultColumns}><div>
         <div className={styles.totalBox}>
           <p className={styles.totalLabel}>Costo aproximado de importación</p>
           <p className={styles.total}>{usd(result.total_usd)}</p>
@@ -54,7 +55,7 @@ export default function QuotationDialog({ open, busy, result, error, fob, onRese
           <div><dt>Impuestos y tasas estimados</dt><dd>{usd(result.impuestos_y_tasas_usd)}</dd></div>
           <div><dt>Peso considerado</dt><dd>{result.peso_considerado_kg} kg</dd></div>
         </dl>
-        <QuotationNotice />
+        </div><QuotationNotice /></div>
         <button type="button" className={styles.primaryAction} onClick={onReset}>Hacer otra estimación</button>
       </> : <>
         <p role="alert" className={styles.errorMessage}>{error || result?.mensaje}</p>
