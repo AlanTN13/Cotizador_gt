@@ -662,7 +662,6 @@ export default function CourierForm({
               <summary className="cursor-pointer">
                 Detalle de la solicitud
               </summary>
-              <p className="mt-3 break-all">Referencia: {result.requestId}</p>
               <p>
                 Registrada: {new Date(result.createdAt).toLocaleString("es-AR")}
               </p>

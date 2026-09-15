@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./quotation-loading.module.css";
 
 const messages = [
-  "Analizando tu producto",
-  "Revisando clasificación arancelaria",
-  "Estimando derechos e impuestos",
-  "Calculando peso y flete",
-  "Armando tu cotización",
+  "Analizando tus productos",
+  "Estimando la clasificación arancelaria",
+  "Calculando derechos e impuestos",
+  "Revisando peso y volumen",
+  "Calculando el flete internacional",
+  "Preparando tu estimación",
 ];
-const route = ["China", "Clasificación", "Transporte aéreo", "Aduana", "Buenos Aires"];
+const route = ["China", "Producto", "Clasificación", "Aduana", "Buenos Aires"];
 const iconPaths = [
   "M3 21V10l6 3V7l6 3V3h4v18H3Zm4-4h1m3 0h1m4 0h1",
   "M6 3h9l4 4v14H6V3Zm8 0v5h5M9 12h7m-7 4h5",
@@ -21,18 +22,14 @@ const iconPaths = [
 
 export default function QuotationLoading() {
   const [messageIndex, setMessageIndex] = useState(0);
-  const panel = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    panel.current?.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" });
-    panel.current?.focus({ preventScroll: true });
     // Ambient messages only: elapsed time never marks a workflow stage complete.
     const timer = window.setInterval(() => setMessageIndex(i => (i + 1) % messages.length), 10000);
     return () => window.clearInterval(timer);
   }, []);
 
   return (
-    <div ref={panel} tabIndex={-1} className={`${styles.panel} ${styles.reveal}`} role="status" aria-labelledby="quotation-loading-title" aria-describedby="quotation-loading-description">
+    <div className={`${styles.panel} ${styles.reveal}`} role="status" aria-labelledby="quotation-loading-title" aria-describedby="quotation-loading-description">
       <div className={styles.illustration} aria-hidden="true">
         <span className={styles.origin}>CN</span>
         <span className={styles.flightLine} />
@@ -41,11 +38,13 @@ export default function QuotationLoading() {
         </span>
         <span className={styles.destination}>BUE</span>
       </div>
-      <h2 id="quotation-loading-title" className={styles.title}>Estamos preparando tu estimación</h2>
-      <p id="quotation-loading-description" className={styles.description}>Este proceso puede demorar aproximadamente 1 minuto. Estamos analizando tus productos y calculando los costos de importación. No cierres esta ventana.</p>
-      <ol className={styles.route} aria-label="China → Clasificación → Transporte aéreo → Aduana → Buenos Aires">
+      <h2 id="quotation-loading-title" className={styles.title}>Estamos armando tu estimación</h2>
+      <p id="quotation-loading-description" className={styles.description}>Estamos analizando tus productos, estimando los costos de importación y calculando el flete aéreo desde China.</p>
+      <p className={styles.eta}>Puede demorar aproximadamente 1 minuto.</p>
+      <p className={styles.keepOpen}>No cierres esta ventana mientras terminamos el cálculo.</p>
+      <ol className={styles.route} aria-label="China → Producto → Clasificación → Aduana → Buenos Aires">
         {route.map((label, index) => <li key={label} className={styles.stop}>
-          <span className={styles.routeIcon} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={iconPaths[index]} /></svg></span>
+          <span className={styles.routeIcon} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d={index === 1 ? "m3 7 9-4 9 4v10l-9 4-9-4V7Zm0 0 9 4 9-4M12 11v10M7 5l10 4" : iconPaths[index === 2 ? 1 : index]} /></svg></span>
           <span>{label}</span>
           {index < route.length - 1 && <span className={styles.arrow} aria-hidden="true">→</span>}
         </li>)}
