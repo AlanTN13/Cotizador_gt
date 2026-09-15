@@ -44,7 +44,7 @@ export async function POST(req: Request) {
       throw new GatewayError("INVALID_JSON", "No pudimos leer los datos del formulario.", 400);
     }
     const parsed = courierRequestSchema.safeParse(raw);
-    if (!parsed.success) return NextResponse.json({ code: "INVALID_FIELDS", message: "Revisá los campos señalados.",
+    if (!parsed.success) return NextResponse.json({ status: "error", codigo: "INVALID_FIELDS", mensaje: "Revisá los campos señalados.",
       fields: parsed.error.issues.map(i => ({ path: i.path.join("."), message: i.message })),
     }, { status: 400, headers });
     solicitudId = parsed.data.solicitud_id;
@@ -84,6 +84,6 @@ export async function POST(req: Request) {
       ? new GatewayError("N8N_TIMEOUT", "El análisis demoró más de lo esperado. Tus datos se conservan para reintentar.", 504)
       : new GatewayError("N8N_UNAVAILABLE", "No pudimos conectar con el cotizador. Tus datos se conservan para reintentar.");
     console.error(JSON.stringify({ event: "courier_n8n_error", solicitud_id: solicitudId, code: error.code }));
-    return NextResponse.json({ code: error.code, message: error.message }, { status: error.status, headers });
+    return NextResponse.json({ solicitud_id: solicitudId, status: "error", codigo: error.code, mensaje: error.message }, { status: error.status, headers });
   }
 }
