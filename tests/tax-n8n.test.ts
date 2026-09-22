@@ -15,9 +15,10 @@ const input=(products:ReturnType<typeof product>[],overrides={})=>({solicitud:{s
 const exported=JSON.parse(readFileSync(new URL('../workflow/GlobalTrip-Courier-V1.n8n.json',import.meta.url),'utf8'));
 const baseline=JSON.parse(readFileSync(new URL('./fixtures/n8n-production-before-tax.json',import.meta.url),'utf8'));
 const sha=(x:string|Buffer)=>createHash('sha256').update(x).digest('hex');
+const FixedDate=class extends Date { constructor(value?: string | number) { super(value ?? now.getTime()); } static now() { return now.getTime(); } };
 function execute(s:unknown){
   const code=exported.nodes.find((n:{name:string})=>n.name==='Cotizador deterministico').parameters.jsCode;
-  return runInNewContext(`(function(){${code}})()`,{$input:{first:()=>({json:s})}}, {timeout:3000})[0].json.respuesta;
+  return runInNewContext(`(function(){${code}})()`,{$input:{first:()=>({json:s})},Date:FixedDate}, {timeout:3000})[0].json.respuesta;
 }
 describe('Tax Resolver adapted to production n8n',()=>{
   const cases=[
@@ -37,7 +38,7 @@ describe('Tax Resolver adapted to production n8n',()=>{
     expect(result.status).toBe('cotizado');
     expect(result.auditoria.taxResolutions[0]).toMatchObject({status,rates:{duty,statistical,vat},resolverVersion:resolver.TAX_RESOLVER_VERSION});
     expect(result.auditoria.taxResolutions[0].agentEvidence.DIE).toBe(14);
-    expect(result).toEqual(calculate(s).respuesta);
+    expect(result).toEqual(calculate(s,now).respuesta);
   });
   it('ambiguous NCM returns REQUIERE_REVISION with no fabricated price and existing UI contract',()=>{
     const result=execute(input([product('21069090')]));
