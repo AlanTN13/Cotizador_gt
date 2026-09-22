@@ -72,3 +72,11 @@ Multiproducto independiente: CIF USD110 por producto; cuchara → DIE19,80 + TE3
 ### KNOWLEDGE DELTA
 
 Implementación del resolver terminada y testeada en la rama de PR #1, con cobertura arancelaria del PDF y reglas IVA limitadas. Mantener separados implementación, merge, despliegue y validación de Germán. Registrar evidencia de commit/PR tras publicación; mantener gates comerciales y no afirmar CURRENT global de AlanOS.
+
+### Reconciliación de cierre — delta concurrente en AlanOS
+
+La verificación remota previa al cierre encontró Alanos `b6c1222b26123ff249373f81a4501e67559db147`, posterior a la base de preflight. Agrega “Decisión de fallback estimativo” en el delta de tributos: continuar con la mejor estimación ante dudas menores, reservar revisión para clasificación mínima imposible, contradicción material o condición impeditiva Courier. Esta es una decisión aprobada en AlanOS y **no debe sobrescribirse ni darse por implementada**.
+
+El commit `7c45943` cumple el contrato inicial de esta tarea: ausencia de regla IVA → revisión. La política ampliada de fallback estimativo no está implementada; la diferencia se consultó en esta tarea y queda como delta explícito. Los gates de aprobación de perfiles/tarifa son heredados de PR #1, no una nueva exigencia de certeza jurídica caso por caso. No declarar aceptación funcional de la política nueva sólo por los tests de este commit.
+
+Verificación remota del commit `7c45943`: [GitHub Actions test-build SUCCESS](https://github.com/AlanTN13/Cotizador_gt/actions/runs/35778108097/job/106916363771), Vercel preview SUCCESS (publicación automática de la rama, no producción). PR continúa draft; main no modificado.
