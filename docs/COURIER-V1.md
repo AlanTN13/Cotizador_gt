@@ -4,7 +4,7 @@ Repositorio canónico: AlanTN13/Cotizador_gt. Deployment inspeccionado: cotizado
 
 ## Flujo
 
-Formulario de productos/links y bultos → API privada del servidor → consulta de idempotencia → lectura segura del link + interpretación estructurada OpenAI → catálogo versionado aprobado → aptitud → cálculo decimal determinístico → registro confirmado → respuesta.
+Formulario de productos/links y bultos → API privada del servidor → consulta de idempotencia → lectura segura del link + interpretación estructurada OpenAI → catálogo versionado → clasificación probable y aptitud → Tax Resolver con fallback referencial → cálculo decimal determinístico → registro confirmado → respuesta.
 
 Una solicitud finalizada queda COTIZADO, REQUIERE_REVISION o NO_APTO_COURIER. No se muestra éxito si el registro no confirma persistencia. El equipo de revisión se identifica como `cotizaciones`; no depende de una persona. La identidad del owner funcional de las reglas es Germán Jiménez.
 
@@ -14,16 +14,16 @@ Una solicitud finalizada queda COTIZADO, REQUIERE_REVISION o NO_APTO_COURIER. No
 - Hasta 10 variantes de producto, 20 grupos de bultos. Cada grupo identifica cantidad de cajas iguales, peso bruto unitario y medidas externas.
 - Valor de producto = FOB total de todas sus unidades, sin multiplicarlo nuevamente por cantidad.
 - Límite de USD 3.000 FOB por envío y 50 kg brutos por bulto, verificados en fuentes oficiales durante discovery. No se importan reglas de pequeños envíos personales de tres unidades/franquicia USD 400.
-- El catálogo incluye cinco variantes de referencia aportadas el 11/09/2026 para reconocimiento, todavía sin aprobación de aptitud ni tarifas. **Cobertura automática comercial inicial: cero productos**. Una interpretación de IA no constituye aprobación de una posición o tasa. Los casos operativos se derivan a revisión hasta incorporar datos validados.
+- El catálogo incluye cinco variantes de referencia aportadas el 11/09/2026 para reconocimiento, todavía sin aprobación de aptitud ni tarifas. **Cobertura automática comercial inicial: cero productos**. La clasificación probable es suficiente para una estimación tributaria; el catálogo real sigue sin aptitud Courier confirmada ni tarifa logística. No se exige certeza aduanera alta por producto.
 - El catálogo de referencia permite verificar la aritmética con productos ficticios. Solo se activa en desarrollo o preview con COURIER_REFERENCE_MODE=true. La API rechaza su activación desde producción aun si el cliente manda reference=true.
-- Impuestos internos distintos de cero, origen no confirmado, variantes ambiguas, falta de posición/tasa, configuración vencida o inválida y rangos sin tarifa se derivan a revisión.
+- Dudas menores usan la mejor referencia disponible y muestran advertencias. Revisión por clasificación mínima insuficiente, contradicciones materiales o posibles impedimentos Courier; siguen siendo necesarios origen compatible y tarifario disponible. Reglas generales TE/IVA nunca desplazan tasas específicas. Percepciones, Ganancias e internos están fuera de V1, no exentos. Detalle y pruebas vigentes: `TAX-RESOLVER-V1.md`.
 - No hay tasa 20% por defecto, ni regla histórica USD 0,80/kg + 1% + 1,2%. No hay modo marítimo.
 
 ## Datos que debe validar Germán
 
 1. Tarifario vigente: escalas, mínimo/redondeo, divisor volumétrico, agregación por envío o bulto, manejo y su IVA, seguro, topes, vigencia y fuente. Discovery encontró USD 23/kg + 60 en un prompt, USD 24/17/15/13,5 + 75 en otro documento y USD 24/20/19 en el prototipo; ninguna alternativa se toma como aprobada por inferencia.
-2. Primer grupo de variantes cotizables: posición SIM, origen, atributos obligatorios, restricciones/intervenciones/medidas, todos los tributos (incluido cero explícito), fecha de aprobación/vencimiento y fuentes. Los 287 productos históricos no equivalen a 287 clasificaciones validadas.
-3. Validación del método de liquidación: distribución de flete/seguro por valor, base imponible, aplicación/tope de tasa estadística, IVA/percepciones. La aritmética de referencia no valida estas reglas para casos reales.
+2. Aptitud Courier del primer grupo: origen y restricciones/intervenciones/medidas que puedan impedir la operación. El alcance tributario estimativo ya fue aprobado; no requiere certificación legal individual. Los 287 productos históricos no equivalen a cobertura universal del agente.
+3. Validación del método de liquidación: distribución de flete/seguro por valor, base imponible, aplicación/tope de tasa estadística, IVA de importación. Percepciones, Ganancias e internos quedan excluidos del estimado V1; no ampliar esta validación a fiscalidad exhaustiva.
 
 ## Operación y seguridad
 

@@ -16,7 +16,7 @@ function submission(description: string): Submission {
   };
 }
 
-it.each(cases.cases)("$id retains full SIM/DIE without enabling an unapproved quote", (c) => {
+it.each(cases.cases)("$id retains full SIM/DIE without bypassing pending Courier eligibility", (c) => {
   const profile = catalog.profiles.find((p) => p.id === c.id)!;
   // Golden expectations live separately from the application catalog. In
   // particular these fail if AEC 35%/10.8% replaces the supplied DIE 20%.
@@ -29,7 +29,7 @@ it.each(cases.cases)("$id retains full SIM/DIE without enabling an unapproved qu
     attributes: { ...profile.required }, missing: [], evidence: [c.description], issue: null,
   }]);
   expect(result).toMatchObject({ status: "REQUIERE_REVISION", calculation: null });
-  expect(result.reasons.some((r) => r.code === "PROFILE_NOT_APPROVED")).toBe(true);
+  expect(result.reasons.some((r) => r.code === "PRODUCT_REVIEW")).toBe(true);
 });
 
 afterEach(() => { vi.unstubAllEnvs(); vi.unstubAllGlobals(); });
@@ -46,6 +46,10 @@ it("does not send SIM or tax answers to the model for catalog selection", async 
   const input = JSON.parse(body.input);
   for (const candidate of input.catalog) {
     expect(Object.keys(candidate).sort()).toEqual(["aliases", "id", "name", "required"]);
+    const profile = catalog.profiles.find((p) => p.id === candidate.id)!;
+    for (const key of profile.optionalForEstimate || []) expect(candidate.required).not.toHaveProperty(key);
+    for (const [key, value] of Object.entries(profile.required))
+      if (!profile.optionalForEstimate?.includes(key)) expect(candidate.required[key]).toBe(value);
   }
   for (const c of cases.cases) expect(body.input).not.toContain(c.expected.sim);
 });

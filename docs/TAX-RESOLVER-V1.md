@@ -1,5 +1,50 @@
 # Tax Resolver V1 — diseño y execution receipt
 
+## Estado vigente — fallback estimativo implementado
+
+El ajuste explícito de Alan supersede el criterio inicial que bloqueaba toda ausencia de regla curada. Implementado en la rama draft de PR #1; sin merge ni producción. El criterio funcional está aprobado por GlobalTrip. No se solicita otra aprobación de alcance.
+
+### Delta y política aplicada
+
+- La salida sigue siendo `COTIZADO`, `REQUIERE_REVISION` o `NO_APTO_COURIER`. Cada traza tributaria distingue `RESUELTO` de `ESTIMADO` y conserva versión de política, fuente, método, tasa y advertencias. Las advertencias no bloquean ni desaparecen del registro/replay; la pantalla muestra por producto las alícuotas estimadas y sus supuestos.
+- Prioridad: fuente específica por SIM → NCM con tratamiento homogéneo → tasa disponible del mismo perfil → regla general TE/IVA si no hay una más específica. **No hay DIE universal 20%**. Sin posición mínima o dato mínimo de DIE, no se fabrica un número. Los valores cero y el IVA reducido específico prevalecen sobre reglas generales.
+- Para IVA sin dato más específico: 21% estimativo, fuente Ley de IVA art. 28. Para TE sin dato más específico: 3% estimativo dentro del período del Decreto 1140/2024 (hasta 31/12/2027). Ambas reglas están separadas/versionadas en `data/tax-estimation-policy.json`; se advierten posibles excepciones. No hay scraping durante la cotización.
+- Una fecha técnica de revisión pasada es una advertencia: se conserva el último tratamiento específico disponible. No se transforma en caducidad legal ni en una cotización ya vencida. Configuración corrupta/futura/incompleta o tasas materialmente contradictorias sí van a revisión. La fecha legal de una regla general se respeta.
+- Clasificación razonable: un perfil compatible; también alternativas con la misma NCM, tratamiento y aptitud. Los atributos accesorios del catálogo dejan de exigirse al agente. Datos respaldados por su evidencia no deben cargarse de nuevo manualmente. Diferencias accesorias se advierten; falta de datos materiales o contradicciones relevantes siguen bloqueando.
+- Se conserva el agente/proveedor/formato y su universo de cinco perfiles; sólo se reduce el conjunto de condiciones obligatorias enviado para selección. Versiones: `product-interpreter-3`, catálogo `2026-09-22.referential-estimation.1`, resolver `tax-resolver-1.1.0`, engine `courier-air-1.2.0`.
+- La aprobación formal individual del perfil ya no es un requisito de certeza tributaria para estimar. La aptitud Courier (`allowed` / `review` / `denied`) se verifica por separado. No se cambió ninguna aptitud a `allowed` ni se inventó tarifario: esas dependencias operativas permanecen.
+- Percepciones/IVA adicional, Ganancias e internos siguen excluidos, con advertencia si el perfil contiene valores. No se consideran exentos ni bloquean por sí solos la estimación acotada aprobada. Restricciones Courier se verifican de forma independiente.
+
+### Evidencia y límites
+
+- **99 pruebas PASS, 2 live SKIP, 0 FAIL**; tipado y build Next.js aprobados con Node24.19.0. Reporte `docs/evidence/tax-estimation-tests.json`. Sin llamadas OpenAI nuevas ni escrituras en Sheets reales.
+- Caso que antes bloqueaba: smartphone SIM85171300000C → DIE8%, TE0%, IVA21% **estimado y advertido**. En mezcla con cuchara (CIF110 por línea), tributos84,80 y servicio165,30 bajo tarifa sintética. Notebook/router mantienen 10,5%/ceros específicos. Snapshot pasado de revisión no altera esas tasas.
+- Pruebas nuevas cubren todos los escalones del fallback (incluida TE0 e IVA10,5 disponibles en perfil), incertidumbre accesoria, evidencia sin recarga, candidatos equivalentes, contradicciones materiales, posibles impedimentos Courier, ausencia de dato mínimo, expiración legal TE, metadatos de estimación y replay inmutable. El código real del receptor Apps Script se verifica en harness con diez trazas mezcladas resueltas/estimadas.
+- Queda diferenciada validación automatizada de aceptación real del cliente. No se repitió la evaluación live del agente; su modificación de entradas fue probada con contrato y mocks. No hay nueva cobertura universal de productos.
+- Sigue sin precio comercial operativo habilitado en el catálogo real: cinco perfiles con aptitud Courier `review` y tarifa logística ausente. Esto es una dependencia concreta heredada, **no** un requisito de certeza aduanera alta ni de validación jurídica caso por caso. Los tests habilitan aptitud/tarifa sólo en memoria.
+- Rollback: revertir este commit en la rama draft; no hay migraciones ni cambios de Apps Script desplegados. Los recibos ya guardados, incluidos los del criterio anterior, siguen devolviéndose sin recalcular al reintentar el mismo requestId.
+- Ejecución directa, sin subagentes ni revisión externa independiente. Challenge mediante transiciones antes/después, jerarquía de tasas, casos negativos, regresión y persistencia. Budget M/T2/R2 conservado; sin ampliación a liquidación fiscal completa.
+
+### Fuentes del fallback
+
+[IVA, art. 28](https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion) y [TE, Decreto1140/2024](https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm), leídos como fundamento de reglas generales referenciales, no como certificación de ausencia de excepciones. Datos específicos del PDF y reglas IVA anteriores mantienen sus hashes y documentos.
+
+## EXECUTION PREFLIGHT — ajuste estimativo aprobado, 2026-09-22
+
+La instrucción explícita posterior de Alan incorpora ahora la política de fallback antes pendiente. Base técnica `c4187ef`, AlanOS `0fef1fd`; contrato/runtime y contexto del preflight anterior reutilizados, ramas remotas verificadas sin delta. Misma superficie desktop, permisos efectivos y límites; M/T2/R2, A1, ejecución directa sin subagentes.
+
+Diseño: separar incertidumbre menor (warning, cálculo ESTIMADO) de contradicción material (revisión). Prioridad por tributo: dato específico SIM, tratamiento NCM homogéneo, dato tributario disponible del perfil (DIE), regla general referencial de TE/IVA con fuente/versionado cuando no existe dato más específico. No crear DIE universal del 20%. Fuente pasada de fecha de revisión técnica conserva su mejor dato con advertencia; fuente inválida/futura/incompleta o tasas contradictorias no se ocultan. Cero y alícuotas reducidas siempre prevalecen. Resultado COTIZADO conserva etiqueta de referencia y muestra advertencias por producto.
+
+Clasificación razonable: un candidato del agente o alternativas equivalentes en NCM/tratamiento/aptitud; los hechos del agente pueden respaldar atributos sin exigir recarga del cliente. Contradicciones declaradas o datos críticos de aptitud/clasificación ausentes siguen bloqueando. Dudas accesorias documentadas como tales no son gate. No se declara aptitud Courier desconocida como permitida ni se inventa tarifario.
+
+Aceptación: ausencia de regla IVA y vencimiento técnico permiten estimación; desconocimiento mínimo/contradicciones/Courier siguen en revisión; específico 0/10,5 no se pierde; datos auxiliares no bloquean; replay y multiproducto preservados. Pruebas focalizadas nuevas + suite/tipado/build/CI. Sin merge, producción, nuevas llamadas pagas o registros reales. STOP si falta tarifa o aptitud: documentar dependencia concreta, no tratarla como necesidad de certeza jurídica.
+
+
+## Histórico — entrega inicial y reconciliación anterior
+
+Las siguientes secciones describen el contrato inicial y sus pruebas; los criterios de revisión/fallback fueron supersedidos por el estado vigente anterior.
+
+
 ## EXECUTION PREFLIGHT — 2026-09-22
 
 - Rol y superficie real: ejecución del resultado explícitamente autorizado en tarea desktop GlobalTrip; clones locales aislados. Workspace-write, red restringida y escalaciones auto-review; no se afirma sesión trusted Alanos ni validación del piloto #32. La orden actual autoriza esta implementación desde esta tarea.

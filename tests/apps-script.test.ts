@@ -145,7 +145,7 @@ it("persists and replays ten per-product tax receipts without losing source vers
   const h = harness();
   const id = "9b7be7a7-0664-4da2-95cb-5cc1c533b779";
   const taxResolutions = Array.from({ length: 10 }, (_, i) =>
-    resolveTaxes("85176241100N", i, new Date("2026-09-22T12:00:00Z")),
+    resolveTaxes(i % 2 ? "85171300000C" : "85176241100N", i, new Date("2026-09-22T12:00:00Z")),
   );
   const result = {
     requestId: id, status: "REQUIERE_REVISION", simulation: false,

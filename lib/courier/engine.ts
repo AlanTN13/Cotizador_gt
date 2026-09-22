@@ -1,5 +1,5 @@
 import Decimal from "decimal.js";
-import { resolveTaxes, TAX_SCOPE } from "./tax-resolver";
+import { normalizePosition, resolveTaxes, TAX_SCOPE, taxDataset } from "./tax-resolver";
 import type {
   Approval,
   Catalog,
@@ -9,7 +9,8 @@ import type {
   Submission,
   Tariff,
 } from "./types";
-export const ENGINE_VERSION = "courier-air-1.1.0";
+export const ENGINE_VERSION = "courier-air-1.2.0";
+const comparableFact = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "");
 const money = (n: Decimal.Value) =>
   new Decimal(n).toDecimalPlaces(2, Decimal.ROUND_HALF_UP).toNumber();
 const sum = (v: Decimal.Value[]) =>
@@ -91,6 +92,7 @@ export function decide(
     interpretations,
     ...(catalog.scope === "operational" ? {
       taxScope: TAX_SCOPE,
+      warnings: [],
       taxResolutions: s.products.map((_, i) => ({
         ...resolveTaxes(null, i, now), reasons: ["TAX_NOT_ATTEMPTED"],
       })),
@@ -109,6 +111,9 @@ export function decide(
       message,
       ...(productIndex === undefined ? {} : { productIndex }),
     });
+  const warn = (code: string, message: string, productIndex: number) => {
+    result.warnings = [...(result.warnings || []), { code, message, productIndex }];
+  };
   if (sum(s.products.map((p) => p.valueUsd)).gt(3000))
     reason("FOB_LIMIT", "El valor total supera USD 3.000 FOB por envío.");
   if (s.parcels.some((p) => p.grossWeight > 50))
@@ -122,81 +127,101 @@ export function decide(
   }
   const profiles = s.products.map((p, i) => {
     const interpretation = interpretations.find((x) => x.productIndex === i);
-    if (
-      !interpretation ||
-      interpretation.issue ||
-      interpretation.candidateIds.length !== 1 ||
-      interpretation.missing.length
-    ) {
-      reason(
-        "CLASSIFICATION_REVIEW",
-        interpretation?.missing.length
-          ? "Falta confirmar: " + interpretation.missing.join(", ") + "."
-          : "No pudimos identificar una variante única. Un asesor debe revisar este producto.",
-        i,
-      );
+    if (!interpretation || interpretation.issue || !interpretation.candidateIds.length ||
+        (result.simulation && (interpretation.candidateIds.length !== 1 || interpretation.missing.length))) {
+      reason("CLASSIFICATION_REVIEW", "No pudimos identificar mínimamente una clasificación compatible para este producto.", i);
       return null;
     }
-    const profile = catalog.profiles.find(
-      (x) => x.id === interpretation.candidateIds[0],
-    );
-    if (!profile) {
-      reason("PROFILE_NOT_APPROVED", "No hay un perfil válido para este producto.", i);
+    const candidates = interpretation.candidateIds.map((id) => catalog.profiles.find((x) => x.id === id));
+    if (candidates.some((p) => !p)) {
+      reason("CLASSIFICATION_REVIEW", "La clasificación propuesta no está disponible.", i);
       return null;
+    }
+    const profile = candidates[0]!;
+    if (candidates.length > 1) {
+      // Multiple descriptions may still identify the same minimum NCM.
+      // Only economically/operationally equivalent candidates can continue.
+      const treatment = candidates.map((candidate) => resolveTaxes(candidate!.sim, i, now));
+      const ncm = normalizePosition(profile.sim)?.slice(0, 8);
+      if (!ncm || candidates.some((c) => c!.decision !== "allowed" || c!.origin !== profile.origin ||
+          normalizePosition(c!.sim)?.slice(0, 8) !== ncm) ||
+          treatment.some((t) => t.status === "REQUIERE_REVISION" || JSON.stringify(t.rates) !== JSON.stringify(treatment[0].rates))) {
+        reason("CLASSIFICATION_REVIEW", "Las clasificaciones posibles tienen diferencias materiales o de aptitud Courier.", i);
+        return null;
+      }
+      warn("EQUIVALENT_CLASSIFICATIONS", "Hay variantes probables con la misma posición NCM y tratamiento estimado.", i);
     }
     if (!approved(profile.approval, now, result.simulation)) {
-      reason(
-        "PROFILE_NOT_APPROVED",
-        "El producto todavía no tiene un perfil vigente aprobado para cotizar.",
-        i,
-      );
-      // Continue only to collect tax evidence; any reason blocks the total.
+      if (result.simulation) {
+        reason("PROFILE_NOT_APPROVED", "El perfil técnico no tiene aprobación vigente.", i);
+        return null;
+      }
+      // A formal tax sign-off is not a prerequisite for a commercial estimate.
+      // Courier eligibility is still checked independently via decision below.
+      warn("PROFILE_REFERENCE", "Se utiliza la clasificación probable del perfil como referencia comercial.", i);
     }
     if (p.origin !== "China" || profile.origin !== p.origin) {
-      reason(
-        "ORIGIN_REVIEW",
-        "Confirmá el país de fabricación. Este perfil cubre únicamente origen China.",
-        i,
-      );
+      reason("ORIGIN_REVIEW", "Confirmá el país de fabricación. Este perfil cubre únicamente origen China.", i);
       return null;
     }
-    const missing = Object.entries(profile.required).filter(
-      ([key, value]) => p.attributes[key] !== value,
-    );
-    if (missing.length) {
-      result.requestedAttributes = [
-        ...(result.requestedAttributes || []),
-        ...missing.map(([key]) => ({ productIndex: i, key })),
-      ];
-      reason(
-        "ATTRIBUTES_REQUIRED",
-        "Confirmá estos datos técnicos: " +
-          missing.map(([k, v]) => k + " = " + v).join("; ") +
-          ".",
-        i,
-      );
+    const optional = result.simulation ? [] : profile.optionalForEstimate || [];
+    const facts = result.simulation ? p.attributes : { ...interpretation.attributes, ...p.attributes };
+    // Only differences that can change the classification/Courier decision
+    // are blocking. Accessory details remain visible in the submitted facts.
+    const contradictions = Object.entries(profile.required).filter(([key, value]) =>
+      !optional.includes(key) && [p.attributes[key], ...(result.simulation ? [] : [interpretation.attributes[key]])]
+        .some((fact) => fact !== undefined && comparableFact(fact) !== comparableFact(value)));
+    if (contradictions.length) {
+      reason("CLASSIFICATION_CONTRADICTION", "Los datos del producto contradicen la variante propuesta.", i);
       return null;
     }
+    const missing = Object.entries(profile.required).filter(([key]) => facts[key] === undefined && !optional.includes(key));
+    const backedClassification = !result.simulation && !interpretation.missing.length && interpretation.evidence.length > 0;
+    if (missing.length && !backedClassification) {
+      result.requestedAttributes = [...(result.requestedAttributes || []), ...missing.map(([key]) => ({ productIndex: i, key }))];
+      reason("ATTRIBUTES_REQUIRED", "Faltan datos que pueden cambiar la clasificación o la aptitud Courier: " + missing.map(([key]) => key).join(", ") + ".", i);
+      return null;
+    }
+    if (missing.length && backedClassification)
+      warn("CLASSIFICATION_EVIDENCE", "La clasificación probable se apoya en la descripción o enlace; no requiere volver a cargar los mismos datos.", i);
+    if (!result.simulation && (interpretation.missing.length || optional.some((key) => facts[key] !== profile.required[key])))
+      warn("MINOR_CLASSIFICATION_UNCERTAINTY", "La estimación admite diferencias o datos pendientes en características accesorias.", i);
     if (profile.decision === "denied") {
-      if (!approved(profile.approval, now, result.simulation)) return null;
+      if (!approved(profile.approval, now, result.simulation)) {
+        reason("PRODUCT_REVIEW", "El producto presenta un posible impedimento Courier.", i);
+        return null;
+      }
       reason("PRODUCT_NOT_ALLOWED", profile.reason, i);
       return profile;
     }
-    const resolution = result.simulation ? null : resolveTaxes(profile.sim, i, now);
+    const resolution = result.simulation ? null : resolveTaxes(profile.sim, i, now, taxDataset, {
+      position: profile.sim || "", duty: profile.taxes.duty,
+      statistical: profile.taxes.statistical, vat: profile.taxes.vat,
+      profileId: profile.id, catalogVersion: catalog.version,
+    });
     if (resolution) result.taxResolutions![i] = resolution;
     if (profile.decision !== "allowed") {
       reason("PRODUCT_REVIEW", profile.reason, i);
     }
     if (resolution?.status === "REQUIERE_REVISION") {
-      reason("TAX_REVIEW", "No se pudo confirmar DIE, tasa de estadística e IVA para esta posición; requiere revisión.", i);
+      reason("TAX_REVIEW", "El tratamiento presenta una contradicción material o carece de una base mínima para estimar; requiere revisión.", i);
       return null;
     }
-    // Additional taxes remain out of scope, not presumed legally exempt.
-    // A known non-zero treatment cannot be silently removed from a quote.
+    if (resolution?.status === "ESTIMADO") {
+      const estimated = resolution.estimation.components.map((component) => {
+        const label = { duty: "DIE", statistical: "TE", vat: "IVA" }[component.tax];
+        const rate = (resolution.rates[component.tax]! * 100).toLocaleString("es-AR");
+        return `${label} ${rate}% (${component.method === "GENERAL_RULE" ? "regla general" : "referencia disponible"})`;
+      });
+      warn("ESTIMATED_TAX_TREATMENT", estimated.length
+        ? "Alícuotas estimadas: " + estimated.join(", ") + ". Pueden variar en la liquidación definitiva."
+        : "Se conserva el tratamiento del último archivo disponible, pendiente de actualización; la liquidación definitiva puede variar.", i);
+    }
+    // These concepts are explicitly outside the approved estimate, not exempt.
+    // Their presence is disclosed, rather than turning V1 into a full tax engine.
     if (resolution && [profile.taxes.additionalVat, profile.taxes.income, profile.taxes.internal]
       .some((rate) => rate !== null && rate !== 0)) {
-      reason("OUT_OF_SCOPE_TAX_REVIEW", "El producto tiene un tratamiento adicional que requiere revisión.", i);
-      return null;
+      warn("OUT_OF_SCOPE_TAX_EXCLUDED", "El perfil contiene tributos adicionales que no están incluidos en esta estimación (percepciones, Ganancias o internos).", i);
     }
     const effectiveProfile = resolution ? {
       ...profile,
@@ -316,7 +341,7 @@ export function decide(
     const additional = money(taxable.mul(taxes.additionalVat!));
     const income = money(taxable.mul(taxes.income!));
     return {
-      name: profile.name,
+      name: result.simulation ? profile.name : interpretations.find((x) => x.productIndex === i)!.name,
       sim: profile.sim!,
       ...(!result.simulation ? {
         ncm: result.taxResolutions![i].ncm!,
@@ -357,11 +382,12 @@ export function decide(
       Math.min(
         +now + t.validityHours * 3600000,
         Date.parse(t.approval!.validUntil),
-        ...profiles.map((p) => Date.parse(p!.approval!.validUntil)),
+        ...(result.simulation ? profiles.map((p) => Date.parse(p!.approval!.validUntil)) : []),
+        // A maintenance deadline already passed must not create an expired quote.
         ...(result.taxResolutions || []).flatMap((r) => [
-          Date.parse(r.dutyEvidence!.source.reviewAfter),
-          Date.parse(r.vatEvidence!.source.reviewAfter),
-        ]),
+          Date.parse(r.dutyEvidence?.source.reviewAfter || ""),
+          Date.parse(r.vatEvidence?.source.reviewAfter || ""),
+        ]).filter((expiry) => expiry > +now),
       ),
     ).toISOString(),
   };

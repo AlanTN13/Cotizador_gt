@@ -1,0 +1,1367 @@
+{
+  "numTotalTestSuites": 14,
+  "numPassedTestSuites": 14,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 101,
+  "numPassedTests": 99,
+  "numFailedTests": 0,
+  "numPendingTests": 2,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1790108660491,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "actual Apps Script code authenticates, persists, deduplicates and detects conflicts",
+          "status": "passed",
+          "title": "actual Apps Script code authenticates, persists, deduplicates and detects conflicts",
+          "duration": 12.197792000000021,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "labels preview records as tests and preserves zero and readable multi-product summaries",
+          "status": "passed",
+          "title": "labels preview records as tests and preserves zero and readable multi-product summaries",
+          "duration": 1.1970420000000104,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "persists and replays ten per-product tax receipts without losing source versions or zeros",
+          "status": "passed",
+          "title": "persists and replays ten per-product tax receipts without losing source versions or zeros",
+          "duration": 719.526583,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108660892,
+      "endTime": 1790108661624.5266,
+      "status": "passed",
+      "message": "",
+      "name": "tests/apps-script.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects a mixture of invented and real candidate IDs",
+          "status": "passed",
+          "title": "rejects a mixture of invented and real candidate IDs",
+          "duration": 21.67533400000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "fails closed on refusal and provider outage",
+          "status": "passed",
+          "title": "fails closed on refusal and provider outage",
+          "duration": 1.3310829999999783,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "rejects duplicate product indices",
+          "status": "passed",
+          "title": "rejects duplicate product indices",
+          "duration": 0.6359160000000088,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "never sends customer contact details to the classifier",
+          "status": "passed",
+          "title": "never sends customer contact details to the classifier",
+          "duration": 0.9803750000000093,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "LIVE OpenAI interpretation uses real provider and unapproved catalog",
+          "status": "skipped",
+          "title": "LIVE OpenAI interpretation uses real provider and unapproved catalog",
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108660939,
+      "endTime": 1790108660962.9805,
+      "status": "passed",
+      "message": "",
+      "name": "tests/classifier.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) known product calculates independently verified total, valid zero duty",
+          "status": "passed",
+          "title": "known product calculates independently verified total, valid zero duty",
+          "duration": 5.364584000000036,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) non eligible product never has price",
+          "status": "passed",
+          "title": "non eligible product never has price",
+          "duration": 0.3192500000000109,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) ambiguous product goes to review",
+          "status": "passed",
+          "title": "ambiguous product goes to review",
+          "duration": 0.17120900000008987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) missing duty is not zero or fallback20",
+          "status": "passed",
+          "title": "missing duty is not zero or fallback20",
+          "duration": 0.35820799999999053,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) multiple parcels use aggregated volume and gross",
+          "status": "passed",
+          "title": "multiple parcels use aggregated volume and gross",
+          "duration": 0.3661250000000109,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) different products retain individual conditions and cent allocations",
+          "status": "passed",
+          "title": "different products retain individual conditions and cent allocations",
+          "duration": 0.6722919999999704,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) FOB boundary 3000",
+          "status": "passed",
+          "title": "FOB boundary 3000",
+          "duration": 0.31570799999997234,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) FOB boundary 3000.01",
+          "status": "passed",
+          "title": "FOB boundary 3000.01",
+          "duration": 0.12337500000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) weight per package boundary 50",
+          "status": "passed",
+          "title": "weight per package boundary 50",
+          "duration": 0.28854200000000674,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) weight per package boundary 50.01",
+          "status": "passed",
+          "title": "weight per package boundary 50.01",
+          "duration": 0.12608299999999417,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) no three-unit noncommercial restriction is applied",
+          "status": "passed",
+          "title": "no three-unit noncommercial restriction is applied",
+          "duration": 0.19224999999994452,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) expired approval blocks pricing",
+          "status": "passed",
+          "title": "expired approval blocks pricing",
+          "duration": 0.08970799999997325,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) unapproved operational dataset never quotes",
+          "status": "passed",
+          "title": "unapproved operational dataset never quotes",
+          "duration": 0.4399999999999409,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) invented/unknown classification IDs do not quote",
+          "status": "passed",
+          "title": "invented/unknown classification IDs do not quote",
+          "duration": 0.09470800000008239,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) required material attributes must be declared by customer",
+          "status": "passed",
+          "title": "required material attributes must be declared by customer",
+          "duration": 0.3915829999999687,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) invalid tariff NaN fails closed",
+          "status": "passed",
+          "title": "invalid tariff NaN fails closed",
+          "duration": 0.10683299999993778,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) invalid tariff -1 fails closed",
+          "status": "passed",
+          "title": "invalid tariff -1 fails closed",
+          "duration": 0.06187499999998636,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) invalid tariff Infinity fails closed",
+          "status": "passed",
+          "title": "invalid tariff Infinity fails closed",
+          "duration": 0.08716599999991104,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) reference mode cannot be activated by production client",
+          "status": "passed",
+          "title": "reference mode cannot be activated by production client",
+          "duration": 0.5664590000000089,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "Courier deterministic reference cases (not approved commercial rates)"
+          ],
+          "fullName": "Courier deterministic reference cases (not approved commercial rates) invalid payloads reject maritime/used/empty/nonfinite",
+          "status": "passed",
+          "title": "invalid payloads reject maritime/used/empty/nonfinite",
+          "duration": 2.2279170000000477,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics repeat and simultaneous submits persist one row and same result",
+          "status": "passed",
+          "title": "repeat and simultaneous submits persist one row and same result",
+          "duration": 21.11612500000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics same id changed payload conflicts, different id same hash",
+          "status": "passed",
+          "title": "same id changed payload conflicts, different id same hash",
+          "duration": 1.3127080000000433,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics classifier outage creates review row without price",
+          "status": "passed",
+          "title": "classifier outage creates review row without price",
+          "duration": 0.21662499999990814,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics registry read failure stops before classifier",
+          "status": "passed",
+          "title": "registry read failure stops before classifier",
+          "duration": 0.2937920000000531,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics registry commit failure never reports quote success",
+          "status": "passed",
+          "title": "registry commit failure never reports quote success",
+          "duration": 0.28120799999999235,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "registration and failure semantics"
+          ],
+          "fullName": "registration and failure semantics lost commit response recovers saved result",
+          "status": "passed",
+          "title": "lost commit response recovers saved result",
+          "duration": 0.34987499999999727,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 127.0.0.1",
+          "status": "passed",
+          "title": "denies internal 127.0.0.1",
+          "duration": 0.0925000000000864,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 10.0.0.1",
+          "status": "passed",
+          "title": "denies internal 10.0.0.1",
+          "duration": 0.03808300000002873,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 169.254.169.254",
+          "status": "passed",
+          "title": "denies internal 169.254.169.254",
+          "duration": 0.03574999999989359,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 172.16.0.1",
+          "status": "passed",
+          "title": "denies internal 172.16.0.1",
+          "duration": 0.034209000000032574,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 192.168.0.1",
+          "status": "passed",
+          "title": "denies internal 192.168.0.1",
+          "duration": 0.05475000000001273,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 100.64.0.1",
+          "status": "passed",
+          "title": "denies internal 100.64.0.1",
+          "duration": 0.030416000000059285,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 0.0.0.0",
+          "status": "passed",
+          "title": "denies internal 0.0.0.0",
+          "duration": 0.030000000000086402,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal 224.0.0.1",
+          "status": "passed",
+          "title": "denies internal 224.0.0.1",
+          "duration": 0.0402920000000222,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety denies internal ::1",
+          "status": "passed",
+          "title": "denies internal ::1",
+          "duration": 0.033916999999973996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety permits public addresses",
+          "status": "passed",
+          "title": "permits public addresses",
+          "duration": 0.04933300000004692,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety rejects unsafe URL http://example.com",
+          "status": "passed",
+          "title": "rejects unsafe URL http://example.com",
+          "duration": 0.2788750000000846,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety rejects unsafe URL https://user:pass@example.com",
+          "status": "passed",
+          "title": "rejects unsafe URL https://user:pass@example.com",
+          "duration": 0.1489169999999831,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "link reading safety"
+          ],
+          "fullName": "link reading safety rejects unsafe URL https://example.com:8080",
+          "status": "passed",
+          "title": "rejects unsafe URL https://example.com:8080",
+          "duration": 0.08924999999999272,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108661608,
+      "endTime": 1790108661645.2788,
+      "status": "passed",
+      "message": "",
+      "name": "tests/courier.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "LIVE evaluate the five user-supplied descriptions against the current catalog",
+          "status": "skipped",
+          "title": "LIVE evaluate the five user-supplied descriptions against the current catalog",
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108660491,
+      "endTime": 1790108660491,
+      "status": "passed",
+      "message": "",
+      "name": "tests/functional-classification.live.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "pedestal-fan-50w retains full SIM/DIE without bypassing pending Courier eligibility",
+          "status": "passed",
+          "title": "pedestal-fan-50w retains full SIM/DIE without bypassing pending Courier eligibility",
+          "duration": 9.313541999999984,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "cotton-tshirt-adult retains full SIM/DIE without bypassing pending Courier eligibility",
+          "status": "passed",
+          "title": "cotton-tshirt-adult retains full SIM/DIE without bypassing pending Courier eligibility",
+          "duration": 4.867707999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "stainless-steel-teaspoon retains full SIM/DIE without bypassing pending Courier eligibility",
+          "status": "passed",
+          "title": "stainless-steel-teaspoon retains full SIM/DIE without bypassing pending Courier eligibility",
+          "duration": 4.068499999999972,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "residential-led-e27-9w retains full SIM/DIE without bypassing pending Courier eligibility",
+          "status": "passed",
+          "title": "residential-led-e27-9w retains full SIM/DIE without bypassing pending Courier eligibility",
+          "duration": 3.888208000000077,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "stoneware-food-contact-mug retains full SIM/DIE without bypassing pending Courier eligibility",
+          "status": "passed",
+          "title": "stoneware-food-contact-mug retains full SIM/DIE without bypassing pending Courier eligibility",
+          "duration": 4.319165999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "does not send SIM or tax answers to the model for catalog selection",
+          "status": "passed",
+          "title": "does not send SIM or tax answers to the model for catalog selection",
+          "duration": 16.349917000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108661588,
+      "endTime": 1790108661631.3499,
+      "status": "passed",
+      "message": "",
+      "name": "tests/functional-classification.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "same host accepted through framework internal URL, malformed fields actionable",
+          "status": "passed",
+          "title": "same host accepted through framework internal URL, malformed fields actionable",
+          "duration": 10.823125000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "different origin rejected",
+          "status": "passed",
+          "title": "different origin rejected",
+          "duration": 1.0010829999999942,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "oversized body rejected before parsing",
+          "status": "passed",
+          "title": "oversized body rejected before parsing",
+          "duration": 0.6649589999999534,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invalid JSON is actionable",
+          "status": "passed",
+          "title": "invalid JSON is actionable",
+          "duration": 0.5836659999999938,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108661578,
+      "endTime": 1790108661590.665,
+      "status": "passed",
+      "message": "",
+      "name": "tests/route.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Ventilador de pie resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Ventilador de pie resolves DIE/TE/IVA with source/version",
+          "duration": 7.205624999999941,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases T-shirt algodón (AEC 35, DIE 20) resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "T-shirt algodón (AEC 35, DIE 20) resolves DIE/TE/IVA with source/version",
+          "duration": 3.769042000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Cuchara inoxidable resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Cuchara inoxidable resolves DIE/TE/IVA with source/version",
+          "duration": 4.1727919999999585,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Lámpara LED resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Lámpara LED resolves DIE/TE/IVA with source/version",
+          "duration": 3.879542000000015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Taza gres resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Taza gres resolves DIE/TE/IVA with source/version",
+          "duration": 5.245958999999971,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Notebook >600 y <=1100 USD resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Notebook >600 y <=1100 USD resolves DIE/TE/IVA with source/version",
+          "duration": 3.695875000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases Router inalámbrico <10 puertos resolves DIE/TE/IVA with source/version",
+          "status": "passed",
+          "title": "Router inalámbrico <10 puertos resolves DIE/TE/IVA with source/version",
+          "duration": 3.703249999999912,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases smartwatch without a unique supported classification requires review",
+          "status": "passed",
+          "title": "smartwatch without a unique supported classification requires review",
+          "duration": 2.1105830000000196,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases uncurated smartphone IVA uses the disclosed general estimate",
+          "status": "passed",
+          "title": "uncurated smartphone IVA uses the disclosed general estimate",
+          "duration": 4.513042000000041,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases IVA rules and cached official annex retain their content hashes",
+          "status": "passed",
+          "title": "IVA rules and cached official annex retain their content hashes",
+          "duration": 2.1404999999999745,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "supplied snapshot and 9 representative cases"
+          ],
+          "fullName": "supplied snapshot and 9 representative cases source hash, full row count, and independent TE count match PDF",
+          "status": "passed",
+          "title": "source hash, full row count, and independent TE count match PDF",
+          "duration": 16.829207999999994,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity normalizes formatting without truncating codes",
+          "status": "passed",
+          "title": "normalizes formatting without truncating codes",
+          "duration": 12.89045800000008,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity NCM requires unanimous DIE/TE and explicit IVA for all SIM children",
+          "status": "passed",
+          "title": "NCM requires unanimous DIE/TE and explicit IVA for all SIM children",
+          "duration": 57.084625000000074,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity an exact IVA rule takes precedence over the broader NCM",
+          "status": "passed",
+          "title": "an exact IVA rule takes precedence over the broader NCM",
+          "duration": 47.09724999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity an incomplete snapshot cannot claim unanimous NCM coverage",
+          "status": "passed",
+          "title": "an incomplete snapshot cannot claim unanimous NCM coverage",
+          "duration": 30.06874999999991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity conflicting rules cannot fall back to NCM",
+          "status": "passed",
+          "title": "conflicting rules cannot fall back to NCM",
+          "duration": 29.2310829999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid rate NaN fails closed",
+          "status": "passed",
+          "title": "invalid rate NaN fails closed",
+          "duration": 29.466917000000194,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid rate Infinity fails closed",
+          "status": "passed",
+          "title": "invalid rate Infinity fails closed",
+          "duration": 33.425792,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid rate -1 fails closed",
+          "status": "passed",
+          "title": "invalid rate -1 fails closed",
+          "duration": 28.79012499999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid rate 1.1 fails closed",
+          "status": "passed",
+          "title": "invalid rate 1.1 fails closed",
+          "duration": 28.788667000000032,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid/outside review window 2026-09-21",
+          "status": "passed",
+          "title": "invalid/outside review window 2026-09-21",
+          "duration": 0.13533400000005713,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity invalid/outside review window invalid",
+          "status": "passed",
+          "title": "invalid/outside review window invalid",
+          "duration": 0.03375000000005457,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "fail-closed and specificity"
+          ],
+          "fullName": "fail-closed and specificity missing source provenance never quotes",
+          "status": "passed",
+          "title": "missing source provenance never quotes",
+          "duration": 29.28320799999983,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates multiproduct mixed rates use independent cent-checked bases and taxes",
+          "status": "passed",
+          "title": "multiproduct mixed rates use independent cent-checked bases and taxes",
+          "duration": 7.971749999999929,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates zero TE remains zero when the shipment cap binds for another line",
+          "status": "passed",
+          "title": "zero TE remains zero when the shipment cap binds for another line",
+          "duration": 6.639957999999979,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates known additionalVat is explicitly excluded without blocking the approved estimate",
+          "status": "passed",
+          "title": "known additionalVat is explicitly excluded without blocking the approved estimate",
+          "duration": 4.013167000000067,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates known income is explicitly excluded without blocking the approved estimate",
+          "status": "passed",
+          "title": "known income is explicitly excluded without blocking the approved estimate",
+          "duration": 3.499458000000004,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates known internal is explicitly excluded without blocking the approved estimate",
+          "status": "passed",
+          "title": "known internal is explicitly excluded without blocking the approved estimate",
+          "duration": 3.269290999999839,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates multiproduct completes when one line uses the general IVA estimate",
+          "status": "passed",
+          "title": "multiproduct completes when one line uses the general IVA estimate",
+          "duration": 33.11483299999986,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates tax evidence survives unapproved operational profiles and missing tariff",
+          "status": "passed",
+          "title": "tax evidence survives unapproved operational profiles and missing tariff",
+          "duration": 3.6693749999999454,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates required attributes still block inference and tax lookup",
+          "status": "passed",
+          "title": "required attributes still block inference and tax lookup",
+          "duration": 0.2197919999998703,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates request replay returns the original tax versions even after expiry",
+          "status": "passed",
+          "title": "request replay returns the original tax versions even after expiry",
+          "duration": 4.479583000000048,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "post-classification integration and preserved gates"
+          ],
+          "fullName": "post-classification integration and preserved gates 10 products with complete trace fit the existing registry result cell",
+          "status": "passed",
+          "title": "10 products with complete trace fit the existing registry result cell",
+          "duration": 31.773249999999962,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy maintenance expiry preserves specific zeros/reduced rates with a warning and a usable quote expiry",
+          "status": "passed",
+          "title": "maintenance expiry preserves specific zeros/reduced rates with a warning and a usable quote expiry",
+          "duration": 3.851750000000038,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy formal profile sign-off is not required for a reasonable estimate with known Courier eligibility",
+          "status": "passed",
+          "title": "formal profile sign-off is not required for a reasonable estimate with known Courier eligibility",
+          "duration": 3.4104580000000624,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy missing or differing accessory data does not block a minimum reasonable classification",
+          "status": "passed",
+          "title": "missing or differing accessory data does not block a minimum reasonable classification",
+          "duration": 6.713209000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy complete classification evidence need not be re-entered as exact attribute fields",
+          "status": "passed",
+          "title": "complete classification evidence need not be re-entered as exact attribute fields",
+          "duration": 6.9934169999999085,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy equivalent candidate variants do not demand exact SIM certainty",
+          "status": "passed",
+          "title": "equivalent candidate variants do not demand exact SIM certainty",
+          "duration": 15.88366700000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy unknown or impeded Courier eligibility still blocks the estimate",
+          "status": "passed",
+          "title": "unknown or impeded Courier eligibility still blocks the estimate",
+          "duration": 3.1757920000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy a same-position profile DIE can estimate missing snapshot data, with no universal20",
+          "status": "passed",
+          "title": "a same-position profile DIE can estimate missing snapshot data, with no universal20",
+          "duration": 68.55424999999991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy an exact IVA exception is not hidden by the missing SIM fallback",
+          "status": "passed",
+          "title": "an exact IVA exception is not hidden by the missing SIM fallback",
+          "duration": 36.42658400000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy equivalent duplicate IVA evidence is uncertainty, differing evidence remains material",
+          "status": "passed",
+          "title": "equivalent duplicate IVA evidence is uncertainty, differing evidence remains material",
+          "duration": 35.27099999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "approved estimation policy"
+          ],
+          "fullName": "approved estimation policy an estimated receipt remains immutable on replay",
+          "status": "passed",
+          "title": "an estimated receipt remains immutable on replay",
+          "duration": 3.708082999999988,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1790108661593,
+      "endTime": 1790108662260.708,
+      "status": "passed",
+      "message": "",
+      "name": "tests/tax-resolver.test.ts"
+    }
+  ]
+}

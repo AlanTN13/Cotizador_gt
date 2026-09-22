@@ -622,6 +622,19 @@ export default function CourierForm({
                 La posición arancelaria es probable y requiere validación; no es una clasificación aduanera definitiva.
               </p>
             )}
+            {!!result.warnings?.length && (
+              <div className="mt-4 rounded-xl bg-amber-50 p-4 text-sm text-amber-950">
+                <p className="font-semibold">Estimación con supuestos</p>
+                <ul className="mt-2 list-disc space-y-1 pl-5">
+                  {result.warnings.map((warning, index) => (
+                    <li key={index}>
+                      {warning.productIndex !== undefined ? `Producto ${warning.productIndex + 1}: ` : ""}
+                      {warning.message}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {result.calculation && (
               <>
                 <dl className="mt-6 grid gap-5 sm:grid-cols-3">

@@ -53,3 +53,8 @@ COURIER_FUNCTIONAL_LIVE=true COURIER_EVAL_REQUIRE_MATCH=true COURIER_EVAL_NEGATI
 `COURIER_EVAL_REPORT` permite escribir el resultado JSON a un archivo local. Estas pruebas no envían correos ni escriben solicitudes en Sheets.
 
 Referencia técnica del ajuste de formato: [Structured Outputs — límites de arrays](https://developers.openai.com/api/docs/guides/structured-outputs#supported-schemas).
+
+
+## Actualización 22/09 — criterio estimativo vigente
+
+La evidencia live de este documento es histórica de `product-interpreter-2`. El ajuste `product-interpreter-3` conserva agente/contrato y cinco perfiles, pero no exige atributos accesorios para proponer la clasificación probable; se comprobó el contrato de entrada con pruebas offline, no una nueva corrida del modelo. La regla anterior de validar todos los tributos antes de cotizar fue supersedida por el fallback aprobado: ver `TAX-RESOLVER-V1.md`. Siguen pendientes aptitud Courier y tarifario reales; no una certificación fiscal individual.

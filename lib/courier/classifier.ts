@@ -132,7 +132,11 @@ export async function interpret(
           id: p.id,
           name: p.name,
           aliases: p.aliases,
-          required: p.required,
+          // Accessory attributes must not turn a reasonable classification
+          // into an exact-SKU certification requirement.
+          required: Object.fromEntries(Object.entries(p.required).filter(
+            ([key]) => !p.optionalForEstimate?.includes(key),
+          )),
         })),
       }),
       text: {

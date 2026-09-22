@@ -47,6 +47,7 @@ export type Profile = {
   sim: string | null;
   origin: string;
   required: Record<string, string>;
+  optionalForEstimate?: string[];
   decision: "allowed" | "denied" | "review";
   reason: string;
   taxes: Taxes;
@@ -117,6 +118,7 @@ export type Result = {
   status: Status;
   simulation: boolean;
   reasons: { code: string; message: string; productIndex?: number }[];
+  warnings?: { code: string; message: string; productIndex?: number }[];
   requestedAttributes?: { productIndex: number; key: string }[];
   interpretations: Interpretation[];
   taxScope?: "DIE_TE_IVA_REFERENCIAL_V1";

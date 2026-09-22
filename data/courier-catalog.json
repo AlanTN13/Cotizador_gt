@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-11.functional-examples.1",
+  "version": "2026-09-22.referential-estimation.1",
   "scope": "operational",
   "owner": "Germán Jiménez",
   "profiles": [
@@ -22,7 +22,7 @@
         "oscilante": "sí"
       },
       "decision": "review",
-      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "reason": "Aptitud Courier aún no confirmada para esta variante; requiere revisión operativa.",
       "taxes": {
         "duty": 0.2,
         "statistical": null,
@@ -31,7 +31,12 @@
         "income": null,
         "internal": null
       },
-      "approval": null
+      "approval": null,
+      "optionalForEstimate": [
+        "tension",
+        "diametro",
+        "oscilante"
+      ]
     },
     {
       "id": "cotton-tshirt-adult",
@@ -53,7 +58,7 @@
         "cierre": "no"
       },
       "decision": "review",
-      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "reason": "Aptitud Courier aún no confirmada para esta variante; requiere revisión operativa.",
       "taxes": {
         "duty": 0.2,
         "statistical": null,
@@ -62,7 +67,10 @@
         "income": null,
         "internal": null
       },
-      "approval": null
+      "approval": null,
+      "optionalForEstimate": [
+        "talle"
+      ]
     },
     {
       "id": "stainless-steel-teaspoon",
@@ -81,7 +89,7 @@
         "capacidad": "5 ml"
       },
       "decision": "review",
-      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "reason": "Aptitud Courier aún no confirmada para esta variante; requiere revisión operativa.",
       "taxes": {
         "duty": 0.18,
         "statistical": null,
@@ -90,7 +98,10 @@
         "income": null,
         "internal": null
       },
-      "approval": null
+      "approval": null,
+      "optionalForEstimate": [
+        "capacidad"
+      ]
     },
     {
       "id": "residential-led-e27-9w",
@@ -110,7 +121,7 @@
         "formato": "A60"
       },
       "decision": "review",
-      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "reason": "Aptitud Courier aún no confirmada para esta variante; requiere revisión operativa.",
       "taxes": {
         "duty": 0.2,
         "statistical": null,
@@ -119,7 +130,13 @@
         "income": null,
         "internal": null
       },
-      "approval": null
+      "approval": null,
+      "optionalForEstimate": [
+        "potencia",
+        "tension",
+        "casquillo",
+        "formato"
+      ]
     },
     {
       "id": "stoneware-food-contact-mug",
@@ -139,7 +156,7 @@
         "esmaltada": "sí"
       },
       "decision": "review",
-      "reason": "Variante de referencia aportada para evaluación. Pendiente de validación funcional de aptitud y liquidación.",
+      "reason": "Aptitud Courier aún no confirmada para esta variante; requiere revisión operativa.",
       "taxes": {
         "duty": 0.2,
         "statistical": null,
@@ -148,7 +165,12 @@
         "income": null,
         "internal": null
       },
-      "approval": null
+      "approval": null,
+      "optionalForEstimate": [
+        "capacidad",
+        "asa",
+        "esmaltada"
+      ]
     }
   ],
   "tariff": null
