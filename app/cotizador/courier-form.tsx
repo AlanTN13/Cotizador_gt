@@ -615,6 +615,13 @@ export default function CourierForm({
                 Completar los datos técnicos solicitados
               </button>
             )}
+            {result.taxScope === "DIE_TE_IVA_REFERENCIAL_V1" && (
+              <p className="mt-4 text-sm text-slate-600">
+                Referencia comercial con DIE, tasa de estadística e IVA de importación.
+                No incluye percepciones de IVA, Ganancias ni impuestos internos.
+                La posición arancelaria es probable y requiere validación; no es una clasificación aduanera definitiva.
+              </p>
+            )}
             {result.calculation && (
               <>
                 <dl className="mt-6 grid gap-5 sm:grid-cols-3">
@@ -638,7 +645,7 @@ export default function CourierForm({
                 </dl>
                 <div className="mt-6 rounded-xl bg-slate-50 p-5">
                   <p className="text-sm text-slate-500">
-                    Total del servicio e importación
+                    Estimación del servicio e importación
                   </p>
                   <p className="mt-2 text-3xl font-bold text-[#10104e]">
                     {usd(result.calculation.totalServiceUsd)}

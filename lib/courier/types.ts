@@ -1,3 +1,4 @@
+import type { TaxResolution } from "./tax-resolver";
 export type Status = "COTIZADO" | "REQUIERE_REVISION" | "NO_APTO_COURIER";
 export type Product = {
   description: string;
@@ -85,6 +86,9 @@ export type Interpretation = {
 export type Line = {
   name: string;
   sim: string;
+  ncm?: string;
+  taxRates?: TaxResolution["rates"];
+  taxResolutionIndex?: number;
   merchandiseUsd: number;
   customsBaseUsd: number;
   dutyUsd: number;
@@ -115,6 +119,8 @@ export type Result = {
   reasons: { code: string; message: string; productIndex?: number }[];
   requestedAttributes?: { productIndex: number; key: string }[];
   interpretations: Interpretation[];
+  taxScope?: "DIE_TE_IVA_REFERENCIAL_V1";
+  taxResolutions?: TaxResolution[];
   calculation: Calculation | null;
   catalogVersion: string;
   tariffVersion: string | null;

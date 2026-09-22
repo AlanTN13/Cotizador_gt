@@ -139,3 +139,30 @@ it("labels preview records as tests and preserves zero and readable multi-produc
     "PRUEBA", "'=Producto A | Producto B", 150, 5, 0, "'@Texto sin ejecutar",
   ]);
 });
+
+it("persists and replays ten per-product tax receipts without losing source versions or zeros", async () => {
+  const { resolveTaxes } = await import("../lib/courier/tax-resolver");
+  const h = harness();
+  const id = "9b7be7a7-0664-4da2-95cb-5cc1c533b779";
+  const taxResolutions = Array.from({ length: 10 }, (_, i) =>
+    resolveTaxes("85176241100N", i, new Date("2026-09-22T12:00:00Z")),
+  );
+  const result = {
+    requestId: id, status: "REQUIERE_REVISION", simulation: false,
+    taxScope: "DIE_TE_IVA_REFERENCIAL_V1", taxResolutions, calculation: null,
+  };
+  const payload = {
+    action: "commit", record: {
+      requestId: id, fingerprint: "d".repeat(64), result,
+      submission: { contact: { name: "QA", email: "qa@example.com" } },
+      environment: "preview",
+    },
+  };
+  const saved = h.post(payload);
+  expect(saved.ok).toBe(true);
+  expect(saved.result.taxResolutions).toEqual(taxResolutions);
+  expect(JSON.parse(String(h.rows[1][8])).taxResolutions).toEqual(taxResolutions);
+  expect(h.post({ action: "get", id, fingerprint: "d".repeat(64) })).toEqual(saved);
+  expect(h.post(payload)).toEqual(saved);
+  expect(h.rows).toHaveLength(2);
+});

@@ -1,4 +1,5 @@
 import Decimal from "decimal.js";
+import { resolveTaxes, TAX_SCOPE } from "./tax-resolver";
 import type {
   Approval,
   Catalog,
@@ -8,7 +9,7 @@ import type {
   Submission,
   Tariff,
 } from "./types";
-export const ENGINE_VERSION = "courier-air-1.0.0";
+export const ENGINE_VERSION = "courier-air-1.1.0";
 const money = (n: Decimal.Value) =>
   new Decimal(n).toDecimalPlaces(2, Decimal.ROUND_HALF_UP).toNumber();
 const sum = (v: Decimal.Value[]) =>
@@ -88,6 +89,12 @@ export function decide(
     simulation: catalog.scope === "reference",
     reasons: [],
     interpretations,
+    ...(catalog.scope === "operational" ? {
+      taxScope: TAX_SCOPE,
+      taxResolutions: s.products.map((_, i) => ({
+        ...resolveTaxes(null, i, now), reasons: ["TAX_NOT_ATTEMPTED"],
+      })),
+    } : {}),
     calculation: null,
     catalogVersion: catalog.version,
     tariffVersion: catalog.tariff?.version ?? null,
@@ -133,13 +140,17 @@ export function decide(
     const profile = catalog.profiles.find(
       (x) => x.id === interpretation.candidateIds[0],
     );
-    if (!profile || !approved(profile.approval, now, result.simulation)) {
+    if (!profile) {
+      reason("PROFILE_NOT_APPROVED", "No hay un perfil válido para este producto.", i);
+      return null;
+    }
+    if (!approved(profile.approval, now, result.simulation)) {
       reason(
         "PROFILE_NOT_APPROVED",
         "El producto todavía no tiene un perfil vigente aprobado para cotizar.",
         i,
       );
-      return null;
+      // Continue only to collect tax evidence; any reason blocks the total.
     }
     if (p.origin !== "China" || profile.origin !== p.origin) {
       reason(
@@ -167,13 +178,30 @@ export function decide(
       return null;
     }
     if (profile.decision === "denied") {
+      if (!approved(profile.approval, now, result.simulation)) return null;
       reason("PRODUCT_NOT_ALLOWED", profile.reason, i);
       return profile;
     }
+    const resolution = result.simulation ? null : resolveTaxes(profile.sim, i, now);
+    if (resolution) result.taxResolutions![i] = resolution;
     if (profile.decision !== "allowed") {
       reason("PRODUCT_REVIEW", profile.reason, i);
+    }
+    if (resolution?.status === "REQUIERE_REVISION") {
+      reason("TAX_REVIEW", "No se pudo confirmar DIE, tasa de estadística e IVA para esta posición; requiere revisión.", i);
       return null;
     }
+    // Additional taxes remain out of scope, not presumed legally exempt.
+    // A known non-zero treatment cannot be silently removed from a quote.
+    if (resolution && [profile.taxes.additionalVat, profile.taxes.income, profile.taxes.internal]
+      .some((rate) => rate !== null && rate !== 0)) {
+      reason("OUT_OF_SCOPE_TAX_REVIEW", "El producto tiene un tratamiento adicional que requiere revisión.", i);
+      return null;
+    }
+    const effectiveProfile = resolution ? {
+      ...profile,
+      taxes: { ...resolution.rates, additionalVat: 0, income: 0, internal: 0 },
+    } : profile;
     if (!profile.sim) {
       reason(
         "SIM_MISSING",
@@ -183,7 +211,7 @@ export function decide(
       return null;
     }
     if (
-      Object.values(profile.taxes).some(
+      Object.values(effectiveProfile.taxes).some(
         (t) => t === null || !Number.isFinite(t) || t < 0 || t > 1,
       )
     ) {
@@ -194,7 +222,7 @@ export function decide(
       );
       return null;
     }
-    if (profile.taxes.internal !== 0) {
+    if (effectiveProfile.taxes.internal !== 0) {
       reason(
         "INTERNAL_TAX_REVIEW",
         "El impuesto interno de este producto requiere liquidación específica.",
@@ -202,7 +230,7 @@ export function decide(
       );
       return null;
     }
-    return profile;
+    return effectiveProfile;
   });
   if (result.reasons.some((r) => r.code === "PRODUCT_NOT_ALLOWED")) {
     result.status = "NO_APTO_COURIER";
@@ -290,6 +318,11 @@ export function decide(
     return {
       name: profile.name,
       sim: profile.sim!,
+      ...(!result.simulation ? {
+        ncm: result.taxResolutions![i].ncm!,
+        taxRates: result.taxResolutions![i].rates,
+        taxResolutionIndex: i,
+      } : {}),
       merchandiseUsd: p.valueUsd,
       customsBaseUsd: bases[i],
       dutyUsd: duty,
@@ -325,6 +358,10 @@ export function decide(
         +now + t.validityHours * 3600000,
         Date.parse(t.approval!.validUntil),
         ...profiles.map((p) => Date.parse(p!.approval!.validUntil)),
+        ...(result.taxResolutions || []).flatMap((r) => [
+          Date.parse(r.dutyEvidence!.source.reviewAfter),
+          Date.parse(r.vatEvidence!.source.reviewAfter),
+        ]),
       ),
     ).toISOString(),
   };
