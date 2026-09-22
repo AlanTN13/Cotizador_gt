@@ -15,6 +15,8 @@
       "n8n omitted autoFix=false",
       "agent property ordering and workflow export settings differ; both retained from live export"
     ],
+    "registryNodePresent": false,
+    "externalRegistryFilesChanged": false,
     "modified": false
   },
   "patchCandidate": {
