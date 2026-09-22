@@ -1,0 +1,49 @@
+{
+  "baseCommit": "38c52a72abecdbfc87aaf1893751c67d87b53749",
+  "nodeName": "Cotizador deterministico",
+  "baselineCalculatorSha256": "3869f15735439e869fdcb4f2e14d11964089f3b887d3608b9db9c91da785ee7a",
+  "patchedCalculatorSha256": "dd4025573c1154b46e79d41c587c4cc24ed8b089b56a5de896e1d3a9dc42ce50",
+  "contractGuards": [
+    {
+      "name": "Validar formulario",
+      "parametersSha256": "188bc959afae717dd3c72dd183e75936c17e4610c03ee94e812d3b9e19be877f"
+    },
+    {
+      "name": "Preparar agente",
+      "parametersSha256": "5e8a71886d18777888ab53d0bfb47ac8f81b3b7ea1b9a484309aa22529af537d"
+    },
+    {
+      "name": "Agente Despachante",
+      "parametersSha256": "a4ca0c475ab4c3eb71a8ea2d9e8f0d20f3067ad7efe902ceb598b5e8eb905d30"
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "parametersSha256": "2bac7ed356a1b4fef1c8873b300af8e12bd05a6e25291cade00b8bb45aac8caf"
+    },
+    {
+      "name": "Salida estructurada",
+      "parametersSha256": "90381fe1cdc8b0e2e24111e42a8bc5cd9e9f01c0650bd27fbbbc59312fc43e3b"
+    },
+    {
+      "name": "Validar salida del agente",
+      "parametersSha256": "d94f5def4c00fefbfca8a41aca4646693e7e0ac40f7226a9a848a745ea721d79"
+    }
+  ],
+  "sources": [
+    {
+      "path": "../../data/tax-die-te.json",
+      "version": "german-ncmsim-38cbf471b591-v1",
+      "sha256": "03581171713ab5770cadbf7d99d0c759937431eb37e70a488ff957bd331b1fb6"
+    },
+    {
+      "path": "../../data/tax-vat.json",
+      "version": "iva-importacion-2026-09-22-v1",
+      "sha256": "5498b1a50fd9fc33cb41fc0920921de884598bd5f796db6e6059eea567d31215"
+    },
+    {
+      "path": "../../data/tax-estimation-policy.json",
+      "version": "referential-estimation-2026-09-22-v1",
+      "sha256": "764da6b06ac40a811ce7e06c06879f01f382a1d89d6f8a996c036ba8c357aa71"
+    }
+  ]
+}
