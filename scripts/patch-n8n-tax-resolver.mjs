@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
+import {canonicalParameters} from '../workflow/n8n-parameter-normalization.mjs';
 const [input,output]=process.argv.slice(2);
 if(!input || !output || resolve(input)===resolve(output)) throw Error('Usage: node scripts/patch-n8n-tax-resolver.mjs exported-live.json candidate.json (distinct files)');
 const live=JSON.parse(fs.readFileSync(input,'utf8'));
@@ -17,7 +18,7 @@ if(![manifest.baselineCalculatorSha256,manifest.patchedCalculatorSha256].include
   throw Error('Live calculator differs from reviewed baseline; reconcile it before applying the patch');
 for(const guard of manifest.contractGuards){
   const matches=live.nodes.filter(n=>n.name===guard.name);
-  if(matches.length!==1 || sha(JSON.stringify(matches[0].parameters))!==guard.parametersSha256)
+  if(matches.length!==1 || sha(JSON.stringify(canonicalParameters(guard.name,matches[0].parameters)))!==guard.parametersSha256)
     throw Error(`Live contract differs at ${guard.name}; reconcile before applying the patch`);
 }
 target.parameters.jsCode=code;

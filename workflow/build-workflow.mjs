@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import ts from 'typescript';
 import {createHash} from 'node:crypto';
+import {canonicalParameters} from './n8n-parameter-normalization.mjs';
 const source=fs.readFileSync(new URL('../lib/courier/tax-resolver.ts',import.meta.url),'utf8');
 const runtime=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2020,module:ts.ModuleKind.ES2022}}).outputText
   .replace(/from "\.\.\/\.\.\/data\/([^"\n]+\.json)";/g,'from "../data/$1" with { type: "json" };');
@@ -26,7 +27,7 @@ fs.writeFileSync(new URL('./tax-resolver-manifest.json',import.meta.url),JSON.st
   baseCommit:'38c52a72abecdbfc87aaf1893751c67d87b53749',
   nodeName:node.name,baselineCalculatorSha256:sha(baseline.nodes.find(n=>n.name===node.name).parameters.jsCode),
   patchedCalculatorSha256:sha(node.parameters.jsCode),
-  contractGuards:baseline.nodes.filter(n=>guardNames.includes(n.name)).map(n=>({name:n.name,parametersSha256:sha(JSON.stringify(n.parameters))})),
+  contractGuards:baseline.nodes.filter(n=>guardNames.includes(n.name)).map(n=>({name:n.name,parametersSha256:sha(JSON.stringify(canonicalParameters(n.name,n.parameters)))})),
   sources:Object.entries(inputs).map(([path,data])=>({path,version:data.version,sha256:sha(JSON.stringify(data))}))
 },null,2)+'\n');
 console.log('Updated only Cotizador deterministico; offline resolver and sources embedded.');

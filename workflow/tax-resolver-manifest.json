@@ -6,27 +6,27 @@
   "contractGuards": [
     {
       "name": "Validar formulario",
-      "parametersSha256": "188bc959afae717dd3c72dd183e75936c17e4610c03ee94e812d3b9e19be877f"
+      "parametersSha256": "4e2295018a5fcb4c864251885a957248414e98ac88de3b3f4713bab63ca93ca3"
     },
     {
       "name": "Preparar agente",
-      "parametersSha256": "5e8a71886d18777888ab53d0bfb47ac8f81b3b7ea1b9a484309aa22529af537d"
+      "parametersSha256": "79499899c86aed86f49f776e29e03430b8e2463abf10a30a0b67666dfc550b0e"
     },
     {
       "name": "Agente Despachante",
-      "parametersSha256": "a4ca0c475ab4c3eb71a8ea2d9e8f0d20f3067ad7efe902ceb598b5e8eb905d30"
+      "parametersSha256": "ac53ddfec28131a269c0ca58ef05a571bc6761924f3d605914f792d071a03ed0"
     },
     {
       "name": "OpenAI Chat Model",
-      "parametersSha256": "2bac7ed356a1b4fef1c8873b300af8e12bd05a6e25291cade00b8bb45aac8caf"
+      "parametersSha256": "3fa14112414aed93e2f5f62643a5f6a81e5ab8680a245f47ab384008d07f5399"
     },
     {
       "name": "Salida estructurada",
-      "parametersSha256": "90381fe1cdc8b0e2e24111e42a8bc5cd9e9f01c0650bd27fbbbc59312fc43e3b"
+      "parametersSha256": "7b0e2581148dce6bd96c1a8ab1d1ac57a0c1c0d8552bc2140052f504accdc253"
     },
     {
       "name": "Validar salida del agente",
-      "parametersSha256": "d94f5def4c00fefbfca8a41aca4646693e7e0ac40f7226a9a848a745ea721d79"
+      "parametersSha256": "0446fe44647a420e4b73198001d2c49a4ec4a1c34bce77bd8eb046374cbc433a"
     }
   ],
   "sources": [
