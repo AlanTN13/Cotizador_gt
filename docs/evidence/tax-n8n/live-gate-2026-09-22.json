@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-22",
+  "scope": "live-export-contrast-and-isolated-n8n-code-node-smoke",
+  "liveWorkflow": {
+    "url": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY",
+    "name": "GlobalTrip - Courier aereo V1 - PREVIEW",
+    "published": true,
+    "exportSha256": "860315e9224da265d2a61f50a3d1ae90fc030cc33120bbc684ada7ce98cc6b6e",
+    "nodeCount": 11,
+    "codeNodesMatchBaselineByteForByte": true,
+    "connectionsMatchBaseline": true,
+    "serializationDifferences": [
+      "n8n omitted Code mode=runOnceForAllItems",
+      "n8n omitted responsesApiEnabled=true; verified checked in live editor",
+      "n8n omitted autoFix=false",
+      "agent property ordering and workflow export settings differ; both retained from live export"
+    ],
+    "modified": false
+  },
+  "patchCandidate": {
+    "changedPaths": ["Cotizador deterministico.parameters.jsCode"],
+    "preserved": ["node IDs", "connections", "credentials", "settings", "active state", "other node parameters"],
+    "calculatorCodeSha256": "dd4025573c1154b46e79d41c587c4cc24ed8b089b56a5de896e1d3a9dc42ce50",
+    "appliedToLiveWorkflow": false
+  },
+  "smoke": {
+    "url": "https://nexops.app.n8n.cloud/workflow/nYV4JHVBcFjUkSFD/2ad5c5?projectId=9kElEcXnGLfAYokj",
+    "published": false,
+    "nodes": ["Inicio manual — sintético", "Entrada controlada", "Cotizador deterministico"],
+    "credentialsUsed": false,
+    "externalCalls": false,
+    "n8nStatus": "Workflow executed successfully",
+    "result": {
+      "status": "cotizado",
+      "totalUsd": 674.96,
+      "taxesUsd": 200.21,
+      "billableWeightKg": 16,
+      "rulesVersion": "globaltrip-tax-resolver-2026-09-22",
+      "products": [
+        {"sim": "84713012991G", "duty": 0.16, "statistical": 0, "vat": 0.105, "status": "RESUELTO"},
+        {"sim": "85176241100N", "duty": 0, "statistical": 0, "vat": 0.105, "status": "RESUELTO"}
+      ]
+    }
+  },
+  "limit": "Calculator code ran in n8n with synthetic upstream data; no full agent/form submission or production rollout."
+}

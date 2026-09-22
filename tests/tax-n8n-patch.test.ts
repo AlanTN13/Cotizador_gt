@@ -29,6 +29,26 @@ describe('guarded offline n8n patch',()=>{
       expect(JSON.parse(readFileSync(original,'utf8'))).toEqual(live);
     } finally {rmSync(dir,{recursive:true,force:true});}
   });
+  it('normalizes only defaults omitted by the actual n8n export',()=>{
+    const dir=mkdtempSync(join(tmpdir(),'gt-tax-live-defaults-'));
+    try {
+      const live=structuredClone(fixture);
+      for(const name of ['Validar formulario','Preparar agente','Validar salida del agente','Cotizador deterministico'])
+        delete live.nodes.find((n:{name:string})=>n.name===name).parameters.mode;
+      delete live.nodes.find((n:{name:string})=>n.name==='OpenAI Chat Model').parameters.responsesApiEnabled;
+      delete live.nodes.find((n:{name:string})=>n.name==='Salida estructurada').parameters.autoFix;
+      const agent=live.nodes.find((n:{name:string})=>n.name==='Agente Despachante');
+      agent.parameters=Object.fromEntries(Object.entries(agent.parameters).reverse());
+      live.settings={executionOrder:'v1',binaryMode:'default',availableInMCP:false};
+      live.nodes[0].credentials={httpHeaderAuth:{id:'existing-fixture-credential'}};
+      const original=join(dir,'original.json'),out=join(dir,'out.json');writeFileSync(original,JSON.stringify(live));
+      execFileSync(process.execPath,[script,original,out]);
+      const patched=JSON.parse(readFileSync(out,'utf8'));
+      const calculator=patched.nodes.find((n:{name:string})=>n.name==='Cotizador deterministico');
+      calculator.parameters.jsCode=live.nodes.find((n:{name:string})=>n.name==='Cotizador deterministico').parameters.jsCode;
+      expect(patched).toEqual(live);
+    } finally {rmSync(dir,{recursive:true,force:true});}
+  });
   it.each(['Cotizador deterministico','Agente Despachante','Validar salida del agente'])('refuses unreviewed live drift at %s',name=>{
     const dir=mkdtempSync(join(tmpdir(),'gt-tax-drift-'));
     try {
