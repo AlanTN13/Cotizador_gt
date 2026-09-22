@@ -1,0 +1,100 @@
+{
+  "version": "iva-importacion-2026-09-22-v1",
+  "source": {
+    "id": "iva-rules-v1",
+    "document": "data/tax-vat.json",
+    "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+    "capturedAt": "2026-09-22T00:00:00Z",
+    "reviewAfter": "2026-10-22T00:00:00Z",
+    "effectiveDate": null,
+    "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+  },
+  "sources": [
+    {
+      "id": "ley-iva-art28",
+      "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+      "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+    },
+    {
+      "id": "iva-anexo-e-820-2007",
+      "url": "https://biblioteca.afip.gob.ar/pdfp/ANEXO_DEC820_07.pdf",
+      "document": "data/tax-sources/iva-anexo-e-decreto-820-2007.pdf",
+      "sha256": "5c60e2a7f7d28c8d60ce9b875acfcce62509965d4ef8da5e171d78bef2cd6048",
+      "locator": "página 2, NCM 8471.30.12 y 8517.62.41; vinculado desde texto actualizado del art. 28"
+    }
+  ],
+  "rules": [
+    {
+      "id": "iva-general-84145190100R",
+      "position": "84145190100R",
+      "vat": 0.21,
+      "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+      "description": "Ventilador de pie",
+      "sourceIds": [
+        "ley-iva-art28"
+      ]
+    },
+    {
+      "id": "iva-general-61091000190Z",
+      "position": "61091000190Z",
+      "vat": 0.21,
+      "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+      "description": "T-shirt de algodón",
+      "sourceIds": [
+        "ley-iva-art28"
+      ]
+    },
+    {
+      "id": "iva-general-82159910130F",
+      "position": "82159910130F",
+      "vat": 0.21,
+      "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+      "description": "Cuchara de acero inoxidable",
+      "sourceIds": [
+        "ley-iva-art28"
+      ]
+    },
+    {
+      "id": "iva-general-85395200900Z",
+      "position": "85395200900Z",
+      "vat": 0.21,
+      "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+      "description": "Lámpara LED",
+      "sourceIds": [
+        "ley-iva-art28"
+      ]
+    },
+    {
+      "id": "iva-general-69120000191F",
+      "position": "69120000191F",
+      "vat": 0.21,
+      "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+      "description": "Taza de gres",
+      "sourceIds": [
+        "ley-iva-art28"
+      ]
+    },
+    {
+      "id": "iva-reducido-84713012",
+      "position": "84713012",
+      "vat": 0.105,
+      "basis": "Art. 28, cuarto párrafo, inciso e), planilla Decreto 820/2007, página 2. NCM expresamente listada sin llamada de excepción en esa fila.",
+      "description": "Computadora portátil con pantalla de área >140 y <560 cm2",
+      "sourceIds": [
+        "ley-iva-art28",
+        "iva-anexo-e-820-2007"
+      ]
+    },
+    {
+      "id": "iva-reducido-85176241",
+      "position": "85176241",
+      "vat": 0.105,
+      "basis": "Art. 28, cuarto párrafo, inciso e), planilla Decreto 820/2007, página 2. NCM expresamente listada sin llamada de excepción en esa fila.",
+      "description": "Ruteador digital con conexión inalámbrica",
+      "sourceIds": [
+        "ley-iva-art28",
+        "iva-anexo-e-820-2007"
+      ]
+    }
+  ]
+}
