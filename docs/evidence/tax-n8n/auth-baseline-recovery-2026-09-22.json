@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-22",
+  "workflow": "LO9m0AxSrxRR6JVY",
+  "scope": "Recover the known-good Header Auth reference before applying PR #2; no other surface authorized.",
+  "historicalReference": {
+    "versionsChecked": [
+      "0743ce69-1e68-418d-b635-6d3674d0d428",
+      "533ad8e4-11f8-4b77-991e-2e977c20e178"
+    ],
+    "credentialId": "3CkSedfe5fMljbdt",
+    "credentialName": "Header Auth account 2",
+    "matchesCurrentPublishedReference": true
+  },
+  "baselineSmoke": {
+    "count": 1,
+    "url": "https://cotizador.globaltriplog.com/cotizador",
+    "input": "Synthetic notebook, FOB USD 500, one 3 kg parcel measuring 40x30x10 cm",
+    "result": "El cotizador necesita completar su autenticación. Tus datos se conservan para reintentar.",
+    "gatewayCodeInferredFromSource": "N8N_AUTH_REQUIRED",
+    "newN8nExecutionObserved": false,
+    "lastObservedExecution": {
+      "id": "29844",
+      "status": "Succeeded",
+      "startedAt": "2026-09-17 11:44:36"
+    }
+  },
+  "outcome": {
+    "baselineRecovered": false,
+    "taxResolverApplied": false,
+    "workflowPublished": false,
+    "rollbackRequired": false,
+    "productionState": "Previous published baseline remains active and unchanged."
+  },
+  "contradiction": "The exact Header Auth reference used by the known-good historical versions is already assigned to Formulario - POST, but the production gateway request is still rejected before n8n creates an execution. Recovering the reference alone is insufficient; resolving the credential value or gateway pairing would require touching a prohibited surface.",
+  "stopReason": "Mandatory baseline authentication gate failed. PR #2 was not applied."
+}

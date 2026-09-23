@@ -1,0 +1,19 @@
+{
+  "version": "referential-estimation-2026-09-22-v1",
+  "decision": "Alan: ajuste de alcance aprobado 2026-09-22; Alanos b6c1222",
+  "document": "data/tax-estimation-policy.json",
+  "generalStatistical": {
+    "rate": 0.03,
+    "validFrom": "2025-01-01T00:00:00Z",
+    "validUntil": "2028-01-01T00:00:00Z",
+    "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm",
+    "basis": "Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico."
+  },
+  "generalVat": {
+    "rate": 0.21,
+    "validFrom": "2026-09-22T00:00:00Z",
+    "validUntil": null,
+    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+  }
+}

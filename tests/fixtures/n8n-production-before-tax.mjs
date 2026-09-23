@@ -1,6 +1,3 @@
-import * as taxResolver from './tax-runtime.mjs';
-import estimationPolicy from '../data/tax-estimation-policy.json' with { type: 'json' };
-import { resolveProductTaxes } from './tax-adapter.mjs';
 // Canonical V1 functions embedded into the n8n Code Nodes; no external runtime imports.
 export function validateInput(body, executionId) {
   const b=body && typeof body==='object'?body:{};
@@ -34,7 +31,7 @@ export function parseAgent(raw,s){
   if(ordered.some((p,i)=>!p||p.indice!==i+1||typeof p.producto!=='string'||!p.producto.trim()||typeof p.DIE!=='number'||!Number.isFinite(p.DIE)||p.DIE<0||p.DIE>100))return fail();
   return {solicitud:s.solicitud,siguiente:'cotizar',productos:ordered};
 }
-export function calculate(s, now = new Date()){
+export function calculate(s){
   const fail=()=>({respuesta:{solicitud_id:s.solicitud?.solicitud_id,status:'error',codigo:'CALCULO_ERROR',mensaje:'No pudimos procesar la estimación. Tus datos se conservan para volver a intentar.'}});
   // Exact rational math, positive values; no intermediate rounding or runtime dependency.
   function gcd(a,b){while(b){[a,b]=[b,a%b];}return a;}
@@ -56,27 +53,13 @@ export function calculate(s, now = new Date()){
     const vol=sum(b.map(p=>div(mul(mul(mul(dec(p.cantidad),dec(p.largo_cm)),dec(p.ancho_cm)),dec(p.alto_cm)),dec(5000))));
     const volRound=ceil(vol),peso=cmp(real,volRound)>0n?real:volRound;
     const tarifa=cmp(peso,dec(20))<=0n?24:cmp(peso,dec(30))<=0n?20:19;
-    if(!Array.isArray(s.productos) || !s.productos.length || s.productos.length!==s.solicitud.productos.length || s.productos.some((p,i)=>p.indice!==i+1)) return fail();
-    const taxResolutions=s.productos.map((p,i)=>resolveProductTaxes(p,i,now,taxResolver,estimationPolicy));
-    if(taxResolutions.some(t=>t.status==='REQUIERE_REVISION')) return {respuesta:{solicitud_id:s.solicitud.solicitud_id,
-      status:'error',codigo:'REQUIERE_REVISION',mensaje:'Esta solicitud requiere revisión de GlobalTrip antes de estimar sus tributos. Tus datos se conservan.',
-      auditoria:{productos:s.productos,taxResolutions,reglas_version:'globaltrip-tax-resolver-2026-09-22'}}};
-    const dies=taxResolutions.map(t=>dec(t.rates.duty));
-    const diePromedio=mul(div(sum(dies),dec(dies.length)),dec(100));
+    const dies=s.productos.map(p=>dec(p.DIE));
+    const diePromedio=div(sum(dies),dec(dies.length));
     const fob=dec(s.solicitud.fob_usd),flete=mul(peso,dec(tarifa)),handling=mul(dec(75),dec(1.21));
     const fleteAduanero=mul(peso,dec(0.8)),seguro=mul(add(fob,fleteAduanero),dec(0.01)),cif=sum([fob,fleteAduanero,seguro]);
-    // The existing form supplies only total FOB, not a value per product.
-    // Equal CIF allocation preserves its arithmetic-mean DUTY convention.
-    // Compute VAT on EACH product's duty+TE basis; averaging rates first is incorrect.
-    const cifIndividual=div(cif,dec(taxResolutions.length));
-    const individual=taxResolutions.map(t=>{
-      const derechos=mul(cifIndividual,dec(t.rates.duty)),estadistica=mul(cifIndividual,dec(t.rates.statistical));
-      const iva=mul(sum([cifIndividual,derechos,estadistica]),dec(t.rates.vat));
-      return {derechos,estadistica,iva};
-    });
-    const derechos=sum(individual.map(t=>t.derechos)),estadistica=sum(individual.map(t=>t.estadistica));
-    const iva=sum(individual.map(t=>t.iva)),debitos=mul(sum([derechos,estadistica,iva]),dec(0.012));
+    const derechos=div(mul(cif,diePromedio),dec(100)),estadistica=mul(cif,dec(0.03));
+    const iva=mul(sum([cif,derechos,estadistica]),dec(0.21)),debitos=mul(sum([derechos,estadistica,iva]),dec(0.012));
     const impuestos=sum([derechos,estadistica,iva,debitos]),total=sum([flete,handling,impuestos]);
-    return {respuesta:{solicitud_id:s.solicitud.solicitud_id,status:'cotizado',mensaje:'Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.',total_usd:money(total),flete_internacional_usd:money(flete),handling_con_iva_usd:money(handling),impuestos_y_tasas_usd:money(impuestos),peso_considerado_kg:num(peso),auditoria:{productos:s.productos,taxResolutions,tributos_por_producto:individual.map((t,i)=>({indice:s.productos[i].indice,cif_usd:money(cifIndividual),derechos_usd:money(t.derechos),tasa_estadistica_usd:money(t.estadistica),iva_usd:money(t.iva)})),asignacion_cif:'PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE',advertencias:taxResolutions.flatMap(t=>t.warnings),DIE_promedio:num(diePromedio),peso_real_total_kg:num(real),peso_volumetrico_total_kg:num(vol),tarifa_usd_kg:tarifa,cif_usd:money(cif),derechos_usd:money(derechos),tasa_estadistica_usd:money(estadistica),iva_usd:money(iva),debitos_creditos_usd:money(debitos),reglas_version:'globaltrip-tax-resolver-2026-09-22'}}};
+    return {respuesta:{solicitud_id:s.solicitud.solicitud_id,status:'cotizado',mensaje:'Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.',total_usd:money(total),flete_internacional_usd:money(flete),handling_con_iva_usd:money(handling),impuestos_y_tasas_usd:money(impuestos),peso_considerado_kg:num(peso),auditoria:{productos:s.productos,DIE_promedio:num(diePromedio),peso_real_total_kg:num(real),peso_volumetrico_total_kg:num(vol),tarifa_usd_kg:tarifa,cif_usd:money(cif),derechos_usd:money(derechos),tasa_estadistica_usd:money(estadistica),iva_usd:money(iva),debitos_creditos_usd:money(debitos),reglas_version:'globaltrip-v1-cierre-2026-09-15'}}};
   }catch{return fail();}
 }

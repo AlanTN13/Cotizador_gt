@@ -133,6 +133,7 @@ describe("canonical V1 workflow", () => {
     const quoted=execute("Cotizador deterministico",parsed);
     expect(quoted.respuesta.status).toBe("cotizado");
     expect(quoted.respuesta.auditoria.DIE_promedio).toBe(18);
-    expect(JSON.stringify(workflow)).not.toContain('84145190100R');
+    // Position data belongs to the deterministic resolver, never to the AI prompt.
+    expect(JSON.stringify(workflow.nodes.filter((n: { name: string })=>n.name!=='Cotizador deterministico'))).not.toContain('84145190100R');
   });
 });

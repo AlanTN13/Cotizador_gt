@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-22",
+  "workflow": "LO9m0AxSrxRR6JVY",
+  "preflight": {
+    "backupVersionId": "0743ce69-1e68-418d-b635-6d3674d0d428",
+    "backupExportSha256": "860315e9224da265d2a61f50a3d1ae90fc030cc33120bbc684ada7ce98cc6b6e",
+    "backupCalculatorSha256": "3869f15735439e869fdcb4f2e14d11964089f3b887d3608b9db9c91da785ee7a"
+  },
+  "publishedAttempt": {
+    "name": "Tax Resolver V1 — DIE/TE/IVA por producto",
+    "versionId": "9bd5a591-95e0-4e6c-a711-b1064a4b9225",
+    "calculatorSha256": "dd4025573c1154b46e79d41c587c4cc24ed8b089b56a5de896e1d3a9dc42ce50",
+    "draftDiffFromBackup": ["nodes.9.parameters.jsCode", "versionId"]
+  },
+  "productionSmoke": {
+    "url": "https://cotizador.globaltriplog.com/cotizador",
+    "input": "Synthetic new notebook, FOB USD 500, one 3 kg parcel measuring 40x30x10 cm",
+    "formAcceptedInput": true,
+    "result": "El cotizador necesita completar su autenticación. Tus datos se conservan para reintentar.",
+    "gatewayCodeInferredFromSource": "N8N_AUTH_REQUIRED",
+    "gatewayTriggerInSource": "upstream webhook HTTP 401 or 403",
+    "newN8nExecutionObserved": false,
+    "agentCalculatorRegistryVerified": false
+  },
+  "rollback": {
+    "restoredFromVersionId": "0743ce69-1e68-418d-b635-6d3674d0d428",
+    "finalPublishedVersionId": "0a3f40e7-448e-4411-a6a1-5bf3d4049398",
+    "finalPublishedName": "Rollback — base previa Tax Resolver",
+    "finalExportActive": true,
+    "finalDiffFromBackup": ["versionId"],
+    "finalCalculatorSha256": "3869f15735439e869fdcb4f2e14d11964089f3b887d3608b9db9c91da785ee7a",
+    "taxResolverActive": false
+  },
+  "limit": "The end-to-end smoke stopped at webhook authentication. No result from the live agent, calculator, or external registry was observed."
+}

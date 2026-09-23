@@ -1,0 +1,1613 @@
+{
+  "kind": "offline-exported-code-node",
+  "cases": [
+    {
+      "case": "Ventilador",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Ventilador"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Ventilador",
+            "SIM": "84145190100R",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 980.24,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 505.49,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Ventilador",
+              "SIM": "84145190100R",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "84145190100R",
+              "ncm": "84145190",
+              "sim": "84145190100R",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "84145190100R",
+                    "page": 1275
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-general-84145190100R",
+                    "position": "84145190100R",
+                    "vat": 0.21,
+                    "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+                    "description": "Ventilador de pie",
+                    "sourceIds": [
+                      "ley-iva-art28"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Ventilador",
+                "clasificacion": null,
+                "SIM": "84145190100R",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 204.59,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 264.22
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 20,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 204.59,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 264.22,
+          "debitos_creditos_usd": 5.99,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Remera",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Remera"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Remera",
+            "SIM": "61091000190Z",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 980.24,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 505.49,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Remera",
+              "SIM": "61091000190Z",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "61091000190Z",
+              "ncm": "61091000",
+              "sim": "61091000190Z",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "61091000190Z",
+                    "page": 989
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-general-61091000190Z",
+                    "position": "61091000190Z",
+                    "vat": 0.21,
+                    "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+                    "description": "T-shirt de algodón",
+                    "sourceIds": [
+                      "ley-iva-art28"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Remera",
+                "clasificacion": null,
+                "SIM": "61091000190Z",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 204.59,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 264.22
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 20,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 204.59,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 264.22,
+          "debitos_creditos_usd": 5.99,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Cuchara",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Cuchara"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Cuchara",
+            "SIM": "82159910130F",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 955.19,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 480.44,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Cuchara",
+              "SIM": "82159910130F",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "82159910130F",
+              "ncm": "82159910",
+              "sim": "82159910130F",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.18,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "82159910130F",
+                    "page": 1249
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-general-82159910130F",
+                    "position": "82159910130F",
+                    "vat": 0.21,
+                    "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+                    "description": "Cuchara de acero inoxidable",
+                    "sourceIds": [
+                      "ley-iva-art28"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Cuchara",
+                "clasificacion": null,
+                "SIM": "82159910130F",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 184.13,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 259.93
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 18,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 184.13,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 259.93,
+          "debitos_creditos_usd": 5.7,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "LED",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "LED"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "LED",
+            "SIM": "85395200900Z",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 980.24,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 505.49,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "LED",
+              "SIM": "85395200900Z",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "85395200900Z",
+              "ncm": "85395200",
+              "sim": "85395200900Z",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "85395200900Z",
+                    "page": 1457
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-general-85395200900Z",
+                    "position": "85395200900Z",
+                    "vat": 0.21,
+                    "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+                    "description": "Lámpara LED",
+                    "sourceIds": [
+                      "ley-iva-art28"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "LED",
+                "clasificacion": null,
+                "SIM": "85395200900Z",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 204.59,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 264.22
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 20,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 204.59,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 264.22,
+          "debitos_creditos_usd": 5.99,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Taza",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Taza"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Taza",
+            "SIM": "69120000191F",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 980.24,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 505.49,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Taza",
+              "SIM": "69120000191F",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "69120000191F",
+              "ncm": "69120000",
+              "sim": "69120000191F",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "69120000191F",
+                    "page": 1087
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-general-69120000191F",
+                    "position": "69120000191F",
+                    "vat": 0.21,
+                    "basis": "Art. 28, primer párrafo; regla explícita limitada a esta posición SIM, no fallback universal.",
+                    "description": "Taza de gres",
+                    "sourceIds": [
+                      "ley-iva-art28"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Taza",
+                "clasificacion": null,
+                "SIM": "69120000191F",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 204.59,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 264.22
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 20,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 204.59,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 264.22,
+          "debitos_creditos_usd": 5.99,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Notebook",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Notebook"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Notebook",
+            "SIM": "84713012991G",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 766.47,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 291.72,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Notebook",
+              "SIM": "84713012991G",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "84713012991G",
+              "ncm": "84713012",
+              "sim": "84713012991G",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.16,
+                "statistical": 0,
+                "vat": 0.105
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "84713012991G",
+                    "page": 1367
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-reducido-84713012",
+                    "position": "84713012",
+                    "vat": 0.105,
+                    "basis": "Art. 28, cuarto párrafo, inciso e), planilla Decreto 820/2007, página 2. NCM expresamente listada sin llamada de excepción en esa fila.",
+                    "description": "Computadora portátil con pantalla de área >140 y <560 cm2",
+                    "sourceIds": [
+                      "ley-iva-art28",
+                      "iva-anexo-e-820-2007"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  },
+                  {
+                    "id": "iva-anexo-e-820-2007",
+                    "url": "https://biblioteca.afip.gob.ar/pdfp/ANEXO_DEC820_07.pdf",
+                    "document": "data/tax-sources/iva-anexo-e-decreto-820-2007.pdf",
+                    "sha256": "5c60e2a7f7d28c8d60ce9b875acfcce62509965d4ef8da5e171d78bef2cd6048",
+                    "locator": "página 2, NCM 8471.30.12 y 8517.62.41; vinculado desde texto actualizado del art. 28"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Notebook",
+                "clasificacion": null,
+                "SIM": "84713012991G",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 163.67,
+              "tasa_estadistica_usd": 0,
+              "iva_usd": 124.59
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 16,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 163.67,
+          "tasa_estadistica_usd": 0,
+          "iva_usd": 124.59,
+          "debitos_creditos_usd": 3.46,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Router",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Router"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Router",
+            "SIM": "85176241100N",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 583.45,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 108.7,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Router",
+              "SIM": "85176241100N",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "RESUELTO",
+              "requestedPosition": "85176241100N",
+              "ncm": "85176241",
+              "sim": "85176241100N",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0,
+                "statistical": 0,
+                "vat": 0.105
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "85176241100N",
+                    "page": 1424
+                  }
+                ]
+              },
+              "vatEvidence": {
+                "version": "iva-importacion-2026-09-22-v1",
+                "source": {
+                  "id": "iva-rules-v1",
+                  "document": "data/tax-vat.json",
+                  "sha256": "d18ca5c002688fa61f289efb928c0004644009b601b9682b7cf77b5cf4a4ce63",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Reglas referenciales, revisión técnica; no aprobación comercial ni cobertura fiscal universal. ReviewAfter es vencimiento técnico de revisión."
+                },
+                "rules": [
+                  {
+                    "id": "iva-reducido-85176241",
+                    "position": "85176241",
+                    "vat": 0.105,
+                    "basis": "Art. 28, cuarto párrafo, inciso e), planilla Decreto 820/2007, página 2. NCM expresamente listada sin llamada de excepción en esa fila.",
+                    "description": "Ruteador digital con conexión inalámbrica",
+                    "sourceIds": [
+                      "ley-iva-art28",
+                      "iva-anexo-e-820-2007"
+                    ]
+                  }
+                ],
+                "sources": [
+                  {
+                    "id": "ley-iva-art28",
+                    "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "locator": "art. 28, primer párrafo e inciso e); lectura oficial 2026-09-22"
+                  },
+                  {
+                    "id": "iva-anexo-e-820-2007",
+                    "url": "https://biblioteca.afip.gob.ar/pdfp/ANEXO_DEC820_07.pdf",
+                    "document": "data/tax-sources/iva-anexo-e-decreto-820-2007.pdf",
+                    "sha256": "5c60e2a7f7d28c8d60ce9b875acfcce62509965d4ef8da5e171d78bef2cd6048",
+                    "locator": "página 2, NCM 8471.30.12 y 8517.62.41; vinculado desde texto actualizado del art. 28"
+                  }
+                ]
+              },
+              "reasons": [],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Router",
+                "clasificacion": null,
+                "SIM": "85176241100N",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 0,
+              "tasa_estadistica_usd": 0,
+              "iva_usd": 107.41
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [],
+          "DIE_promedio": 0,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 0,
+          "tasa_estadistica_usd": 0,
+          "iva_usd": 107.41,
+          "debitos_creditos_usd": 1.29,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Smartphone",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Smartphone"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Smartphone",
+            "SIM": "85171300000C",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 792.35,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 317.6,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Smartphone",
+              "SIM": "85171300000C",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "ESTIMADO",
+              "requestedPosition": "85171300000C",
+              "ncm": "85171300",
+              "sim": "85171300000C",
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.08,
+                "statistical": 0,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 1,
+                "rows": [
+                  {
+                    "sim": "85171300000C",
+                    "page": 1422
+                  }
+                ]
+              },
+              "vatEvidence": null,
+              "reasons": [],
+              "warnings": [
+                "GENERAL_VAT_ESTIMATE"
+              ],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": [
+                  {
+                    "tax": "vat",
+                    "method": "GENERAL_RULE",
+                    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+                  }
+                ]
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Smartphone",
+                "clasificacion": null,
+                "SIM": "85171300000C",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 81.83,
+              "tasa_estadistica_usd": 0,
+              "iva_usd": 232
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [
+            "GENERAL_VAT_ESTIMATE"
+          ],
+          "DIE_promedio": 8,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 81.83,
+          "tasa_estadistica_usd": 0,
+          "iva_usd": 232,
+          "debitos_creditos_usd": 3.77,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "Repuesto identificado sin NCM",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "Repuesto identificado sin NCM"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "Repuesto identificado sin NCM",
+            "SIM": null,
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 905.08,
+        "flete_internacional_usd": 384,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 430.33,
+        "peso_considerado_kg": 16,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "Repuesto identificado sin NCM",
+              "SIM": null,
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "ESTIMADO",
+              "requestedPosition": null,
+              "ncm": null,
+              "sim": null,
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "rates": {
+                "duty": 0.14,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "reasons": [],
+              "warnings": [
+                "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+                "AGENT_DUTY_ESTIMATE",
+                "GENERAL_TE_ESTIMATE",
+                "GENERAL_VAT_ESTIMATE"
+              ],
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": [
+                  {
+                    "tax": "duty",
+                    "method": "AGENT_ESTIMATE",
+                    "source": "n8n-agent-contract-2026-09-15:product-1",
+                    "basis": "Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot."
+                  },
+                  {
+                    "tax": "statistical",
+                    "method": "GENERAL_RULE",
+                    "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm",
+                    "basis": "Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico."
+                  },
+                  {
+                    "tax": "vat",
+                    "method": "GENERAL_RULE",
+                    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+                  }
+                ]
+              },
+              "dutyEvidence": null,
+              "vatEvidence": null,
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "Repuesto identificado sin NCM",
+                "clasificacion": null,
+                "SIM": null,
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 1022.93,
+              "derechos_usd": 143.21,
+              "tasa_estadistica_usd": 30.69,
+              "iva_usd": 251.33
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [
+            "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+            "AGENT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ],
+          "DIE_promedio": 14,
+          "peso_real_total_kg": 12,
+          "peso_volumetrico_total_kg": 16,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1022.93,
+          "derechos_usd": 143.21,
+          "tasa_estadistica_usd": 30.69,
+          "iva_usd": 251.33,
+          "debitos_creditos_usd": 5.1,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    },
+    {
+      "case": "NCM ambigua",
+      "input": {
+        "solicitud": {
+          "solicitud_id": "offline-test",
+          "productos": [
+            {
+              "link": "",
+              "descripcion": "NCM ambigua"
+            }
+          ],
+          "fob_usd": 1000,
+          "cantidad": 100,
+          "bultos": [
+            {
+              "cantidad": 1,
+              "peso_kg": 12,
+              "largo_cm": 50,
+              "ancho_cm": 40,
+              "alto_cm": 40
+            }
+          ]
+        },
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "NCM ambigua",
+            "SIM": "21069090",
+            "clasificacion": null,
+            "DIE": 14,
+            "evidencia": [],
+            "fundamento": "Fixture offline; no respuesta viva del agente"
+          }
+        ]
+      },
+      "result": {
+        "solicitud_id": "offline-test",
+        "status": "error",
+        "codigo": "REQUIERE_REVISION",
+        "mensaje": "Esta solicitud requiere revisión de GlobalTrip antes de estimar sus tributos. Tus datos se conservan.",
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "NCM ambigua",
+              "SIM": "21069090",
+              "clasificacion": null,
+              "DIE": 14,
+              "evidencia": [],
+              "fundamento": "Fixture offline; no respuesta viva del agente"
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "REQUIERE_REVISION",
+              "requestedPosition": "21069090",
+              "ncm": "21069090",
+              "sim": null,
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": null,
+                "statistical": null,
+                "vat": null
+              },
+              "dutyEvidence": {
+                "version": "german-ncmsim-38cbf471b591-v1",
+                "source": {
+                  "id": "german-ncmsim",
+                  "document": "data/tax-sources/ncmsim.pdf",
+                  "sha256": "38cbf471b591f88f414958a6589c11b783c130e8af6357e56d5e02a66120bf8d",
+                  "capturedAt": "2026-09-22T00:00:00Z",
+                  "reviewAfter": "2026-10-22T00:00:00Z",
+                  "effectiveDate": null,
+                  "note": "Snapshot aportado por Germán; fecha de vigencia normativa no certificada. ReviewAfter es un gate técnico de mantenimiento, no vigencia legal."
+                },
+                "matchedSimCount": 4,
+                "rows": [
+                  {
+                    "sim": "21069090100F",
+                    "page": 180
+                  },
+                  {
+                    "sim": "21069090200L",
+                    "page": 180
+                  },
+                  {
+                    "sim": "21069090400X",
+                    "page": 180
+                  },
+                  {
+                    "sim": "21069090900Z",
+                    "page": 180
+                  }
+                ]
+              },
+              "vatEvidence": null,
+              "reasons": [
+                "DIE_TE_AMBIGUOUS_OR_INVALID"
+              ],
+              "warnings": [],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": []
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "NCM ambigua",
+                "clasificacion": null,
+                "SIM": "21069090",
+                "DIE": 14,
+                "fundamento": "Fixture offline; no respuesta viva del agente",
+                "evidencia": []
+              }
+            }
+          ],
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    }
+  ]
+}
