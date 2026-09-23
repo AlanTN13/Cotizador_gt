@@ -1,0 +1,226 @@
+{
+  "head": "72a19bb4910bef87a333566dc90317cb37d216c8",
+  "baseline": "38c52a72abecdbfc87aaf1893751c67d87b53749",
+  "workflowDiff": [
+    ".nodes[9].parameters.jsCode"
+  ],
+  "fixtureMatchesActualGitBase": true,
+  "frozenFilesCompared": [
+    "app/api/checker/route.ts",
+    "app/api/cotizaciones/route.ts",
+    "app/api/cotizador/route.ts",
+    "app/cotizador/courier-form.tsx",
+    "app/cotizador/globaltrip.module.css",
+    "app/cotizador/page.tsx",
+    "app/cotizador/quotation-dialog.tsx",
+    "app/cotizador/quotation-loading.module.css",
+    "app/cotizador/quotation-loading.tsx",
+    "app/cotizador/reference-form.tsx",
+    "app/cotizador/referencia/page.tsx",
+    "app/global.css",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "components/globaltrip/README.md",
+    "components/globaltrip/components/Footer.jsx",
+    "components/globaltrip/components/Header.jsx",
+    "components/globaltrip/components/NewsletterSignup.jsx",
+    "components/globaltrip/context/LanguageContext.jsx",
+    "components/globaltrip/context/languageContextInstance.js",
+    "components/globaltrip/context/useLanguage.js",
+    "components/globaltrip/lib/gtm.js",
+    "components/globaltrip/routing.tsx",
+    "components/globaltrip/styles/chrome.css",
+    "components/globaltrip/styles/fonts.css",
+    "components/globaltrip/styles/source/site-2026-09-11.css",
+    "components/globaltrip/translations.js",
+    "lib/courier/catalog.ts",
+    "lib/courier/classifier.ts",
+    "lib/courier/engine.ts",
+    "lib/courier/n8n-contract.ts",
+    "lib/courier/registry.ts",
+    "lib/courier/schema.ts",
+    "lib/courier/service.ts",
+    "lib/courier/types.ts",
+    "lib/courier/url.ts",
+    "lib/rate-limit.ts",
+    "lib/utils.ts",
+    "lib/validate.ts",
+    "package-lock.json",
+    "package.json",
+    "public/brand/Manrope-OFL.txt",
+    "public/brand/Material-Symbols-LICENSE.txt",
+    "public/brand/avion-2-cursor.png",
+    "public/brand/globaltrip.png",
+    "public/brand/manrope-400.ttf",
+    "public/brand/manrope-500.ttf",
+    "public/brand/manrope-600.ttf",
+    "public/brand/manrope-700.ttf",
+    "public/brand/manrope-800.ttf",
+    "public/brand/material-symbols-send.ttf",
+    "public/brand/nexops.png",
+    "public/brand/xn7gYHE41ni1AdIRggOxSuXd.woff2",
+    "public/brand/xn7gYHE41ni1AdIRggSxSuXd.woff2",
+    "public/brand/xn7gYHE41ni1AdIRggexSg.woff2",
+    "public/brand/xn7gYHE41ni1AdIRggixSuXd.woff2",
+    "public/brand/xn7gYHE41ni1AdIRggmxSuXd.woff2",
+    "public/brand/xn7gYHE41ni1AdIRggqxSuXd.woff2",
+    "public/favicon-globaltrip.png",
+    "public/logo-powered-globaltrip.png",
+    "public/logo.png",
+    "public/logogt.png"
+  ],
+  "frozenFilesChanged": [],
+  "preCalculatorCodeUnchanged": true,
+  "baselineCalculatorSha256": "3869f15735439e869fdcb4f2e14d11964089f3b887d3608b9db9c91da785ee7a",
+  "candidateCalculatorSha256": "dd4025573c1154b46e79d41c587c4cc24ed8b089b56a5de896e1d3a9dc42ce50",
+  "tests": {
+    "success": true,
+    "numTotalTests": 29,
+    "numPassedTests": 29,
+    "numFailedTests": 0,
+    "numPendingTests": 0
+  },
+  "testCases": [
+    {
+      "name": "guarded offline n8n patch preserves live-only registry nodes, credentials, settings and metadata; repeated patch is idempotent",
+      "status": "passed"
+    },
+    {
+      "name": "guarded offline n8n patch normalizes only defaults omitted by the actual n8n export",
+      "status": "passed"
+    },
+    {
+      "name": "guarded offline n8n patch refuses unreviewed live drift at Cotizador deterministico",
+      "status": "passed"
+    },
+    {
+      "name": "guarded offline n8n patch refuses unreviewed live drift at Agente Despachante",
+      "status": "passed"
+    },
+    {
+      "name": "guarded offline n8n patch refuses unreviewed live drift at Validar salida del agente",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n ventilador resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n remera resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n cuchara resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n LED resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n taza resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n notebook resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n router resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n smartphone resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n repuesto identificado sin NCM resolves each rate and trace in the actual exported node",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n ambiguous NCM returns REQUIERE_REVISION with no fabricated price and existing UI contract",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n reserves review for material contradiction, no identification or explicit impediment",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n reserves review for material contradiction, no identification or explicit impediment",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n reserves review for material contradiction, no identification or explicit impediment",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n reserves review for material contradiction, no identification or explicit impediment",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n specific zero and reduced rates override a higher model estimate",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n uses a known homogeneous NCM when only a plausible SIM suffix is unverified",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n records same-position model fallback truthfully as agent estimate, never an approved profile",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n maintenance deadline warns, while general TE legal expiry blocks fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n a mixed shipment computes VAT per product instead of multiplying average rates",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n preserves existing arithmetic for generic estimates and all logistic thresholds",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n ten products retain their individual resolution and input order through the existing parser",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n changes only calculator code in the exported workflow; agent, credentials and topology unchanged",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n keeps tracing internal using the unchanged gateway response contract",
+      "status": "passed"
+    },
+    {
+      "name": "Tax Resolver adapted to production n8n pins original source documents and row count for the embedded snapshot",
+      "status": "passed"
+    }
+  ],
+  "localNodeVersion": "v22.19.0",
+  "newE2E": 0,
+  "productionMutations": 0,
+  "date": "2026-09-23",
+  "executiveRequest": "https://github.com/AlanTN13/Cotizador_gt/issues/3",
+  "command": "./node_modules/.bin/vitest run tests/tax-n8n.test.ts tests/tax-n8n-patch.test.ts --reporter=json",
+  "ci": {
+    "head": "72a19bb4910bef87a333566dc90317cb37d216c8",
+    "url": "https://github.com/AlanTN13/Cotizador_gt/actions/runs/35806164857",
+    "conclusion": "success",
+    "node": 24,
+    "steps": [
+      "regenerate workflow",
+      "no generated drift",
+      "npm test",
+      "npm run build"
+    ]
+  },
+  "incident": {
+    "code": "N8N_AUTH_REQUIRED",
+    "separateFromFeature": true,
+    "source": "https://github.com/AlanTN13/Cotizador_gt/blob/72a19bb4910bef87a333566dc90317cb37d216c8/docs/evidence/tax-n8n/auth-baseline-recovery-2026-09-22.json",
+    "newLiveObservation": false
+  },
+  "outcome": "IMPLEMENTADO/PREPARADO + ACTIVACION/E2E PENDIENTE POR INCIDENTE SEPARADO"
+}
