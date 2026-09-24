@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {runInNewContext} from 'node:vm';
 import Decimal from 'decimal.js';
 import {calculate,validateInput,parseAgent,agentInstructions,agentSchema} from '../workflow/workflow-source.mjs';
-import {calculate as previousCalculate,agentInstructions as previousInstructions,agentSchema as previousSchema} from './fixtures/n8n-production-before-tax.mjs';
+import {agentInstructions as previousInstructions,agentSchema as previousSchema} from './fixtures/n8n-production-before-tax.mjs';
 import {resolveProductTaxes} from '../workflow/tax-adapter.mjs';
 import * as resolver from '../lib/courier/tax-resolver';
 import policy from '../data/tax-estimation-policy.json';
@@ -81,7 +81,7 @@ describe('Tax Resolver adapted to production n8n',()=>{
     const s=input([product('84145190100R',20,'fan',1),product('85176241100N',0,'router',2)]);
     const r=calculate(s,now).respuesta;
     if (!("auditoria" in r) || !("total_usd" in r)) throw new Error("Expected quotation");
-    const cif=new Decimal('1012.8').times('1.01'), half=cif.div(2);
+    const cif=new Decimal('1033.6').times('1.01'), half=cif.div(2);
     const duty=half.times('.2'), te=half.times('.03');
     const vat=half.plus(duty).plus(te).times('.21').plus(half.times('.105'));
     const taxes=duty.plus(te).plus(vat).times('1.012');
@@ -93,15 +93,46 @@ describe('Tax Resolver adapted to production n8n',()=>{
     expect(r.auditoria.asignacion_cif).toBe('PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE');
     expect(money(cif.plus(duty).plus(te).times('.1575'))).not.toBe(r.auditoria.iva_usd);
   });
-  it('preserves existing arithmetic for generic estimates and all logistic thresholds',()=>{
-    for(const weight of [1,19.5,20,20.5,30,30.5,40]) for(const dies of [[20],[0],[18,20],[20,18,35]]) {
-      const s=input(dies.map((d,i)=>product(null,d,'Identificado',i+1)),{bultos:[{cantidad:2,peso_kg:weight/2,largo_cm:11,ancho_cm:10,alto_cm:50}]});
-      const a=calculate(s,now).respuesta,b=previousCalculate(s).respuesta;
-      if (!("auditoria" in a) || !("auditoria" in b) || !("total_usd" in a) || !("total_usd" in b)) throw new Error("Expected quotations");
-      for(const k of ['total_usd','flete_internacional_usd','handling_con_iva_usd','impuestos_y_tasas_usd','peso_considerado_kg'] as const) expect(a[k]).toBe(b[k]);
-      for(const k of ['peso_real_total_kg','peso_volumetrico_total_kg','tarifa_usd_kg','cif_usd','DIE_promedio','debitos_creditos_usd'] as const) expect(a.auditoria[k]).toBe(b.auditoria[k]);
-    }
+  it('matches the China worksheet reference case and formulas',()=>{
+    const s=input([product(null,20,'Producto con DIE 20%, TE 3% e IVA 21%')],{
+      fob_usd:500,
+      bultos:[
+        {cantidad:1,peso_kg:10,largo_cm:40,ancho_cm:20,alto_cm:30},
+        {cantidad:2,peso_kg:5,largo_cm:50,ancho_cm:30,alto_cm:40},
+      ],
+    });
+    const r=calculate(s,now).respuesta;
+    if (!("auditoria" in r) || !("total_usd" in r)) throw new Error("Expected quotation");
+    expect(r.peso_considerado_kg).toBe(29);
+    expect(r.flete_internacional_usd).toBe(580);
+    expect(r.handling_con_iva_usd).toBe(90.75);
+    expect(r.auditoria).toMatchObject({
+      peso_real_total_kg:20,
+      peso_volumetrico_total_kg:28.8,
+      tarifa_usd_kg:20,
+      cif_usd:566.51,
+      derechos_usd:113.3,
+      tasa_estadistica_usd:17,
+      iva_usd:146.33,
+      debitos_creditos_usd:3.32,
+    });
+    expect(r.impuestos_y_tasas_usd).toBe(279.95);
+    expect(r.total_usd).toBe(950.7);
   });
+  it.each([
+    [20,1,1,1,20,24],
+    [20.01,1,1,1,20.5,20],
+    [1,100.05,50,20,20.5,20],
+    [30.01,1,1,1,30.5,19],
+  ])('rounds gross and volumetric weights up to 0.5 kg before applying freight tiers',
+    (gross,length,width,height,expectedWeight,expectedRate)=>{
+      const s=input([product('85176241100N')],{bultos:[{cantidad:1,peso_kg:gross,largo_cm:length,ancho_cm:width,alto_cm:height}]});
+      const r=calculate(s,now).respuesta;
+      if (!("auditoria" in r) || !("total_usd" in r)) throw new Error("Expected quotation");
+      expect(r.peso_considerado_kg).toBe(expectedWeight);
+      expect(r.auditoria.tarifa_usd_kg).toBe(expectedRate);
+      expect(r.flete_internacional_usd).toBe(expectedWeight*expectedRate);
+    });
   it('ten products retain their individual resolution and input order through the existing parser',()=>{
     const products=Array.from({length:10},(_,i)=>product(i%2?'85176241100N':'84145190100R',20,'Identificado',i+1));
     const s=input(products);

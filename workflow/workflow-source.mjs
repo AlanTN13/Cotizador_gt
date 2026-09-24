@@ -54,7 +54,8 @@ export function calculate(s, now = new Date()){
     if(!Array.isArray(b) || !b.length || b.some(p=>!p || !Number.isSafeInteger(p.cantidad) || p.cantidad<1 || !['peso_kg','largo_cm','ancho_cm','alto_cm'].every(k=>typeof p[k]==='number' && Number.isFinite(p[k]) && p[k]>0)) || !(s.solicitud.fob_usd>0)) return fail();
     const real=sum(b.map(p=>mul(dec(p.cantidad),dec(p.peso_kg))));
     const vol=sum(b.map(p=>div(mul(mul(mul(dec(p.cantidad),dec(p.largo_cm)),dec(p.ancho_cm)),dec(p.alto_cm)),dec(5000))));
-    const volRound=ceil(vol),peso=cmp(real,volRound)>0n?real:volRound;
+    const roundHalfUp=a=>div(ceil(mul(a,dec(2))),dec(2));
+    const realRound=roundHalfUp(real),volRound=roundHalfUp(vol),peso=cmp(realRound,volRound)>0n?realRound:volRound;
     const tarifa=cmp(peso,dec(20))<=0n?24:cmp(peso,dec(30))<=0n?20:19;
     if(!Array.isArray(s.productos) || !s.productos.length || s.productos.length!==s.solicitud.productos.length || s.productos.some((p,i)=>p.indice!==i+1)) return fail();
     const taxResolutions=s.productos.map((p,i)=>resolveProductTaxes(p,i,now,taxResolver,estimationPolicy));
@@ -64,7 +65,7 @@ export function calculate(s, now = new Date()){
     const dies=taxResolutions.map(t=>dec(t.rates.duty));
     const diePromedio=mul(div(sum(dies),dec(dies.length)),dec(100));
     const fob=dec(s.solicitud.fob_usd),flete=mul(peso,dec(tarifa)),handling=mul(dec(75),dec(1.21));
-    const fleteAduanero=mul(peso,dec(0.8)),seguro=mul(add(fob,fleteAduanero),dec(0.01)),cif=sum([fob,fleteAduanero,seguro]);
+    const fleteAduanero=mul(peso,dec(2.1)),seguro=mul(add(fob,fleteAduanero),dec(0.01)),cif=sum([fob,fleteAduanero,seguro]);
     // The existing form supplies only total FOB, not a value per product.
     // Equal CIF allocation preserves its arithmetic-mean DUTY convention.
     // Compute VAT on EACH product's duty+TE basis; averaging rates first is incorrect.
