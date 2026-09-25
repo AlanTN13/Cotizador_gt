@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import { courierResponseSchema, type CourierRequest, type CourierResponse } from "@/lib/courier/n8n-contract";
+import { courierDebugResponseSchema, courierResponseSchema, type CourierDebugResponse, type CourierRequest, type CourierResponse } from "@/lib/courier/n8n-contract";
 import QuotationDialog, { QuotationNotice } from "./quotation-dialog";
 const blankParcel = () => ({ cantidad: 1, peso_kg: 0, largo_cm: 0, ancho_cm: 0, alto_cm: 0 });
 const usd = (n: number) =>
@@ -41,13 +41,13 @@ function NumberField({
     </label>
   );
 }
-export default function CourierForm() {
+export default function CourierForm({ debug = false }: { debug?: boolean }) {
   const [products, setProducts] = useState([{ link: "", descripcion: "" }]);
   const [operation, setOperation] = useState({ fob_usd: 0, cantidad: 1 });
   const [parcels, setParcels] = useState<CourierRequest["bultos"]>([blankParcel()]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<CourierResponse | null>(null);
+  const [result, setResult] = useState<CourierResponse | CourierDebugResponse | null>(null);
   const attempt = useRef<CourierRequest | null>(null);
   const submitting = useRef(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -80,11 +80,11 @@ export default function CourierForm() {
     setResult(null); setError("");
     submitting.current = true; setBusy(true); setModalOpen(true);
     try {
-      const response = await fetch("/api/cotizador", { method: "POST", headers: { "Content-Type": "application/json" },
+      const response = await fetch(debug ? "/api/cotizador?detalle=1" : "/api/cotizador", { method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body), signal: AbortSignal.timeout(120000) });
       const data = await response.json();
       if (!response.ok) throw Error(data.mensaje || data.message || "No pudimos completar la solicitud. Tus datos se conservan.");
-      const parsed = courierResponseSchema.safeParse(data);
+      const parsed = (debug ? courierDebugResponseSchema : courierResponseSchema).safeParse(data);
       if (!parsed.success || parsed.data.solicitud_id !== body.solicitud_id) throw Error("La respuesta está incompleta. Tus datos se conservan para reintentar.");
       setResult(parsed.data);
     } catch (e) {
