@@ -32,16 +32,14 @@ const taxResolution = z.object({ productIndex: z.number().int().nonnegative(), n
   rates: z.object({ duty: rate, statistical: rate, vat: rate }), agentEvidence: z.object({ producto: text(8000) }).passthrough(),
 }).passthrough();
 const productTax = z.object({ indice: z.number().int().positive(), cif_usd: money, derechos_usd: money,
-  tasa_estadistica_usd: money, base_iva_usd: money, iva_usd: money });
+  tasa_estadistica_usd: money, iva_usd: money });
 export const courierUpstreamResponseSchema = z.discriminatedUnion("status", [
   base.extend({ status: z.literal("cotizado"), total_usd: money, flete_internacional_usd: money,
     handling_con_iva_usd: money, impuestos_y_tasas_usd: money, peso_considerado_kg: z.number().finite().positive(),
     auditoria: z.object({ productos: z.array(auditProduct).min(1), taxResolutions: z.array(taxResolution).min(1),
       tributos_por_producto: z.array(productTax).min(1), peso_real_total_kg: money, peso_volumetrico_total_kg: money,
-      peso_real_redondeado_kg: money, peso_volumetrico_redondeado_kg: money, tarifa_usd_kg: money,
-      flete_aduanero_usd: money, seguro_aduanero_usd: money, cif_usd: money, derechos_usd: money,
-      tasa_estadistica_usd: money, iva_usd: money, debitos_creditos_usd: money, handling_usd: money,
-      iva_handling_usd: money }).passthrough(),
+      tarifa_usd_kg: money, cif_usd: money, derechos_usd: money, tasa_estadistica_usd: money,
+      iva_usd: money, debitos_creditos_usd: money }).passthrough(),
   }),
   base.extend({ status: z.literal("error") }).passthrough(),
 ]);

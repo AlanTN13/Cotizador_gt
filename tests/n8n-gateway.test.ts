@@ -9,10 +9,9 @@ const quote = { ...base, status: "cotizado", total_usd: 1439.99, flete_internaci
 const question = { id: "material", pregunta: "¿De qué material es?", motivo: "Permite identificar la variante." };
 const request = (data: unknown = body, headers = {}, debug = false) => new Request(`http://localhost:3018/api/cotizador${debug ? "?detalle=1" : ""}`, { method: "POST", headers: { "content-type": "application/json", origin: "http://localhost:3018", ...headers }, body: JSON.stringify(data) });
 const audit = { productos: [{ indice: 1, producto: "Ventilador portátil" }], taxResolutions: [{ productIndex: 0, ncm: "84145190", sim: "84145190100R", rates: { duty: .2, statistical: .03, vat: .21 }, agentEvidence: { producto: "Ventilador portátil" } }],
-  tributos_por_producto: [{ indice: 1, cif_usd: 1060, derechos_usd: 212, tasa_estadistica_usd: 31.8, base_iva_usd: 1303.8, iva_usd: 273.8 }],
-  peso_real_total_kg: 28.2, peso_volumetrico_total_kg: 28.8, peso_real_redondeado_kg: 28.5, peso_volumetrico_redondeado_kg: 29,
-  tarifa_usd_kg: 20, flete_aduanero_usd: 60.9, seguro_aduanero_usd: 10.61, cif_usd: 1071.51, derechos_usd: 214.3,
-  tasa_estadistica_usd: 32.15, iva_usd: 276.77, debitos_creditos_usd: 6.28, handling_usd: 75, iva_handling_usd: 15.75 };
+  tributos_por_producto: [{ indice: 1, cif_usd: 1060, derechos_usd: 212, tasa_estadistica_usd: 31.8, iva_usd: 273.8 }],
+  peso_real_total_kg: 28.2, peso_volumetrico_total_kg: 28.8, tarifa_usd_kg: 20, cif_usd: 1071.51, derechos_usd: 214.3,
+  tasa_estadistica_usd: 32.15, iva_usd: 276.77, debitos_creditos_usd: 6.28 };
 let fetchMock: ReturnType<typeof vi.fn>;
 beforeEach(() => {
   vi.stubEnv("N8N_COURIER_WEBHOOK_URL", "https://nexops.app.n8n.cloud/webhook/globaltrip-courier-v1");
@@ -42,7 +41,9 @@ describe("server-side n8n gateway", () => {
     const debug = await (await POST(request(body, {}, true))).json();
     expect(debug.detalle_calculo.productos[0]).toMatchObject({ producto: "Ventilador portátil", ncm_sim: "84145190100R" });
     expect(debug.detalle_calculo.productos[0].lineas[0]).toEqual({ concepto: "Derecho de importación (DIE)", base_formula: "USD 1.060", tasa: "20%", importe: "USD 212" });
-    expect(debug.detalle_calculo.resumen.find((row: { concepto: string }) => row.concepto === "Flete a fines aduaneros").importe).toBe("USD 60,9");
+    expect(debug.detalle_calculo.productos[0].lineas[2].importe).toBe("USD 1.303,8");
+    expect(debug.detalle_calculo.resumen.find((row: { concepto: string }) => row.concepto === "Peso bruto redondeado").importe).toBe("28,5 kg");
+    expect(debug.detalle_calculo.totales.find((row: { concepto: string }) => row.concepto === "Handling").importe).toBe("USD 75");
     expect(JSON.stringify(debug)).not.toContain("raw_headers");
   });
   it("preserves all products and parcel groups", async () => {
