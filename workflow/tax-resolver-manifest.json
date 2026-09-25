@@ -2,7 +2,7 @@
   "baseCommit": "38c52a72abecdbfc87aaf1893751c67d87b53749",
   "nodeName": "Cotizador deterministico",
   "baselineCalculatorSha256": "3869f15735439e869fdcb4f2e14d11964089f3b887d3608b9db9c91da785ee7a",
-  "patchedCalculatorSha256": "1be48e1ea2755c52cd732ff1fa86badfa7d0ed915c85a290a3c30e51beb4cd78",
+  "patchedCalculatorSha256": "0ca5ae7ea349c6e5d29f1542f3b31191103284ccceefa5a269a51e600b23a11b",
   "contractGuards": [
     {
       "name": "Validar formulario",

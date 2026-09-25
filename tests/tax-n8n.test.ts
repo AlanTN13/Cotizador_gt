@@ -133,6 +133,26 @@ describe('Tax Resolver adapted to production n8n',()=>{
       expect(r.auditoria.tarifa_usd_kg).toBe(expectedRate);
       expect(r.flete_internacional_usd).toBe(expectedWeight*expectedRate);
     });
+  it('applies the China customs-freight minimum below 1 kg',()=>{
+    const s=input([product('85176241100N',0,'Router sub-1 kg')],{
+      fob_usd:100,
+      bultos:[{cantidad:1,peso_kg:.2,largo_cm:10,ancho_cm:10,alto_cm:10}],
+    });
+    const r=calculate(s,now).respuesta;
+    if (!("auditoria" in r) || !("total_usd" in r)) throw new Error("Expected quotation");
+    expect(r.peso_considerado_kg).toBe(.5);
+    expect(r.flete_internacional_usd).toBe(12);
+    expect(r.auditoria).toMatchObject({
+      tarifa_usd_kg:24,
+      cif_usd:103.12,
+      derechos_usd:0,
+      tasa_estadistica_usd:0,
+      iva_usd:10.83,
+      debitos_creditos_usd:.13,
+    });
+    expect(r.impuestos_y_tasas_usd).toBe(10.96);
+    expect(r.total_usd).toBe(113.71);
+  });
   it('ten products retain their individual resolution and input order through the existing parser',()=>{
     const products=Array.from({length:10},(_,i)=>product(i%2?'85176241100N':'84145190100R',20,'Identificado',i+1));
     const s=input(products);

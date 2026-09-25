@@ -65,7 +65,8 @@ export function calculate(s, now = new Date()){
     const dies=taxResolutions.map(t=>dec(t.rates.duty));
     const diePromedio=mul(div(sum(dies),dec(dies.length)),dec(100));
     const fob=dec(s.solicitud.fob_usd),flete=mul(peso,dec(tarifa)),handling=mul(dec(75),dec(1.21));
-    const fleteAduanero=mul(peso,dec(2.1)),seguro=mul(add(fob,fleteAduanero),dec(0.01)),cif=sum([fob,fleteAduanero,seguro]);
+    const fleteAduaneroCalculado=mul(peso,dec(2.1)),fleteAduanero=cmp(fleteAduaneroCalculado,dec(2.1))<0n?dec(2.1):fleteAduaneroCalculado;
+    const seguro=mul(add(fob,fleteAduanero),dec(0.01)),cif=sum([fob,fleteAduanero,seguro]);
     // The existing form supplies only total FOB, not a value per product.
     // Equal CIF allocation preserves its arithmetic-mean DUTY convention.
     // Compute VAT on EACH product's duty+TE basis; averaging rates first is incorrect.
