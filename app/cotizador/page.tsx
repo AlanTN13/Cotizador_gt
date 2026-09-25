@@ -22,16 +22,14 @@ export const metadata = {
   title: "Courier aéreo | GlobalTrip",
   description: "Cotizá tu importación comercial desde China a Buenos Aires.",
 };
-export default async function Page({ searchParams }: { searchParams: Promise<{ detalle?: string | string[] }> }) {
-  const params = await searchParams;
-  const debug = params.detalle === "1";
+export default function Page() {
   return (
     <div className={`${manrope.className} ${styles.site} min-h-screen bg-white text-slate-900 [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-4 [&_a:focus-visible]:outline-[#0b0c49] [&_button:focus-visible]:outline [&_button:focus-visible]:outline-2 [&_button:focus-visible]:outline-offset-4 [&_button:focus-visible]:outline-[#0b0c49]`}>
       <LanguageProvider>
       <div className={styles.headerBoundary}>
         <GlobalTripHeader />
       </div>
-      <CourierForm debug={debug} />
+      <CourierForm debug />
       <GlobalTripFooter />
       </LanguageProvider>
     </div>

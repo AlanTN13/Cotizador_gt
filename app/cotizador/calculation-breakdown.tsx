@@ -12,7 +12,7 @@ function Rows({ rows }: { rows: CalculationDetail["resumen"] }) {
 
 export default function CalculationBreakdown({ detail }: { detail: CalculationDetail }) {
   return <section className={styles.audit} aria-labelledby="audit-title">
-    <div className={styles.auditTitle}><p>Modo QA · detalle=1</p><h3 id="audit-title">Desglose del cálculo</h3></div>
+    <div className={styles.auditTitle}><p>Modo QA · período de pruebas</p><h3 id="audit-title">Desglose del cálculo</h3></div>
     <Rows rows={detail.resumen} />
     {detail.productos.map((product, index) => <section className={styles.auditProduct} key={`${product.producto}-${index}`}>
       <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p><Rows rows={product.lineas} />
