@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
-import type { CourierResponse } from "@/lib/courier/n8n-contract";
+import type { CourierDebugResponse, CourierResponse } from "@/lib/courier/n8n-contract";
 import QuotationLoading from "./quotation-loading";
+import CalculationBreakdown from "./calculation-breakdown";
 import styles from "./quotation-loading.module.css";
 const usd = (value: number) => new Intl.NumberFormat("es-AR", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(value);
 
@@ -18,7 +19,7 @@ export function QuotationNotice() {
 }
 
 export default function QuotationDialog({ open, busy, result, error, fob, onReset, onDismiss }: {
-  open: boolean; busy: boolean; result: CourierResponse | null; error: string; fob: number;
+  open: boolean; busy: boolean; result: CourierResponse | CourierDebugResponse | null; error: string; fob: number;
   onReset: () => void; onDismiss: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -56,6 +57,7 @@ export default function QuotationDialog({ open, busy, result, error, fob, onRese
           <div><dt>Peso considerado</dt><dd>{result.peso_considerado_kg} kg</dd></div>
         </dl>
         </div><QuotationNotice /></div>
+        {"detalle_calculo" in result && <CalculationBreakdown detail={result.detalle_calculo} />}
         <button type="button" className={styles.primaryAction} onClick={onReset}>Hacer otra estimación</button>
       </> : <>
         <p role="alert" className={styles.errorMessage}>{error || result?.mensaje}</p>
