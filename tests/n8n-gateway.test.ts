@@ -93,19 +93,19 @@ describe("canonical V1 workflow", () => {
   }
   it("calculates with estimated duty and no link, SIM or evidence prerequisite", async () => {
     const result = await run([20]);
-    expect(result).toMatchObject({ status: "cotizado", total_usd: 980.24, flete_internacional_usd: 384, handling_con_iva_usd: 90.75, impuestos_y_tasas_usd: 505.49, peso_considerado_kg: 16 });
+    expect(result).toMatchObject({ status: "cotizado", total_usd: 990.62, flete_internacional_usd: 384, handling_con_iva_usd: 90.75, impuestos_y_tasas_usd: 515.87, peso_considerado_kg: 16 });
     expect(courierResponseSchema.parse(result)).not.toHaveProperty("auditoria");
   });
   it("uses arithmetic mean for two products and preserves each individual estimate", async () => {
     const result = await run([20,18]);
     expect(result.auditoria.DIE_promedio).toBe(19);
     expect(result.auditoria.productos.map((p: {DIE:number}) => p.DIE)).toEqual([20,18]);
-    expect(result.total_usd).toBe(967.71);
+    expect(result.total_usd).toBe(977.84);
   });
   it("does not round the mean before tax calculation", async () => {
     const result = await run([20,18,35]);
     expect(result.auditoria.DIE_promedio).toBeCloseTo(73/3,12);
-    const cif=1012.8*1.01, duties=cif*(73/3)/100, stats=cif*.03, iva=(cif+duties+stats)*.21;
+    const cif=1033.6*1.01, duties=cif*(73/3)/100, stats=cif*.03, iva=(cif+duties+stats)*.21;
     const taxes=(duties+stats+iva)*1.012;
     expect(result.impuestos_y_tasas_usd).toBe(Math.round(taxes*100)/100);
   });
@@ -115,7 +115,7 @@ describe("canonical V1 workflow", () => {
   });
   it("rounds aggregate volumetric weight only once", async () => {
     const result = await run([18], { bultos: [{cantidad:2,peso_kg:1,largo_cm:11,ancho_cm:10,alto_cm:50}] });
-    expect(result.peso_considerado_kg).toBe(3);
+    expect(result.peso_considerado_kg).toBe(2.5);
   });
   it("reports malformed or missing model results only as technical error", async () => {
     const { validateInput, parseAgent } = await import("../workflow/workflow-source.mjs");
