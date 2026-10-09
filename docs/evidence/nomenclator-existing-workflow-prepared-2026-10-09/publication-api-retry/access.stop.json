@@ -1,0 +1,20 @@
+{
+  "status": "STOP_AUTHENTICATION_NO_MUTATION",
+  "http_status": 401,
+  "production_mutations": 0,
+  "recorded_at_utc": "2026-10-09T13:02:05.481110+00:00",
+  "clipboard_format_checks": {
+    "nonempty": true,
+    "has_whitespace": false,
+    "jwt_structure": true,
+    "jwt_payload_decodable": true,
+    "expiration_present": true,
+    "expired_according_to_payload": false
+  },
+  "key_value_or_claims_recorded": false,
+  "jwt_signature_validity": "NOT_VERIFIED",
+  "publication_attempted": false,
+  "quotations_executed": 0,
+  "candidate_unchanged": true,
+  "rollback_preserved": true
+}
