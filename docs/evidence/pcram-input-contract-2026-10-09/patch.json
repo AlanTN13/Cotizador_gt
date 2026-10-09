@@ -1,0 +1,19 @@
+{
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "node_id": "0944bbbe-5bc2-4e8c-a8f5-67aeed667023",
+  "node_name": "Consulta_nomenclador_PCRAM",
+  "baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "never_import_full_workflow": true,
+  "changes": {
+    "inputSchema": {
+      "before": "{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"indice\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100},\"prefijo\":{\"type\":\"string\",\"maxLength\":15,\"description\":\"Vacío, HS4/6, NCM8 o SIM completo; no completar códigos\"},\"texto\":{\"type\":\"string\",\"maxLength\":160,\"description\":\"Hasta ocho términos literales, de al menos tres caracteres; no marca ni tasa\"},\"limite\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":8}},\"required\":[\"indice\",\"prefijo\",\"texto\",\"limite\"]}",
+      "after": "{\"type\":\"object\",\"additionalProperties\":true,\"properties\":{\"indice\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":100},\"prefijo\":{\"type\":\"string\",\"maxLength\":15,\"description\":\"Vacío, HS4/6, NCM8 o SIM completo; no completar códigos\"},\"texto\":{\"type\":\"string\",\"maxLength\":160,\"description\":\"Hasta ocho términos literales, de al menos tres caracteres; no marca ni tasa\"},\"limite\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":8}},\"required\":[\"indice\",\"prefijo\",\"texto\",\"limite\"]}"
+    },
+    "jsCode": {
+      "before_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+      "after_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+      "replace_suffix": "return JSON.stringify(queryPackedNomenclator(runtime, query));\n",
+      "with_suffix": "// n8n may merge workflow context into the Code Tool query. Never forward it.\nfunction pcramSearchInput(input) {\n  const keys = [\"indice\", \"prefijo\", \"texto\", \"limite\"];\n  if (!input || typeof input !== \"object\" || Array.isArray(input) ||\n      !keys.every(key => Object.prototype.hasOwnProperty.call(input, key))) return null;\n  const { indice, prefijo, texto, limite } = input;\n  if (!Number.isInteger(indice) || indice < 1 || indice > 100 ||\n      typeof prefijo !== \"string\" || prefijo.length > 15 ||\n      typeof texto !== \"string\" || texto.length > 160 ||\n      !Number.isInteger(limite) || limite < 1 || limite > 8) return null;\n  return { indice, prefijo, texto, limite };\n}\n\nreturn JSON.stringify(queryPackedNomenclator(runtime, pcramSearchInput(query)));\n"
+    }
+  }
+}

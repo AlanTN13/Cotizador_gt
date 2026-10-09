@@ -1,0 +1,136 @@
+{
+  "environment": "LOCAL_ONLY_NO_N8N_NO_MODEL",
+  "schema_validation": "Representative Zod 3 object conversion; existing installed zod, no n8n or LangChain package installed",
+  "context_values": "Representative; exact extra key names and business query from #34366",
+  "controls": {
+    "reproduction": {
+      "exact_business_query": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+        "limite": 5
+      },
+      "rejected_keys": [
+        "solicitud",
+        "siguiente",
+        "agent_input",
+        "toolCallId"
+      ],
+      "error": "Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'"
+    },
+    "exact_34366_query": {
+      "schema_accepted": true,
+      "additional_properties_only_status": "INVALID_QUERY",
+      "forwarded": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+        "limite": 5
+      },
+      "status": "NO_MATCH",
+      "returned_count": 0
+    },
+    "real_snapshot_candidates": [
+      {
+        "query": {
+          "indice": 1,
+          "prefijo": "85176272900U",
+          "texto": "",
+          "limite": 5
+        },
+        "status": "OK",
+        "count": 1,
+        "partial": false,
+        "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+      },
+      {
+        "query": {
+          "indice": 2,
+          "prefijo": "95030060",
+          "texto": "plastico",
+          "limite": 2
+        },
+        "status": "OK",
+        "count": 2,
+        "partial": true,
+        "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+      },
+      {
+        "query": {
+          "indice": 1,
+          "prefijo": "6109",
+          "texto": "camisetas",
+          "limite": 2
+        },
+        "status": "OK",
+        "count": 2,
+        "partial": true,
+        "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+      }
+    ],
+    "strict_parameters": {
+      "passed": true,
+      "negative_cases": [
+        "missing indice",
+        "missing prefijo",
+        "missing texto",
+        "missing limite",
+        "indice string",
+        "indice fractional",
+        "indice zero",
+        "indice too high",
+        "prefix null",
+        "prefix too long",
+        "text object",
+        "text too long",
+        "limit string",
+        "limit fractional",
+        "limit zero",
+        "limit too high"
+      ],
+      "no_defaulting_or_coercion": true
+    },
+    "search_format": {
+      "passed": true,
+      "negative_cases": 6,
+      "nonexistent_code_status": "NO_MATCH"
+    },
+    "direct_result_guard": {
+      "passed": true,
+      "source_sha_matches": true,
+      "indice_matches": true
+    },
+    "guard_negative": {
+      "passed": true,
+      "guard_unchanged": true
+    },
+    "scope_and_rollback": {
+      "passed": true,
+      "node_count": 12,
+      "exact_two_fields": true,
+      "frozen_surfaces_identical": true,
+      "packed_index_decoder_and_search_identical": true,
+      "recovery_exact": true
+    },
+    "agent_v3_wrapper_guard": {
+      "passed": false,
+      "source_basis": "official n8n master ToolCode.execute + agent-execution/buildSteps.buildObservation",
+      "cloud_installed_source_identity_verified": false,
+      "observation_shape": "[{response: JSON_string}]",
+      "parsed_top_level_source": null,
+      "first_failed_condition": "result?.source?.zip_sha256 !== sourceSha",
+      "result": [
+        {
+          "indice": 1,
+          "producto": "Contract fixture, not a classified VALDUS",
+          "clasificacion": null,
+          "SIM": null,
+          "DIE": 16,
+          "evidencia": [],
+          "fundamento": "Synthetic membership fixture; no model call Estimación: identificador no acreditado en la consulta del producto o identificadores incompatibles; no se completó ni recortó ningún código."
+        }
+      ]
+    }
+  },
+  "status": "INPUT_PATCH_PASS_PUBLICATION_NO_GO_GUARD_CONTRACT_BLOCKED"
+}

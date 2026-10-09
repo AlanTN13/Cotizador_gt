@@ -1,0 +1,82 @@
+{
+  "status": "INPUT_PATCH_IMPLEMENTED_LOCAL_PASS__FULL_ACCEPTANCE_BLOCKED__NOT_PUBLICATION_READY",
+  "baseline_file": "docs/evidence/nomenclator-existing-workflow-prepared-2026-10-09/publication-api-verified/published.api-export.json",
+  "baseline_file_sha256": "c39c3dafd8229d647bc9946166a0616acabedbbb8ac17943761181c7a826614f",
+  "baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "baseline_is_saved_published_export_not_fresh_live_read": true,
+  "tool_before_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+  "tool_candidate_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "schema_before_sha256": "9367dbef1c5a2a77a1c9dae1d3e148c256cc6a4fbda85f84afcbc99695c0d7d2",
+  "schema_candidate_sha256": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+  "node_count": 12,
+  "changed_paths": [
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode"
+  ],
+  "frozen_surfaces_identical": true,
+  "rollback_exact": true,
+  "unchanged_code_prefix_sha256": "c2acdd4183ae5b94e901feef16fad48f0a8b4fe5162b61bea054b9811b9fbb4e",
+  "tool_before_bytes": 2301909,
+  "tool_candidate_bytes": 2302611,
+  "required_gate": "Explicit publication authorization plus fresh live baseline verification. Zero Cloud/agent calls during preparation.",
+  "context_revision": "a3bf1f1a6af59f08c29f23fdc819d57d0725be15",
+  "technical_parent": "1a055d95cae49edab8110ea67150e0aa115ef962",
+  "test_command": "node --test tests/pcram-tool-input-contract.test.mjs",
+  "tests": {
+    "total": 9,
+    "pass": 8,
+    "fail": 1,
+    "failing_control": "Agent V3 wrapped success -> unchanged guard",
+    "negative_parameter_cases": 16,
+    "negative_format_cases": 6
+  },
+  "validated_environment": "Local Node v22.19.0, installed Zod 3.25.76; representative schema conversion and Agent V3 response transformation, no installed n8n/LangChain runtime",
+  "schema_property_rules_and_four_required_fields_unchanged": true,
+  "exact_34366_query_after_fix": "NO_MATCH; no invented candidates",
+  "minimal_patch": {
+    "schema": "Accept additional runtime context, preserve required business constraints",
+    "jsCode": "Strict own-field projection and validation; only four query keys reach unchanged search"
+  },
+  "blocking_evidence": {
+    "passed": false,
+    "source_basis": "official n8n master ToolCode.execute + agent-execution/buildSteps.buildObservation",
+    "cloud_installed_source_identity_verified": false,
+    "observation_shape": "[{response: JSON_string}]",
+    "parsed_top_level_source": null,
+    "first_failed_condition": "result?.source?.zip_sha256 !== sourceSha",
+    "result": [
+      {
+        "indice": 1,
+        "producto": "Contract fixture, not a classified VALDUS",
+        "clasificacion": null,
+        "SIM": null,
+        "DIE": 16,
+        "evidencia": [],
+        "fundamento": "Synthetic membership fixture; no model call Estimación: identificador no acreditado en la consulta del producto o identificadores incompatibles; no se completó ni recortó ningún código."
+      }
+    ]
+  },
+  "forbidden_surface_not_changed": "guardClassification / Validar salida del agente",
+  "gate": "NO-GO for publication. Existing guard cannot consume the representative Agent V3 envelope. Stop before touching the frozen validator. Cloud installed source identity and actual successful trace not verified.",
+  "rollback": "rollback.patch.json, exact local reverse of only inputSchema and jsCode suffix; requires live hashes and no unrelated changes before any future application",
+  "cloud_executions": 0,
+  "openai_calls": 0,
+  "commercial_quotes": 0,
+  "production_writes": 0,
+  "pcram_downloads": 0,
+  "no_new_credentials_services_tools_workflows": true,
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/packages/@n8n/json-schema-to-zod/src/parsers/parse-object.ts",
+      "purpose": "Representative strict()/catchall() object conversion"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/packages/@n8n/nodes-langchain/nodes/tools/ToolCode/ToolCode.node.ts",
+      "purpose": "execute writes response string in item.json.response"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/packages/@n8n/nodes-langchain/utils/agent-execution/buildSteps.ts",
+      "purpose": "buildObservation serializes array of item.json; no response unwrapping"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_OFFLINE_NOT_PUBLISHED",
+  "baseline_file": "docs/evidence/nomenclator-existing-workflow-prepared-2026-10-09/publication-api-verified/published.api-export.json",
+  "baseline_file_sha256": "c39c3dafd8229d647bc9946166a0616acabedbbb8ac17943761181c7a826614f",
+  "baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "baseline_is_saved_published_export_not_fresh_live_read": true,
+  "tool_before_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+  "tool_candidate_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "schema_before_sha256": "9367dbef1c5a2a77a1c9dae1d3e148c256cc6a4fbda85f84afcbc99695c0d7d2",
+  "schema_candidate_sha256": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+  "node_count": 12,
+  "changed_paths": [
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode"
+  ],
+  "frozen_surfaces_identical": true,
+  "rollback_exact": true,
+  "unchanged_code_prefix_sha256": "c2acdd4183ae5b94e901feef16fad48f0a8b4fe5162b61bea054b9811b9fbb4e",
+  "tool_before_bytes": 2301909,
+  "tool_candidate_bytes": 2302611,
+  "required_gate": "Explicit publication authorization plus fresh live baseline verification. Zero Cloud/agent calls during preparation."
+}

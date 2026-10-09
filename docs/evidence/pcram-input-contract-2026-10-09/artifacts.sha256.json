@@ -1,0 +1,17 @@
+{
+  "docs/evidence/pcram-input-contract-2026-10-09/README.md": "6744211afb94bd10c4df400a4a29abb15c0fee58f438c32e1b1d790677f76711",
+  "docs/evidence/pcram-input-contract-2026-10-09/candidate.workflow.json": "2e9efc5f30b7c1e65ee464152830655cad1d16ea770e7b4f248e2daf86d6c5cf",
+  "docs/evidence/pcram-input-contract-2026-10-09/diff.exact.txt": "3d88ae7d64234cb7720380b68912bcec3ff690fc331780403c0b58f48b0e6007",
+  "docs/evidence/pcram-input-contract-2026-10-09/engine-wrapped-success.json": "275c96b163e3e28820674daa9c6345c9bf7d174dc6528f88ee3a0fadf9b2c944",
+  "docs/evidence/pcram-input-contract-2026-10-09/local-tests.log": "39876f1d062cab78ee82eb37fb9a05859e10ea32aa3cdc5f201bf54184e5fded",
+  "docs/evidence/pcram-input-contract-2026-10-09/patch.json": "44e30efd2e069a357147ac461fb3bfb8239a50f1782fa2a7a4319617aea5996a",
+  "docs/evidence/pcram-input-contract-2026-10-09/preparation.json": "11d9b089b93a3824c001a95b570877d8fe03207177f68646ae375d73ca6538bd",
+  "docs/evidence/pcram-input-contract-2026-10-09/query-34366.response.json": "a5585d5cfda7ca63c3a5640161cde132554f36a24271fefb37f6958c0102ad19",
+  "docs/evidence/pcram-input-contract-2026-10-09/receipt.json": "6742812c4fb56a5f2bb8455fbe47aff491088357639c77d661ab377439ae4b89",
+  "docs/evidence/pcram-input-contract-2026-10-09/rollback.patch.json": "8a1a86cafb1b680bf860713bb5d64663a65c82f951f2f1fd798fd7b37eeff5c8",
+  "docs/evidence/pcram-input-contract-2026-10-09/successful-responses.json": "ad895897cc1568cb030f6601496fc1e6853f96e5ca9b784354b4755a8a42bcc8",
+  "docs/evidence/pcram-input-contract-2026-10-09/validation.json": "b415441746d2c88dcbe3bcd6ddcc63adae16a462d79e45df92f6162b3cf33881",
+  "scripts/prepare-pcram-input-contract.mjs": "c8f2ea50b6aebc19aec6baf7c3f6c19c5c4552c00812888a181e20a0d688dded",
+  "tests/pcram-tool-input-contract.test.mjs": "22091503c28e94464cdfcfad614a2bcba78b96aa5ad8a6fee44a8d48696d9d75",
+  "workflow/pcram-tool-input.mjs": "2b81a359332f1fef92c9084d389c3ae2b2525e1c275978c9de0ea492c7b2dd38"
+}
