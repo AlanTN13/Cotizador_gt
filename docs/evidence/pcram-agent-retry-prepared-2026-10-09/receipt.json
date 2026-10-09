@@ -1,0 +1,65 @@
+{
+  "status": "LOCAL_PREPARATION_PASS_NOT_PUBLISHED",
+  "context_revision": "693e027",
+  "source_er": "https://github.com/AlanTN13/Cotizador_gt/issues/8",
+  "source_evidence_commit": "31232cd",
+  "baseline_saved_export": "docs/evidence/pcram-search-semantics-2026-10-09/publication-api/published.api-export.json",
+  "baseline_version": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "live_baseline_recheck": "REQUIRED_BEFORE_ANY_FUTURE_PUBLICATION; no Cloud access in this task",
+  "branch": "codex/pcram-nomenclator-readonly",
+  "baseline_node_count": 12,
+  "changed_field": "Agente Despachante.parameters.options.systemMessage",
+  "before_sha256": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+  "candidate_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "index_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+  "retry_policy": "ONE_RETRY_PER_PRODUCT_ONLY_AFTER_FIRST_NO_MATCH; total nomenclator calls <=2",
+  "tests_status": "4 PASS / 0 FAIL",
+  "agent_behavior": "NOT_MEASURED; no model calls; prompt limit is instructional, not a new runtime enforcement",
+  "actions": {
+    "production_changes": 0,
+    "cloud_quotes": 0,
+    "model_calls": 0,
+    "pcram_downloads": 0
+  },
+  "rollback": "Restore only prompt.before.txt when current hash equals candidate; STOP on divergence",
+  "test_command": "node --test tests/pcram-agent-retry-prompt.test.mjs",
+  "local_search_controls": [
+    {
+      "query": "camiseta running",
+      "status": "NO_MATCH",
+      "matched_count": 0,
+      "returned_count": 0
+    },
+    {
+      "query": "prefijo6109 / texto vacío",
+      "status": "OK",
+      "matched_count": 10,
+      "returned_count": 5
+    },
+    {
+      "query": "camiseta",
+      "status": "OK",
+      "matched_count": 52,
+      "returned_count": 5
+    }
+  ],
+  "frozen_node_hashes": {
+    "Formulario - POST": "a9bab9458394cf4e4a67a04faed83e2ea28db4ce651d7c3af171ab35272a51fa",
+    "Validar formulario": "5d0a74c6185bd06fe8ad64c1ced65327666f4691e2f5598b49644deb2708af75",
+    "Entrada completa": "1b5469e49c40a610b358c927233c95951739d4ad4a6e00c9c9f4c29e0b407a33",
+    "Preparar agente": "eebc633fdc5448d34c6a2069585f060ef8646abc657dbe4c38803538b6a7d110",
+    "OpenAI Chat Model": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
+    "Salida estructurada": "d77196578c99b83d60f3601884b8d72fd742bb505d592f539ac20d952e820c78",
+    "Validar salida del agente": "b2a6bfd2dced622e7d2db44326a89e78c4ba2073372bed5f9f7e30a1430e7fb7",
+    "Clasificado y apto": "6c31f58309180d2b15491e45ef44f0d1a57e4e85a3849f16160992bcc8567943",
+    "Cotizador deterministico": "b79dc8e40cd9ac0df910f29426a6afc3217ef0df68809e60c147f2f64f755cbc",
+    "Responder a la landing": "c694b20e301bd5b87558f57ebd6a8b988a02a1135eb4994dc9778359919e4d1a",
+    "Consulta_nomenclador_PCRAM": "fc9014a5b09f7bed809f1d7481db6504ce311138ea54d2208bce321ecd91808e"
+  },
+  "limitations": [
+    "No real agent/model behavior measured; synthetic validator fixtures are not an agent classification.",
+    "Only prompt strategy changes, not runtime retry enforcement.",
+    "Saved published baseline only; live hash/version must be reread before separate publication authorization.",
+    "Broad results are partial; no SIM compatibility or tax homogeneity inferred."
+  ]
+}

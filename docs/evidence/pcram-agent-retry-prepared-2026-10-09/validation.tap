@@ -1,0 +1,34 @@
+TAP version 13
+# Subtest: one prompt field only; hashes and guarded prompt-only rollback
+ok 1 - one prompt field only; hashes and guarded prompt-only rollback
+  ---
+  duration_ms: 7.493875
+  type: 'test'
+  ...
+# Subtest: static policy: one retry after NO_MATCH, existing two-call budget and prudence retained
+ok 2 - static policy: one retry after NO_MATCH, existing two-call budget and prudence retained
+  ---
+  duration_ms: 0.626667
+  type: 'test'
+  ...
+# Subtest: actual frozen Code Tool: commercial NO_MATCH and both permitted broad-query shapes
+ok 3 - actual frozen Code Tool: commercial NO_MATCH and both permitted broad-query shapes
+  ---
+  duration_ms: 347.72425
+  type: 'test'
+  ...
+# Subtest: literal frozen validator: broad candidates do not force a SIM; unaudited identifiers rejected
+ok 4 - literal frozen validator: broad candidates do not force a SIM; unaudited identifiers rejected
+  ---
+  duration_ms: 1.623542
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 467.46325

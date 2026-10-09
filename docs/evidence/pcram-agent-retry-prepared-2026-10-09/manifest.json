@@ -1,0 +1,13 @@
+{
+  "README.md": "b0e1d4733ab253fef47920ac359ddc6835d0ddf48d532bf862035bf02bbb4f16",
+  "candidate.patch.json": "f96bbbc620b56bddc680527a28868fbae128bab68399b8255ffaf3da3e4c4ff1",
+  "family-retry.response.json": "3f14c0face151bcc0a17402e7d1e89a6550f7ccf518a6d018d3b30ebc3ab44fc",
+  "initial.response.json": "6e7c5beb2a52ca023a327dc79379d5554ea25bb5fb296cdd062746d55bff2691",
+  "main-term-retry.response.json": "3ce18e8fa7da46a2c9b43c60b15ddecf808905c16900f3335958b3073fac8ad3",
+  "prompt.after.txt": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "prompt.before.txt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+  "prompt.diff": "12de5a1afea83f4961c9a99589a752859adec61ae8d9148a1df2c0975e363993",
+  "receipt.json": "920f4ade3ebe1180e9605b39a68dfb0bdcb3a271b551c83b36284436ed60e056",
+  "rollback.patch.json": "7969f99430ddef3cc0010f31eed4ef9770954b689def9300e38abb04f4e36fb0",
+  "validation.tap": "c5aa79174fd694ba3758cb5cf30c5e73dcc306fa535bfe338a3fbb947ef14ddb"
+}
