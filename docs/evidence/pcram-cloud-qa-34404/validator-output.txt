@@ -1,0 +1,42 @@
+OUTPUT
+1 item
+solicitud
+	
+siguiente
+	
+productos
+	
+
+solicitud_id:483f681b-d394-4d4a-bc76-6a1daf91491f
+productos
+0
+link:https://www.alibaba.com/x/B2UFi4?ck=pdp
+descripcion:camiseta de running
+fob_usd:500
+cantidad:1
+bultos
+0
+cantidad:1
+peso_kg:10
+largo_cm:20
+ancho_cm:30
+alto_cm:40
+1
+cantidad:2
+peso_kg:5
+largo_cm:30
+ancho_cm:40
+alto_cm:50
+	cotizar	
+0
+indice:1
+producto:camiseta de running
+clasificacion:6109
+SIM:null
+DIE:20
+evidencia
+0
+url:https://web.pcram.net/downloads/transf.zip
+detalle:Consulta al nomenclador PCRAM con términos 'camiseta running': no hubo coincidencias exactas; se identificó que la base existe pero no retornó NCM/SIM para la búsqueda.
+fundamento:Producto identificado como camiseta/tee (subpartida HS 6109 - camisetas, singlets y similares, tejido de punto); falta dato de composición/tecnología para completar NCM8 o SIM, por eso se mantiene HS4; DIE estimado 20% como arancel ordinario probable para prendas textiles de vestir desde zona extrazona.
+	

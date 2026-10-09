@@ -1,0 +1,13 @@
+{
+  "README.md": "ed7fdcc6e4eae29afc1f08df5627a04915ea5f84f8970c5ac8d8c13b83d481cc",
+  "agent-output.txt": "1fe9ba47706d3d0c09952aadb69d5a68d371aae21e9cc565b5db0085f006525a",
+  "calculator-output.txt": "2ade3c196f2f6274eb4f98be79d597f754ed56d0c24c4e3cd6a31841beab15fc",
+  "identity.json": "0edfabad68aed74c51e1a9d799a1f5b51409bf9ebaa44f7bd3f1308b1e05f1f4",
+  "receipt.json": "86e497f3c6e3d1bf6d352dbddbcdcc3d031addf7fdb6edb86747c0e90d193a6f",
+  "tool-input.txt": "24eab48aa1bc6ce6d8d40e70a695c5a9d6f8d441bdd8fb1096d6d86b9f6c60e0",
+  "tool-output.txt": "e7bca790a4b8fafe81f57c380cba4116ef5e9a535fad503a49044d00c28e67cb",
+  "tool-response.json": "c17a551f86f3e17fba85dc6d9d1c482d120b31686c217233bf727ce460206692",
+  "tool.png": "f3a909c42f6b69c6f0b73d80a9129eb4dbb0c6a74c0e9517ae689c1eacad573c",
+  "validator-input.txt": "c695f8d17bd60245b16bb825fe34495b779096c933bd0ce9673348f20fe5b7da",
+  "validator-output.txt": "d6edc118df94c3ff2fe4053789155f8bd5f44ebbbf5c5e4679e651f25e6a8f30"
+}

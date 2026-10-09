@@ -1,0 +1,64 @@
+{
+  "source": {
+    "fields": {
+      "ncm": [
+        1,
+        10
+      ],
+      "ncm_context": [
+        15,
+        1538
+      ],
+      "sim": [
+        11,
+        14
+      ],
+      "sim_description": [
+        1539,
+        1792
+      ],
+      "updated_at": [
+        2089,
+        2094
+      ]
+    },
+    "importer_version": "pcram-ncm-fixed-2134-v1",
+    "limitations": [
+      "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+      "Descriptions may be truncated; do not complete them or assume absent attributes.",
+      "Code existence does not establish compatibility with the product.",
+      "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+    ],
+    "ncm_count": 10504,
+    "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+    "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+    "record_count": 33038,
+    "schema": "pcram-nomenclator-fixed-2134-v1",
+    "source": "https://web.pcram.net/downloads/transf.zip",
+    "source_matches_tax_snapshot": false,
+    "structure_source": "https://www.pcram.net/downloads/estructura.html",
+    "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+    "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+  },
+  "status": "NO_MATCH",
+  "query": {
+    "indice": 1,
+    "prefijo": "",
+    "texto": "camiseta de running",
+    "limite": 5
+  },
+  "normalization": {
+    "ignored_terms": [
+      "de"
+    ],
+    "terms": [
+      "camiseta",
+      "running"
+    ]
+  },
+  "matched_count": 0,
+  "returned_count": 0,
+  "partial": false,
+  "coverage": "Only matches of this query; no inference of tax homogeneity or product compatibility",
+  "results": []
+}

@@ -1,0 +1,71 @@
+INPUT
+1 item
+output
+	
+intermediateSteps
+	
+
+productos
+0
+indice:1
+producto:camiseta de running
+clasificacion:6109
+SIM:null
+DIE:20
+evidencia
+0
+url:https://web.pcram.net/downloads/transf.zip
+detalle:Consulta al nomenclador PCRAM con términos 'camiseta running': no hubo coincidencias exactas; se identificó que la base existe pero no retornó NCM/SIM para la búsqueda.
+fundamento:Producto identificado como camiseta/tee (subpartida HS 6109 - camisetas, singlets y similares, tejido de punto); falta dato de composición/tecnología para completar NCM8 o SIM, por eso se mantiene HS4; DIE estimado 20% como arancel ordinario probable para prendas textiles de vestir desde zona extrazona.
+	
+0
+action
+tool:Consulta_nomenclador_PCRAM
+toolInput
+indice:1
+prefijo:empty
+texto:camiseta de running
+limite:5
+log:Calling Consulta_nomenclador_PCRAM
+messageLog
+0
+lc_serializable:true
+lc_kwargs
+content:[empty array]
+tool_calls
+0
+id:call_4qagluihtLxgUkkZ3pk0GtLT
+name:Consulta_nomenclador_PCRAM
+args
+indice:1
+prefijo:empty
+texto:camiseta de running
+limite:5
+id:call_4qagluihtLxgUkkZ3pk0GtLT
+type:tool_call
+invalid_tool_calls:[empty array]
+additional_kwargs:{empty object}
+response_metadata:{empty object}
+lc_namespace
+0:langchain_core
+1:messages
+content:[empty array]
+additional_kwargs:{empty object}
+response_metadata:{empty object}
+type:ai
+tool_calls
+0
+id:call_4qagluihtLxgUkkZ3pk0GtLT
+name:Consulta_nomenclador_PCRAM
+args
+indice:1
+prefijo:empty
+texto:camiseta de running
+limite:5
+id:call_4qagluihtLxgUkkZ3pk0GtLT
+type:tool_call
+invalid_tool_calls:[empty array]
+toolCallId:call_4qagluihtLxgUkkZ3pk0GtLT
+type:tool_call
+observation:[{"response":"{\"source\":{\"fields\":{\"ncm\":[1,10],\"ncm_context\":[15,1538],\"sim\":[11,14],\"sim_description\":[1539,1792],\"updated_at\":[2089,2094]},\"importer_version\":\"pcram-ncm-fixed-2134-v1\",\"limitations\":[\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\",\"Descriptions may be truncated; do not complete them or assume absent attributes.\",\"Code existence does not establish compatibility with the product.\",\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\"],\"ncm_count\":10504,\"ncm_sha256\":\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\",\"purpose\":\"CLASSIFICATION_ONLY; no rates; no legal notes\",\"record_count\":33038,\"schema\":\"pcram-nomenclator-fixed-2134-v1\",\"source\":\"https://web.pcram.net/downloads/transf.zip\",\"source_matches_tax_snapshot\":false,\"structure_source\":\"https://www.pcram.net/downloads/estructura.html\",\"tax_snapshot_sha256\":\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\",\"zip_sha256\":\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\"},\"status\":\"NO_MATCH\",\"query\":{\"indice\":1,\"prefijo\":\"\",\"texto\":\"camiseta de running\",\"limite\":5},\"normalization\":{\"ignored_terms\":[\"de\"],\"terms\":[\"camiseta\",\"running\"]},\"matched_count\":0,\"returned_count\":0,\"partial\":false,\"coverage\":\"Only matches of this query; no inference of tax homogeneity or product compatibility\",\"results\":[]}"}]
+	

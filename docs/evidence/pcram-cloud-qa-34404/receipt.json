@@ -1,0 +1,144 @@
+{
+  "executionId": 34404,
+  "workflowId": "LO9m0AxSrxRR6JVY",
+  "startedAt": "2026-10-09T18:20:29Z",
+  "durationMs": 11599,
+  "versionHref": "/workflow/LO9m0AxSrxRR6JVY/history/fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "versionId": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "contextRevision": "5863bb88de3f501d3a5b801dd2e6ebbd3f21c717",
+  "access": "Read-only saved execution UI in authenticated Alan Chrome session",
+  "input": {
+    "description": "camiseta de running",
+    "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+    "fobUSD": 500
+  },
+  "tool": {
+    "callCount": 1,
+    "durationMs": 332,
+    "query": {
+      "indice": 1,
+      "prefijo": "",
+      "texto": "camiseta de running",
+      "limite": 5
+    },
+    "normalization": {
+      "ignored_terms": [
+        "de"
+      ],
+      "terms": [
+        "camiseta",
+        "running"
+      ]
+    },
+    "status": "NO_MATCH",
+    "matched_count": 0,
+    "returned_count": 0,
+    "partial": false,
+    "results": [],
+    "source": {
+      "fields": {
+        "ncm": [
+          1,
+          10
+        ],
+        "ncm_context": [
+          15,
+          1538
+        ],
+        "sim": [
+          11,
+          14
+        ],
+        "sim_description": [
+          1539,
+          1792
+        ],
+        "updated_at": [
+          2089,
+          2094
+        ]
+      },
+      "importer_version": "pcram-ncm-fixed-2134-v1",
+      "limitations": [
+        "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+        "Descriptions may be truncated; do not complete them or assume absent attributes.",
+        "Code existence does not establish compatibility with the product.",
+        "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+      ],
+      "ncm_count": 10504,
+      "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+      "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+      "record_count": 33038,
+      "schema": "pcram-nomenclator-fixed-2134-v1",
+      "source": "https://web.pcram.net/downloads/transf.zip",
+      "source_matches_tax_snapshot": false,
+      "structure_source": "https://www.pcram.net/downloads/estructura.html",
+      "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+      "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+    },
+    "observationEnvelope": "[{response: JSON_string}]"
+  },
+  "agent": {
+    "clasificacion": "6109",
+    "SIM": null,
+    "DIE": 20,
+    "statedReason": "No candidates returned; insufficient composition/technology information to complete NCM8/SIM."
+  },
+  "validator": {
+    "receivedIntermediateSteps": true,
+    "receivedWrappedResponse": true,
+    "outputClasificacion": "6109",
+    "outputSIM": null,
+    "outputDIE": 20,
+    "siguiente": "cotizar",
+    "discardedFullPosition": false,
+    "internalNormalizationBranchObservable": false
+  },
+  "taxResolver": {
+    "status": "ESTIMADO",
+    "requestedPosition": null,
+    "ncm": null,
+    "sim": null,
+    "rates": {
+      "duty": 0.2,
+      "statistical": 0.03,
+      "vat": 0.21
+    },
+    "dutyMethod": "AGENT_ESTIMATE",
+    "statisticalMethod": "GENERAL_RULE",
+    "vatMethod": "GENERAL_RULE",
+    "dutyEvidence": null,
+    "vatEvidence": null,
+    "warnings": [
+      "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+      "AGENT_DUTY_ESTIMATE",
+      "GENERAL_TE_ESTIMATE",
+      "GENERAL_VAT_ESTIMATE"
+    ]
+  },
+  "quote": {
+    "totalUSD": 931.88,
+    "applicableWeightKG": 29,
+    "CIFUSD": 528.43,
+    "dutyUSD": 105.69,
+    "statisticalUSD": 15.85,
+    "vatUSD": 136.49
+  },
+  "conclusion": "CLOUD_TOOL_QUERY_PROCESSED_VALID_NO_MATCH; NO_FULL_CLASSIFICATION; PARTIAL_ESTIMATE_PRESERVED",
+  "limits": [
+    "This execution used empty prefix, not HS2; chapter lookup not demonstrated by this run.",
+    "No OK/candidates/full-position membership in this run; no claim that positive guard path is proven in Cloud.",
+    "Trace establishes zero candidates for the joint search, not which individual term lacks matches.",
+    "No assertion that Alibaba content was accessed or product composition independently verified."
+  ],
+  "minimumRecommendation": "Keep explicit estimation for this incomplete input; obtain verifiable textile composition/construction before requiring a full position. No additional code change justified by this trace alone.",
+  "actions": {
+    "newQuotes": 0,
+    "modelCalls": 0,
+    "workflowMutations": 0,
+    "publications": 0,
+    "codeChanges": 0,
+    "indexDownloads": 0,
+    "localTests": 0
+  }
+}

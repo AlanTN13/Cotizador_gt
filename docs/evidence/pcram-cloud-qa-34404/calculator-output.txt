@@ -1,0 +1,105 @@
+OUTPUT
+1 item
+respuesta
+	
+
+solicitud_id:483f681b-d394-4d4a-bc76-6a1daf91491f
+status:cotizado
+mensaje:Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.
+total_usd:931.88
+flete_internacional_usd:580
+handling_con_iva_usd:90.75
+impuestos_y_tasas_usd:261.13
+peso_considerado_kg:29
+auditoria
+productos
+0
+indice:1
+producto:camiseta de running
+clasificacion:6109
+SIM:null
+DIE:20
+evidencia
+0
+url:https://web.pcram.net/downloads/transf.zip
+detalle:Consulta al nomenclador PCRAM con términos 'camiseta running': no hubo coincidencias exactas; se identificó que la base existe pero no retornó NCM/SIM para la búsqueda.
+fundamento:Producto identificado como camiseta/tee (subpartida HS 6109 - camisetas, singlets y similares, tejido de punto); falta dato de composición/tecnología para completar NCM8 o SIM, por eso se mantiene HS4; DIE estimado 20% como arancel ordinario probable para prendas textiles de vestir desde zona extrazona.
+taxResolutions
+0
+productIndex:0
+status:ESTIMADO
+requestedPosition:null
+ncm:null
+sim:null
+resolverVersion:tax-resolver-1.1.0
+scope:DIE_TE_IVA_REFERENCIAL_V1
+rates
+duty:0.2
+statistical:0.03
+vat:0.21
+reasons:[empty array]
+warnings
+0:POSITION_INCOMPLETE_AGENT_ESTIMATE
+1:AGENT_DUTY_ESTIMATE
+2:GENERAL_TE_ESTIMATE
+3:GENERAL_VAT_ESTIMATE
+excludedConcepts
+0:IVA_ADICIONAL_PERCEPCION
+1:GANANCIAS
+2:IMPUESTOS_INTERNOS
+estimation
+policyVersion:referential-estimation-2026-09-22-v1
+components
+0
+tax:duty
+method:AGENT_ESTIMATE
+source:n8n-agent-contract-2026-09-15:product-1
+basis:Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot.
+1
+tax:statistical
+method:GENERAL_RULE
+source:https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm
+basis:Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico.
+2
+tax:vat
+method:GENERAL_RULE
+source:https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion
+basis:Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal.
+dutyEvidence:null
+vatEvidence:null
+agentEvidence
+version:n8n-agent-contract-2026-09-15
+index:1
+producto:camiseta de running
+clasificacion:6109
+SIM:null
+DIE:20
+fundamento:Producto identificado como camiseta/tee (subpartida HS 6109 - camisetas, singlets y similares, tejido de punto); falta dato de composición/tecnología para completar NCM8 o SIM, por eso se mantiene HS4; DIE estimado 20% como arancel ordinario probable para prendas textiles de vestir desde zona extrazona.
+evidencia
+0
+url:https://web.pcram.net/downloads/transf.zip
+detalle:Consulta al nomenclador PCRAM con términos 'camiseta running': no hubo coincidencias exactas; se identificó que la base existe pero no retornó NCM/SIM para la búsqueda.
+tributos_por_producto
+0
+indice:1
+cif_usd:528.43
+derechos_usd:105.69
+tasa_estadistica_usd:15.85
+iva_usd:136.49
+asignacion_cif:PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE
+advertencias
+0:POSITION_INCOMPLETE_AGENT_ESTIMATE
+1:AGENT_DUTY_ESTIMATE
+2:GENERAL_TE_ESTIMATE
+3:GENERAL_VAT_ESTIMATE
+DIE_promedio:20
+peso_real_total_kg:20
+peso_volumetrico_total_kg:28.8
+tarifa_usd_kg:20
+cif_usd:528.43
+derechos_usd:105.69
+tasa_estadistica_usd:15.85
+iva_usd:136.49
+debitos_creditos_usd:3.1
+reglas_version:globaltrip-tax-resolver-2026-09-22
+	
