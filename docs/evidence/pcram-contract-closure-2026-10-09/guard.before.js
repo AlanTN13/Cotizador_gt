@@ -1,28 +1,14 @@
 // Membership guard over actual Code Tool observations, never a second classifier.
-export function guardClassification(products, steps, sourceSha) {
+function guardClassification(products, steps, sourceSha) {
   const consulted = new Map();
   for (const step of Array.isArray(steps) ? steps : []) {
     if (step?.action?.tool !== "Consulta_nomenclador_PCRAM") continue;
     let result;
-    try {
-      if (typeof step.observation !== "string") continue;
-      result = JSON.parse(step.observation);
-      // Agent V3 wraps one Code Tool response; unwrap exactly once, never errors/batches.
-      if (Array.isArray(result)) {
-        if (result.length !== 1 || !result[0] || typeof result[0] !== "object" ||
-            Array.isArray(result[0]) || Object.keys(result[0]).length !== 1 ||
-            typeof result[0].response !== "string") continue;
-        result = JSON.parse(result[0].response);
-      }
-      if (!result || typeof result !== "object" || Array.isArray(result) ||
-          "error" in result || "errors" in result || "response" in result) continue;
-    } catch { continue; }
+    try { result = JSON.parse(step.observation); } catch { continue; }
     const input = step.action.toolInput;
     if (result?.source?.zip_sha256 !== sourceSha || !["OK", "NO_MATCH"].includes(result.status) ||
         !Number.isInteger(result?.query?.indice) || input?.indice !== result.query.indice ||
-        !Array.isArray(result.results) || result.results.some(row =>
-          !row || typeof row !== "object" || Array.isArray(row) ||
-          typeof row.ncm !== "string" || typeof row.sim !== "string")) continue;
+        !Array.isArray(result.results)) continue;
     const entries = consulted.get(result.query.indice) || [];
     entries.push(...result.results);
     consulted.set(result.query.indice, entries);

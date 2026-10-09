@@ -1,0 +1,22 @@
+{
+  "docs/evidence/pcram-contract-closure-2026-10-09/README.md": "e856b95d951ba10d029dabefb9c5c6211d4f40a9a08bdfef0b6bceae22f47771",
+  "docs/evidence/pcram-contract-closure-2026-10-09/candidate.workflow.json": "771d3953f87be7c2a0e7fe3785604a4e3778899f275778f8a4817e1ab9ee48e8",
+  "docs/evidence/pcram-contract-closure-2026-10-09/engine-wrapped-success.json": "8ef2b7c5d45e40b7c023b10c8c6d39273486a406027ac20c291841579e8c79e4",
+  "docs/evidence/pcram-contract-closure-2026-10-09/guard.after.js": "105aa53b4f59ed39e03bb899a79c3a155b3adc3a0cdd94115a27fb6fb6c25aa9",
+  "docs/evidence/pcram-contract-closure-2026-10-09/guard.before.js": "6c51a3b009aad2621dd654da62f10f5e00182e11515943ea5aae0d1bbbbe4cca",
+  "docs/evidence/pcram-contract-closure-2026-10-09/guard.diff.exact.txt": "24ebc0ddba36ba6c4c6bbf815dc38aec42b0823f05a2594210566059bde41551",
+  "docs/evidence/pcram-contract-closure-2026-10-09/guard.rollback.patch.json": "024a3c1ee63d593b888907ce75514a232d0abb5dbebfd208309e2aa6d82a8343",
+  "docs/evidence/pcram-contract-closure-2026-10-09/input.diff.exact.txt": "3d88ae7d64234cb7720380b68912bcec3ff690fc331780403c0b58f48b0e6007",
+  "docs/evidence/pcram-contract-closure-2026-10-09/local-tests.log": "5c1b77872444bb46c7484e01ac0a059c6872b0de26e0da0a44b114396901b6f3",
+  "docs/evidence/pcram-contract-closure-2026-10-09/patch.json": "c7dfb73257e80e298d1b3a43831eec89070642688758ce959b83effbda56a777",
+  "docs/evidence/pcram-contract-closure-2026-10-09/preparation.json": "da06414dca342e04fc1716a02e04d4f4f2a017cf1949d6cf289d205d619f0212",
+  "docs/evidence/pcram-contract-closure-2026-10-09/query-34366.response.json": "a5585d5cfda7ca63c3a5640161cde132554f36a24271fefb37f6958c0102ad19",
+  "docs/evidence/pcram-contract-closure-2026-10-09/receipt.json": "9851d8f2610e0ce7ab1791d604a469fb00044256b2b770e040d75c3422513056",
+  "docs/evidence/pcram-contract-closure-2026-10-09/rollback.patch.json": "7fa453e66538cd6a733e6699f2b710b6ea054c7928330a63215df5e95e7b6dcf",
+  "docs/evidence/pcram-contract-closure-2026-10-09/successful-responses.json": "ad895897cc1568cb030f6601496fc1e6853f96e5ca9b784354b4755a8a42bcc8",
+  "docs/evidence/pcram-contract-closure-2026-10-09/two-product-contract.json": "4260528fce76b1c30f91c97fdab3658e007123b71f353188d48e621aa1e86b69",
+  "docs/evidence/pcram-contract-closure-2026-10-09/validation.json": "379650cc71a1dd3d1cd1619023c1fd68c3f1df391e5ed80581f86179905872b0",
+  "scripts/prepare-pcram-observation-contract.mjs": "5bc485dd3c4719aa4058f0ef0c48383b4c46b169311f75224750d971186b2aed",
+  "tests/pcram-tool-input-contract.test.mjs": "adcd2e16117b7e81968c0c3e9ad025dab77937799b8986549861dbe52d4cae7d",
+  "workflow/pcram-classification-guard.mjs": "6f38626383964d626874ff7b2b077fa8a50e6bb88ca3f1cf54f0d69ed027d541"
+}

@@ -1,0 +1,23 @@
+{
+  "action": {
+    "tool": "Consulta_nomenclador_PCRAM",
+    "toolInput": {
+      "indice": 1,
+      "prefijo": "85176272900U",
+      "texto": "",
+      "limite": 5
+    }
+  },
+  "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"OK\\\",\\\"query\\\":{\\\"indice\\\":1,\\\"prefijo\\\":\\\"85176272900U\\\",\\\"texto\\\":\\\"\\\",\\\"limite\\\":5},\\\"matched_count\\\":1,\\\"returned_count\\\":1,\\\"partial\\\":false,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[{\\\"ncm\\\":\\\"85176272\\\",\\\"sim\\\":\\\"85176272900U\\\",\\\"sim_description\\\":\\\"Los demás. De frecuencia inferior a 15 GHz y tasa de transmisión inferior o igual a 34 Mbit/s, excepto los intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisió\\\",\\\"ncm_context\\\":\\\"De frecuencia inferior a 15 GHz y tasa de transmisión inferior o igual a 34 Mbit/s, excepto los intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85176272900U\\\"}]}\"}]",
+  "validator_result": [
+    {
+      "indice": 1,
+      "producto": "Contract fixture, not a classified VALDUS",
+      "clasificacion": "85176272",
+      "SIM": "85176272900U",
+      "DIE": 16,
+      "evidencia": [],
+      "fundamento": "Synthetic membership fixture; no model call"
+    }
+  ]
+}

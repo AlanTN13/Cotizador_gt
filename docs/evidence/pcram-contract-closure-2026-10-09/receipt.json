@@ -1,0 +1,50 @@
+{
+  "status": "LOCAL_INTEGRAL_PASS_NOT_PUBLISHED",
+  "baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "node_count": 12,
+  "context_revision": "03dc887d56b6e47b94b079f7429716f358b2ee3c",
+  "reused_input_commit": "4d74e4b7d5d8af1c55149b1a2ad11f024dcae200",
+  "baseline_file": "docs/evidence/nomenclator-existing-workflow-prepared-2026-10-09/publication-api-verified/published.api-export.json",
+  "baseline_is_saved_export_not_fresh_live_read": true,
+  "changed_paths": [
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "only_new_change_from_4d74e4b": "/nodes/7/parameters/jsCode",
+  "validator_before_sha256": "bdcb972ef657fb5ad8ecf3ec880ceaf57875504370670439df4139d9a5d61be2",
+  "validator_candidate_sha256": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
+  "input_tool_unchanged_from_4d74e4b_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "schema_unchanged_from_4d74e4b_sha256": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+  "frozen_surfaces_identical": true,
+  "validator_parseAgent_suffix_unchanged": true,
+  "guard_only_rollback_exact": true,
+  "combined_rollback_exact": true,
+  "required_gate": "Explicit publication authorization and fresh live baseline verification; no Cloud or model runs in preparation.",
+  "tests": {
+    "command": "node --test tests/pcram-tool-input-contract.test.mjs tests/pcram-nomenclator-optimized.test.mjs",
+    "total": 15,
+    "pass": 15,
+    "fail": 0,
+    "input_negative_cases": 16,
+    "format_negative_cases": 6,
+    "observation_negative_cases": 25
+  },
+  "delta_new": "Only bounded observation normalization and malformed row rejection in guardClassification; parseAgent and membership/source/indice checks preserved",
+  "accepted_shapes": [
+    "JSON string of direct result object",
+    "JSON string of exactly one object whose only key is response containing a JSON string of a direct result object"
+  ],
+  "rejected_shapes": "Error arrays, multiple results, nested wrappers, mixed error/response, malformed JSON, missing/invalid row fields and provenance mismatch",
+  "reused_tool_code_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+  "exact_34366_query": "NO_MATCH, no business search change",
+  "environment": "Local Node v22.19.0 / Zod 3.25.76 representative schema conversion and Agent V3 envelope, literal candidate tool and validator executed in VM; no installed n8n/LangChain runtime",
+  "cloud_execution": 0,
+  "openai_calls": 0,
+  "new_quotes": 0,
+  "pcram_downloads": 0,
+  "production_mutations": 0,
+  "new_infrastructure_credentials_workflows": 0,
+  "limits": "Local contract PASS does not demonstrate agent selection, Alibaba access, semantic classification, Cloud installed response implementation or product QA. Fresh live preflight and publication authorization remain required."
+}

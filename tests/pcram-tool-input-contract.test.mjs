@@ -8,7 +8,7 @@ import { pcramSearchInput } from "../workflow/pcram-tool-input.mjs";
 import { guardClassification } from "../workflow/pcram-classification-guard.mjs";
 
 const root = new URL("../", import.meta.url);
-const dir = new URL("docs/evidence/pcram-input-contract-2026-10-09/", root);
+const dir = new URL("docs/evidence/pcram-contract-closure-2026-10-09/", root);
 const load = file => JSON.parse(fs.readFileSync(new URL(file, root)));
 const before = load("docs/evidence/nomenclator-existing-workflow-prepared-2026-10-09/publication-api-verified/published.api-export.json");
 const candidate = JSON.parse(fs.readFileSync(new URL("candidate.workflow.json", dir)));
@@ -46,6 +46,14 @@ const step = (q, observation) => ({ action: { tool: tool.name, toolInput: q }, o
 const sourceSha = diagnosis.tool.configured_index_metadata.zip_sha256;
 const query = { indice: 1, prefijo: "85176272900U", texto: "", limite: 5 };
 const product = { indice: 1, producto: "Contract fixture, not a classified VALDUS", clasificacion: "85176272", SIM: "85176272900U", DIE: 16, evidencia: [], fundamento: "Synthetic membership fixture; no model call" };
+const literalValidator = (products, steps) => {
+  const code = candidate.nodes.find(n => n.name === "Validar salida del agente").parameters.jsCode;
+  const raw = { output: { productos: products }, intermediateSteps: steps };
+  const solicitud = { productos: products.map(p => ({ descripcion: p.producto, link: "" })), solicitud_id: "local-contract-only" };
+  return JSON.parse(JSON.stringify(runInNewContext(`(function(){${code}})()`, {
+    $input: { first: () => ({ json: raw }) }, $: () => ({ first: () => ({ json: { solicitud } }) }),
+  }, { timeout: 5000 })))[0].json;
+};
 
 test("reproduces #34366 strict-schema rejection of four observed context keys", () => {
   const result = schemaValidator(schemaBefore).safeParse(envelope);
@@ -103,7 +111,7 @@ test("search format controls remain unchanged; nonexistent SIM is NO_MATCH, not 
   output.controls.search_format = { passed: true, negative_cases: 6, nonexistent_code_status: "NO_MATCH" };
 });
 
-test("direct JSON string returned by Code Tool passes literal unchanged validator", () => {
+test("direct JSON string returned by Code Tool passes literal candidate validator", () => {
   const observation = invoke({ ...context, ...query });
   assert.deepEqual(guardClassification([product], [step(query, observation)], sourceSha), [product]);
   const validator = candidate.nodes.find(n => n.name === "Validar salida del agente").parameters.jsCode;
@@ -118,12 +126,19 @@ test("wrong product index or SHA still rejects provenance; guard not weakened", 
   const response = JSON.parse(invoke(query));
   for (const s of [step({ ...query, indice: 2 }, JSON.stringify(response)), step(query, JSON.stringify({ ...response, source: { ...response.source, zip_sha256: "bad" } }))])
     assert.equal(guardClassification([product], [s], sourceSha)[0].SIM, null);
-  output.controls.guard_negative = { passed: true, guard_unchanged: true };
+  output.controls.guard_negative = { passed: true, membership_and_provenance_checks_preserved: true };
 });
 
-test("two tool fields only, frozen surfaces/index byte-identical and scoped rollback exact", () => {
+test("reused input plus guard normalization only; frozen surfaces and both scoped rollbacks exact", () => {
   assert.equal(candidate.nodes.length, 12);
   const restored = structuredClone(candidate), t = find(restored);
+  const v = restored.nodes.find(n => n.id === rollback.guard.node_id);
+  assert.equal(hash(v.parameters.jsCode), rollback.guard.before_sha256);
+  assert.ok(v.parameters.jsCode.startsWith(rollback.guard.replace_prefix));
+  v.parameters.jsCode = rollback.guard.with_prefix + v.parameters.jsCode.slice(rollback.guard.replace_prefix.length);
+  assert.equal(hash(v.parameters.jsCode), rollback.guard.after_sha256);
+  const prior = load("docs/evidence/pcram-input-contract-2026-10-09/candidate.workflow.json");
+  assert.deepEqual(restored, prior);
   assert.equal(t.parameters.inputSchema, rollback.changes.inputSchema.before);
   assert.equal(hash(t.parameters.jsCode), rollback.changes.jsCode.before_sha256);
   assert.ok(t.parameters.jsCode.endsWith(rollback.changes.jsCode.replace_suffix));
@@ -133,20 +148,74 @@ test("two tool fields only, frozen surfaces/index byte-identical and scoped roll
   assert.deepEqual(restored, before);
   assert.equal(tool.parameters.jsCode.slice(0, -patch.changes.jsCode.with_suffix.length), original.parameters.jsCode.slice(0, -patch.changes.jsCode.replace_suffix.length));
   assert.deepEqual({ ...schemaAfter, additionalProperties: false }, schemaBefore);
-  output.controls.scope_and_rollback = { passed: true, node_count: 12, exact_two_fields: true, frozen_surfaces_identical: true, packed_index_decoder_and_search_identical: true, recovery_exact: true };
+  output.controls.scope_and_rollback = { passed: true, node_count: 12, exact_three_fields: true, only_new_guard_field: true, frozen_surfaces_identical: true, packed_index_decoder_and_search_identical: true, guard_only_recovery_to_4d74e4b_exact: true, combined_recovery_exact: true };
 });
 
-test("mandatory gate: Agent V3 engine-wrapped successful observation must pass existing guard", () => {
+test("integral contract: input -> search -> Agent V3 wrapped response -> literal candidate validator", () => {
   const responseText = invoke({ ...context, ...query });
   // ToolCode.execute => json.response; buildObservation => stringify(ai_tool[0].map(item.json)).
   // This is the official source's local representative path, NOT a new Cloud execution.
   const observation = JSON.stringify([{ response: responseText }]);
-  const result = guardClassification([product], [step(query, observation)], sourceSha);
+  const result = literalValidator([product], [step(query, observation)]).productos;
   const passed = result[0].SIM === product.SIM;
-  output.controls.agent_v3_wrapper_guard = { passed, source_basis: "official n8n master ToolCode.execute + agent-execution/buildSteps.buildObservation", cloud_installed_source_identity_verified: false, observation_shape: "[{response: JSON_string}]", parsed_top_level_source: null, first_failed_condition: "result?.source?.zip_sha256 !== sourceSha", result };
-  output.status = passed ? "LOCAL_ACCEPTANCE_PASS_NOT_PUBLISHED" : "INPUT_PATCH_PASS_PUBLICATION_NO_GO_GUARD_CONTRACT_BLOCKED";
+  output.controls.agent_v3_wrapper_guard = { passed, source_basis: "official n8n master ToolCode.execute + agent-execution/buildSteps.buildObservation", cloud_installed_source_identity_verified: false, observation_shape: "[{response: JSON_string}]", normalized_source_sha256: sourceSha, result };
+  output.status = passed ? "LOCAL_INTEGRAL_PASS_NOT_PUBLISHED" : "LOCAL_ACCEPTANCE_FAIL_NOT_PUBLISHED";
   save("engine-wrapped-success.json", { action: step(query, observation).action, observation, validator_result: result });
-  assert.equal(passed, true, "Existing guard rejects the Agent V3 response envelope; forbidden validator surface requires separate authorization. Do not claim publication-ready.");
+  assert.equal(passed, true, "Candidate must preserve the code through the full local wrapped-response contract.");
+});
+
+test("malformed, error, ambiguous and nested observations cannot provide membership", () => {
+  const response = JSON.parse(invoke(query));
+  const observations = [null, response, "", "{", "null", "true", "42", JSON.stringify([]),
+    JSON.stringify([response]), JSON.stringify([{ error: "actual tool error" }]),
+    diagnosis.tool.real_calls[0].observation,
+    JSON.stringify([{ response: JSON.stringify(response) }, { response: JSON.stringify(response) }]),
+    JSON.stringify([{ response: JSON.stringify(response), error: "ambiguous" }]),
+    JSON.stringify([{ response: JSON.stringify(response), source: response.source }]),
+    JSON.stringify([{ response }]), JSON.stringify([{ response: "broken JSON" }]),
+    JSON.stringify([{ response: JSON.stringify([{ response: JSON.stringify(response) }]) }]),
+    JSON.stringify({ ...response, response: JSON.stringify(response) }),
+    JSON.stringify({ ...response, error: "error mixed with result" }),
+    JSON.stringify([{ response: JSON.stringify({ ...response, errors: [] }) }]),
+    JSON.stringify({ ...response, status: "ERROR" }),
+    JSON.stringify({ ...response, results: [null] }),
+    JSON.stringify({ ...response, results: [{ ncm: [], sim: product.SIM }] }),
+    JSON.stringify([{ response: JSON.stringify({ ...response, query: { ...query, indice: "1" } }) }]),
+    JSON.stringify([{ response: JSON.stringify({ ...response, source: { ...response.source, zip_sha256: "wrong" } }) }]),
+  ];
+  for (const observation of observations) {
+    const result = literalValidator([product], [step(query, observation)]).productos[0];
+    assert.equal(result.SIM, null);
+    assert.equal(result.clasificacion, null);
+    assert.equal(result.DIE, product.DIE);
+  }
+  for (const s of [step({ ...query, indice: 2 }, JSON.stringify([{ response: JSON.stringify(response) }])),
+    { ...step(query, JSON.stringify([{ response: JSON.stringify(response) }])), action: { tool: "OtherTool", toolInput: query } }])
+    assert.equal(literalValidator([product], [s]).productos[0].SIM, null);
+  output.controls.observation_negatives = { passed: true, malformed_error_ambiguous_cases: observations.length, wrong_product_and_wrong_tool_rejected: true, estimated_DIE_not_changed: true };
+});
+
+test("membership stays per-product; unsupported/inconsistent codes rejected; partial estimate unchanged", () => {
+  const watchText = invoke({ ...context, ...query });
+  const toyQuery = { indice: 2, prefijo: "95030060", texto: "plastico", limite: 2 };
+  const toyText = invoke({ ...context, ...toyQuery });
+  const row = JSON.parse(toyText).results[0];
+  const toy = { ...product, indice: 2, producto: "Toy contract fixture", clasificacion: row.ncm, SIM: row.sim, DIE: 20 };
+  const steps = [step(query, JSON.stringify([{ response: watchText }])), step(toyQuery, toyText)];
+  const accepted = literalValidator([product, toy], steps).productos;
+  assert.equal(accepted[0].SIM, product.SIM); assert.equal(accepted[1].SIM, toy.SIM);
+  const wrong = { ...toy, clasificacion: product.clasificacion, SIM: product.SIM };
+  assert.equal(guardClassification([wrong], steps, sourceSha)[0].SIM, null);
+  const unknown = { ...product, clasificacion: "99999999", SIM: "99999999999Z" };
+  assert.equal(guardClassification([unknown], steps, sourceSha)[0].SIM, null);
+  const mixed = { ...product, clasificacion: row.ncm };
+  assert.equal(guardClassification([mixed], [...steps, step({ ...toyQuery, indice: 1 }, JSON.stringify({ ...JSON.parse(toyText), query: { ...toyQuery, indice: 1 } }))], sourceSha)[0].SIM, null);
+  const partial = { ...product, clasificacion: "6109", SIM: null, DIE: 20 };
+  assert.deepEqual(guardClassification([partial], [], sourceSha), [partial]);
+  const missing = { ...query, prefijo: "99999999999Z" };
+  assert.deepEqual(guardClassification([partial], [step(missing, JSON.stringify([{ response: invoke(missing) }]))], sourceSha), [partial]);
+  output.controls.membership_and_estimation = { passed: true, per_product_isolation: true, unsupported_and_inconsistent_codes_rejected: true, partial_estimate_unchanged: true };
+  save("two-product-contract.json", { steps, productos: accepted });
 });
 
 after(() => save("validation.json", output));

@@ -1,0 +1,24 @@
+{
+  "status": "PREPARED_LOCAL_NOT_PUBLISHED",
+  "baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "node_count": 12,
+  "context_revision": "03dc887d56b6e47b94b079f7429716f358b2ee3c",
+  "reused_input_commit": "4d74e4b7d5d8af1c55149b1a2ad11f024dcae200",
+  "baseline_file": "docs/evidence/nomenclator-existing-workflow-prepared-2026-10-09/publication-api-verified/published.api-export.json",
+  "baseline_is_saved_export_not_fresh_live_read": true,
+  "changed_paths": [
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "only_new_change_from_4d74e4b": "/nodes/7/parameters/jsCode",
+  "validator_before_sha256": "bdcb972ef657fb5ad8ecf3ec880ceaf57875504370670439df4139d9a5d61be2",
+  "validator_candidate_sha256": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
+  "input_tool_unchanged_from_4d74e4b_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "schema_unchanged_from_4d74e4b_sha256": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+  "frozen_surfaces_identical": true,
+  "validator_parseAgent_suffix_unchanged": true,
+  "guard_only_rollback_exact": true,
+  "combined_rollback_exact": true,
+  "required_gate": "Explicit publication authorization and fresh live baseline verification; no Cloud or model runs in preparation."
+}

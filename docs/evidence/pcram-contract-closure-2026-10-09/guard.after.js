@@ -1,5 +1,5 @@
 // Membership guard over actual Code Tool observations, never a second classifier.
-export function guardClassification(products, steps, sourceSha) {
+function guardClassification(products, steps, sourceSha) {
   const consulted = new Map();
   for (const step of Array.isArray(steps) ? steps : []) {
     if (step?.action?.tool !== "Consulta_nomenclador_PCRAM") continue;
