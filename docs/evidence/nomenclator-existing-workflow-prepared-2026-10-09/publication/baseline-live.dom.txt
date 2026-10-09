@@ -1,0 +1,146 @@
+- main:
+  - link "Personal":
+    - /url: /projects/9kElEcXnGLfAYokj
+    - generic "Personal":
+    - generic "Personal"
+  - list:
+    - listitem: /
+    - listitem "Global Trip":
+      - link "Global Trip":
+        - /url: /projects/9kElEcXnGLfAYokj/folders/5SuIXLxmAoN5LYJ1/workflows
+        - generic: Global Trip
+  - generic: /
+  - generic "GlobalTrip - Courier aereo V1 - PREVIEW":
+    - generic: GlobalTrip - Courier aereo V1 - PREVIEW
+  - button "More actions":
+  - button "Published" [disabled]:
+    - generic: Published
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor" [checked]
+    - radio "Executions"
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Admin Panel":
+      - generic: Admin Panel
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Insights":
+      - generic: Insights
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - generic: POST
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Formulario - POST
+    - generic: Conservar la credencial Header Auth del webhook en n8n y en el backend existente de la landing. La clave OpenAI se guarda únicamente como credencial del nodo OpenAI Chat Model. Conexión server-side de preview.
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar formulario
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Entrada completa
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Preparar agente
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - generic: Output Parser
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Agente Despachante
+    - generic: AI Agent nativo. Usa OpenAI Chat Model y su Web Search integrada para consultar el link y buscar fuentes; entrega al parser el mismo contrato funcional.
+    - generic: Model
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenAI Chat Model
+    - generic: "Joaco: seleccionar aquí la credencial OpenAI de n8n. Mantener Use Responses API activado y Built-in Tools → Web Search. La herramienta permite búsqueda y apertura de páginas en este modelo. No se requiere otro proveedor ni otra API key."
+    - generic: Output Parser
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Salida estructurada
+    - generic: Contrato JSON del despachante, sin ejemplos ni respuestas precargadas. El Code Node posterior valida solo el formato técnico antes de calcular.
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar salida del agente
+    - generic: "true"
+    - generic: "false"
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Clasificado y apto
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Cotizador deterministico
+    - button "Execute step":
+    - button "Deactivate":
+    - button "Delete":
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Responder a la landing
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - button "Tidy Up":
+    - button "Execute workflow":
+      - generic: Execute workflow
+    - button "Open nodes panel":
+    - button "Command bar":
+    - button "Add sticky note":
+    - button "Open side panel":
+    - button "n8n AI":
+    - complementary
+    - generic: Logs
+    - button "Actions":
+    - button "Collapse panel":
+    - paragraph: Nothing to display yet. Execute the workflow to see execution logs.
+- complementary

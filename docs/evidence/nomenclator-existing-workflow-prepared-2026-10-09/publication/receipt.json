@@ -1,0 +1,58 @@
+{
+  "status": "STOP_API_ACCESS_UNAVAILABLE_NO_MUTATION",
+  "recorded_at_utc": "2026-10-09T12:43:03.228125+00:00",
+  "authorization": "User authorized publication of prepared commit 52986f7, accepting shared n8n Pro resource risk. Authorization remains valid; publication not performed.",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "live_version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "live_active": true,
+  "live_node_count": 11,
+  "live_export": "baseline.live.before.json",
+  "live_export_sha256": "2b66625456978a7560c263794052ea51f5cb92923a7b8251f0b7a56d5b626bed",
+  "live_canonical_sha256": "347fc5ab2360e10df8dbcc55b03e22ebb3cd5446b37b0f2c436ef010996552e9",
+  "entire_baseline_exact": true,
+  "calculator_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+  "candidate_file_sha256": "b3ad9c6369d7f2de831359781dae40d6c36d950d5a3f1df3b1887d15fe7f9696",
+  "candidate_canonical_sha256": "92fa4f5cfe791b73ae1d1db5ad4842baea5c97b79b96ddf8fc08edc9609ad96a",
+  "prepared_five_changes_confirmed": [
+    {
+      "op": "add",
+      "path": "/nodes/11"
+    },
+    {
+      "op": "add",
+      "path": "/connections/Consulta_nomenclador_PCRAM"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/4/parameters/options/systemMessage"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/4/parameters/options/returnIntermediateSteps"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/7/parameters/jsCode"
+    }
+  ],
+  "patch_reconstructs_exact_candidate": true,
+  "rollback_reference": "../rollback.patch.json",
+  "backup_reference": "../baseline.current.backup.json",
+  "rollback_preserved": true,
+  "blocker": "No N8N_API_KEY is available in command environment, launch environment, targeted repository .env files or the previously authorized temporary handoff. No n8n API connector is exposed. The prior user restriction against publishing PCRAM through Computer Use is respected. Browser used only to read/export the live baseline. No new credentials created.",
+  "access_checks": {
+    "command_environment_key_present": false,
+    "launch_environment_key_present": false,
+    "repository_dotenv_key_present": false,
+    "previous_handoff_key_present": false
+  },
+  "next_requirement": "Provide an existing authorized n8n API key securely to the command channel with workflow read/update/activate permissions; do not post it in chat. No credential creation or other scope expansion performed.",
+  "production_mutations": 0,
+  "n8n_publications": 0,
+  "operator_quotations": 0,
+  "cloud_agent_calls": 0,
+  "new_credentials": 0,
+  "qa_state": "PENDING_PUBLICATION; Alan tests VALDUS first after verified publication. Chengji/shirt conditional.",
+  "habitual_url": "https://cotizador.globaltriplog.com/cotizador",
+  "tests": "Existing six PASS tests reused as evidence; not rerun or altered. Only artifact/preflight integrity checks performed."
+}
