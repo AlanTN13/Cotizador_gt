@@ -1,0 +1,154 @@
+{
+  "status": "LIVE_AGENT_VALIDATION_PENDING",
+  "planned_repetitions": 2,
+  "planned_calls": 16,
+  "same_inputs_and_model": true,
+  "model": "gpt-5-mini",
+  "reasoningEffort": "low",
+  "maxTokens": 7000,
+  "webSearch": "medium",
+  "actual_new_agent_calls": 0,
+  "authorized_access": {
+    "local_OPENAI_API_KEY_present": false,
+    "existing_n8n_credential": "OpenAi account (encrypted inside configured workflow)",
+    "isolated_n8n_execution_available": false
+  },
+  "blocker": "No authorized non-production runner with the existing configured credential. Cannot attach/test the new tool in the live workflow, create a deployed test workflow or extract encrypted credentials.",
+  "comparisons": [
+    {
+      "case": "VALDUS-VS13",
+      "repetition": 1,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "VALDUS-VS13",
+      "repetition": 2,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "Chengji",
+      "repetition": 1,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "Chengji",
+      "repetition": 2,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "camiseta-incompleta",
+      "repetition": 1,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "camiseta-incompleta",
+      "repetition": 2,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "codigo-inexistente",
+      "repetition": 1,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "case": "codigo-inexistente",
+      "repetition": 2,
+      "baseline": null,
+      "candidate": null,
+      "classification": null,
+      "tool_calls": null,
+      "tax_evidence": null,
+      "latency": null,
+      "tokens": null,
+      "status": "NOT_RUN"
+    }
+  ],
+  "historical_context_only": [
+    {
+      "run": 34301,
+      "product": "VALDUS VS13",
+      "classification": "8517.62",
+      "SIM": null,
+      "rates_pct": [
+        8,
+        3,
+        21
+      ],
+      "duty_source": "agent estimate; no dutyEvidence"
+    },
+    {
+      "run": 34301,
+      "product": "Chengji",
+      "classification": "95030060",
+      "SIM": null,
+      "rates_pct": [
+        20,
+        3,
+        21
+      ],
+      "duty_source": "PCRAM NCM8 lookup"
+    },
+    {
+      "run": 34280,
+      "product": "camiseta de running",
+      "classification": "6109",
+      "SIM": null,
+      "rates_pct": [
+        20,
+        3,
+        21
+      ],
+      "duty_source": "agent estimate"
+    }
+  ],
+  "limitation": "Historical outputs are not repeated controlled baseline runs and cannot establish improvement or causality."
+}

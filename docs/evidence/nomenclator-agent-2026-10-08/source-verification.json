@@ -1,0 +1,25 @@
+{
+  "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+  "downloaded_at": "2026-10-09T00:44:22.599569+00:00",
+  "tax_snapshot_zip_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+  "index_source_rows": 33038,
+  "tax_source_rows": 33030,
+  "added_codes": [
+    "23069090000N",
+    "29333936000U",
+    "39079999200R",
+    "44031200115Z",
+    "44031200950V",
+    "48111010000A",
+    "95030080110D",
+    "95030080190E",
+    "95030099996P"
+  ],
+  "removed_codes": [
+    "95030080100A"
+  ],
+  "tax_source_modified": false,
+  "note": "Original pinned ZIP was not retained in accessible project/temp artifacts. Current public transfer downloaded once for nomenclature only; both source versions exposed explicitly. No tax update.",
+  "official_structure": "https://www.pcram.net/downloads/estructura.html",
+  "fields_verified": "NCM 1–10; SIM 11–14; context 15–1538 (six consecutive254 byte segments, not six coded hierarchy headings); SIM description1539–1792; date2089–2094."
+}

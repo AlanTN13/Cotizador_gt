@@ -1,0 +1,57 @@
+{
+  "purpose": "Inputs only; expected positions/rates are not supplied to model. Single-product requests renumber original indice to 1.",
+  "cases": [
+    {
+      "id": "VALDUS-VS13",
+      "source_execution": 34301,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+            "descripcion": "smartwatch"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Chengji",
+      "source_execution": 34301,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+            "descripcion": "Juguete"
+          }
+        ]
+      }
+    },
+    {
+      "id": "camiseta-incompleta",
+      "source_execution": 34280,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+            "descripcion": "camiseta de running"
+          }
+        ]
+      }
+    },
+    {
+      "id": "codigo-inexistente",
+      "source_execution": null,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "",
+            "descripcion": "T-shirt de punto para adulto; composición desconocida. El vendedor declara 99999999999Z, sin documento de respaldo."
+          }
+        ]
+      }
+    }
+  ]
+}

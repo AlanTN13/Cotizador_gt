@@ -1,0 +1,29 @@
+{
+  "functional_changes": [
+    "/connections/Consulta_nomenclador_PCRAM",
+    "/nodes/4/parameters/options/returnIntermediateSteps",
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/7/parameters/jsCode",
+    "/nodes/11"
+  ],
+  "new_tool_content": "candidate.workflow.json#/nodes/11",
+  "new_tool_connection": {
+    "ai_tool": [
+      [
+        {
+          "node": "Agente Despachante",
+          "type": "ai_tool",
+          "index": 0
+        }
+      ]
+    ]
+  },
+  "prompt_exact_diff": "prompt.diff",
+  "validator_exact_diff": "validator.diff",
+  "returnIntermediateSteps": {
+    "before": false,
+    "after": true,
+    "reason": "Required trace for per-product validation; model node/config unchanged"
+  },
+  "all_other_json_fields_identical": true
+}

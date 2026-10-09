@@ -1,0 +1,96 @@
+{
+  "status": "PREPARED; NOT DEPLOYED",
+  "baseline_version": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "node_count": 12,
+  "index_file": "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.json",
+  "index_sha256": "2aa798cb2752df590e0216b1ca3a4bedf4ccbe762f88bc773c622adf7b96c9e1",
+  "source": {
+    "fields": {
+      "ncm": [
+        1,
+        10
+      ],
+      "ncm_context": [
+        15,
+        1538
+      ],
+      "sim": [
+        11,
+        14
+      ],
+      "sim_description": [
+        1539,
+        1792
+      ],
+      "updated_at": [
+        2089,
+        2094
+      ]
+    },
+    "importer_version": "pcram-ncm-fixed-2134-v1",
+    "limitations": [
+      "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+      "Descriptions may be truncated; do not complete them or assume absent attributes.",
+      "Code existence does not establish compatibility with the product.",
+      "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+    ],
+    "ncm_count": 10504,
+    "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+    "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+    "record_count": 33038,
+    "schema": "pcram-nomenclator-fixed-2134-v1",
+    "source": "https://web.pcram.net/downloads/transf.zip",
+    "source_matches_tax_snapshot": false,
+    "structure_source": "https://www.pcram.net/downloads/estructura.html",
+    "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+    "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+  },
+  "prompt_before_sha256": "591e95229b5d67e15809bfcef8ba30cd97e0c170ddced1e52558a62dbf378c11",
+  "prompt_candidate_sha256": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+  "tool_sha256": "4e2eed76591885f6a75f9f25df809d7b5601bba4799d64670138d1b5f0ab1ad9",
+  "validator_before_sha256": "dc9395f37a0fba09f963a79365164ec93be5132ee3c8bed54cf77ffe2e321761",
+  "validator_candidate_sha256": "bdcb972ef657fb5ad8ecf3ec880ceaf57875504370670439df4139d9a5d61be2",
+  "model_unchanged_sha256": "679f0817b9297db8afa500e20f578d6b53fa2fe75f624ea38592d7b6baeb5532",
+  "calculator_unchanged_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+  "candidate_file_sha256": "02993d290553356b2b5d692cf9f084ba918212b39fda6b38332d7194b1547b00",
+  "byte_sizes": {
+    "index": 13204773,
+    "tool": 13207171,
+    "candidate": 16268423
+  },
+  "changes": [
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/4/parameters/options/returnIntermediateSteps",
+    "/nodes/7/parameters/jsCode",
+    "/nodes/11 (one Code Tool)",
+    "/connections/Consulta_nomenclador_PCRAM (ai_tool only)"
+  ],
+  "rollback": {
+    "remove_node_id": "0944bbbe-5bc2-4e8c-a8f5-67aeed667023",
+    "remove_connection_key": "Consulta_nomenclador_PCRAM",
+    "restore_prompt": "prompt.before.txt",
+    "restore_returnIntermediateSteps": false,
+    "restore_validator": "validator.before.js",
+    "never_import_full_workflow": true
+  },
+  "delivery_status": "IMPLEMENTED_OFFLINE_STATIC_PASS; REAL_AGENT_VALIDATION_PENDING",
+  "local_tests": {
+    "passed": 13,
+    "failed": 0
+  },
+  "production_unchanged": true,
+  "production_runs": 0,
+  "model_runs": 0,
+  "n8n_runtime_validation": "pending: no authorized isolated runner with configured credential",
+  "agent_comparison": "agent-comparison.json",
+  "local_tool_queries": "tool-queries.local.json",
+  "rollback_exact_in_memory": "PASS",
+  "source_version_difference": "Current nomenclature ZIP has 9 added/1 removed SIM vs frozen tax snapshot; no tax changes. Both versions disclosed.",
+  "limits": [
+    "No functional improvement established.",
+    "No guaranteed Alibaba access or semantic product compatibility.",
+    "Nomenclature version differs from frozen tax source.",
+    "13.2 MB embedded tool: hosted n8n transport/task-runner limits not exercised; must verify outside production before approval.",
+    "Full workflow JSON is an offline comparison artifact: do not import it into production."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "LOCAL PASS",
+  "python": {
+    "command": "python3 -m unittest discover -s tests -p test_pcram_nomenclator.py -v",
+    "passed": 5,
+    "failed": 0
+  },
+  "node": {
+    "command": "node --test tests/pcram-nomenclator.test.mjs",
+    "passed": 8,
+    "failed": 0
+  },
+  "actual_zip_rebuild_byte_for_byte": true,
+  "index_sha256": "2aa798cb2752df590e0216b1ca3a4bedf4ccbe762f88bc773c622adf7b96c9e1",
+  "agent_behavior_proven": false,
+  "n8n_runtime_executed": false
+}

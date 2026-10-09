@@ -1,0 +1,26 @@
+{
+  "canonical_revision": "46357f2881a5d84f8ac7924237c7ab0882bd03ed",
+  "request": "Alan/04_Clientes NexOps/Global_Trip/ER_Consulta_Nomenclador_Agente_2026-10-08.md",
+  "budget": "M",
+  "type": "T2",
+  "risk": "R2 when deployed; offline only in this task",
+  "writer_count": 1,
+  "baseline_version": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "delta": [
+    "derived PCRAM lexical index",
+    "one read-only Code Tool ai_tool subnode",
+    "agent instructions and trace-based output validation"
+  ],
+  "frozen": [
+    "all original main connections",
+    "model/settings/credentials",
+    "Tax Resolver/PCRAM taxes",
+    "China/German formulas",
+    "gateway/web/auth"
+  ],
+  "production_permission": "none",
+  "smoke_max_production": 0,
+  "live_eval_plan": "4 cases × 2 repetitions × baseline/candidate, same model/input; pending authorized non-production access",
+  "rollback": "remove only added tool/ai_tool edge; restore prompt, returnIntermediateSteps and validator from baseline",
+  "stop": "complete offline deliverables; report actual live blocker, no bypass"
+}

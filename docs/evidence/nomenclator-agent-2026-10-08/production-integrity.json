@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-09T00:52:25.751671+00:00",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "version": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "nodes": 11,
+  "live_export_exactly_equals_baseline": true,
+  "production_mutations": 0,
+  "executions": 0
+}
