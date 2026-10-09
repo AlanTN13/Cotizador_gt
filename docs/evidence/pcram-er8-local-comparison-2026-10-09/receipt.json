@@ -1,0 +1,121 @@
+{
+  "status": "LOCAL_READONLY_COMPARISON_COMPLETE",
+  "executive_request": "https://github.com/AlanTN13/Cotizador_gt/issues/8",
+  "context_revision": "e5887d9",
+  "source_code_commit": "3e5cdbb",
+  "published_reference_version": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "source_index_file": "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json",
+  "index_file_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+  "tool_published_sha256": "2732532f986dc19258d8602b718c47222edbd2d88a3583240986031f82edd8a5",
+  "source": {
+    "fields": {
+      "ncm": [
+        1,
+        10
+      ],
+      "ncm_context": [
+        15,
+        1538
+      ],
+      "sim": [
+        11,
+        14
+      ],
+      "sim_description": [
+        1539,
+        1792
+      ],
+      "updated_at": [
+        2089,
+        2094
+      ]
+    },
+    "importer_version": "pcram-ncm-fixed-2134-v1",
+    "limitations": [
+      "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+      "Descriptions may be truncated; do not complete them or assume absent attributes.",
+      "Code existence does not establish compatibility with the product.",
+      "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+    ],
+    "ncm_count": 10504,
+    "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+    "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+    "record_count": 33038,
+    "schema": "pcram-nomenclator-fixed-2134-v1",
+    "source": "https://web.pcram.net/downloads/transf.zip",
+    "source_matches_tax_snapshot": false,
+    "structure_source": "https://www.pcram.net/downloads/estructura.html",
+    "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+    "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+  },
+  "query_count": 3,
+  "queries": [
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 5
+      },
+      "status": "OK",
+      "matched_count": 10,
+      "returned_count": 5,
+      "partial": true,
+      "sample_codes": [
+        "61091000110Y",
+        "61091000190Z",
+        "61091000210D",
+        "61091000290E",
+        "61099000111N"
+      ]
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "camiseta",
+        "limite": 5
+      },
+      "status": "OK",
+      "matched_count": 52,
+      "returned_count": 5,
+      "partial": true,
+      "sample_codes": [
+        "61091000110Y",
+        "61091000190Z",
+        "61091000210D",
+        "61091000290E",
+        "61099000111N"
+      ]
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "camiseta running",
+        "limite": 5
+      },
+      "status": "NO_MATCH",
+      "matched_count": 0,
+      "returned_count": 0,
+      "partial": false,
+      "sample_codes": []
+    }
+  ],
+  "conclusion": "CANDIDATOS_RECUPERABLES_CON_BUSQUEDA_AMPLIA",
+  "limits": [
+    "Three queries only; returned first five, not exhaustive output.",
+    "Lexical AND requires every significant term; adding running leaves zero matches.",
+    "No individual SIM classification is certified by these candidates.",
+    "No composition/attributes inferred; no tax homogeneity inferred.",
+    "No additional query/replay/test suite/Cloud/model call."
+  ],
+  "actions": {
+    "code_changes": 0,
+    "index_changes": 0,
+    "cloud_quotes": 0,
+    "model_calls": 0,
+    "production_mutations": 0,
+    "pcram_downloads": 0
+  }
+}
