@@ -1,0 +1,34 @@
+{
+  "status": "STOP_N8N_API_KEY_UNAVAILABLE_NO_MUTATION",
+  "recorded_at_utc": "2026-10-09T15:33:25.038063+00:00",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "candidate_commit": "cb77bd5319de0f38af80d0b97561b5af31eb296e",
+  "expected_baseline_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "publication_authorized": true,
+  "context_revision": "52a2823 (origin/main fetched; contract/context read)",
+  "execution_preflight": {
+    "role": "Dirección de Ejecución, PATCH MODE",
+    "scope": "Only three prepared PCRAM contract fields",
+    "budget": "S / T1 / R2 productive publication",
+    "rollback": "Existing scoped rollback.patch.json for three fields; no mutation to undo",
+    "stop": "API credential unavailable before the live GET"
+  },
+  "access": {
+    "environment_N8N_API_KEY_present": false,
+    "clipboard_result": "Non-UTF-8 data; cannot consume as textual API key",
+    "secret_exposed": false,
+    "secret_persisted": false,
+    "new_credentials_created": false
+  },
+  "api_requests": 0,
+  "live_export_retrieved": false,
+  "live_baseline_revalidated": false,
+  "backup_created_this_attempt": false,
+  "draft_puts": 0,
+  "activations": 0,
+  "production_mutations": 0,
+  "quotes_or_model_calls": 0,
+  "rollback_applied": false,
+  "last_known_version_not_freshly_verified": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "minimal_unblock": "Make existing authorized n8n API key available via the approved secure input channel; never paste in chat. No new credential or architecture authorized/created."
+}
