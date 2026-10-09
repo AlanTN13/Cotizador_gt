@@ -1,38 +1,13 @@
 {
-  "status": "PASS_PUBLISHED_EXACT_ONE_FIELD_PATCH",
+  "status": "PRE_MUTATION_PASS",
   "candidate_commit": "3e5cdbb",
   "context_revision": "28093758374be8448106a5d1861d152da7ea9b76",
-  "production_mutations": 2,
+  "production_mutations": 1,
   "operator_quotes": 0,
   "model_calls": 0,
   "local_tests_reused": "13 PASS / 0 FAIL; not rerun",
   "started_at_utc": "2026-10-09T18:03:37.546340+00:00",
   "requests": [
-    {
-      "method": "GET",
-      "route": "/workflows/LO9m0AxSrxRR6JVY",
-      "http_status": 200
-    },
-    {
-      "method": "GET",
-      "route": "/workflows/LO9m0AxSrxRR6JVY",
-      "http_status": 200
-    },
-    {
-      "method": "PUT",
-      "route": "/workflows/LO9m0AxSrxRR6JVY?publishIfActive=false",
-      "http_status": 200
-    },
-    {
-      "method": "GET",
-      "route": "/workflows/LO9m0AxSrxRR6JVY",
-      "http_status": 200
-    },
-    {
-      "method": "POST",
-      "route": "/workflows/LO9m0AxSrxRR6JVY/activate",
-      "http_status": 200
-    },
     {
       "method": "GET",
       "route": "/workflows/LO9m0AxSrxRR6JVY",
@@ -90,24 +65,5 @@
     "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
     "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
   },
-  "baseline_remained_published_until_verification": true,
-  "active": true,
-  "published_version_id": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
-  "verified_hashes": {
-    "tool": "2732532f986dc19258d8602b718c47222edbd2d88a3583240986031f82edd8a5",
-    "inputSchema": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
-    "validator": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
-    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
-    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
-    "model_node": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
-    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
-    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
-    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
-  },
-  "published_export_canonical_sha256": "955513c916e4259bcea2685468b63ddb1b6d01da513dc969282df37eb7908539",
-  "draft_and_active_content_identical": true,
-  "rollback_available": "../rollback.patch.json; fresh candidate hash and frozen surfaces required",
-  "functional_qa": "PENDING_ALAN_SINGLE_RUNNING_SHIRT_QUOTE_EQUIVALENT_TO_34375",
-  "url": "https://cotizador.globaltriplog.com/cotizador",
-  "finished_at_utc": "2026-10-09T18:04:54.332620+00:00"
+  "baseline_remained_published_until_verification": true
 }

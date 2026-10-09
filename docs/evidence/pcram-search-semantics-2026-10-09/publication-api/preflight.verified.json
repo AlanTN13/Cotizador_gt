@@ -1,0 +1,55 @@
+{
+  "status": "PRE_MUTATION_PASS",
+  "candidate_commit": "3e5cdbb",
+  "context_revision": "28093758374be8448106a5d1861d152da7ea9b76",
+  "production_mutations": 0,
+  "operator_quotes": 0,
+  "model_calls": 0,
+  "local_tests_reused": "13 PASS / 0 FAIL; not rerun",
+  "started_at_utc": "2026-10-09T18:03:37.546340+00:00",
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "baseline_version_id": "6028105a-7aba-45ca-88a6-4d60c27a3cf4",
+  "baseline_active_version_id": "6028105a-7aba-45ca-88a6-4d60c27a3cf4",
+  "node_count": 12,
+  "tool_before_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "baseline_exact": true,
+  "backup_sha256": "6fc7349f16ecfee85de6b13cb8b703ce3f559d3904aff994a22e8dae85655092",
+  "private_backup_location": "/private/tmp/globaltrip-n8n-access-1klaeqzz/search-semantics-live-before.private.json",
+  "prepared_artifacts_verified": true,
+  "exact_changed_paths": [
+    "/nodes/11/parameters/jsCode"
+  ],
+  "baseline_hashes": {
+    "tool": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+    "inputSchema": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+    "validator": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+    "model_node": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "candidate_expected_hashes": {
+    "tool": "2732532f986dc19258d8602b718c47222edbd2d88a3583240986031f82edd8a5",
+    "inputSchema": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+    "validator": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+    "model_node": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "frozen_surfaces_exact": true,
+  "scoped_rollback_exact": true,
+  "secret_exposed_or_persisted": false,
+  "new_credentials": 0,
+  "fresh_preflight_reconfirmed": true
+}
