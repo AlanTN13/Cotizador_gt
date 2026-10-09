@@ -1,0 +1,11 @@
+--- a/app/api/cotizador/route.ts
++++ b/app/api/cotizador/route.ts
+@@ -56,7 +56,7 @@
+     let url: URL;
+     try { url = new URL(urlValue); } catch { throw new GatewayError("N8N_CONFIG_INVALID", "La conexión del cotizador necesita revisión.", 503); }
+     // Keep Preview and Production restricted to the same authorized webhook.
+-    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook/globaltrip-courier-v1" || url.port || url.username || url.password || url.search || url.hash)
++    if (url.protocol !== "https:" || url.hostname !== "nexops.app.n8n.cloud" || url.pathname !== "/webhook/globaltrip-courier-pcram-qa-666fcb2" || url.port || url.username || url.password || url.search || url.hash)
+       throw new GatewayError("N8N_CONFIG_INVALID", "La conexión del cotizador necesita revisión.", 503);
+     // The imported workflow requires Header Auth. Do not submit cases until
+     // both server-side credential fields have been configured.

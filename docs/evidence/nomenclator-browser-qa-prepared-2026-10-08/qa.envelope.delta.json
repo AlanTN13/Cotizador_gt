@@ -1,0 +1,59 @@
+[
+  {
+    "path": "/active",
+    "before": true,
+    "after": false
+  },
+  {
+    "path": "/id",
+    "op": "remove",
+    "before": "LO9m0AxSrxRR6JVY"
+  },
+  {
+    "path": "/meta",
+    "op": "remove",
+    "before": {
+      "instanceId": "9ac171b9b3267a71729120c885347c4519ad8264641497df0a150d560f491ec0"
+    }
+  },
+  {
+    "path": "/name",
+    "before": "GlobalTrip - Courier aereo V1 - PREVIEW",
+    "after": "GlobalTrip QA - PCRAM 666fcb2 - TEMPORAL NO PRODUCTIVO"
+  },
+  {
+    "path": "/nodes/0/parameters/path",
+    "before": "globaltrip-courier-v1",
+    "after": "globaltrip-courier-pcram-qa-666fcb2"
+  },
+  {
+    "path": "/nodes/0/webhookId",
+    "before": "a66dc247-6f17-4ab1-96ee-2d5f1dd07842",
+    "after": "38e2cbc7-89a9-566a-bb77-e51c3990359b"
+  },
+  {
+    "path": "/pinData",
+    "op": "remove",
+    "before": {}
+  },
+  {
+    "path": "/settings/availableInMCP",
+    "before": true,
+    "after": false
+  },
+  {
+    "path": "/settings/executionTimeout",
+    "op": "add",
+    "after": 120
+  },
+  {
+    "path": "/tags",
+    "op": "remove",
+    "before": []
+  },
+  {
+    "path": "/versionId",
+    "op": "remove",
+    "before": "f2ea74d7-7b65-472b-9d5f-441595fc6e90"
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "status": "PREPARED_OFFLINE; QA_ENABLEMENT_AUTHORIZATION_PENDING; STOP",
+  "preflight": {
+    "role": "Direccion de Ejecucion GlobalTrip; one agent; strict PATCH MODE",
+    "canonical_revision": "dc157e5",
+    "contract": "Alan/01_Architecture/Execution_Runtime_Contract.md",
+    "context": "Alan/04_Clientes NexOps/Global_Trip/GlobalTrip_Contexto.md",
+    "authorization": "Prepare existing optimized candidate for Alan's browser QA. No shared-instance workflow creation, execution, publishing/configuration change or product test is authorized yet.",
+    "budget": "S; offline packaging and read-only integrity; future shared-instance enablement R2 remains gated",
+    "delta": "Offline QA envelope and unapplied single-line gateway exception for explicit review only",
+    "frozen": "Production, classifier/tool implementation, model, tax sources, IVA, China formulas, auth/credentials, services, production web/gateway",
+    "rollback": "No live change to reverse; future QA-only cleanup in authorization.json",
+    "stop": "Ask for the bounded QA channel authorization before any shared-resource action or gateway exception is applied"
+  },
+  "source_candidate": {
+    "commit": "666fcb27cd95864d7d8de6267106b9df3257451f",
+    "branch": "codex/pcram-nomenclator-readonly",
+    "sha256": "b3ad9c6369d7f2de831359781dae40d6c36d950d5a3f1df3b1887d15fe7f9696",
+    "file": "../nomenclator-optimization-2026-10-08/candidate.workflow.json",
+    "tool_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+    "tool_bytes": 2301909,
+    "code_model_integration_reused": true,
+    "reoptimized_or_rebuilt": false
+  },
+  "offline_qa_envelope": {
+    "file": "qa.workflow.offline.json",
+    "sha256": "b468861712315ee17a67bb9c0e30966c5f9c66eb39754d279c400cb2a6d96f1b",
+    "bytes": 5125212,
+    "nodes": 12,
+    "active": false,
+    "production_workflow_id_removed": true,
+    "name": "GlobalTrip QA - PCRAM 666fcb2 - TEMPORAL NO PRODUCTIVO",
+    "delta": "qa.envelope.delta.json",
+    "limit": "Offline template for a new temporary workflow only. Not imported, not an API contract test, never a replacement for production. Creation/publishing remain authorization gated.",
+    "envelope_only_changes": "Name/active/identity metadata, unique webhook path+webhookId, MCP exposure disabled, 120s workflow timeout. No classifier/tool/model/calculation/credential code changes."
+  },
+  "read_only_checks": {
+    "fresh_production_export_matches_entire_baseline": true,
+    "production_nodes": 11,
+    "production_active_version": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+    "production_evidence": "production-integrity.json",
+    "calculator_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "qa_calculator_pcram_iva_china_exact": true,
+    "qa_model_and_config_exact": true,
+    "qa_tool_and_agent_integration_exact": true,
+    "qa_connections_match_approved_candidate": true,
+    "qa_credential_references_exact": true,
+    "original_gateway_source_unchanged": true,
+    "pending_gateway_diff_applied": false,
+    "test_evidence_reused": "../nomenclator-optimization-2026-10-08/tests-summary.json; existing 12 local checks, not rerun",
+    "cloud_memory_isolation_certified": false,
+    "browser_qa_functionally_validated": false
+  },
+  "pending": {
+    "single_blocker": "Explicit approval of temporary end-to-end QA enablement on shared Pro resources, including the QA-only gateway exception; no verified isolated channel exists in the current scope.",
+    "exact_operations_risk_budget_recovery": "authorization.json",
+    "reviewable_web_delta_not_applied": "qa-only-gateway.pending.diff",
+    "browser_url": null,
+    "reserved_url_not_running": "http://127.0.0.1:3107/cotizador?detalle=1",
+    "functional_owner": "Alan; VALDUS VS13, Chengji and incomplete running shirt only"
+  },
+  "actions": {
+    "cloud_workflows_created": 0,
+    "cloud_or_operator_quotes": 0,
+    "agent_or_openai_calls": 0,
+    "production_mutations_or_publishes": 0,
+    "web_deploys_or_local_server_starts": 0,
+    "credential_changes": 0,
+    "new_services_or_infrastructure": 0,
+    "classifier_optimizations_or_test_reruns": 0,
+    "planned_16_calls_executed": false
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "source": "existing documented cases; no expected SIM/tax rates supplied to agent",
+  "owner": "Alan; not submitted",
+  "cases": [
+    {
+      "id": "VALDUS-VS13",
+      "source_execution": 34301,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+            "descripcion": "smartwatch"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Chengji",
+      "source_execution": 34301,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+            "descripcion": "Juguete"
+          }
+        ]
+      }
+    },
+    {
+      "id": "camiseta-incompleta",
+      "source_execution": 34280,
+      "input": {
+        "productos": [
+          {
+            "indice": 1,
+            "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+            "descripcion": "camiseta de running"
+          }
+        ]
+      }
+    }
+  ],
+  "logistics": "Alan completes usual FOB, quantity and parcels; preserve entered request with execution trace. No invented product attributes."
+}

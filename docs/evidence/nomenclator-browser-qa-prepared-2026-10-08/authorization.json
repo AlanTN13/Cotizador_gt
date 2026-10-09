@@ -1,0 +1,73 @@
+{
+  "status": "PENDING; NO CLOUD CREATE, PUBLISH, EXECUTION OR WEB START AUTHORIZED",
+  "single_blocker": "Authorization to enable a temporary end-to-end QA channel that consumes shared Pro resources and requires a QA-only exception to the gateway's fixed production endpoint. No existing memory-isolated test channel has been verified.",
+  "why_the_existing_web_cannot_be_used": {
+    "file": "app/api/cotizador/route.ts",
+    "line": 59,
+    "current_rule": "Only https://nexops.app.n8n.cloud/webhook/globaltrip-courier-v1 is allowed. Changing the environment URL alone fails with N8N_CONFIG_INVALID.",
+    "consequence": "Using the unchanged web/gateway would send requests to the production workflow or reject a different URL. Neither is an acceptable QA channel.",
+    "reviewable_exception": "qa-only-gateway.pending.diff; one exact pathname substitution in a separate local QA copy. Not applied. Production source/deployment remains untouched. Explicit additional approval required because gateway changes are currently frozen."
+  },
+  "requested_bounded_operations": [
+    "Create exactly one new unpublished/inactive temporary QA workflow from qa.workflow.offline.json, assigned a fresh workflow ID; never PUT/import/replace LO9m0AxSrxRR6JVY.",
+    "Use a unique webhook path and webhookId, disable MCP exposure for this copy, and set its workflow timeout to 120 seconds. Existing model configuration and credential references remain unchanged.",
+    "Prepare a separate local copy of the existing web/gateway at commit 666fcb2 and apply only qa-only-gateway.pending.diff there. No Vercel deployment or production environment changes. Bind the existing app runtime to loopback on port 3107 only.",
+    "Point only that QA process at the unique QA webhook; use the existing Header Auth mechanism server-side with an already authorized secret if available. Never put secrets in the browser, Git, receipt or logs; no new/rotated credentials. Stop if authorized credential availability is missing.",
+    "Publish/enable only the new QA workflow after a fresh production integrity comparison and review of the shared-resource risk; no operator quotation/smoke. Alan alone submits the three cases, sequentially, with no automatic retries or 16-call series.",
+    "Capture traces from the QA workflow only and close the temporary channel after Alan finishes or any incident. No instance restart or cancellation of other clients' executions."
+  ],
+  "not_done": "All requested operations above remain unapplied. No local server has been started. No runnable browser URL exists yet.",
+  "reserved_urls_not_enabled": {
+    "alan_browser": "http://127.0.0.1:3107/cotizador?detalle=1",
+    "qa_upstream": "https://nexops.app.n8n.cloud/webhook/globaltrip-courier-pcram-qa-666fcb2",
+    "production_endpoint_forbidden_in_qa": "https://nexops.app.n8n.cloud/webhook/globaltrip-courier-v1"
+  },
+  "separation": {
+    "separate": "Workflow ID, webhook identity/path, QA local process/files/port, execution traces and request IDs",
+    "shared_if_authorized": "The same NexOps Pro n8n instance CPU/RAM, existing model/credential provider and billing account",
+    "not_claimed": "Memory/process isolation, reserved RAM, a guaranteed absence of impact to other clients or certified Cloud compatibility. Serial submission and timeout are operational limits, not isolation."
+  },
+  "resource_risk": {
+    "plan_observed": "Pro (Monthly), 10k execution quota; prior authenticated admin evidence in ../nomenclator-final-gate-2026-10-08/",
+    "documented_reference_ram_mib": 640,
+    "reference_limit": "n8n docs Pro-1/10k; actual allocation and live free memory are not verified",
+    "tool_bytes": 2301909,
+    "offline_workflow_bytes": 5125212,
+    "prior_local_peak_rss_mib": 116.39,
+    "local_peak_limit": "Complete standalone Node process on M1; not the memory of the Cloud agent/workflow. Do not add/subtract it from the instance quota to claim headroom.",
+    "expected_qa_budget": "Three manually submitted quotations, one per product. Three workflow executions if each is submitted once. Model/tool/parser/web-search steps may generate multiple provider calls per execution; exact token/cost and Cloud RAM peak remain unmeasured. No fixed monetary or RAM cap claimed.",
+    "existing_model_limits_preserved": "gpt-5-mini, reasoning low, maxTokens 7000, timeout 100000ms, maxRetries 0; these are model-call options, not an instance-wide RAM or total execution cost cap",
+    "hazard": "Creation/loading/serialization and execution of this copy consume shared CPU/RAM. Exhaustion can degrade or crash the instance and affect other clients. A new workflow and manual execution do not reserve resources. Timeout/browser cancellation do not guarantee instantaneous release of memory.",
+    "required_decision": "Explicit approval of this bounded shared-instance QA risk plus the QA-only gateway exception. Approval does not turn the environment into an isolated sandbox. If verified memory isolation/zero impact remains an absolute requirement, this package must remain disabled; no alternative infrastructure will be created."
+  },
+  "activation_preflight_if_approved": [
+    "Re-export production read-only and compare all nodes/connections/settings/credential references with production-integrity.json and its baseline; stop on divergence.",
+    "Verify the approved candidate/tool/calculator hashes and that the new QA workflow has a different ID, 12 nodes, unique path/webhookId, unchanged credential references and no execution/pinned data copied.",
+    "Verify the QA local copy allows only the QA endpoint and cannot fall back to the production endpoint; original gateway remains unchanged.",
+    "Preserve successful/error execution data on the QA workflow for tool traces and tax provenance. Do not change global instance retention/settings.",
+    "Confirm Alan's sequential three-case window and stop at an unavailable safety prerequisite or abnormal shared-instance condition. Never infer zero production concurrency from missing telemetry."
+  ],
+  "trace_to_preserve_for_each_alan_run": [
+    "solicitud_id, QA workflow ID/version and execution ID; input link/description/FOB/parcels",
+    "Actual Consulta_nomenclador_PCRAM inputs, candidates, source version and partial-result flag from agent intermediateSteps",
+    "Original agent classification/evidence/fundamento and validator decisions; no fabricated lookup or guessed SIM",
+    "Cotizador deterministico auditoria.taxResolutions: status/warnings, dutyEvidence/agentEvidence, DIE/TE/IVA provenance and final commercial amounts",
+    "Execution duration and model/token/provider usage when exposed by n8n; mark missing telemetry as unavailable"
+  ],
+  "alan_instructions_after_enablement_only": [
+    "Open the confirmed local QA URL; do not use the public production cotizador for this test.",
+    "Use qa-product-inputs.json for the original product links/descriptions. Complete the usual FOB, quantity and parcels, and keep those inputs for trace comparison. Do not add expected SIM/rates or unknown product attributes.",
+    "Submit VALDUS VS13, wait for completion, then Chengji, then the incomplete running-shirt case. One request at a time; stop if the instance behaves abnormally.",
+    "Preserve the commercial result and calculation detail with the request/execution ID. A partial classification or explicit estimate can be a correct outcome; do not require a fabricated SIM."
+  ],
+  "recovery": [
+    "Stop the loopback QA web process to prevent new requests; never redirect it to production.",
+    "Cancel only an in-progress QA execution if needed, disable/unpublish only the QA workflow and confirm its unique webhook is no longer enabled.",
+    "Retain QA evidence, then archive/remove only the temporary QA copy through the normal recoverable mechanism. Discard only the QA workspace/pending gateway exception.",
+    "Preserve shared credentials, production workflow/version/settings and all other clients. Do not restart the instance automatically or revoke credentials used by production."
+  ],
+  "sources": [
+    "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md",
+    "https://docs.n8n.io/deploy/use-n8n-cloud/understand-concurrency.md"
+  ]
+}
