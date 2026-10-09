@@ -1,0 +1,10 @@
+{
+  "status": "STOP_N8N_API_KEY_UNAVAILABLE_NO_MUTATION",
+  "candidate_commit": "3e5cdbb",
+  "context_revision": "a87b132a7c2c181248010f0aa297361d49c874b6",
+  "production_mutations": 0,
+  "operator_quotes": 0,
+  "model_calls": 0,
+  "local_tests_reused": "13 PASS / 0 FAIL; not rerun",
+  "started_at_utc": "2026-10-09T17:55:14.271451+00:00"
+}
