@@ -1,0 +1,50 @@
+{
+  "status": "PREFLIGHT",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "candidate_commit": "cb77bd5319de0f38af80d0b97561b5af31eb296e",
+  "context_revision": "163ffc3e1f59fbb236ac057da892a6c0291c77c1",
+  "started_at_utc": "2026-10-09T15:41:45.218596+00:00",
+  "production_mutations": 0,
+  "operator_quotes": 0,
+  "new_credentials": 0,
+  "secret_exposed_or_persisted": false,
+  "local_tests_reused": "15 PASS / 0 FAIL; not rerun",
+  "prior_access_request": "GET /workflows/LO9m0AxSrxRR6JVY HTTP 200",
+  "exact_backup_sha256": "cd3ecf683f328879051d36d5d98ca5904d60b3d034be07059ca9b6b984f4499b",
+  "exact_backup_location": "local private /private/tmp/globaltrip-n8n-access-1klaeqzz/contract-live-before.private.json; not Git",
+  "preflight": "PASS",
+  "baseline_version_id": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "baseline_active_version_id": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "node_count": 12,
+  "baseline_hashes": {
+    "tool": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+    "inputSchema": "9367dbef1c5a2a77a1c9dae1d3e148c256cc6a4fbda85f84afcbc99695c0d7d2",
+    "validator": "bdcb972ef657fb5ad8ecf3ec880ceaf57875504370670439df4139d9a5d61be2",
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+    "model_node": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "exact_changed_paths": [
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "baseline_export_canonical_sha256": "aaa2ad41068ecf4e6057a75b0b88a3fd4324701c75d9df6b6fc33421df588e4d",
+  "candidate_expected_hashes": {
+    "tool": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+    "inputSchema": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+    "validator": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673",
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+    "model_node": "5569ea2ad90121deb8be2b8a0912b15942f9aa0a814021ec9f907c9117aa31c1",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "frozen_surfaces_exact": true,
+  "rollback_preconditions_checked": true,
+  "meta_note": "UI instanceId injected in exported artifact only; live API meta remains untouched"
+}

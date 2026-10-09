@@ -1,0 +1,11 @@
+{
+  "functional_changes": [
+    "/nodes/7/parameters/jsCode",
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode"
+  ],
+  "automatic_metadata_change": [
+    "/versionId"
+  ],
+  "no_other_export_differences": true
+}

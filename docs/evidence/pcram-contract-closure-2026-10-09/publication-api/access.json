@@ -1,0 +1,6 @@
+{
+  "http_status": 200,
+  "api_requests": 1,
+  "production_mutations": 0,
+  "secret_exposed_or_persisted": false
+}
