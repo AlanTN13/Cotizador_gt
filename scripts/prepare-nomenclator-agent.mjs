@@ -10,6 +10,37 @@ if (!indexPath) throw new Error("Usage: node scripts/prepare-nomenclator-agent.m
 const indexBytes = readFileSync(indexPath);
 const index = JSON.parse(indexBytes);
 const hash = value => createHash("sha256").update(value).digest("hex");
+if (index.format === "pcram-query-prefix-word-deflate-v3") {
+  const previous = JSON.parse(readFileSync(path.join(dir, "candidate.workflow.json")));
+  const optimized = structuredClone(previous);
+  const tool = optimized.nodes.find(n => n.name === "Consulta_nomenclador_PCRAM");
+  const license = readFileSync(path.join(root, "workflow/vendor/tiny-inflate.LICENSE"), "utf8");
+  const decoder = readFileSync(path.join(root, "workflow/vendor/tiny-inflate.mjs"), "utf8")
+    .replace("export { tinf_uncompress as inflateRaw };", "const inflateRaw = tinf_uncompress;");
+  const lookup = readFileSync(path.join(root, "workflow/pcram-nomenclator-packed.mjs"), "utf8")
+    .replace(/^import[^\n]+\n/, "").replaceAll("export function", "function");
+  tool.parameters.jsCode = `/* ${license} */\n${decoder}\n${lookup}\nconst packed = ${JSON.stringify(index)};\nconst runtime = loadPackedNomenclator(packed);\nreturn JSON.stringify(queryPackedNomenclator(runtime, query));\n`;
+  const out = path.join(root, "docs/evidence/nomenclator-optimization-2026-10-08");
+  mkdirSync(out, { recursive: true });
+  writeFileSync(path.join(out, "candidate.workflow.json"), JSON.stringify(optimized, null, 2) + "\n");
+  const receipt = {
+    status: "OPTIMIZED_OFFLINE; NOT DEPLOYED; CLOUD_AND_MODEL_RUNS_ZERO",
+    previous_commit: "b5c3e5fd7c4d08dd1d014c43574227e503f37d3f",
+    only_candidate_change: "/nodes/11/parameters/jsCode",
+    node_count: optimized.nodes.length,
+    source_zip_sha256: index.metadata.zip_sha256,
+    index_file: path.relative(root, indexPath), index_sha256: hash(indexBytes),
+    index_counts: index.index_counts,
+    tool_before_sha256: hash(previous.nodes[11].parameters.jsCode), tool_sha256: hash(tool.parameters.jsCode),
+    candidate_file_sha256: hash(readFileSync(path.join(out, "candidate.workflow.json"))),
+    bytes: { packed_index: indexBytes.length, tool: Buffer.byteLength(tool.parameters.jsCode), candidate_compact: Buffer.byteLength(JSON.stringify(optimized)) },
+    rollback: "Restore only the candidate tool jsCode from b5c3e5f; no production change to undo",
+    real_agent_validation: "PENDING unchanged; no n8n Cloud or OpenAI calls",
+  };
+  writeFileSync(path.join(out, "receipt.json"), JSON.stringify(receipt, null, 2) + "\n");
+  console.log(JSON.stringify(receipt));
+  process.exit(0);
+}
 const baseline = JSON.parse(readFileSync(path.join(dir, "baseline.workflow.json")));
 const node = (w, name) => w.nodes.find(n => n.name === name);
 const agent = node(baseline, "Agente Despachante");

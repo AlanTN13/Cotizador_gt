@@ -1,0 +1,31 @@
+{
+  "tool_bytes": {
+    "before": 13207171,
+    "after": 2301909
+  },
+  "peak_process_rss_mib": {
+    "previous": 163.96875,
+    "optimized": 116.390625
+  },
+  "initialization_p50_range_ms": {
+    "previous": [
+      84.991625,
+      91.582125
+    ],
+    "optimized": [
+      44.59970799999999,
+      47.90754199999999
+    ]
+  },
+  "all_8_case_responses_exact": true,
+  "tests": {
+    "python": 8,
+    "node": 4,
+    "failed": 0
+  },
+  "source_unchanged": true,
+  "only_candidate_delta": "/nodes/11/parameters/jsCode",
+  "model_calls": 0,
+  "cloud_runs": 0,
+  "production_mutations": 0
+}

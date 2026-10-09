@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import base64
+import zlib
 import zipfile
 
 spec = importlib.util.spec_from_file_location("builder", Path(__file__).resolve().parents[1] / "scripts/build-pcram-nomenclator.py")
@@ -61,6 +63,46 @@ class NomenclatorTests(unittest.TestCase):
             index["sims"][0][1] = "Altered"
             with self.assertRaises(ValueError): builder.save(index, d)
             self.assertEqual(dest.read_bytes(), old)
+
+    def test_packed_reproducible_and_lossless_actual_transfer(self):
+        root = Path(__file__).resolve().parents[1]
+        source = root / "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.json"
+        index = json.loads(source.read_text())
+        packed = builder.build_query_package(index)
+        self.assertEqual(builder.encode(packed), source.with_suffix(".indexed-v3.json").read_bytes())
+        def unpack(block):
+            size, checksum, b64 = block
+            raw = zlib.decompress(base64.b64decode(b64), -15)
+            self.assertEqual(len(raw), size)
+            self.assertEqual(zlib.adler32(raw), checksum)
+            return json.loads(raw)
+        catalog = unpack(packed["catalog"])
+        reconstructed, contexts = [], {}
+        for hs4, block in packed["shards"].items():
+            start, end = catalog["prefixes"][hs4]
+            rows = unpack(block)
+            self.assertEqual(len(rows), end - start)
+            for ncm, (context, flag, sims) in zip(catalog["codes"][start:end], rows):
+                contexts[ncm] = [context, flag]; reconstructed.extend(sims)
+        self.assertEqual(contexts, index["ncms"])
+        self.assertEqual(reconstructed, index["sims"])
+        self.assertEqual(packed["metadata"], index["metadata"])
+
+    def test_optimized_prefix_ranges_generated_not_hand_maintained(self):
+        index = builder.build_index(archive([row(), row("9503.00.60912G", context="Juguetes de plástico")]), "0" * 64)
+        packed = builder.build_query_package(index)
+        catalog = json.loads(zlib.decompress(base64.b64decode(packed["catalog"][2]), -15))
+        self.assertEqual(catalog["prefixes"]["6109"], [0, 1])
+        self.assertEqual(catalog["prefixes"]["95030060"], [1, 2])
+        self.assertIn("pla", json.loads(zlib.decompress(base64.b64decode(packed["terms"][2]), -15))["grams"])
+
+    def test_optimized_filename_preserves_old_valid_version(self):
+        index = builder.build_index(archive([row()]), "0" * 64)
+        with tempfile.TemporaryDirectory() as d:
+            old = builder.save(index, d); old_bytes = old.read_bytes()
+            new = builder.save(builder.build_query_package(index), d)
+            self.assertNotEqual(old, new)
+            self.assertEqual(old.read_bytes(), old_bytes)
 
 
 if __name__ == "__main__": unittest.main()

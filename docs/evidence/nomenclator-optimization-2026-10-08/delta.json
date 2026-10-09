@@ -1,0 +1,8 @@
+{
+  "against_commit": "b5c3e5fd7c4d08dd1d014c43574227e503f37d3f",
+  "only_candidate_changed_path": "/nodes/11/parameters/jsCode",
+  "before_sha256": "4e2eed76591885f6a75f9f25df809d7b5601bba4799d64670138d1b5f0ab1ad9",
+  "after_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+  "all_other_fields_exactly_identical": true,
+  "rollback_exact": true
+}

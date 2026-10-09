@@ -1,0 +1,51 @@
+{
+  "status": "OPTIMIZED_OFFLINE; NOT DEPLOYED; CLOUD_AND_MODEL_RUNS_ZERO",
+  "previous_commit": "b5c3e5fd7c4d08dd1d014c43574227e503f37d3f",
+  "only_candidate_change": "/nodes/11/parameters/jsCode",
+  "node_count": 12,
+  "source_zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+  "index_file": "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json",
+  "index_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+  "index_counts": {
+    "postings": 110255,
+    "prefixes": 17344,
+    "shards": 1228,
+    "trigrams": 4646,
+    "words": 17569
+  },
+  "tool_before_sha256": "4e2eed76591885f6a75f9f25df809d7b5601bba4799d64670138d1b5f0ab1ad9",
+  "tool_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+  "candidate_file_sha256": "b3ad9c6369d7f2de831359781dae40d6c36d950d5a3f1df3b1887d15fe7f9696",
+  "bytes": {
+    "packed_index": 2282786,
+    "tool": 2301909,
+    "candidate_compact": 5125345
+  },
+  "rollback": "Restore only the candidate tool jsCode from b5c3e5f; no production change to undo",
+  "real_agent_validation": "PENDING unchanged; no n8n Cloud or OpenAI calls",
+  "local_tests": {
+    "passed": 12,
+    "failed": 0
+  },
+  "benchmark": "benchmark.json",
+  "summary": "summary.json",
+  "candidate_rollback_exact": true,
+  "source_metadata_exactly_equal": true,
+  "n8n_cloud_runs": 0,
+  "openai_calls": 0,
+  "production_mutations": 0,
+  "vendor": {
+    "name": "tiny-inflate",
+    "version": "1.0.3",
+    "license": "MIT",
+    "source": "https://registry.npmjs.org/tiny-inflate/-/tiny-inflate-1.0.3.tgz",
+    "tar_sha256": "73932b339424e5ffaeaf043e6481229cab407ee277b2a01fa23938dfad6a8f4e",
+    "changes": "MIT header added; module.exports replaced by ESM export locally and plain JS function in embedded tool; no npm/runtime import"
+  },
+  "starter": {
+    "documented_ram_mib": 320,
+    "cloud_memory_source": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md",
+    "external_modules_source": "https://docs.n8n.io/build/code-in-n8n/using-the-code-node.md",
+    "assessment": "Pure JS and no external runtime imports/network/filesystem. Local measured footprint reduced. Actual shared Starter RAM/CPU/transport capacity not certified; no Cloud execution authorized."
+  }
+}

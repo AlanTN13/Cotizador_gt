@@ -8,6 +8,11 @@ import os
 import tempfile
 import zipfile
 import io
+import base64
+import re
+import unicodedata
+import zlib
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -75,10 +80,78 @@ def encode(index):
     return (json.dumps(index, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode()
 
 
+def build_query_package(index):
+    """Build all lookup indexes once; pack literal source text in lazy HS4 blocks."""
+    groups = defaultdict(list)
+    for row in index["sims"]:
+        groups[row[0][:8]].append(row)
+    codes = sorted(groups)
+    prefixes, shards = {}, defaultdict(list)
+    context_words, sim_words = defaultdict(set), defaultdict(set)
+    sim_offsets, sim_offset = [], 0
+    def words(text):
+        folded = "".join(c for c in unicodedata.normalize("NFD", text)
+                         if not "\u0300" <= c <= "\u036f").lower()
+        return {word for word in re.findall(r"[a-z0-9]+", folded) if len(word) >= 3}
+    for ident, code in enumerate(codes):
+        for width in (4, 6, 8):
+            prefix = code[:width]
+            if prefix not in prefixes:
+                prefixes[prefix] = [ident, ident + 1]
+            else:
+                prefixes[prefix][1] = ident + 1
+        context, full = index["ncms"][code]
+        rows = groups[code]
+        shards[code[:4]].append([context, full, rows])
+        sim_offsets.append(sim_offset)
+        for word in words(context):
+            context_words[word].add(ident)
+        for offset, row in enumerate(rows):
+            for word in words(row[1]):
+                sim_words[word].add(sim_offset + offset)
+        sim_offset += len(rows)
+    sim_offsets.append(sim_offset)
+    vocabulary = sorted(context_words.keys() | sim_words.keys())
+    grams = defaultdict(set)
+    for ident, word in enumerate(vocabulary):
+        for offset in range(len(word) - 2):
+            grams[word[offset:offset + 3]].add(ident)
+
+    def posting(ids):
+        data, previous = bytearray(), 0
+        for ident in sorted(ids):
+            delta = ident - previous
+            while delta >= 128:
+                data.append((delta & 127) | 128)
+                delta >>= 7
+            data.append(delta)
+            previous = ident
+        return base64.b64encode(data).decode("ascii")
+
+    def block(value):
+        # ASCII JSON permits a tiny, portable decoder without Buffer/TextDecoder.
+        raw = json.dumps(value, ensure_ascii=True, separators=(",", ":")).encode("ascii")
+        compressor = zlib.compressobj(9, zlib.DEFLATED, -15)
+        compressed = compressor.compress(raw) + compressor.flush()
+        return [len(raw), zlib.adler32(raw), base64.b64encode(compressed).decode("ascii")]
+
+    return {
+        "format": "pcram-query-prefix-word-deflate-v3",
+        "metadata": index["metadata"],  # Same source/response metadata; no tax changes.
+        "catalog": block({"codes": codes, "prefixes": prefixes, "sim_offsets": sim_offsets}),
+        "terms": block({"words": [[word, posting(context_words[word]), posting(sim_words[word])] for word in vocabulary],
+                        "grams": {gram: posting(ids) for gram, ids in sorted(grams.items())}}),
+        "shards": {key: block(rows) for key, rows in sorted(shards.items())},
+        "index_counts": {"prefixes": len(prefixes), "trigrams": len(grams), "words": len(vocabulary),
+                         "postings": sum(map(len, grams.values())), "shards": len(shards)},
+    }
+
+
 def save(index, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    dest = output_dir / f"{index['metadata']['zip_sha256']}.json"
+    suffix = ".indexed-v3" if "format" in index else ""
+    dest = output_dir / f"{index['metadata']['zip_sha256']}{suffix}.json"
     payload = encode(index)
     if dest.exists():
         if dest.read_bytes() != payload:
@@ -99,7 +172,10 @@ if __name__ == "__main__":
     ap.add_argument("--zip", required=True, type=Path, help="Pinned transfer downloaded once at preparation time")
     ap.add_argument("--tax-source-sha256", required=True, help="Frozen tax source reference; no rates read or written")
     ap.add_argument("--output-dir", type=Path, default=ROOT / "data/pcram-nomenclator")
+    ap.add_argument("--optimized", action="store_true", help="Precompute prefix/trigram indexes and lazy compressed blocks")
     args = ap.parse_args()
     result = build_index(args.zip.read_bytes(), args.tax_source_sha256)
+    if args.optimized:
+        result = build_query_package(result)
     dest = save(result, args.output_dir)
     print(json.dumps({"index": str(dest), "sha256": hashlib.sha256(dest.read_bytes()).hexdigest(), "metadata": result["metadata"]}, ensure_ascii=False))

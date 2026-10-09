@@ -1,0 +1,14 @@
+{
+  "python": {
+    "command": "python3 -m unittest discover -s tests -p test_pcram_nomenclator.py -v",
+    "passed": 8
+  },
+  "node": {
+    "command": "node --test tests/pcram-nomenclator-optimized.test.mjs",
+    "passed": 4
+  },
+  "failed": 0,
+  "full_source_round_trip_and_rebuild_exact": true,
+  "agent_behavior_tested": false,
+  "n8n_cloud_executed": false
+}
