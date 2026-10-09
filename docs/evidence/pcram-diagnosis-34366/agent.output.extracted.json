@@ -1,0 +1,54 @@
+{
+  "output": {
+    "productos": [
+      {
+        "indice": 1,
+        "producto": "smartwatch",
+        "clasificacion": "8517",
+        "SIM": "null",
+        "DIE": "16",
+        "fundamento": "Producto observado: reloj inteligente (smartwatch) con conectividad Bluetooth e impermeabilidad; clasificación sustentada a nivel partida HS 4/6 (8517 - aparatos para transmisión o recepción de voz/datos/sonidos electrónicos) por similitud funcional con dispositivos electrónicos portátiles; falta en ficha composición técnica exacta (por ejemplo, si tiene función de teléfono celular integrada, radio, o si debe clasificarse como reloj mecánico) que impide asignar un NCM de 8 dígitos o SIM completa. DIE estimado 16% sobre la base de alícuotas comunes para aparatos electrónicos portátiles importados (valor orientativo).",
+        "evidencia": []
+      },
+      {
+        "indice": 2,
+        "producto": "Juguete",
+        "clasificacion": "9503",
+        "SIM": "null",
+        "DIE": "20",
+        "fundamento": "Producto observado: juguete (bloques/laberinto para canicas) — clasificación sustentada a nivel partida HS 9503 (juguetes y artículos para recreo) por naturaleza y uso lúdico; falta información sobre material principal (plástico, madera, metales) y edad objetivo que impide elegir NCM 8 dígitos o SIM completa. DIE estimado 20% según alícuotas orientativas aplicadas a juguetes importados.",
+        "evidencia": []
+      }
+    ]
+  },
+  "intermediateSteps": [
+    {
+      "action": {
+        "tool": "Consulta_nomenclador_PCRAM",
+        "toolInput": {
+          "indice": 1,
+          "prefijo": "",
+          "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+          "limite": 5
+        },
+        "toolCallId": "call_1oSiSjIs7BD5fHZy3dWO5ZcD"
+      },
+      "observation": "[{\"error\":\"Received tool input did not match expected schema\\n\\n✖ Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'\"}]",
+      "error_duration_ms": 2
+    },
+    {
+      "action": {
+        "tool": "Consulta_nomenclador_PCRAM",
+        "toolInput": {
+          "indice": 1,
+          "prefijo": "",
+          "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+          "limite": 5
+        },
+        "toolCallId": "call_b2c1aaIzxW5YCRKWYYwUxTz1"
+      },
+      "observation": "[{\"error\":\"Received tool input did not match expected schema\\n\\n✖ Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'\"}]",
+      "error_duration_ms": 1
+    }
+  ]
+}

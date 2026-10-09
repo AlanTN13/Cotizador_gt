@@ -1,0 +1,18 @@
+{
+  "validator.output.dom.txt": "2032dec1badaede87d3e432c509689fc5e8de4ff1c734ffeb7de68cf062d861a",
+  "tool-1.error.dom.txt": "49f77f3fae074f58c6c9ca93cdf9ac5857972622cd798c1e5a1b6ea06dfc7569",
+  "agent.output.extracted.json": "39649fd40f7ef0a991a7b20b684e4849c80b757be0dbba0cc759d9222bc6a038",
+  "tool-1.query.json": "dd517cec333d83bbec4ed2623ca113c2f1ca736df5a461796bcd284542a0f4bc",
+  "webhook.body.txt": "236df967e9e6d09641a7302382f8962c1a0687536b41260cbc7f552e0053e488",
+  "tool-2.error.dom.txt": "a1b0bfd1e5f7dc964c5f7589b7dc0365951ef27ec659f316592d81f410734921",
+  "prepare-agent.output.dom.txt": "5859c02078a5bc24648dc24e217266e8d34eb5c76972367e548e270717b7db67",
+  "tool-1.input-json.dom.txt": "63def1d84708aa6aca488a384187e233c129e58754dccac227267c290e95c015",
+  "tool-1.error.png": "6b245dd404b62965cf7baacd7719aea4283c3a86f3dada3826cf5eb4dd1a6e8a",
+  "tool-1.schema-error.png": "fd09fdb781396b7dc2afea61911bf0cbec57bd05145c09ab778aee37ce55b90f",
+  "agent.output.dom.txt": "06bc4da42e5634b6aba31aaa99eab9ec9164177c6f6b279176d3c6f47d022dc6",
+  "agent.input.json": "a00e0c2cccaea60d882f586bae17c8a771e2c1bb6ceab5ef0fd3c7316a652891",
+  "agent.received-input.dom.txt": "7ee54fc39cdb46c3ebaac4d2c375e21b98e59eb1b386c2d9196f79aece511659",
+  "calculator.output.dom.txt": "d68ab0c5b6e70fb7a835a0a6135340471bd23b659b94dfbf1e4a244b1d05269d",
+  "diagnostico.md": "1da36dc98f825bf257af66511f862fbceb8e45c4bb8e9fc9ed48067c79d38765",
+  "receipt.json": "4b2655f301ba284a73fc52f20bb68bfca10b50331e0b02b11e152047e0523647"
+}

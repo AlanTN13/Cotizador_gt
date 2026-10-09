@@ -1,0 +1,260 @@
+- main:
+  - link "Personal":
+    - /url: /projects/9kElEcXnGLfAYokj
+    - generic "Personal":
+    - generic "Personal"
+  - list:
+    - listitem: /
+    - listitem "Global Trip":
+      - link "Global Trip":
+        - /url: /projects/9kElEcXnGLfAYokj/folders/5SuIXLxmAoN5LYJ1/workflows
+        - generic: Global Trip
+  - generic: /
+  - generic "GlobalTrip - Courier aereo V1 - PREVIEW":
+    - generic: GlobalTrip - Courier aereo V1 - PREVIEW
+  - button "More actions":
+  - button "Published" [disabled]:
+    - generic: Published
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor"
+    - radio "Executions" [checked]
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Admin Panel":
+      - generic: Admin Panel
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Insights":
+      - generic: Insights
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - heading "Executions" [level=2]
+    - generic: No active executions
+    - checkbox "Auto refresh" [checked]:
+    - generic: Auto refresh
+    - button "Filters":
+    - link "Oct 9, 10:31:12 Succeeded in 14.38s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34366
+      - generic: Oct 9, 10:31:12
+      - generic: Succeeded
+      - generic: in 14.38s
+    - link "Oct 9, 10:25:36 Succeeded in 8.447s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34365
+      - generic: Oct 9, 10:25:36
+      - generic: Succeeded
+      - generic: in 8.447s
+    - link "Oct 9, 10:25:15 Succeeded in 16.279s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34364
+      - generic: Oct 9, 10:25:15
+      - generic: Succeeded
+      - generic: in 16.279s
+    - link "Oct 8, 20:40:08 Succeeded in 29.663s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34308
+      - generic: Oct 8, 20:40:08
+      - generic: Succeeded
+      - generic: in 29.663s
+    - link "Oct 8, 20:39:30 Succeeded in 32.066s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34307
+      - generic: Oct 8, 20:39:30
+      - generic: Succeeded
+      - generic: in 32.066s
+    - link "Oct 8, 18:00:19 Succeeded in 26.9s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34301
+      - generic: Oct 8, 18:00:19
+      - generic: Succeeded
+      - generic: in 26.9s
+    - link "Oct 8, 17:55:46 Succeeded in 10.287s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34300
+      - generic: Oct 8, 17:55:46
+      - generic: Succeeded
+      - generic: in 10.287s
+    - link "Oct 8, 15:57:00 Succeeded in 23.601s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34283
+      - generic: Oct 8, 15:57:00
+      - generic: Succeeded
+      - generic: in 23.601s
+    - link "Oct 8, 15:53:49 Succeeded in 37.846s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34281
+      - generic: Oct 8, 15:53:49
+      - generic: Succeeded
+      - generic: in 37.846s
+    - link "Oct 8, 15:30:14 Succeeded in 11.89s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34280
+      - generic: Oct 8, 15:30:14
+      - generic: Succeeded
+      - generic: in 11.89s
+    - generic: Which executions is this workflow saving?
+    - generic: Oct 9, 10:31:12
+    - button:
+    - button:
+    - generic: Succeeded
+    - text: in 14.38s | 5MB | ID#34366 |
+    - link "Autosave":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/history/a4ee337d-4235-4f6b-9d5e-81259c1c2ee8
+    - button "Add tag":
+      - generic: Add tag
+    - link "Copy to editor":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/debug/34366
+      - button "Copy to editor":
+        - generic: Copy to editor
+    - button "Add to evaluation dataset":
+      - text: Add to evaluation dataset
+    - button "Additional Actions":
+    - button "Delete this execution":
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 3 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: POST
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Formulario - POST
+    - generic: Conservar la credencial Header Auth del webhook en n8n y en el backend existente de la landing. La clave OpenAI se guarda únicamente como credencial del nodo OpenAI Chat Model. Conexión server-side de preview.
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar formulario
+    - generic: "true"
+    - generic: "false"
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Entrada completa
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Preparar agente
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Agente Despachante
+    - generic: AI Agent nativo. Usa OpenAI Chat Model y su Web Search integrada para consultar el link y buscar fuentes; entrega al parser el mismo contrato funcional.
+    - generic: Model
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenAI Chat Model
+    - generic: "Joaco: seleccionar aquí la credencial OpenAI de n8n. Mantener Use Responses API activado y Built-in Tools → Web Search. La herramienta permite búsqueda y apertura de páginas en este modelo. No se requiere otro proveedor ni otra API key."
+    - generic: "3"
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Salida estructurada
+    - generic: Contrato JSON del despachante, sin ejemplos ni respuestas precargadas. El Code Node posterior valida solo el formato técnico antes de calcular.
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar salida del agente
+    - generic: "true"
+    - generic: "false"
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Clasificado y apto
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Cotizador deterministico
+    - generic: 1 item
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Responder a la landing
+    - generic: Tool
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Consulta_nomenclador_PCRAM
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - generic: Logs
+    - generic: Success in 14.38s
+    - generic: ~4924 Tokens
+    - radiogroup:
+      - radio "Overview"
+      - radio "Details" [checked]
+    - tree:
+      - treeitem "Formulario - POST":
+        - generic: Formulario - POST
+      - treeitem "Validar formulario":
+        - generic: Validar formulario
+      - treeitem "Entrada completa":
+        - generic: Entrada completa
+      - treeitem "Preparar agente":
+        - generic: Preparar agente
+      - treeitem "Agente Despachante Toggle row" [expanded]:
+        - generic: Agente Despachante
+        - button "Toggle row":
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Consulta_nomenclador_PCRAM Open..." [active] [selected]:
+        - generic: Consulta_nomenclador_PCRAM
+        - button "Open...":
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Consulta_nomenclador_PCRAM":
+        - generic: Consulta_nomenclador_PCRAM
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Salida estructurada":
+        - generic: Salida estructurada
+      - treeitem "Validar salida del agente":
+        - generic: Validar salida del agente
+      - treeitem "Clasificado y apto":
+        - generic: Clasificado y apto
+      - treeitem "Cotizador deterministico":
+        - generic: Cotizador deterministico
+      - treeitem "Responder a la landing":
+        - generic: Responder a la landing
+    - generic: Consulta_nomenclador_PCRAM
+    - generic: Error in 2ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Input
+    - textbox "Search previous nodes' fields"
+    - radiogroup:
+      - radio "Schema" [checked]:
+      - radio "Table":
+      - radio "JSON":
+    - generic: 1 item
+    - generic: indice
+    - generic: "1"
+    - generic: prefijo
+    - generic: texto
+    - generic: smartwatch reloj inteligente pulsera actividad bluetooth IP68
+    - generic: limite
+    - generic: "5"
+    - generic: Output
+    - generic: 1 item
+    - alert:
+      - generic: No parameters are set up to be filled by AI. Click on the ✨ button next to a parameter to allow AI to set its value.
+    - generic: "Received tool input did not match expected schema ✖ Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'"
+    - paragraph: Error details
+    - button:
+    - generic "Other info":
+      - text: Other info
+- complementary

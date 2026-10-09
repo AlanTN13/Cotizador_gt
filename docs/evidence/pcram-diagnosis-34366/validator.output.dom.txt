@@ -1,0 +1,354 @@
+- main:
+  - link "Personal":
+    - /url: /projects/9kElEcXnGLfAYokj
+    - generic "Personal":
+    - generic "Personal"
+  - list:
+    - listitem: /
+    - listitem "Global Trip":
+      - link "Global Trip":
+        - /url: /projects/9kElEcXnGLfAYokj/folders/5SuIXLxmAoN5LYJ1/workflows
+        - generic: Global Trip
+  - generic: /
+  - generic "GlobalTrip - Courier aereo V1 - PREVIEW":
+    - generic: GlobalTrip - Courier aereo V1 - PREVIEW
+  - button "More actions":
+  - button "Published" [disabled]:
+    - generic: Published
+  - button "More actions":
+  - radiogroup:
+    - radio "Editor"
+    - radio "Executions" [checked]
+    - radio "Evaluations"
+  - complementary:
+    - link:
+      - /url: /home
+    - menubar:
+      - menuitem "Add new item":
+        - button "Add new item":
+    - button "Open command palette":
+    - button "Toggle sidebar":
+    - menuitem "n8n Assistant":
+      - generic: n8n Assistant
+      - generic: Preview
+    - menuitem "Overview":
+      - generic: Overview
+    - menuitem "Personal":
+      - generic: Personal
+    - menuitem "Admin Panel":
+      - generic: Admin Panel
+    - menuitem "Templates":
+      - generic: Templates
+    - menuitem "Insights":
+      - generic: Insights
+    - menuitem "Help":
+      - generic: Help
+    - menuitem "Settings":
+      - generic: Settings
+  - main:
+    - heading "Executions" [level=2]
+    - generic: No active executions
+    - checkbox "Auto refresh" [checked]:
+    - generic: Auto refresh
+    - button "Filters":
+    - link "Oct 9, 10:31:12 Succeeded in 14.38s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34366
+      - generic: Oct 9, 10:31:12
+      - generic: Succeeded
+      - generic: in 14.38s
+    - link "Oct 9, 10:25:36 Succeeded in 8.447s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34365
+      - generic: Oct 9, 10:25:36
+      - generic: Succeeded
+      - generic: in 8.447s
+    - link "Oct 9, 10:25:15 Succeeded in 16.279s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34364
+      - generic: Oct 9, 10:25:15
+      - generic: Succeeded
+      - generic: in 16.279s
+    - link "Oct 8, 20:40:08 Succeeded in 29.663s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34308
+      - generic: Oct 8, 20:40:08
+      - generic: Succeeded
+      - generic: in 29.663s
+    - link "Oct 8, 20:39:30 Succeeded in 32.066s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34307
+      - generic: Oct 8, 20:39:30
+      - generic: Succeeded
+      - generic: in 32.066s
+    - link "Oct 8, 18:00:19 Succeeded in 26.9s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34301
+      - generic: Oct 8, 18:00:19
+      - generic: Succeeded
+      - generic: in 26.9s
+    - link "Oct 8, 17:55:46 Succeeded in 10.287s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34300
+      - generic: Oct 8, 17:55:46
+      - generic: Succeeded
+      - generic: in 10.287s
+    - link "Oct 8, 15:57:00 Succeeded in 23.601s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34283
+      - generic: Oct 8, 15:57:00
+      - generic: Succeeded
+      - generic: in 23.601s
+    - link "Oct 8, 15:53:49 Succeeded in 37.846s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34281
+      - generic: Oct 8, 15:53:49
+      - generic: Succeeded
+      - generic: in 37.846s
+    - link "Oct 8, 15:30:14 Succeeded in 11.89s":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/executions/34280
+      - generic: Oct 8, 15:30:14
+      - generic: Succeeded
+      - generic: in 11.89s
+    - generic: Which executions is this workflow saving?
+    - generic: Oct 9, 10:31:12
+    - button:
+    - button:
+    - generic: Succeeded
+    - text: in 14.38s | 5MB | ID#34366 |
+    - link "Autosave":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/history/a4ee337d-4235-4f6b-9d5e-81259c1c2ee8
+    - button "Add tag":
+      - generic: Add tag
+    - link "Copy to editor":
+      - /url: /workflow/LO9m0AxSrxRR6JVY/debug/34366
+      - button "Copy to editor":
+        - generic: Copy to editor
+    - button "Add to evaluation dataset":
+      - text: Add to evaluation dataset
+    - button "Additional Actions":
+    - button "Delete this execution":
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 2 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 3 items total
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: 1 item
+    - generic: POST
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Formulario - POST
+    - generic: Conservar la credencial Header Auth del webhook en n8n y en el backend existente de la landing. La clave OpenAI se guarda únicamente como credencial del nodo OpenAI Chat Model. Conexión server-side de preview.
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar formulario
+    - generic: "true"
+    - generic: "false"
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Entrada completa
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Preparar agente
+    - generic: Chat Model*
+    - generic: Memory
+    - generic: Tool
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Agente Despachante
+    - generic: AI Agent nativo. Usa OpenAI Chat Model y su Web Search integrada para consultar el link y buscar fuentes; entrega al parser el mismo contrato funcional.
+    - generic: Model
+    - button "Add to chat":
+    - button "More actions":
+    - generic: OpenAI Chat Model
+    - generic: "Joaco: seleccionar aquí la credencial OpenAI de n8n. Mantener Use Responses API activado y Built-in Tools → Web Search. La herramienta permite búsqueda y apertura de páginas en este modelo. No se requiere otro proveedor ni otra API key."
+    - generic: "3"
+    - generic: Output Parser
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Salida estructurada
+    - generic: Contrato JSON del despachante, sin ejemplos ni respuestas precargadas. El Code Node posterior valida solo el formato técnico antes de calcular.
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Validar salida del agente
+    - generic: "true"
+    - generic: "false"
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Clasificado y apto
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Cotizador deterministico
+    - generic: 1 item
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Responder a la landing
+    - generic: Tool
+    - button "Add to chat":
+    - button "More actions":
+    - generic: Consulta_nomenclador_PCRAM
+    - button "Zoom to Fit":
+    - button "Zoom In":
+    - button "Zoom Out":
+    - generic: Logs
+    - generic: Success in 14.38s
+    - generic: ~4924 Tokens
+    - radiogroup:
+      - radio "Overview"
+      - radio "Details" [checked]
+    - tree:
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Consulta_nomenclador_PCRAM":
+        - generic: Consulta_nomenclador_PCRAM
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Consulta_nomenclador_PCRAM":
+        - generic: Consulta_nomenclador_PCRAM
+      - treeitem "OpenAI Chat Model":
+        - generic: OpenAI Chat Model
+      - treeitem "Salida estructurada":
+        - generic: Salida estructurada
+      - treeitem "Validar salida del agente Open..." [active] [selected]:
+        - generic: Validar salida del agente
+        - button "Open...":
+      - treeitem "Clasificado y apto":
+        - generic: Clasificado y apto
+      - treeitem "Cotizador deterministico":
+        - generic: Cotizador deterministico
+      - treeitem "Responder a la landing":
+        - generic: Responder a la landing
+    - generic: Validar salida del agente
+    - generic: Success in 82ms
+    - button "Input":
+      - generic: Input
+    - button "Output":
+      - generic: Output
+    - button "Actions":
+    - button "Collapse panel":
+    - generic: Output
+    - textbox "Search (⌘+F)"
+    - radiogroup:
+      - radio "Schema":
+      - radio "Table" [checked]:
+      - radio "JSON":
+    - generic: 1 item
+    - table:
+      - rowgroup:
+        - row "solicitud Collapse rows siguiente Collapse rows productos Collapse rows":
+          - columnheader "solicitud Collapse rows":
+            - generic: solicitud
+            - button "Collapse rows":
+          - columnheader "siguiente Collapse rows":
+            - generic: siguiente
+            - button "Collapse rows":
+          - columnheader "productos Collapse rows":
+            - generic: productos
+            - button "Collapse rows":
+          - columnheader
+      - rowgroup:
+        - row:
+          - cell "solicitud_id:b3212883-8b3f-466f-a7d4-a69080999a8c productos 0 link:https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624 descripcion:smartwatch 1 link:https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1 descripcion:Juguete fob_usd:1250 cantidad:200 bultos 0 cantidad:1 peso_kg:2.5 largo_cm:10.5 ancho_cm:30.2 alto_cm:40 1 cantidad:2 peso_kg:3.1 largo_cm:20.1 ancho_cm:40.3 alto_cm:50.2":
+            - generic: solicitud_id
+            - text: ":"
+            - generic: b3212883-8b3f-466f-a7d4-a69080999a8c
+            - generic: productos
+            - generic: "0"
+            - generic: link
+            - text: ":"
+            - generic: https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624
+            - generic: descripcion
+            - text: ":"
+            - generic: smartwatch
+            - generic: "1"
+            - generic: link
+            - text: ":"
+            - generic: https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1
+            - generic: descripcion
+            - text: ":"
+            - generic: Juguete
+            - generic: fob_usd
+            - text: ":"
+            - generic: "1250"
+            - generic: cantidad
+            - text: ":"
+            - generic: "200"
+            - generic: bultos
+            - generic: "0"
+            - generic: cantidad
+            - text: ":"
+            - generic: "1"
+            - generic: peso_kg
+            - text: ":"
+            - generic: "2.5"
+            - generic: largo_cm
+            - text: ":"
+            - generic: "10.5"
+            - generic: ancho_cm
+            - text: ":"
+            - generic: "30.2"
+            - generic: alto_cm
+            - text: ":"
+            - generic: "40"
+            - generic: "1"
+            - generic: cantidad
+            - text: ":"
+            - generic: "2"
+            - generic: peso_kg
+            - text: ":"
+            - generic: "3.1"
+            - generic: largo_cm
+            - text: ":"
+            - generic: "20.1"
+            - generic: ancho_cm
+            - text: ":"
+            - generic: "40.3"
+            - generic: alto_cm
+            - text: ":"
+            - generic: "50.2"
+          - cell "cotizar":
+            - generic: cotizar
+          - cell:
+            - generic: "0"
+            - generic: indice
+            - text: ":"
+            - generic: "1"
+            - generic: producto
+            - text: ":"
+            - generic: smartwatch
+            - generic: clasificacion
+            - text: ":"
+            - generic: "8517"
+            - generic: SIM
+            - text: ":"
+            - generic: "null"
+            - generic: DIE
+            - text: ":"
+            - generic: "16"
+            - generic: evidencia
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: fundamento
+            - text: ":"
+            - generic: "Producto observado: reloj inteligente (smartwatch) con conectividad Bluetooth e impermeabilidad; clasificación sustentada a nivel partida HS 4/6 (8517 - aparatos para transmisión o recepción de voz/datos/sonidos electrónicos) por similitud funcional con dispositivos electrónicos portátiles; falta en ficha composición técnica exacta (por ejemplo, si tiene función de teléfono celular integrada, radio, o si debe clasificarse como reloj mecánico) que impide asignar un NCM de 8 dígitos o SIM completa. DIE estimado 16% sobre la base de alícuotas comunes para aparatos electrónicos portátiles importados (valor orientativo)."
+            - generic: "1"
+            - generic: indice
+            - text: ":"
+            - generic: "2"
+            - generic: producto
+            - text: ":"
+            - generic: Juguete
+            - generic: clasificacion
+            - text: ":"
+            - generic: "9503"
+            - generic: SIM
+            - text: ":"
+            - generic: "null"
+            - generic: DIE
+            - text: ":"
+            - generic: "20"
+            - generic: evidencia
+            - text: ":"
+            - generic: "[empty array]"
+            - generic: fundamento
+            - text: ":"
+            - generic: "Producto observado: juguete (bloques/laberinto para canicas) — clasificación sustentada a nivel partida HS 9503 (juguetes y artículos para recreo) por naturaleza y uso lúdico; falta información sobre material principal (plástico, madera, metales) y edad objetivo que impide elegir NCM 8 dígitos o SIM completa. DIE estimado 20% según alícuotas orientativas aplicadas a juguetes importados."
+          - cell
+- complementary

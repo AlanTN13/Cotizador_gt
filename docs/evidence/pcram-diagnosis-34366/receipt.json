@@ -1,0 +1,265 @@
+{
+  "status": "DIAGNOSIS_CAUSE_PROVEN_READ_ONLY",
+  "recorded_at_utc": "2026-10-09T14:54:04.339983+00:00",
+  "execution": {
+    "id": "34366",
+    "workflow_id": "LO9m0AxSrxRR6JVY",
+    "workflow_version": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+    "date_local": "2026-10-09 10:31:12 America/Argentina/Buenos_Aires",
+    "ui_status": "Succeeded",
+    "duration_seconds": 14.38,
+    "ui_approx_tokens": 4924,
+    "solicitud_id": "b3212883-8b3f-466f-a7d4-a69080999a8c",
+    "fob_usd": 1250,
+    "peso_aplicable_kg": 19,
+    "total_usd": 1146.92,
+    "url": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34366"
+  },
+  "evidence_method": "Authenticated n8n execution UI. DOM/table captures of existing saved data; only webhook body read, no headers/credentials collected. Structured summaries below are extracted from those captures, not an API execution export. UI Copy-to-Clipboard did not provide text via browser connector, so DOM captures remain primary evidence.",
+  "input": {
+    "agent_input": {
+      "productos": [
+        {
+          "indice": 1,
+          "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+          "descripcion": "smartwatch"
+        },
+        {
+          "indice": 2,
+          "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+          "descripcion": "Juguete"
+        }
+      ]
+    },
+    "original_links_and_descriptions_preserved_verbatim": true,
+    "source_files": [
+      "webhook.body.txt",
+      "agent.input.json",
+      "prepare-agent.output.dom.txt",
+      "agent.received-input.dom.txt"
+    ]
+  },
+  "tool": {
+    "real_calls": [
+      {
+        "action": {
+          "tool": "Consulta_nomenclador_PCRAM",
+          "toolInput": {
+            "indice": 1,
+            "prefijo": "",
+            "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+            "limite": 5
+          },
+          "toolCallId": "call_1oSiSjIs7BD5fHZy3dWO5ZcD"
+        },
+        "observation": "[{\"error\":\"Received tool input did not match expected schema\\n\\n✖ Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'\"}]",
+        "error_duration_ms": 2
+      },
+      {
+        "action": {
+          "tool": "Consulta_nomenclador_PCRAM",
+          "toolInput": {
+            "indice": 1,
+            "prefijo": "",
+            "texto": "smartwatch reloj inteligente pulsera actividad bluetooth IP68",
+            "limite": 5
+          },
+          "toolCallId": "call_b2c1aaIzxW5YCRKWYYwUxTz1"
+        },
+        "observation": "[{\"error\":\"Received tool input did not match expected schema\\n\\n✖ Unrecognized key(s) in object: 'solicitud', 'siguiente', 'agent_input', 'toolCallId'\"}]",
+        "error_duration_ms": 1
+      }
+    ],
+    "calls_by_product": {
+      "1": 2,
+      "2": 0
+    },
+    "configured_input_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "indice": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "prefijo": {
+          "type": "string",
+          "maxLength": 15,
+          "description": "Vacío, HS4/6, NCM8 o SIM completo; no completar códigos"
+        },
+        "texto": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Hasta ocho términos literales, de al menos tres caracteres; no marca ni tasa"
+        },
+        "limite": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        }
+      },
+      "required": [
+        "indice",
+        "prefijo",
+        "texto",
+        "limite"
+      ]
+    },
+    "configured_index_metadata": {
+      "fields": {
+        "ncm": [
+          1,
+          10
+        ],
+        "ncm_context": [
+          15,
+          1538
+        ],
+        "sim": [
+          11,
+          14
+        ],
+        "sim_description": [
+          1539,
+          1792
+        ],
+        "updated_at": [
+          2089,
+          2094
+        ]
+      },
+      "importer_version": "pcram-ncm-fixed-2134-v1",
+      "limitations": [
+        "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+        "Descriptions may be truncated; do not complete them or assume absent attributes.",
+        "Code existence does not establish compatibility with the product.",
+        "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+      ],
+      "ncm_count": 10504,
+      "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+      "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+      "record_count": 33038,
+      "schema": "pcram-nomenclator-fixed-2134-v1",
+      "source": "https://web.pcram.net/downloads/transf.zip",
+      "source_matches_tax_snapshot": false,
+      "structure_source": "https://www.pcram.net/downloads/estructura.html",
+      "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+      "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+    },
+    "configured_index_sha_matches_guard": true,
+    "returned_index_version": null,
+    "returned_status_OK_NO_MATCH_INVALID_QUERY": null,
+    "returned_candidates": null,
+    "index_search_executed": false,
+    "failure_stage": "Code Tool structured-input schema validation, before queryPackedNomenclator",
+    "unexpected_runtime_keys": [
+      "solicitud",
+      "siguiente",
+      "agent_input",
+      "toolCallId"
+    ],
+    "runtime_merge_note": "action.toolInput contains only four query arguments. Error reports additional workflow/context keys. Official ToolCode source invokes the structured tool over item.json in execute mode; source consulted is master and not proven identical to installed 2.41.4. The execution error itself is the decisive evidence."
+  },
+  "agent_original_products": [
+    {
+      "indice": 1,
+      "producto": "smartwatch",
+      "clasificacion": "8517",
+      "SIM": "null",
+      "DIE": "16",
+      "fundamento": "Producto observado: reloj inteligente (smartwatch) con conectividad Bluetooth e impermeabilidad; clasificación sustentada a nivel partida HS 4/6 (8517 - aparatos para transmisión o recepción de voz/datos/sonidos electrónicos) por similitud funcional con dispositivos electrónicos portátiles; falta en ficha composición técnica exacta (por ejemplo, si tiene función de teléfono celular integrada, radio, o si debe clasificarse como reloj mecánico) que impide asignar un NCM de 8 dígitos o SIM completa. DIE estimado 16% sobre la base de alícuotas comunes para aparatos electrónicos portátiles importados (valor orientativo).",
+      "evidencia": []
+    },
+    {
+      "indice": 2,
+      "producto": "Juguete",
+      "clasificacion": "9503",
+      "SIM": "null",
+      "DIE": "20",
+      "fundamento": "Producto observado: juguete (bloques/laberinto para canicas) — clasificación sustentada a nivel partida HS 9503 (juguetes y artículos para recreo) por naturaleza y uso lúdico; falta información sobre material principal (plástico, madera, metales) y edad objetivo que impide elegir NCM 8 dígitos o SIM completa. DIE estimado 20% según alícuotas orientativas aplicadas a juguetes importados.",
+      "evidencia": []
+    }
+  ],
+  "validator": {
+    "products_unchanged": true,
+    "discarded_ncm_or_sim": false,
+    "intermediate_steps_present": true,
+    "action_tool_name_matches": true,
+    "action_toolInput_is_object_with_integer_indice": true,
+    "observation_type": "string containing JSON array of error objects",
+    "parsed_observation_has_source_sha": false,
+    "parsed_observation_has_query_indice": false,
+    "parsed_observation_has_status": false,
+    "exact_first_guard_condition_not_satisfied": "result?.source?.zip_sha256 !== sourceSha: JSON.parse(observation) is an array of error objects, so source is undefined; no tool result accepted.",
+    "why_partial_classifications_survive": "NCM strings 8517 and 9503 have length <=6; null SIM is allowed. Guard returns each product unchanged, even without accepted candidates.",
+    "successful_observation_contract": "NOT_OBSERVED; cannot certify shape/provenance contract of a successful tool response from this run."
+  },
+  "tax_resolver": [
+    {
+      "product_index": 0,
+      "indice": 1,
+      "status": "ESTIMADO",
+      "requestedPosition": null,
+      "ncm": null,
+      "sim": null,
+      "rates": {
+        "duty": 0.16,
+        "statistical": 0.03,
+        "vat": 0.21
+      },
+      "dutyEvidence": null,
+      "vatEvidence": null,
+      "duty_source": "AGENT_ESTIMATE",
+      "statistical_source": "GENERAL_RULE / Decreto 1140/2024 art. 1 (catalog source; not independently legally reviewed here)",
+      "vat_source": "GENERAL_RULE / existing VAT catalog",
+      "specific_pcram_lookup": false,
+      "warnings": [
+        "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+        "AGENT_DUTY_ESTIMATE",
+        "GENERAL_TE_ESTIMATE",
+        "GENERAL_VAT_ESTIMATE"
+      ]
+    },
+    {
+      "product_index": 1,
+      "indice": 2,
+      "status": "ESTIMADO",
+      "requestedPosition": null,
+      "ncm": null,
+      "sim": null,
+      "rates": {
+        "duty": 0.2,
+        "statistical": 0.03,
+        "vat": 0.21
+      },
+      "dutyEvidence": null,
+      "vatEvidence": null,
+      "duty_source": "AGENT_ESTIMATE",
+      "statistical_source": "GENERAL_RULE / Decreto 1140/2024 art. 1 (catalog source; not independently legally reviewed here)",
+      "vat_source": "GENERAL_RULE / existing VAT catalog",
+      "specific_pcram_lookup": false,
+      "warnings": [
+        "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+        "AGENT_DUTY_ESTIMATE",
+        "GENERAL_TE_ESTIMATE",
+        "GENERAL_VAT_ESTIMATE"
+      ]
+    }
+  ],
+  "classification_of_observed_situations": {
+    "smartwatch": "2: Called tool twice, both failed schema validation; agent returned partial HS8517 with estimated DIE16.",
+    "toy": "1: No tool call for indice2; agent returned partial HS9503 with estimated DIE20.",
+    "situation5_validator_discarded_valid_position": false,
+    "situation6_specific_tax_lookup_failed": false
+  },
+  "proven_defect": "Strict four-field tool schema rejects workflow/runtime context keys; the search function never supplies candidates in the two real attempts.",
+  "attribute_limit": "Input descriptions are only smartwatch/Juguete. The agent claims missing technical/material/age attributes; the saved trace inspected does not establish manufacturer attributes or Alibaba access. Do not infer full page access from title words in URLs. Fixing invocation does not guarantee a justified SIM.",
+  "one_minimal_correction_proposed_not_implemented": "Correct only the input adapter/schema boundary of Consulta_nomenclador_PCRAM: separate n8n workflow/runtime context from {indice,prefijo,texto,limite}, validate those four arguments and pass only those to the unchanged search. Merely allowing extra schema keys is insufficient if they still reach queryPackedNomenclator, which independently rejects unknown keys. No prompt/model/tax/source/formula change.",
+  "runtime_or_agent_tests_executed": 0,
+  "new_quotes": 0,
+  "production_mutations": 0,
+  "pcram_downloads": 0,
+  "new_services_or_workflows": 0,
+  "observability_limit": "Complete execution API export was not retrieved; saved UI DOM captures expose the real calls/error observations and downstream outputs sufficiently to establish the failure. No successful query/candidates/source response is available in this execution, no proof of useful Alibaba page access, no Cloud RAM measurement."
+}
