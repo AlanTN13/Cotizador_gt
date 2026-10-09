@@ -1,0 +1,53 @@
+{
+  "status": "APPLY_AND_PUBLISH_NOT_AUTHORIZED; STOP",
+  "requested_authorization": "Apply and publish only the five prepared changes to LO9m0AxSrxRR6JVY, preserving its webhook/web/gateway and all frozen surfaces; then enable Alan's three sequential browser quotations with the stated shared Pro resource risk. The operator does not submit quotations or execute the 16-call series.",
+  "supersedes": "The temporary QA workflow/webhook/local web/gateway-copy proposal d7d059f is no longer the selected path. None of it was enabled; no gateway exception or new infrastructure is required for this direction.",
+  "before_any_n8n_edit_if_authorized": [
+    "Read/export the live workflow again and compare its entire functional state with baseline.current.backup.json; confirm 11 nodes and the expected active version. Stop on a material divergence; do not overwrite it.",
+    "Check the approved candidate file/tool hashes and the literal five operations in apply.patch.json. Preserve the exact backup and rollback.patch.json.",
+    "Use an authorized editing mechanism that permits verifying only these field/node/edge changes. Do not import/replace a full workflow or create credentials to bypass unavailable access; stop if the allowed mutation cannot be verified.",
+    "Verify existing execution saving permits the required traces without changing global settings. Missing trace capability is a gate, not permission to change settings."
+  ],
+  "apply_and_verify_if_authorized": [
+    "Add only Consulta_nomenclador_PCRAM and its ai_tool edge; replace only the prepared agent systemMessage, returnIntermediateSteps flag and validator jsCode.",
+    "Re-export the draft; verify exactly 12 nodes, original node identities/positions and main connections, unchanged webhook/auth/credentials/model/settings/calculator, and no differences beyond the five allowed functional paths plus automatic version metadata.",
+    "Verify prompt/tool/validator hashes match production-integrity.json and Cotizador deterministico remains dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de.",
+    "Publish only this verified candidate; reread/export and confirm the new active version and the same exact scope. An HTTP 200 or Published badge alone is insufficient.",
+    "Do not run an operator quotation. Give Alan the unchanged URL and record that functional QA is pending his three requests."
+  ],
+  "qa_owner": "Alan",
+  "qa_url_after_authorized_publication": "https://cotizador.globaltriplog.com/cotizador",
+  "qa_cases": ["VALDUS VS13", "Chengji toy", "Running shirt with incomplete information"],
+  "qa_limit": "One request at a time; three submissions if each case is sent once. No automated test series, new agent runs, forced SIM or altered estimated-rate policy.",
+  "trace_required": [
+    "Request/execution ID, workflow active version and unchanged model configuration",
+    "Actual product input and link; real nomenclator tool inputs and returned candidates/source version/partial flag",
+    "Original agent output/evidence/classification/estimated condition and validator provenance decisions",
+    "Existing Tax Resolver audit: positions, dutyEvidence, agentEvidence, rates, warnings and resolution status; final commercial result",
+    "Actual execution duration and provider/token usage when present; missing usage remains unavailable"
+  ],
+  "shared_pro_risk": {
+    "existing_environment": "nexops Pro Monthly, shared with other clients. No new environment or resources contracted.",
+    "documented_reference": "Pro-1/10k: 640 MiB RAM and 20 millicore burstable CPU per n8n docs. Actual allocation/free headroom and concurrent workload are not verified.",
+    "tool_payload_bytes": 2301909,
+    "candidate_compact_bytes": 5125345,
+    "prior_local_peak_rss_mib": 116.39,
+    "measurement_limit": "Standalone local Node/M1 benchmark, not full n8n Cloud workflow memory. No inferred remaining headroom or guaranteed fit.",
+    "risk": "Loading, saving and executing the larger workflow can create transient copies and consume shared CPU/RAM. Intermediate-step retention adds execution data. Exhaustion/degradation can affect other clients even though GlobalTrip has not started commercial use.",
+    "concurrency": "Webhook-triggered QA uses production execution concurrency control, but its quota is instance-wide and is not a per-workflow memory reservation. Sequential Alan requests do not exclude other clients' concurrent traffic.",
+    "expected_usage": "Three workflow executions if Alan submits each case once. Agent/tool/parser/Web Search can create multiple model/provider calls. Exact Cloud peak RAM, duration, tokens and cost remain unmeasured. Existing gpt-5-mini/low/maxTokens7000/timeout100000ms/maxRetries0 configuration stays unchanged.",
+    "scope_of_authorization": "Bounded publication and manual QA with explicit acceptance of residual shared-resource risk, not a certification of memory isolation or successful classification. No global concurrency/timeout/plan changes or instance restart authorized."
+  },
+  "scoped_recovery": [
+    "Stop new GlobalTrip QA submissions if the candidate fails or shared resources degrade; preserve failed-run evidence.",
+    "Read the current workflow; verify the allowed changed fields and tool identity/hashes plus frozen invariants before reverting. Do not overwrite unrelated or later changes.",
+    "Restore only the previous systemMessage, returnIntermediateSteps value and validator jsCode from rollback.patch.json; remove only the newly added tool and its ai_tool edge.",
+    "Verify restored 11 nodes and all functional values equal the preserved baseline, allowing only automatic version metadata; publish the scoped restoration and confirm it is active.",
+    "Never import an old complete workflow, roll back China/PCRAM tax/IVA adjustments, change credentials, restart the instance or alter other clients' workflows. Stop on an out-of-scope incident."
+  ],
+  "patch_format_note": "apply.patch.json and rollback.patch.json describe exact offline RFC6902 operations with preconditions. They do not assert that n8n exposes an HTTP PATCH endpoint. The backup is evidence/reference only, never a full-workflow restore instruction.",
+  "sources": [
+    "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md",
+    "https://docs.n8n.io/deploy/use-n8n-cloud/understand-concurrency.md"
+  ]
+}

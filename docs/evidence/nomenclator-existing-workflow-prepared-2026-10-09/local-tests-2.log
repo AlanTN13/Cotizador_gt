@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: membership guard uses actual observations per product, not claimed citations
+ok 1 - membership guard uses actual observations per product, not claimed citations
+  ---
+  duration_ms: 25.501333
+  type: 'test'
+  ...
+# Subtest: partial classification and estimated DIE unchanged; inconsistent positions not repaired
+ok 2 - partial classification and estimated DIE unchanged; inconsistent positions not repaired
+  ---
+  duration_ms: 8.204292
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 178.206833

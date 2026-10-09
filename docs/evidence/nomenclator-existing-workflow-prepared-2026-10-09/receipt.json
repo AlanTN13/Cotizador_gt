@@ -1,0 +1,71 @@
+{
+  "status": "EXISTING_WORKFLOW_PATCH_PREPARED_STATIC_LOCAL_PASS; APPLY_PUBLICATION_PENDING; STOP",
+  "preflight": {
+    "role": "Direccion de Ejecucion GlobalTrip, one agent, strict PATCH MODE",
+    "canonical_revision": "954f6aeff67ba7c09787e3854bfdc461affccd8d",
+    "context_paths": ["Alan/01_Architecture/Execution_Runtime_Contract.md", "Alan/04_Clientes NexOps/Global_Trip/GlobalTrip_Contexto.md"],
+    "direction": "One existing workflow/web/webhook. Alan confirms no current commercial use; this does not establish zero traffic or protect other clients' resources.",
+    "authorization": "Preparation, live read/export and focused static/local verification only. No n8n edits, save, publication, Cloud execution or model calls.",
+    "budget": "S, offline patch preparation/read-only checks; publication/shared-instance risk R2 remains gated",
+    "allowed": "Five exact changes from approved 666fcb2 candidate, prepared offline",
+    "frozen": "Web/gateway/webhook/auth/credentials/model/Tax Resolver/PCRAM tax/IVA/China formulas/German adjustments/global settings/other clients",
+    "recovery": "Exact baseline backup plus scoped inverse patch; never import an old workflow",
+    "stop": "Before any n8n modification/publication, ask for apply+publish+Alan's three sequential QA requests with shared Pro risk"
+  },
+  "baseline": {
+    "workflow_id": "LO9m0AxSrxRR6JVY",
+    "version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+    "active": true,
+    "nodes": 11,
+    "fresh_export_matches_entire_known_baseline": true,
+    "backup": "baseline.current.backup.json",
+    "backup_file_sha256": "2b66625456978a7560c263794052ea51f5cb92923a7b8251f0b7a56d5b626bed",
+    "proof": "production-integrity.json; published-before.dom.txt; published-before.png"
+  },
+  "candidate": {
+    "source_commit": "666fcb27cd95864d7d8de6267106b9df3257451f",
+    "reference": "../nomenclator-optimization-2026-10-08/candidate.workflow.json",
+    "candidate_file_sha256": "b3ad9c6369d7f2de831359781dae40d6c36d950d5a3f1df3b1887d15fe7f9696",
+    "tool_bytes": 2301909,
+    "tool_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+    "nodes_after_authorized_apply": 12,
+    "new_workflow_or_webhook_required": false,
+    "only_functional_paths": [
+      "/nodes/11",
+      "/connections/Consulta_nomenclador_PCRAM",
+      "/nodes/4/parameters/options/systemMessage",
+      "/nodes/4/parameters/options/returnIntermediateSteps",
+      "/nodes/7/parameters/jsCode"
+    ],
+    "source_code_or_model_reworked": false,
+    "calculator_sha256_unchanged": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de"
+  },
+  "diff_and_recovery": {
+    "literal_patch": "apply.patch.json",
+    "summary_and_value_hashes": "diff.summary.json",
+    "human_text_diffs": ["prompt.diff", "validator.diff"],
+    "scoped_inverse": "rollback.patch.json",
+    "offline_apply_equals_candidate_exactly": true,
+    "scoped_rollback_equals_entire_baseline_exactly": true,
+    "all_frozen_values_identical": true,
+    "backup_not_for_import": true
+  },
+  "checks": {
+    "fresh_integrity_exact_backup_hash_diff_scoped_rollback": "PASS",
+    "existing_optimized_tests_rerun_locally": {"passed": 4, "failed": 0, "log": "local-tests-1.log"},
+    "existing_provenance_and_partial_estimation_tests_rerun_locally": {"passed": 2, "failed": 0, "log": "local-tests-2.log"},
+    "previous_12_local_checks_reused": "../nomenclator-optimization-2026-10-08/tests-summary.json; overlapping checks are not counted as additional unique tests",
+    "details": "validation.json",
+    "agent_effectiveness_and_cloud_peak_memory": "NOT_RUN / UNMEASURED; no simulated test claimed as agent improvement"
+  },
+  "pending_gate": "publication-gate.json: exact authorization, live preflight, verification, shared Pro risk, three Alan-owned cases and recovery",
+  "actions": {
+    "n8n_edits_saves_publishes": 0,
+    "cloud_executions_or_quotations": 0,
+    "openai_agent_calls": 0,
+    "new_workflows_webhooks_credentials_infrastructure": 0,
+    "web_gateway_deploys_or_source_changes": 0,
+    "global_settings_or_other_clients_changed": 0,
+    "sixteen_call_series_executed": false
+  }
+}

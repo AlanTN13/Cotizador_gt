@@ -1,0 +1,40 @@
+{
+  "static_checks": {
+    "fresh_baseline_and_exact_backup": "PASS",
+    "exact_five_change_envelope": "PASS",
+    "patch_apply_equals_666fcb2": "PASS",
+    "scoped_rollback_equals_baseline": "PASS",
+    "candidate_hash_preserved": "PASS",
+    "webhook_auth_credentials_model_tax_calculation_settings_frozen": "PASS"
+  },
+  "previous_tests_reused": "../nomenclator-optimization-2026-10-08/tests-summary.json",
+  "previous_passed": 12,
+  "real_agent_or_cloud_validation": false,
+  "runs": [
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/pcram-nomenclator-optimized.test.mjs"
+      ],
+      "exit_code": 0,
+      "log": "local-tests-1.log",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "--test-name-pattern=membership guard|partial classification",
+        "tests/pcram-nomenclator.test.mjs"
+      ],
+      "exit_code": 0,
+      "log": "local-tests-2.log",
+      "passed": 2,
+      "failed": 0
+    }
+  ],
+  "fresh_local_test_passed": 6,
+  "fresh_local_test_failed": 0
+}

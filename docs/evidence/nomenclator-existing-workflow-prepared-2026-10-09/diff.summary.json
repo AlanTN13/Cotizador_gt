@@ -1,0 +1,38 @@
+{
+  "only_functional_changes": [
+    {
+      "path": "/nodes/11",
+      "operation": "add",
+      "before_sha256": null,
+      "after_sha256": "c2dbbaf533e2a7d9e22bd02894a70b3e33949f2e469289bdbfcafcfbb1c14ebd"
+    },
+    {
+      "path": "/connections/Consulta_nomenclador_PCRAM",
+      "operation": "add",
+      "before_sha256": null,
+      "after_sha256": "cfe320f73f258a415c5404531fda43c53dc49444c32647378876539c928fc9c4"
+    },
+    {
+      "path": "/nodes/4/parameters/options/systemMessage",
+      "operation": "replace",
+      "before_sha256": "0e183f478c2f242c8b9b418281d7e961ad2ec4c8e70b85b0737f63c8c3fee56e",
+      "after_sha256": "51c9659af4550280839c892397aafda00a20955a28b1a78ee514b0fffc263ebc"
+    },
+    {
+      "path": "/nodes/4/parameters/options/returnIntermediateSteps",
+      "operation": "replace",
+      "before_sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+      "after_sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    {
+      "path": "/nodes/7/parameters/jsCode",
+      "operation": "replace",
+      "before_sha256": "3fd7c857badc1a1afb02f7e299f97cd0fcac529563cf64f00925c56441d4bbef",
+      "after_sha256": "944ff8e6df4251326876f0ab0b2c18ff1e19e11a3819d20aadd26834eaca91f7"
+    }
+  ],
+  "literal_values": "apply.patch.json",
+  "all_other_workflow_values_identical": true,
+  "offline_apply_equals_approved_candidate": true,
+  "scoped_rollback_equals_current_baseline": true
+}
