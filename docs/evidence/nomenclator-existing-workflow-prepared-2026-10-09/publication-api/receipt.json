@@ -1,0 +1,26 @@
+{
+  "status": "STOP_API_AUTHENTICATION_REJECTED_NO_MUTATION",
+  "recorded_at_utc": "2026-10-09T13:00:30.639880+00:00",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "authorization": "Alan authorized using the API key currently in his clipboard to publish only the five approved changes from 52986f7.",
+  "access_method": "pbpaste captured in process memory; X-N8N-API-KEY sent only to https://nexops.app.n8n.cloud/api/v1/workflows/LO9m0AxSrxRR6JVY; no secret value in arguments, output, files, Git or receipt.",
+  "request": {
+    "method": "GET",
+    "route": "/api/v1/workflows/LO9m0AxSrxRR6JVY",
+    "http_status": 401
+  },
+  "blocker": "Official n8n API rejected authentication. Cannot determine whether the pasted value is incorrect, expired or revoked from HTTP 401 alone. No scope/credential changes attempted.",
+  "live_preflight_in_this_attempt": "NOT_COMPLETED_API_AUTH_FAILED",
+  "last_verified_baseline_reference": "../publication/receipt.json",
+  "last_verified_version": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "last_verified_node_count": 11,
+  "candidate_unchanged": true,
+  "rollback_preserved": true,
+  "production_mutations": 0,
+  "publications": 0,
+  "operator_quotations": 0,
+  "new_credentials": 0,
+  "key_persisted": false,
+  "next_requirement": "A valid existing authorized n8n API key for this instance, copied completely to the clipboard; never paste the value into chat.",
+  "qa_state": "PENDING_PUBLICATION; no Alan QA of candidate enabled."
+}
