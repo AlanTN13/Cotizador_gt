@@ -1,0 +1,25 @@
+{
+  "status": "PREPARED_LOCAL_NOT_PUBLISHED",
+  "context_revision": "ebe7a81",
+  "baseline_file": "docs/evidence/pcram-contract-closure-2026-10-09/publication-api/published.api-export.json",
+  "baseline_saved_export_not_new_live_read": true,
+  "baseline_version": "6028105a-7aba-45ca-88a6-4d60c27a3cf4",
+  "changed_paths": [
+    "/nodes/11/parameters/jsCode"
+  ],
+  "node_count": 12,
+  "tool_before_sha256": "ee5752f5910f77a96df13a927702094d7ad6ad68c873752c4aed635fd722e193",
+  "tool_candidate_sha256": "2732532f986dc19258d8602b718c47222edbd2d88a3583240986031f82edd8a5",
+  "candidate_file_sha256": "4e20f5353ea81bfb4d2072ebef99be895579b07f7048ab5c0c5be695b88bd483",
+  "packed_index_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+  "frozen_surfaces_identical": true,
+  "exact_scoped_recovery": true,
+  "bytes": {
+    "before_tool": 2302611,
+    "candidate_tool": 2303365,
+    "delta": 754
+  },
+  "cloud_runs": 0,
+  "model_calls": 0,
+  "pcram_downloads": 0
+}

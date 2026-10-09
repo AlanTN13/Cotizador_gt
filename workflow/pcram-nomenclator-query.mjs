@@ -10,11 +10,14 @@ export function queryNomenclator(index, query) {
       Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
   // Accept only declared formats. No padding, trimming digits or guessed control letter.
   let prefix;
-  if (prefijo === "" || /^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
+  if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
   else return base;
   const fold = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-  const terms = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
+  // Explicit short Spanish function words only; unknown short tokens still fail closed.
+  const tokens = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
+  const ignoredTerms = tokens.filter(t => ["de", "el", "la", "en", "un", "y", "o"].includes(t));
+  const terms = tokens.filter(t => !ignoredTerms.includes(t));
   if (terms.length > 8 || (terms.some(t => t.length < 3)) || (!prefix && terms.length === 0)) return base;
   const results = [];
   let matched = 0;
@@ -34,6 +37,7 @@ export function queryNomenclator(index, query) {
   }
   return {
     source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
+    ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
     matched_count: matched, returned_count: results.length, partial: matched > results.length,
     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility",
     results,

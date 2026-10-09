@@ -1,0 +1,75 @@
+diff --git a/workflow/pcram-nomenclator-packed.mjs b/workflow/pcram-nomenclator-packed.mjs
+index b6a9e49..696e9d8 100644
+--- a/workflow/pcram-nomenclator-packed.mjs
++++ b/workflow/pcram-nomenclator-packed.mjs
+@@ -108,11 +108,14 @@ export function queryPackedNomenclator(runtime, query) {
+       !Number.isInteger(limite) || limite < 1 || limite > 8 ||
+       Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
+   let prefix;
+-  if (prefijo === "" || /^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
++  if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
+   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
+   else return base;
+   const fold = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+-  const terms = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
++  // Explicit short Spanish function words only; unknown short tokens still fail closed.
++  const tokens = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
++  const ignoredTerms = tokens.filter(t => ["de", "el", "la", "en", "un", "y", "o"].includes(t));
++  const terms = tokens.filter(t => !ignoredTerms.includes(t));
+   if (terms.length > 8 || terms.some(t => t.length < 3) || (!prefix && terms.length === 0)) return base;
+ 
+   const resultRow = (ncm, context, contextFull, row) => ({
+@@ -122,13 +125,23 @@ export function queryPackedNomenclator(runtime, query) {
+   });
+   const response = (matched, results) => ({
+     source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
++    ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
+     matched_count: matched, returned_count: results.length, partial: matched > results.length,
+     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility", results,
+   });
+   let ids;
+   if (prefix) {
+     // Structural lookup only. Full SIM remains intact in the final exact-prefix filter.
+-    const range = catalog.prefixes[prefix.length === 12 ? prefix.slice(0, 8) : prefix];
++    let range = catalog.prefixes[prefix.length === 12 ? prefix.slice(0, 8) : prefix];
++    if (prefix.length === 2) {
++      // Reuse at most 100 existing HS4 ranges; never scan the complete SIM catalog.
++      for (let suffix = 0; suffix < 100; suffix++) {
++        const hs4Range = catalog.prefixes[prefix + String(suffix).padStart(2, "0")];
++        if (hs4Range) range = range
++          ? [Math.min(range[0], hs4Range[0]), Math.max(range[1], hs4Range[1])]
++          : hs4Range;
++      }
++    }
+     ids = range ? Array.from({ length: range[1] - range[0] }, (_, i) => range[0] + i) : [];
+   } else {
+     // Exact word/subword postings count matches without visiting source descriptions.
+diff --git a/workflow/pcram-nomenclator-query.mjs b/workflow/pcram-nomenclator-query.mjs
+index f8dd0dd..da32e61 100644
+--- a/workflow/pcram-nomenclator-query.mjs
++++ b/workflow/pcram-nomenclator-query.mjs
+@@ -10,11 +10,14 @@ export function queryNomenclator(index, query) {
+       Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
+   // Accept only declared formats. No padding, trimming digits or guessed control letter.
+   let prefix;
+-  if (prefijo === "" || /^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
++  if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
+   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
+   else return base;
+   const fold = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+-  const terms = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
++  // Explicit short Spanish function words only; unknown short tokens still fail closed.
++  const tokens = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
++  const ignoredTerms = tokens.filter(t => ["de", "el", "la", "en", "un", "y", "o"].includes(t));
++  const terms = tokens.filter(t => !ignoredTerms.includes(t));
+   if (terms.length > 8 || (terms.some(t => t.length < 3)) || (!prefix && terms.length === 0)) return base;
+   const results = [];
+   let matched = 0;
+@@ -34,6 +37,7 @@ export function queryNomenclator(index, query) {
+   }
+   return {
+     source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
++    ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
+     matched_count: matched, returned_count: results.length, partial: matched > results.length,
+     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility",
+     results,

@@ -1,0 +1,15 @@
+{
+  "README.md": "3a1d95006885f3efbb96fb4f88155134adee07fe701a45c91762d37b05456fb1",
+  "candidate.workflow.json": "4e20f5353ea81bfb4d2072ebef99be895579b07f7048ab5c0c5be695b88bd483",
+  "local-tests.log": "4bdaec94bbf7228731bb10e5c53011f86f16af15a98802c5b4050e700de01d37",
+  "patch.json": "5f0a8c1c6fde64906e021068ae36a72cc9e079433e70ea064051fa9ea10836f4",
+  "preparation.json": "281c88b6b2bf0aa5840a2c551502e5f77d1cb2606763f97bb7b642d6021f55ed",
+  "receipt.json": "d75116eb0c28aa2178cbca660b29456300aeb5404b5cc42b58fd4f34cf1a7439",
+  "reproduction.after.json": "47e7ce0cfc61d4186cd77b289e524660eeaea60c83af5ad213aa904e894a3dd4",
+  "reproduction.before.json": "ddc2f7ca3817dd148e3850a0a63ff5a5f3e44d3dd8f3f17e2abe9bf4f519de4c",
+  "rollback.patch.json": "cdc54abeea8078006a884f73f47a1786a9fd0cb12be17c060fcad4c5cc5cc9e2",
+  "search.after.js": "db38a3bbacf09a360e842bf5c7aabf3c48544f32d1556cc034a5fe6ec66b95d6",
+  "search.before.js": "8753e561512a03a5ade11ec0599edccb6b2137f6a9c9a1a5f6def04f80f10bf0",
+  "source.diff.exact.txt": "c52bc8b1b68f01dcb3e1cd4e7ca9be487fc299d28f81962e37c08fa83f05991d",
+  "tool.diff.exact.txt": "2f9307e012fce6b23d569f8e55ee9e53891b9b04eeab4104acf7d378afe6e249"
+}

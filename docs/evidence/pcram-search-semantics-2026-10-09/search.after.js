@@ -1,4 +1,3 @@
-import { inflateRaw } from "./vendor/tiny-inflate.mjs";
 
 // Pure JS only: the generated Code Tool embeds the decoder; no imports at runtime.
 function fromBase64(text) {
@@ -27,7 +26,7 @@ function unpack(block, stats) {
   return JSON.parse(parts.join(""));
 }
 
-export function loadPackedNomenclator(packed) {
+function loadPackedNomenclator(packed) {
   if (packed.format !== "pcram-query-prefix-word-deflate-v3") throw new Error("Unsupported index");
   const stats = { inflated_bytes: 0, shards_decoded: 0, ncm_checked: 0, sim_checked: 0, term_index_loaded: false };
   const catalog = unpack(packed.catalog, stats);
@@ -98,7 +97,7 @@ function textMatches(runtime, terms, limit) {
   return { matched, selected };
 }
 
-export function queryPackedNomenclator(runtime, query) {
+function queryPackedNomenclator(runtime, query) {
   const { packed, catalog, stats } = runtime, source = packed.metadata;
   const base = { source, status: "INVALID_QUERY", results: [], partial: false };
   if (!query || typeof query !== "object" || Array.isArray(query)) return base;

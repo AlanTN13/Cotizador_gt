@@ -1,4 +1,3 @@
-import { inflateRaw } from "./vendor/tiny-inflate.mjs";
 
 // Pure JS only: the generated Code Tool embeds the decoder; no imports at runtime.
 function fromBase64(text) {
@@ -27,7 +26,7 @@ function unpack(block, stats) {
   return JSON.parse(parts.join(""));
 }
 
-export function loadPackedNomenclator(packed) {
+function loadPackedNomenclator(packed) {
   if (packed.format !== "pcram-query-prefix-word-deflate-v3") throw new Error("Unsupported index");
   const stats = { inflated_bytes: 0, shards_decoded: 0, ncm_checked: 0, sim_checked: 0, term_index_loaded: false };
   const catalog = unpack(packed.catalog, stats);
@@ -98,7 +97,7 @@ function textMatches(runtime, terms, limit) {
   return { matched, selected };
 }
 
-export function queryPackedNomenclator(runtime, query) {
+function queryPackedNomenclator(runtime, query) {
   const { packed, catalog, stats } = runtime, source = packed.metadata;
   const base = { source, status: "INVALID_QUERY", results: [], partial: false };
   if (!query || typeof query !== "object" || Array.isArray(query)) return base;
@@ -108,14 +107,11 @@ export function queryPackedNomenclator(runtime, query) {
       !Number.isInteger(limite) || limite < 1 || limite > 8 ||
       Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
   let prefix;
-  if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
+  if (prefijo === "" || /^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
   else return base;
   const fold = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-  // Explicit short Spanish function words only; unknown short tokens still fail closed.
-  const tokens = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
-  const ignoredTerms = tokens.filter(t => ["de", "el", "la", "en", "un", "y", "o"].includes(t));
-  const terms = tokens.filter(t => !ignoredTerms.includes(t));
+  const terms = [...new Set(fold(texto).match(/[a-z0-9]+/g) || [])];
   if (terms.length > 8 || terms.some(t => t.length < 3) || (!prefix && terms.length === 0)) return base;
 
   const resultRow = (ncm, context, contextFull, row) => ({
@@ -125,23 +121,13 @@ export function queryPackedNomenclator(runtime, query) {
   });
   const response = (matched, results) => ({
     source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
-    ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
     matched_count: matched, returned_count: results.length, partial: matched > results.length,
     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility", results,
   });
   let ids;
   if (prefix) {
     // Structural lookup only. Full SIM remains intact in the final exact-prefix filter.
-    let range = catalog.prefixes[prefix.length === 12 ? prefix.slice(0, 8) : prefix];
-    if (prefix.length === 2) {
-      // Reuse at most 100 existing HS4 ranges; never scan the complete SIM catalog.
-      for (let suffix = 0; suffix < 100; suffix++) {
-        const hs4Range = catalog.prefixes[prefix + String(suffix).padStart(2, "0")];
-        if (hs4Range) range = range
-          ? [Math.min(range[0], hs4Range[0]), Math.max(range[1], hs4Range[1])]
-          : hs4Range;
-      }
-    }
+    const range = catalog.prefixes[prefix.length === 12 ? prefix.slice(0, 8) : prefix];
     ids = range ? Array.from({ length: range[1] - range[0] }, (_, i) => range[0] + i) : [];
   } else {
     // Exact word/subword postings count matches without visiting source descriptions.
