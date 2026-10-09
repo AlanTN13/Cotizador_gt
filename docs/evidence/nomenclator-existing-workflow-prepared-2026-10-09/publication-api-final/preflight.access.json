@@ -1,0 +1,23 @@
+{
+  "read_at_utc": "2026-10-09T13:06:34.790586+00:00",
+  "http_status": 200,
+  "clipboard_key_accepted": true,
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "active_version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "baseline_comparisons": {
+    "name": true,
+    "nodes": true,
+    "pinData": true,
+    "connections": true,
+    "active": true,
+    "settings": true,
+    "versionId": true,
+    "meta": false,
+    "nodeGroups": true,
+    "id": true,
+    "tags": true
+  },
+  "backup_api_sha256": "2e5165423ea663a11febbf8b3aa377aa1c7bf27032455c72c78b70fdbf2b5f36",
+  "production_mutations": 0
+}

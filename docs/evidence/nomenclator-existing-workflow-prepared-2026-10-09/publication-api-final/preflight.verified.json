@@ -1,0 +1,47 @@
+{
+  "status": "PREFLIGHT",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "started_at_utc": "2026-10-09T13:08:54.640537+00:00",
+  "operator_quotations": 0,
+  "new_credentials": 0,
+  "secret_persisted": false,
+  "production_mutations": 0,
+  "preflight": "PASS",
+  "baseline_version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "baseline_active_version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "baseline_export_canonical_sha256": "347fc5ab2360e10df8dbcc55b03e22ebb3cd5446b37b0f2c436ef010996552e9",
+  "baseline_hashes": {
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "prompt": "591e95229b5d67e15809bfcef8ba30cd97e0c170ddced1e52558a62dbf378c11",
+    "validator": "dc9395f37a0fba09f963a79365164ec93be5132ee3c8bed54cf77ffe2e321761",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references_original_nodes": "0af938e681a77dfcbfbb55837327092aee7c48d536d7931a7f1c15e528007f5d"
+  },
+  "approved_five_changes": [
+    {
+      "op": "add",
+      "path": "/nodes/11"
+    },
+    {
+      "op": "add",
+      "path": "/connections/Consulta_nomenclador_PCRAM"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/4/parameters/options/systemMessage"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/4/parameters/options/returnIntermediateSteps"
+    },
+    {
+      "op": "replace",
+      "path": "/nodes/7/parameters/jsCode"
+    }
+  ],
+  "rollback_reference": "../rollback.patch.json",
+  "exact_api_backup_reference": "api.before.private.json (local only)",
+  "candidate_prepared_commit": "52986f7",
+  "candidate_canonical_sha256": "92fa4f5cfe791b73ae1d1db5ad4842baea5c97b79b96ddf8fc08edc9609ad96a",
+  "export_meta_note": "UI instanceId is injected only in exports; public API meta is empty and remains untouched."
+}

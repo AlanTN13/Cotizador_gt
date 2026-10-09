@@ -1,0 +1,16 @@
+{
+  "publication-api-final/draft.verification.json": "8f062702c0449b84b93666df460891891b3b703fd665dbbc5b5cab5fc19ae1a3",
+  "publication-api-final/baseline.live.api-export.json": "d253c1cf1b35c7da2e87372026b5a01dc078a37cee855d79288981dad0f28930",
+  "publication-api-final/preflight.access.json": "f51f4a3912d35cddc488f28126d54db3a7babfbd770cca75145e49572f247132",
+  "publication-api-final/publication.receipt.json": "f1ca111ee2433918ae07ad3c26423695eeb8d1968eefe9c001ddee03f8a65379",
+  "publication-api-final/rollback.verified.api-export.json": "347616571c5ade42ef69724f4524eba7167239bed92865b3348fce148779e7e5",
+  "publication-api-final/draft.api-export.json": "b77cb37dc38ed72c1179f05f06ba93662d7a4a5caadd839fa83f70590dead322",
+  "publication-api-final/preflight.verified.json": "87a7c1c1100642cf5baa9ba1b4528fd6487e85ed4b414c9bfb084c8b8075379b",
+  "publication-api-verified/post-publication.integrity.json": "94a3a691591ef645362892f4817dcac16672864d4bc380477406b84a3ad5f5fc",
+  "publication-api-verified/draft.verification.json": "3b433c667b1dfcf5ba9ca648652f561a54a23ae2427a235cc5ac0694f98130b4",
+  "publication-api-verified/baseline.live.api-export.json": "347616571c5ade42ef69724f4524eba7167239bed92865b3348fce148779e7e5",
+  "publication-api-verified/publication.receipt.json": "c8e7d55c2fbb45d43bcb7e7fe5f6476fbaf67f50378977db65d008d2b4f992ad",
+  "publication-api-verified/published.api-export.json": "c39c3dafd8229d647bc9946166a0616acabedbbb8ac17943761181c7a826614f",
+  "publication-api-verified/draft.api-export.json": "c39c3dafd8229d647bc9946166a0616acabedbbb8ac17943761181c7a826614f",
+  "publication-api-verified/preflight.verified.json": "e74852f9a0fb2fc6ab07228b1a0975831d029732f93cb74aa9358509861c59f3"
+}

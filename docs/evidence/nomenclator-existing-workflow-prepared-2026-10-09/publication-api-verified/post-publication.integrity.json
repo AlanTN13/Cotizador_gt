@@ -1,0 +1,28 @@
+{
+  "status": "PASS_EXACT_APPROVED_PATCH_ACTIVE",
+  "published_version_id": "a4ee337d-4235-4f6b-9d5e-81259c1c2ee8",
+  "baseline_original_version_id": "f2ea74d7-7b65-472b-9d5f-441595fc6e90",
+  "baseline_recovery_version_id": "40533a9b-31a2-486c-be46-825c29bb3b85",
+  "node_count": 12,
+  "exact_diff_paths": [
+    "/connections/Consulta_nomenclador_PCRAM",
+    "/nodes/4/parameters/options/returnIntermediateSteps",
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/7/parameters/jsCode",
+    "/nodes/11",
+    "/versionId"
+  ],
+  "five_functional_changes_only": true,
+  "normalized_published_export_equals_prepared_candidate": true,
+  "normalized_recovered_baseline_equals_original": true,
+  "calculator_unchanged": true,
+  "agent_model_unchanged": true,
+  "original_credential_references_unchanged": true,
+  "settings_unchanged": true,
+  "main_connections_unchanged": true,
+  "webhook_auth_unchanged": true,
+  "tax_resolver_pcram_rates_iva_china_german_unchanged": true,
+  "no_quotes_executed": true,
+  "candidate_commit": "52986f7",
+  "initial_false_positive_guard_rollback_evidence": "../publication-api-final/publication.receipt.json"
+}
