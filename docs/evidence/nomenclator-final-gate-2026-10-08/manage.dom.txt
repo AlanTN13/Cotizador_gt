@@ -1,0 +1,120 @@
+- heading "Manage" [level=1]
+- tablist:
+  - tab "Instance" [selected]
+  - tab "Assistant credits"
+  - tab "Gateway credits"
+  - tab "Billing"
+  - tab "Export"
+- tabpanel "Instance"
+- heading "Current plan" [level=2]
+- separator
+- paragraph: Your current n8n.cloud plan.
+- heading "Current plan" [level=3]
+- paragraph: Pro (Monthly)
+- link "Change plan":
+  - /url: /account/change-plan
+  - button "Change plan":
+    - generic: Change plan
+- button "Cancel plan":
+  - generic: Cancel plan
+- heading "Updates & maintenance" [level=2]
+- separator
+- paragraph: Choose your n8n version and configure when automatic updates may run. Changing the version triggers a 1-2 minute restart; maintenance settings apply without a restart.
+- paragraph: n8n version
+- paragraph:
+  - text: The n8n version that your instance runs.
+  - link "Open changelog":
+    - /url: https://docs.n8n.io/changelog/release-notes#n8n241
+- combobox
+- generic: 2.41.4
+- paragraph: Release track
+- paragraph: Choose which n8n release stream this instance follows. Switch back and forth at any time. We recommend using the “Stable” track for all production workloads.
+- radiogroup "Release track":
+  - radio "Stable"
+  - radio "Beta" [checked]
+- paragraph: Update cadence
+- paragraph: How often n8n upgrades your instance to a newer build. Every instance is upgraded at least every 2 weeks, so security fixes reach all customers before vulnerability details are published.
+- radiogroup "Update cadence":
+  - radio "Every 2 weeks Scheduled upgrades to the latest release Recommended" [checked]:
+    - generic: Every 2 weeks
+    - generic: Scheduled upgrades to the latest release
+    - generic: Recommended
+  - radio "Every new release As it ships, on average daily":
+    - generic: Every new release
+    - generic: As it ships, on average daily
+- paragraph: Maintenance window
+- paragraph: When n8n can apply upgrades to your instance. Each upgrade takes 1-2 minutes of downtime. Times are in (UTC) UTC.
+- radiogroup "Maintenance window":
+  - radio "Upgrade anytime" [checked]
+  - radio "Pick a window"
+- heading "Instance settings" [level=2]
+- separator
+- paragraph: When you change any instance settings, you need to save them. This pushes the new settings to your instance. It will go offline for 1-2 minutes while the settings are applied.
+- paragraph: Time zone
+- paragraph: The default UTC time zone used by your workflows
+- combobox
+- generic: Etc/UTC
+- paragraph: Executions to save
+- paragraph:
+  - text: Determines which types of executions get added to your log.
+  - link "Learn more":
+    - /url: https://docs.n8n.io/manage-cloud/cloud-data-management/
+- group "checkbox-group":
+  - checkbox "Manual" [checked]
+  - generic: Manual
+  - checkbox "Failed" [checked]
+  - generic: Failed
+  - checkbox "Successful" [checked]
+  - generic: Successful
+- paragraph: Enable Gateway credits
+- paragraph:
+  - text: Allow users on this instance to access supported AI models and services using Gateway credits.
+  - link "Learn more":
+    - /url: https://docs.n8n.io/deploy/use-n8n-cloud/gateway-credits
+- switch "Enable Gateway credits" [checked]
+- paragraph: Verified community nodes
+- paragraph:
+  - text: Instance owners can install community built node packages, verified by n8n.
+  - link "Learn more":
+    - /url: https://docs.n8n.io/integrations/community-nodes/installation/
+- switch [checked]
+- paragraph: Disable all community nodes
+- paragraph: If your instance has issues starting, disabling all community nodes can help.
+- switch
+- heading "Instance status" [level=2]
+- separator
+- paragraph:
+  - text: Is your instance unresponsive? First step is to try the "Restart instance" button.
+  - text: Your instance might become unresponsive because of a logic error in your workflow, like an infinite loop. If restarting does not fix the issue then create a
+  - link "support ticket":
+    - /url: https://support.n8n.io/inbox/new
+  - text: .
+- paragraph: Instance status
+- paragraph: Shows if your instance is online or offline.
+- generic: Online
+- paragraph: Running version n8n@2.41.4
+- paragraph: Restart instance
+- paragraph: This process usually takes a few minutes.
+- button "Restart instance":
+  - generic: Restart instance
+- heading "Danger zone" [level=2]
+- separator
+- paragraph: Manage your account and instance settings with caution.
+- paragraph: Delete account
+- paragraph: Permanently delete this account and all its data. This action cannot be undone.
+- button "Delete account":
+  - generic: Delete account
+- contentinfo:
+  - paragraph: n8n.cloud | n8n GmbH © 2026
+  - link "Status page":
+    - /url: https://status.n8n.cloud
+    - generic: Status page
+  - link "Impressum":
+    - /url: https://n8n.io/impressum
+    - generic: Impressum
+  - link "Privacy Policy":
+    - /url: https://n8n.io/privacy
+    - generic: Privacy Policy
+  - link "Terms of Service":
+    - /url: https://n8n.io/terms
+    - generic: Terms of Service

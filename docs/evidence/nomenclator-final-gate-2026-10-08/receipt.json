@@ -1,0 +1,91 @@
+{
+  "status": "NO_GO_GATE_1_ISOLATION_AND_STARTER_SAFETY_NOT_VERIFIED; STOP",
+  "observed_at_utc": "2026-10-09T01:44:21Z",
+  "local_date": "2026-10-08",
+  "scope": "Final gate only. No optimization, candidate regeneration, tests rerun, production mutation or model calls.",
+  "preflight": {
+    "role": "Direccion de Ejecucion, GlobalTrip; PATCH MODE",
+    "authorization": "Read-only environment gate; only after PASS, limited real agent comparison on VALDUS VS13 and Chengji. No 16-call series.",
+    "canonical_context_revision": "6169c81c588f4e382100aa228831080dd1bbf500",
+    "context_paths": [
+      "Alan/01_Architecture/Execution_Runtime_Contract.md",
+      "Alan/04_Clientes NexOps/Global_Trip/GlobalTrip_Contexto.md",
+      "Alan/04_Clientes NexOps/Global_Trip/ER_Consulta_Nomenclador_Agente_2026-10-08.md"
+    ],
+    "budget": "S; read-only gate. Cloud execution withheld at safety boundary.",
+    "allowed_delta": "Gate evidence and canonical status only",
+    "frozen": "Approved commit 666fcb2, all code/candidates/tests, production workflow, tax sources/calculation, model, credentials, web/gateway and architecture",
+    "acceptance": "Verified authorized isolated execution channel and resource safety before real agent calls",
+    "stop": "No verified isolated channel or no verifiable Starter safety; no alternate infrastructure or execution path"
+  },
+  "approved_artifact": {
+    "commit": "666fcb27cd95864d7d8de6267106b9df3257451f",
+    "tool_bytes": 2301909,
+    "tool_sha256": "a018e8e2e0f4fdb6869f3887bd8f28c0dc36d7c565902027683cb062f2a82ee9",
+    "candidate_file_sha256": "b3ad9c6369d7f2de831359781dae40d6c36d950d5a3f1df3b1887d15fe7f9696",
+    "candidate": "../nomenclator-optimization-2026-10-08/candidate.workflow.json",
+    "changed_or_regenerated": false,
+    "read_only_hash_and_size_check": "PASS: exact candidate file/tool SHA-256 and 2,301,909-byte tool size; no code execution or test rerun",
+    "local_benchmark_reused": "../nomenclator-optimization-2026-10-08/benchmark.json",
+    "previous_local_peak_process_rss_mib": 116.39,
+    "local_rss_limit": "Local standalone Node measurement is not n8n instance/runner memory, reserved memory or remaining headroom. It cannot certify Cloud safety."
+  },
+  "read_only_environment_observations": {
+    "channel": "Alan's existing authenticated Chrome n8n Cloud admin tab; no new login/session/credential",
+    "dashboard_url": "https://app.n8n.cloud/dashboard",
+    "manage_url": "https://app.n8n.cloud/manage",
+    "instance_shown": "nexops",
+    "state": "Online",
+    "version": "n8n@2.41.4",
+    "current_plan_visible": "Pro (Monthly)",
+    "monthly_execution_quota_visible": 10000,
+    "starter_environment_verified": false,
+    "isolated_test_instance_or_runner_verified": false,
+    "reserved_test_memory_or_live_headroom_visible": false,
+    "available_tool_inventory": "No purpose-built n8n isolated executor advertised in the enabled tool inventory. No alternative service used.",
+    "evidence": ["manage.dom.txt", "current-plan.png"],
+    "limits": "Only the accessible dashboard/Manage surface was inspected. This is not a claim that n8n can never offer isolation or that no other account exists. No workflow editor modification/export/execute action was performed."
+  },
+  "official_evidence": [
+    {
+      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/configure-cloud/manage-your-data.md",
+      "facts": [
+        "Starter plan documented at 320 MiB RAM per instance.",
+        "Pro-1 (10k executions) documented at 640 MiB RAM; the actual allocated/free memory was not displayed or verified in the inspected admin surface.",
+        "n8n itself averages about 180 MiB RAM; UI interactions also consume memory.",
+        "Exceeding memory limits can crash the instance."
+      ]
+    },
+    {
+      "url": "https://docs.n8n.io/deploy/use-n8n-cloud/understand-concurrency.md",
+      "facts": [
+        "Production concurrency control does not apply to manual or sub-workflow executions.",
+        "In regular mode concurrency limits apply to the instance; this documentation does not establish a separate memory reservation for a test workflow."
+      ]
+    }
+  ],
+  "gate_1": {
+    "result": "NO_GO_NOT_CERTIFIED",
+    "reason": "The available authenticated environment is the existing nexops Pro instance, not an isolated verified Starter environment. No separate authorized test runner/instance or reserved memory/headroom could be verified. A manual/unpublished workflow is not evidence of resource isolation. The local benchmark cannot establish safety for shared Cloud production resources.",
+    "interpretation": "Safety gate blocked; not a functional failure or proof of incompatibility of the optimized tool. No Cloud trial was attempted."
+  },
+  "gate_2": {
+    "result": "NOT_RUN_GATE_1_BLOCKED",
+    "cases": [
+      {"product": "VALDUS VS13", "status": "NOT_RUN", "actual_tool_queries": null, "candidate_results": null, "agent_classification": null, "duration_ms": null, "tokens": null},
+      {"product": "Chengji", "status": "NOT_RUN", "actual_tool_queries": null, "candidate_results": null, "agent_classification": null, "duration_ms": null, "tokens": null}
+    ],
+    "baseline_candidate_comparison": "Pending; no new observations. Historical runs/local fixtures were not substituted for a real agent comparison.",
+    "planned_16_call_series_executed": false
+  },
+  "actions": {
+    "n8n_cloud_executions": 0,
+    "agent_or_openai_calls": 0,
+    "production_mutations": 0,
+    "publishes": 0,
+    "new_workflows_or_runners": 0,
+    "new_credentials_or_infrastructure": 0,
+    "code_or_test_changes": 0
+  },
+  "recovery": "No production change to revert. Approved candidate 666fcb2 and its rollback artifacts preserved. No additional optimization or alternate execution path initiated."
+}
