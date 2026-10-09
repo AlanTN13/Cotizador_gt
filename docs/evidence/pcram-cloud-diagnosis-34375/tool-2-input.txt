@@ -1,0 +1,11 @@
+INPUT
+1 item
+indice
+	
+prefijo
+	
+texto
+	
+limite
+	
+1	empty	camiseta running camiseta deportiva camiseta de correr polyester algodón	5	

@@ -1,0 +1,11 @@
+INPUT
+1 item
+indice
+	
+prefijo
+	
+texto
+	
+limite
+	
+1	61	camiseta running	5	

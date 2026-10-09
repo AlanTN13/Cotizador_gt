@@ -1,0 +1,54 @@
+{
+  "executionId": 34375,
+  "workflowId": "LO9m0AxSrxRR6JVY",
+  "versionId": "6028105a-7aba-45ca-88a6-4d60c27a3cf4",
+  "startedAt": "2026-10-09T15:49:43Z",
+  "durationMs": 16694,
+  "fobUSD": 500,
+  "totalUSD": 931.88,
+  "calls": [
+    {
+      "indice": 1,
+      "prefijo": "61",
+      "texto": "camiseta running",
+      "limite": 5,
+      "status": "INVALID_QUERY",
+      "results": []
+    },
+    {
+      "indice": 1,
+      "prefijo": "",
+      "texto": "camiseta running camiseta deportiva camiseta de correr polyester algodón",
+      "limite": 5,
+      "status": "INVALID_QUERY",
+      "results": []
+    }
+  ],
+  "observationEnvelope": "[{response: JSON_string}]",
+  "sourceZipSHA256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+  "sourceSchema": "pcram-nomenclator-fixed-2134-v1",
+  "validatorOutput": {
+    "clasificacion": "6109",
+    "SIM": null,
+    "DIE": 20,
+    "siguiente": "cotizar"
+  },
+  "taxResolution": {
+    "status": "ESTIMADO",
+    "requestedPosition": null,
+    "dutyEvidence": null,
+    "rates": {
+      "duty": 0.2,
+      "statistical": 0.03,
+      "vat": 0.21
+    }
+  },
+  "conclusion": "CLOUD_QUERY_INTEGRATION_STILL_FAILS_INVALID_QUERY",
+  "limit": "Trace does not expose the internal query value/types passed to projection/search, nor guard branch instrumentation. No successful OK/NO_MATCH observation to prove success normalization/candidate membership in Cloud.",
+  "actions": {
+    "productionMutations": 0,
+    "newExecutions": 0,
+    "modelCalls": 0,
+    "pcramDownloads": 0
+  }
+}

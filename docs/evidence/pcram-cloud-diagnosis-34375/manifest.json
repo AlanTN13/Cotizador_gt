@@ -1,0 +1,14 @@
+{
+  "README.md": "cf789b6f9588243272cba65a4838206974e309f6bb682a165c31d507fe4a0274",
+  "agent-output.txt": "7b178922c2b91dc4730aebd55a0c34d13aafdafefd5d2e1e78c1026bbf0b1097",
+  "calculator-output.txt": "3ccace7bf86f92e661103982b756af8467d950c09fa941d5dcb2552441c50f94",
+  "identity.json": "a19a17873ef0032c643a5327857ef91689f1e222d1dfdb03288fc2f651951912",
+  "receipt.json": "e186d75ad6a30d340fcf1744e2b1bccb90229d781c73f2096073e255654524f8",
+  "tool-1-input.txt": "a91b7235c521b6a18310e5465b4ba6b5b0fd55e4b6953f7ce0de7bde169a2d24",
+  "tool-1-output.txt": "2c58d20088df97fb3d2a3bead58ac71c7dc64bd901bd400100078a05f989098c",
+  "tool-1.png": "258d502690f3363a801cf6b57e4ea2e628ae3dcefca1d659927a62df72416747",
+  "tool-2-input.txt": "bd9579ca31caccce034a5e9893bd9bbbc72730b478dd6b6e62d6f39fa2d6e356",
+  "tool-2-output.txt": "2c58d20088df97fb3d2a3bead58ac71c7dc64bd901bd400100078a05f989098c",
+  "validator-input.txt": "6f3f74e249ea0a2187539ee5a2f4a121c2389811f2a43c7d80a23472d79ed1e9",
+  "validator-output.txt": "ca8556cd99facddb64cb2bbcf43d134f403da058970a6423e23e3f1bbe5fa9ce"
+}
