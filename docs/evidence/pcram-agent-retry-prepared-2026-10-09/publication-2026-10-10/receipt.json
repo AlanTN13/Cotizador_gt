@@ -1,0 +1,28 @@
+{
+  "status": "BLOCKED_API_KEY_UNAVAILABLE_BEFORE_LIVE_PREFLIGHT",
+  "authorization": "Alan autorizó publicar exclusivamente systemMessage del candidato 25c9098 el 2026-10-10",
+  "context_revision": "116ed71",
+  "candidate_commit": "25c9098",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "expected_baseline_version": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "live_baseline_verified": false,
+  "baseline_prompt_sha256": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+  "candidate_prompt_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "prepared_artifacts_manifest_verified": true,
+  "expected_node_count": 12,
+  "credential_availability": {
+    "N8N_API_KEY_environment": false,
+    "previous_secure_entry": false,
+    "clipboard_valid_api_key": false
+  },
+  "api_requests": 0,
+  "production_changes": 0,
+  "local_tests_repeated": 0,
+  "cloud_quotes": 0,
+  "ai_calls": 0,
+  "new_credentials": 0,
+  "secret_exposed_or_persisted": false,
+  "rollback": "../rollback.patch.json intacto; ninguna mutación que recuperar",
+  "next_required_action": "Alan copia una API key ya autorizada al portapapeles y avisa sin pegarla en chat; luego GET preflight antes de mutar",
+  "recorded_at_utc": "2026-10-10T12:52:49.689038+00:00"
+}
