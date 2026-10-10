@@ -1,0 +1,22 @@
+{
+  "status": "LIVE_BASELINE_PASS",
+  "baseline_version": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+  "node_count": 12,
+  "hashes": {
+    "prompt": "00b28a97403b227d9d5ced576d273ae4901f5050dc316bbd829b992b56623f93",
+    "nodes_except_prompt": "885c0bb6ce6bd82337faf67a34a69421d32b8f186a149a77a0c2eb39810dacef",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "private_backup_path": "/private/tmp/globaltrip-n8n-access-1klaeqzz/prompt-25c9098-before-6hduixvq.private.json",
+  "private_backup_sha256": "87fcc5d08798f0e955a3750eaf6012ae58ba8dece4b38a62eb300abb8e0516bf",
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "verified_at_utc": "2026-10-10T12:57:00.198453+00:00"
+}

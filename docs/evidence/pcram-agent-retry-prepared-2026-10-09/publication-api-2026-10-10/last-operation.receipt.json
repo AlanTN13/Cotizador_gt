@@ -1,0 +1,20 @@
+{
+  "candidate_commit": "25c9098",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "authorization": "Alan authorized prompt-only publication 2026-10-10",
+  "context_revision": "e2e5ef9",
+  "production_mutations": 0,
+  "cloud_quotes": 0,
+  "ai_calls": 0,
+  "local_tests_repeated": 0,
+  "secret_exposed_or_persisted": false,
+  "new_credentials": 0,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "finished_at_utc": "2026-10-10T12:57:00.199151+00:00"
+}

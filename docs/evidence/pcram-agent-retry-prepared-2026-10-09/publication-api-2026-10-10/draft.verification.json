@@ -1,0 +1,15 @@
+{
+  "status": "PASS_PROMPT_ONLY",
+  "version_id": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "hashes": {
+    "prompt": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+    "nodes_except_prompt": "885c0bb6ce6bd82337faf67a34a69421d32b8f186a149a77a0c2eb39810dacef",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "changed_paths": [
+    "/nodes/4/parameters/options/systemMessage"
+  ],
+  "node_count": 12
+}
