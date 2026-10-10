@@ -1,0 +1,48 @@
+{
+  "mode": "rollback",
+  "candidate_commit": "0a9669f",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6099631887",
+  "production_mutations": 2,
+  "controlled_e2es": 0,
+  "secret_exposed_or_persisted": false,
+  "status": "FAIL_ROLLED_BACK",
+  "active_version": "9a87b6f0-4f1f-41ab-8530-68419b48b1d3",
+  "node_count": 12,
+  "verified_hashes": {
+    "prompt": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+    "frozen_nodes": "9e3d4f5f26a2ee55ec634e614902eae950de4209d9fb6d23896cf421c5a0860e",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d",
+    "functional_frozen": "5c8cca64291f4890b89f3f57e3be91da9be9134cbc91142dce9d72b9c7bb9ec4"
+  },
+  "frozen_surfaces_exact": true,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "PUT",
+      "route": "/workflows/LO9m0AxSrxRR6JVY?publishIfActive=false",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "POST",
+      "route": "/workflows/LO9m0AxSrxRR6JVY/activate",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "at_utc": "2026-10-10T16:47:38.835486+00:00"
+}

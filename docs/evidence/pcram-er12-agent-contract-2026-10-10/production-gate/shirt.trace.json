@@ -1,0 +1,455 @@
+{
+  "case": "shirt",
+  "input": {
+    "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+        "descripcion": "camiseta de running"
+      }
+    ],
+    "fob_usd": 500,
+    "cantidad": 1,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 10,
+        "largo_cm": 20,
+        "ancho_cm": 30,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 5,
+        "largo_cm": 30,
+        "ancho_cm": 40,
+        "alto_cm": 50
+      }
+    ]
+  },
+  "published_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "http_duration_seconds": 18.00562887499109,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/executions?workflowId=LO9m0AxSrxRR6JVY&limit=5",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/executions/34454?includeData=true",
+      "http_status": 200
+    }
+  ],
+  "gateway_http_status": 200,
+  "gateway_response": {
+    "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+    "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+    "status": "cotizado",
+    "total_usd": 931.88,
+    "flete_internacional_usd": 580,
+    "handling_con_iva_usd": 90.75,
+    "impuestos_y_tasas_usd": 261.13,
+    "peso_considerado_kg": 29
+  },
+  "execution_id": "34454",
+  "execution_status": "success",
+  "execution_mode": "webhook",
+  "startedAt": "2026-10-10T16:45:27.493Z",
+  "stoppedAt": "2026-10-10T16:45:43.597Z",
+  "execution_workflow_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "execution_node_count": 12,
+  "input_validated": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+            "descripcion": "camiseta de running"
+          }
+        ],
+        "fob_usd": 500,
+        "cantidad": 1,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 10,
+            "largo_cm": 20,
+            "ancho_cm": 30,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 5,
+            "largo_cm": 30,
+            "ancho_cm": 40,
+            "alto_cm": 50
+          }
+        ]
+      },
+      "siguiente": "agente"
+    }
+  ],
+  "agent_input": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+            "descripcion": "camiseta de running"
+          }
+        ],
+        "fob_usd": 500,
+        "cantidad": 1,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 10,
+            "largo_cm": 20,
+            "ancho_cm": 30,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 5,
+            "largo_cm": 30,
+            "ancho_cm": 40,
+            "alto_cm": 50
+          }
+        ]
+      },
+      "siguiente": "agente",
+      "agent_input": "{\"productos\":[{\"indice\":1,\"link\":\"https://www.alibaba.com/x/B2UFi4?ck=pdp\",\"descripcion\":\"camiseta de running\"}]}"
+    }
+  ],
+  "agent_output": [
+    {
+      "output": {
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "camiseta de running",
+            "clasificacion": "6109",
+            "SIM": null,
+            "DIE": 20,
+            "evidencia": [
+              {
+                "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y",
+                "detalle": "Búsqueda en nomenclador PCRAM por 'camiseta' devolvió candidaturas bajo NCM 61091000 («T-shirts» y camisetas, de punto) pero las SIM encontradas especifican 'De algodón' (composición decisiva)."
+              },
+              {
+                "url": "https://radar-comex.mhlm.ar/ncm/6109.90.00.210R",
+                "detalle": "Radar COMEX: ejemplo de posición 6109.90 con Derecho de Importación Extrazona indicado (20%) para camisetas (entrada de referencia sobre camisetas deportivas de poliéster)."
+              }
+            ],
+            "fundamento": "Clasificación sustentada hasta HS4 (6109) porque las aperturas NCM8 encontradas en la consulta PCRAM requieren composición ('De algodón') y la ficha del producto no indica fibra; estimación DIE 20% basada en precedentes de radar-comex y pautas actuales de DIE para prendas del capítulo 61."
+          }
+        ]
+      },
+      "intermediateSteps": [
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 1,
+              "prefijo": "",
+              "texto": "camiseta running",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_blaMjJfH982lM5039HmAzi0b",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"NO_MATCH\\\",\\\"query\\\":{\\\"indice\\\":1,\\\"prefijo\\\":\\\"\\\",\\\"texto\\\":\\\"camiseta running\\\",\\\"limite\\\":4},\\\"matched_count\\\":0,\\\"returned_count\\\":0,\\\"partial\\\":false,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[]}\"}]"
+        },
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 1,
+              "prefijo": "",
+              "texto": "camiseta",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_NqlEumYhmBEWqbq27oFo3eZb",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"OK\\\",\\\"query\\\":{\\\"indice\\\":1,\\\"prefijo\\\":\\\"\\\",\\\"texto\\\":\\\"camiseta\\\",\\\"limite\\\":4},\\\"matched_count\\\":52,\\\"returned_count\\\":4,\\\"partial\\\":true,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[{\\\"ncm\\\":\\\"61091000\\\",\\\"sim\\\":\\\"61091000110Y\\\",\\\"sim_description\\\":\\\"De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"ncm_context\\\":\\\"- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":false,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y\\\"},{\\\"ncm\\\":\\\"61091000\\\",\\\"sim\\\":\\\"61091000190Z\\\",\\\"sim_description\\\":\\\"Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"ncm_context\\\":\\\"- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":false,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z\\\"},{\\\"ncm\\\":\\\"61091000\\\",\\\"sim\\\":\\\"61091000210D\\\",\\\"sim_description\\\":\\\"De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"ncm_context\\\":\\\"- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":false,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000210D\\\"},{\\\"ncm\\\":\\\"61091000\\\",\\\"sim\\\":\\\"61091000290E\\\",\\\"sim_description\\\":\\\"Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"ncm_context\\\":\\\"- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":false,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000290E\\\"}]}\"}]"
+        }
+      ]
+    }
+  ],
+  "validator_output": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+            "descripcion": "camiseta de running"
+          }
+        ],
+        "fob_usd": 500,
+        "cantidad": 1,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 10,
+            "largo_cm": 20,
+            "ancho_cm": 30,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 5,
+            "largo_cm": 30,
+            "ancho_cm": 40,
+            "alto_cm": 50
+          }
+        ]
+      },
+      "siguiente": "cotizar",
+      "productos": [
+        {
+          "indice": 1,
+          "producto": "camiseta de running",
+          "clasificacion": "6109",
+          "SIM": null,
+          "DIE": 20,
+          "evidencia": [
+            {
+              "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y",
+              "detalle": "Búsqueda en nomenclador PCRAM por 'camiseta' devolvió candidaturas bajo NCM 61091000 («T-shirts» y camisetas, de punto) pero las SIM encontradas especifican 'De algodón' (composición decisiva)."
+            },
+            {
+              "url": "https://radar-comex.mhlm.ar/ncm/6109.90.00.210R",
+              "detalle": "Radar COMEX: ejemplo de posición 6109.90 con Derecho de Importación Extrazona indicado (20%) para camisetas (entrada de referencia sobre camisetas deportivas de poliéster)."
+            }
+          ],
+          "fundamento": "Clasificación sustentada hasta HS4 (6109) porque las aperturas NCM8 encontradas en la consulta PCRAM requieren composición ('De algodón') y la ficha del producto no indica fibra; estimación DIE 20% basada en precedentes de radar-comex y pautas actuales de DIE para prendas del capítulo 61."
+        }
+      ]
+    }
+  ],
+  "calculator_output": [
+    {
+      "respuesta": {
+        "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 931.88,
+        "flete_internacional_usd": 580,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 261.13,
+        "peso_considerado_kg": 29,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "camiseta de running",
+              "clasificacion": "6109",
+              "SIM": null,
+              "DIE": 20,
+              "evidencia": [
+                {
+                  "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y",
+                  "detalle": "Búsqueda en nomenclador PCRAM por 'camiseta' devolvió candidaturas bajo NCM 61091000 («T-shirts» y camisetas, de punto) pero las SIM encontradas especifican 'De algodón' (composición decisiva)."
+                },
+                {
+                  "url": "https://radar-comex.mhlm.ar/ncm/6109.90.00.210R",
+                  "detalle": "Radar COMEX: ejemplo de posición 6109.90 con Derecho de Importación Extrazona indicado (20%) para camisetas (entrada de referencia sobre camisetas deportivas de poliéster)."
+                }
+              ],
+              "fundamento": "Clasificación sustentada hasta HS4 (6109) porque las aperturas NCM8 encontradas en la consulta PCRAM requieren composición ('De algodón') y la ficha del producto no indica fibra; estimación DIE 20% basada en precedentes de radar-comex y pautas actuales de DIE para prendas del capítulo 61."
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "ESTIMADO",
+              "requestedPosition": null,
+              "ncm": null,
+              "sim": null,
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "reasons": [],
+              "warnings": [
+                "POSITION_INCOMPLETE_FAMILY_ESTIMATE",
+                "FAMILY_SNAPSHOT_DUTY_ESTIMATE",
+                "GENERAL_TE_ESTIMATE",
+                "GENERAL_VAT_ESTIMATE"
+              ],
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": [
+                  {
+                    "tax": "duty",
+                    "method": "FAMILY_SNAPSHOT",
+                    "source": "pcram-die-te-fd04e2344db6-v1:HS4:6109:taxZIP=fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb:classificationZIP=4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+                    "basis": "Estimación DIE por familia HS4 6109: cobertura íntegra 10/10, DIE extrazona uniforme en snapshot; SIM conjunto SHA-256 e28d29af50b35442b9e63e3c24c03254136da4ee6169b454b98336a457069169. No certifica SIM del producto ni vigencia legal. Captura tributaria 2026-09-30T14:42:53.148482Z; índice 2026-10-07."
+                  },
+                  {
+                    "tax": "statistical",
+                    "method": "GENERAL_RULE",
+                    "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm",
+                    "basis": "Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico."
+                  },
+                  {
+                    "tax": "vat",
+                    "method": "GENERAL_RULE",
+                    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+                  }
+                ]
+              },
+              "dutyEvidence": null,
+              "vatEvidence": null,
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "camiseta de running",
+                "clasificacion": "6109",
+                "SIM": null,
+                "DIE": 20,
+                "fundamento": "Clasificación sustentada hasta HS4 (6109) porque las aperturas NCM8 encontradas en la consulta PCRAM requieren composición ('De algodón') y la ficha del producto no indica fibra; estimación DIE 20% basada en precedentes de radar-comex y pautas actuales de DIE para prendas del capítulo 61.",
+                "evidencia": [
+                  {
+                    "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y",
+                    "detalle": "Búsqueda en nomenclador PCRAM por 'camiseta' devolvió candidaturas bajo NCM 61091000 («T-shirts» y camisetas, de punto) pero las SIM encontradas especifican 'De algodón' (composición decisiva)."
+                  },
+                  {
+                    "url": "https://radar-comex.mhlm.ar/ncm/6109.90.00.210R",
+                    "detalle": "Radar COMEX: ejemplo de posición 6109.90 con Derecho de Importación Extrazona indicado (20%) para camisetas (entrada de referencia sobre camisetas deportivas de poliéster)."
+                  }
+                ]
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 528.43,
+              "derechos_usd": 105.69,
+              "tasa_estadistica_usd": 15.85,
+              "iva_usd": 136.49
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [
+            "POSITION_INCOMPLETE_FAMILY_ESTIMATE",
+            "FAMILY_SNAPSHOT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ],
+          "DIE_promedio": 20,
+          "peso_real_total_kg": 20,
+          "peso_volumetrico_total_kg": 28.8,
+          "tarifa_usd_kg": 20,
+          "cif_usd": 528.43,
+          "derechos_usd": 105.69,
+          "tasa_estadistica_usd": 15.85,
+          "iva_usd": 136.49,
+          "debitos_creditos_usd": 3.1,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "node_timing": [
+    {
+      "name": "Formulario - POST",
+      "executionTime": [
+        1
+      ]
+    },
+    {
+      "name": "Validar formulario",
+      "executionTime": [
+        1828
+      ]
+    },
+    {
+      "name": "Entrada completa",
+      "executionTime": [
+        6
+      ]
+    },
+    {
+      "name": "Preparar agente",
+      "executionTime": [
+        64
+      ]
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "executionTime": [
+        2573,
+        1470,
+        8445
+      ]
+    },
+    {
+      "name": "Consulta_nomenclador_PCRAM",
+      "executionTime": [
+        341,
+        353
+      ]
+    },
+    {
+      "name": "Salida estructurada",
+      "executionTime": [
+        0
+      ]
+    },
+    {
+      "name": "Agente Despachante",
+      "executionTime": [
+        8497
+      ]
+    },
+    {
+      "name": "Validar salida del agente",
+      "executionTime": [
+        84
+      ]
+    },
+    {
+      "name": "Clasificado y apto",
+      "executionTime": [
+        2
+      ]
+    },
+    {
+      "name": "Cotizador deterministico",
+      "executionTime": [
+        726
+      ]
+    },
+    {
+      "name": "Responder a la landing",
+      "executionTime": [
+        5
+      ]
+    }
+  ],
+  "status": "TRACE_CAPTURED_PENDING_ACCEPTANCE"
+}

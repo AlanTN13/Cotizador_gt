@@ -1,0 +1,204 @@
+{
+  "status": "PASS",
+  "execution_id": "34454",
+  "published_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "execution_integrity": {
+    "execution_prompt_sha256": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+    "executed_original_node_fields_identical": true,
+    "execution_connections_exactly_published": true,
+    "execution_workflow_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+    "execution_settings_identical": true
+  },
+  "runtime_snapshot_note": "n8n adds runtime defaults and rewireOutputLogTo; all originally saved fields are unchanged. Live workflow equality was verified separately before submit.",
+  "queries": [
+    {
+      "input": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "camiseta running",
+        "limite": 4
+      },
+      "status": "NO_MATCH",
+      "source": {
+        "fields": {
+          "ncm": [
+            1,
+            10
+          ],
+          "ncm_context": [
+            15,
+            1538
+          ],
+          "sim": [
+            11,
+            14
+          ],
+          "sim_description": [
+            1539,
+            1792
+          ],
+          "updated_at": [
+            2089,
+            2094
+          ]
+        },
+        "importer_version": "pcram-ncm-fixed-2134-v1",
+        "limitations": [
+          "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+          "Descriptions may be truncated; do not complete them or assume absent attributes.",
+          "Code existence does not establish compatibility with the product.",
+          "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+        ],
+        "ncm_count": 10504,
+        "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+        "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+        "record_count": 33038,
+        "schema": "pcram-nomenclator-fixed-2134-v1",
+        "source": "https://web.pcram.net/downloads/transf.zip",
+        "source_matches_tax_snapshot": false,
+        "structure_source": "https://www.pcram.net/downloads/estructura.html",
+        "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+        "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+      },
+      "matched_count": 0,
+      "returned_count": 0,
+      "partial": false,
+      "results": []
+    },
+    {
+      "input": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "camiseta",
+        "limite": 4
+      },
+      "status": "OK",
+      "source": {
+        "fields": {
+          "ncm": [
+            1,
+            10
+          ],
+          "ncm_context": [
+            15,
+            1538
+          ],
+          "sim": [
+            11,
+            14
+          ],
+          "sim_description": [
+            1539,
+            1792
+          ],
+          "updated_at": [
+            2089,
+            2094
+          ]
+        },
+        "importer_version": "pcram-ncm-fixed-2134-v1",
+        "limitations": [
+          "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+          "Descriptions may be truncated; do not complete them or assume absent attributes.",
+          "Code existence does not establish compatibility with the product.",
+          "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+        ],
+        "ncm_count": 10504,
+        "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+        "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+        "record_count": 33038,
+        "schema": "pcram-nomenclator-fixed-2134-v1",
+        "source": "https://web.pcram.net/downloads/transf.zip",
+        "source_matches_tax_snapshot": false,
+        "structure_source": "https://www.pcram.net/downloads/estructura.html",
+        "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+        "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+      },
+      "matched_count": 52,
+      "returned_count": 4,
+      "partial": true,
+      "results": [
+        {
+          "ncm": "61091000",
+          "sim": "61091000110Y",
+          "sim_description": "De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000190Z",
+          "sim_description": "Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000210D",
+          "sim_description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000210D"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000290E",
+          "sim_description": "Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000290E"
+        }
+      ]
+    }
+  ],
+  "agent_product": {
+    "indice": 1,
+    "producto": "camiseta de running",
+    "clasificacion": "6109",
+    "SIM": null,
+    "DIE": 20,
+    "evidencia": [
+      {
+        "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y",
+        "detalle": "Búsqueda en nomenclador PCRAM por 'camiseta' devolvió candidaturas bajo NCM 61091000 («T-shirts» y camisetas, de punto) pero las SIM encontradas especifican 'De algodón' (composición decisiva)."
+      },
+      {
+        "url": "https://radar-comex.mhlm.ar/ncm/6109.90.00.210R",
+        "detalle": "Radar COMEX: ejemplo de posición 6109.90 con Derecho de Importación Extrazona indicado (20%) para camisetas (entrada de referencia sobre camisetas deportivas de poliéster)."
+      }
+    ],
+    "fundamento": "Clasificación sustentada hasta HS4 (6109) porque las aperturas NCM8 encontradas en la consulta PCRAM requieren composición ('De algodón') y la ficha del producto no indica fibra; estimación DIE 20% basada en precedentes de radar-comex y pautas actuales de DIE para prendas del capítulo 61."
+  },
+  "classification": "HS4 6109 partial; SIM null; composition not invented",
+  "validator_preserved_agent_products": true,
+  "tax_methods": [
+    "FAMILY_SNAPSHOT",
+    "GENERAL_RULE",
+    "GENERAL_RULE"
+  ],
+  "total_usd": 931.88,
+  "acceptance_basis": "Valid NO_MATCH followed by valid OK 52/4 partial;2calls; coherent partial classification; source/SHA/index retained through validator and FAMILY_SNAPSHOT calculator; no precise cotton NCM assigned.",
+  "limit": "External Web Search access not independently certified by selected PCRAM trace; tax provenance audited in resolver."
+}

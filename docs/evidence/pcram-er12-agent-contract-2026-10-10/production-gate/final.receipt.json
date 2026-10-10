@@ -1,0 +1,44 @@
+{
+  "status": "FAIL_ROLLED_BACK",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "candidate_commit": "0a9669f",
+  "authorized_gate": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6099631887",
+  "baseline_version": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "canary_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "final_active_version": "9a87b6f0-4f1f-41ab-8530-68419b48b1d3",
+  "node_count": 12,
+  "final_prompt_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "candidate_prompt_sha256": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+  "frozen_surfaces_exact": true,
+  "prompt_before_hashes_equal_final": true,
+  "controlled_e2es": 2,
+  "additional_quotes_or_retries": 0,
+  "local_tests_repeated": 0,
+  "new_credentials_or_infrastructure": 0,
+  "pcram_downloads": 0,
+  "outcomes": [
+    {
+      "execution_id": "34454",
+      "case": "shirt",
+      "acceptance": "PASS",
+      "classification": "6109 partial; SIM null",
+      "tax": "FAMILY_SNAPSHOT DIE20; GENERAL_RULE TE3/IVA21, ESTIMADO",
+      "total_usd": 931.88
+    },
+    {
+      "execution_id": "34455",
+      "case": "watch-toy",
+      "acceptance": "FAIL",
+      "classification": "watch HS4 8517/SIMnull; toy NCM95030010/SIMnull, unsupported opening",
+      "tax": "watch AGENT_ESTIMATE DIE16; toy snapshot DIE20/TE3 overriding agent DIE14; IVA21 GENERAL_RULE, ESTIMADO",
+      "total_usd": 1146.92
+    }
+  ],
+  "integration_result": "6 genuine indexed-snapshot PCRAM calls; 3NO_MATCH/3OK;0INVALID_QUERY; valid source/index/SHA; 2calls per product; observations accepted by unchanged guard.",
+  "acceptance_failure": "Agent selected toy NCM95030010 for blocks/maze from context that specifically describes tricycles/scooters/pedal cars/wheeled toys/doll carriages. Broad ancestor heading misinterpreted as compatible opening. Guard verifies provenance/membership, not semantic compatibility. Tax lookup behaved consistently for the supplied but unjustified code.",
+  "recovery": "Fresh identity/hash/frozen/concurrency checked; restored only original systemMessage; fresh GET verified active rollback version,12nodes and baseline functional content. No other surface touched.",
+  "limits": "PASS for query transport/provenance is not functional classification acceptance. No specific smartwatchSIM or 0/0/10.5 proven by this run; no proof of Alibaba access. n8n token figures are estimates, not provider billing; shared-instance peak memory not exposed.",
+  "operator_access": "Closed local secure session; key retained only in process memory, never exposed or persisted. Existing n8n API key not rotated/revoked.",
+  "final_action": "STOP; no further development or E2E; ER12 functional acceptance remains unmet.",
+  "finished_at_utc": "2026-10-10T16:48:36.066599+00:00"
+}

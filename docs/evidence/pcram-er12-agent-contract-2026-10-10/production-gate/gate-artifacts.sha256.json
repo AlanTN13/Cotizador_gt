@@ -1,0 +1,12 @@
+{
+  "publish.receipt.json": "0971a79f446f7d7a9ee2d4b718c50e9d630b443226ca8438638b5597a949fea9",
+  "shirt.attempt.json": "1af959fa23a8977e81cb661f8b6c1ef1cdbc604b1cffab9bf24d4af7efa7148a",
+  "shirt.trace.json": "d823ebaeb93f341e617d9cab2f511335fdec6e976eb08f8aa39f9c2fe1b82dff",
+  "shirt.acceptance.json": "a308bf57501dca0c3082dcc5529676e591a2a155e9baaa4f439c123d492ced6c",
+  "watch-toy.attempt.json": "560524d7bed0cbf064b8d5900395a58940dccc779d3b8be90ae099e65b7bce15",
+  "watch-toy.trace.json": "54f7bb2f3fbb742c7d47d183cf39684eb682139f7952293b6dd43d5c7e67964c",
+  "watch-toy.acceptance.json": "ee22f95d533b492988335f2f98387e15721bbaf1195a32f0fec046960c4cf786",
+  "rollback.receipt.json": "537ee4830da8fa224761bcfae92f9df9cf07beac363f1ffc5252214dd8afb934",
+  "observed-consumption.json": "154fe2da98acae9dd3b7a7e939f18a14b2b64e32f26f20d7a576263f80cd0120",
+  "final.receipt.json": "73f54e83c8e5663dd9bdbff1adbb879f02f5726de993d8d0762d9cdab0402ca5"
+}

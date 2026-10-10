@@ -1,0 +1,33 @@
+{
+  "case": "shirt",
+  "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+  "started_at_utc": "2026-10-10T16:45:25.811933+00:00",
+  "request": {
+    "solicitud_id": "er12-shirt-723411a6d58f4a6886d596683a10b942",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+        "descripcion": "camiseta de running"
+      }
+    ],
+    "fob_usd": 500,
+    "cantidad": 1,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 10,
+        "largo_cm": 20,
+        "ancho_cm": 30,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 5,
+        "largo_cm": 30,
+        "ancho_cm": 40,
+        "alto_cm": 50
+      }
+    ]
+  },
+  "controlled_submit_count": 1
+}

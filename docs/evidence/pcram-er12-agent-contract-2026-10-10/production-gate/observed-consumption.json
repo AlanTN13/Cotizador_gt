@@ -1,0 +1,74 @@
+[
+  {
+    "case": "shirt",
+    "execution_id": "34454",
+    "execution_workflow_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+    "execution_seconds": 16.104,
+    "llm_subruns": 3,
+    "token_usage_n8n_estimates": [
+      {
+        "completionTokens": 0,
+        "promptTokens": 1917,
+        "totalTokens": 1917
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 2410,
+        "totalTokens": 2410
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 3661,
+        "totalTokens": 3661
+      }
+    ],
+    "pcram_tool_query_milliseconds": [
+      341,
+      353
+    ],
+    "cloud_memory_peak": "NOT_EXPOSED; no global resource telemetry collected",
+    "no_new_execution_error": true
+  },
+  {
+    "case": "watch-toy",
+    "execution_id": "34455",
+    "execution_workflow_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+    "execution_seconds": 18.829,
+    "llm_subruns": 5,
+    "token_usage_n8n_estimates": [
+      {
+        "completionTokens": 0,
+        "promptTokens": 2058,
+        "totalTokens": 2058
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 2547,
+        "totalTokens": 2547
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 4467,
+        "totalTokens": 4467
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 4956,
+        "totalTokens": 4956
+      },
+      {
+        "completionTokens": 0,
+        "promptTokens": 6615,
+        "totalTokens": 6615
+      }
+    ],
+    "pcram_tool_query_milliseconds": [
+      403,
+      354,
+      381,
+      226
+    ],
+    "cloud_memory_peak": "NOT_EXPOSED; no global resource telemetry collected",
+    "no_new_execution_error": true
+  }
+]

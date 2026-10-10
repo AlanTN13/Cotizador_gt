@@ -1,0 +1,37 @@
+{
+  "case": "watch-toy",
+  "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+  "started_at_utc": "2026-10-10T16:46:38.737506+00:00",
+  "request": {
+    "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+        "descripcion": "smartwatch"
+      },
+      {
+        "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+        "descripcion": "Juguete"
+      }
+    ],
+    "fob_usd": 1250,
+    "cantidad": 200,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 2.5,
+        "largo_cm": 10.5,
+        "ancho_cm": 30.2,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 3.5,
+        "largo_cm": 20.1,
+        "ancho_cm": 40.3,
+        "alto_cm": 50.2
+      }
+    ]
+  },
+  "controlled_submit_count": 1
+}

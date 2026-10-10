@@ -1,0 +1,634 @@
+{
+  "case": "watch-toy",
+  "input": {
+    "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+        "descripcion": "smartwatch"
+      },
+      {
+        "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+        "descripcion": "Juguete"
+      }
+    ],
+    "fob_usd": 1250,
+    "cantidad": 200,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 2.5,
+        "largo_cm": 10.5,
+        "ancho_cm": 30.2,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 3.5,
+        "largo_cm": 20.1,
+        "ancho_cm": 40.3,
+        "alto_cm": 50.2
+      }
+    ]
+  },
+  "published_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "http_duration_seconds": 19.770385041003465,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/executions?workflowId=LO9m0AxSrxRR6JVY&limit=5",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/executions/34455?includeData=true",
+      "http_status": 200
+    }
+  ],
+  "gateway_http_status": 200,
+  "gateway_response": {
+    "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+    "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+    "status": "cotizado",
+    "total_usd": 1146.92,
+    "flete_internacional_usd": 456,
+    "handling_con_iva_usd": 90.75,
+    "impuestos_y_tasas_usd": 600.17,
+    "peso_considerado_kg": 19
+  },
+  "execution_id": "34455",
+  "execution_status": "success",
+  "execution_mode": "webhook",
+  "startedAt": "2026-10-10T16:46:39.554Z",
+  "stoppedAt": "2026-10-10T16:46:58.383Z",
+  "execution_workflow_version": "33ddf539-dca1-471d-93c6-97368215bc47",
+  "execution_node_count": 12,
+  "input_validated": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+            "descripcion": "smartwatch"
+          },
+          {
+            "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+            "descripcion": "Juguete"
+          }
+        ],
+        "fob_usd": 1250,
+        "cantidad": 200,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 2.5,
+            "largo_cm": 10.5,
+            "ancho_cm": 30.2,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 3.5,
+            "largo_cm": 20.1,
+            "ancho_cm": 40.3,
+            "alto_cm": 50.2
+          }
+        ]
+      },
+      "siguiente": "agente"
+    }
+  ],
+  "agent_input": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+            "descripcion": "smartwatch"
+          },
+          {
+            "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+            "descripcion": "Juguete"
+          }
+        ],
+        "fob_usd": 1250,
+        "cantidad": 200,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 2.5,
+            "largo_cm": 10.5,
+            "ancho_cm": 30.2,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 3.5,
+            "largo_cm": 20.1,
+            "ancho_cm": 40.3,
+            "alto_cm": 50.2
+          }
+        ]
+      },
+      "siguiente": "agente",
+      "agent_input": "{\"productos\":[{\"indice\":1,\"link\":\"https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624\",\"descripcion\":\"smartwatch\"},{\"indice\":2,\"link\":\"https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1\",\"descripcion\":\"Juguete\"}]}"
+    }
+  ],
+  "agent_output": [
+    {
+      "output": {
+        "productos": [
+          {
+            "indice": 1,
+            "producto": "smartwatch",
+            "clasificacion": "8517",
+            "SIM": null,
+            "DIE": 16,
+            "evidencia": [
+              {
+                "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M",
+                "detalle": "Resultados del nomenclador (consulta prefijo 8517) muestran NCM 85171100 y SIM relacionadas con aparatos de emisión/transmisión de voz/imagen/datos; pero las SIM requieren atributos celulares no confirmados en la ficha."
+              }
+            ],
+            "fundamento": "Clasificación sustentada al nivel HS4 (8517) por coincidencia en el nomenclador con aparatos de transmisión/recepción; falta confirmación de capacidad celular/tecnología específica para elegir NCM8 o SIM, por eso SIM=null y DIE estimado 16%."
+          },
+          {
+            "indice": 2,
+            "producto": "Juguete",
+            "clasificacion": "95030010",
+            "SIM": null,
+            "DIE": 14,
+            "evidencia": [
+              {
+                "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E",
+                "detalle": "Resultados del nomenclador (prefijo 9503) incluyen NCM 95030010 para ‘los demás juguetes’, compatible con juguetes tipo bloques/maze descritos en la ficha."
+              }
+            ],
+            "fundamento": "NCM8 95030010 devuelto por el nomenclador y coherente con ‘juguetes; rompecabezas’; atributos del producto encajan suficiente para NCM8; DIE estimado 14%."
+          }
+        ]
+      },
+      "intermediateSteps": [
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 1,
+              "prefijo": "",
+              "texto": "smartwatch reloj",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_UNstvIMGGss8c5XexSISFDrI",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"NO_MATCH\\\",\\\"query\\\":{\\\"indice\\\":1,\\\"prefijo\\\":\\\"\\\",\\\"texto\\\":\\\"smartwatch reloj\\\",\\\"limite\\\":4},\\\"matched_count\\\":0,\\\"returned_count\\\":0,\\\"partial\\\":false,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[]}\"}]"
+        },
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 1,
+              "prefijo": "8517",
+              "texto": "",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_wHzizKtN7dgKULTsJ3a92kOU",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"OK\\\",\\\"query\\\":{\\\"indice\\\":1,\\\"prefijo\\\":\\\"8517\\\",\\\"texto\\\":\\\"\\\",\\\"limite\\\":4},\\\"matched_count\\\":62,\\\"returned_count\\\":4,\\\"partial\\\":true,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[{\\\"ncm\\\":\\\"85171100\\\",\\\"sim\\\":\\\"85171100110M\\\",\\\"sim_description\\\":\\\"De frecuencia superior o igual a 1880 MHz pero inferior o igual a 1900 MHz. Combinados con otros aparatos. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulare\\\",\\\"ncm_context\\\":\\\"- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M\\\"},{\\\"ncm\\\":\\\"85171100\\\",\\\"sim\\\":\\\"85171100190N\\\",\\\"sim_description\\\":\\\"Los demás. Combinados con otros aparatos. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos lo\\\",\\\"ncm_context\\\":\\\"- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100190N\\\"},{\\\"ncm\\\":\\\"85171100\\\",\\\"sim\\\":\\\"85171100910F\\\",\\\"sim_description\\\":\\\"De frecuencia superior o igual a 1880 MHz pero inferior o igual a 1900 MHz. Los demás. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los d\\\",\\\"ncm_context\\\":\\\"- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100910F\\\"},{\\\"ncm\\\":\\\"85171100\\\",\\\"sim\\\":\\\"85171100990G\\\",\\\"sim_description\\\":\\\"Los demás. Los demás. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos intelige\\\",\\\"ncm_context\\\":\\\"- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100990G\\\"}]}\"}]"
+        },
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 2,
+              "prefijo": "",
+              "texto": "juguete bloques",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_uEjCROataqC3UyrCxviTsuri",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"NO_MATCH\\\",\\\"query\\\":{\\\"indice\\\":2,\\\"prefijo\\\":\\\"\\\",\\\"texto\\\":\\\"juguete bloques\\\",\\\"limite\\\":4},\\\"matched_count\\\":0,\\\"returned_count\\\":0,\\\"partial\\\":false,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[]}\"}]"
+        },
+        {
+          "action": {
+            "tool": "Consulta_nomenclador_PCRAM",
+            "toolInput": {
+              "indice": 2,
+              "prefijo": "9503",
+              "texto": "",
+              "limite": 4
+            },
+            "log": "Calling Consulta_nomenclador_PCRAM",
+            "toolCallId": "call_GJP6equePFTMxuRiCGW1P70w",
+            "type": "tool_call"
+          },
+          "observation": "[{\"response\":\"{\\\"source\\\":{\\\"fields\\\":{\\\"ncm\\\":[1,10],\\\"ncm_context\\\":[15,1538],\\\"sim\\\":[11,14],\\\"sim_description\\\":[1539,1792],\\\"updated_at\\\":[2089,2094]},\\\"importer_version\\\":\\\"pcram-ncm-fixed-2134-v1\\\",\\\"limitations\\\":[\\\"Context is concatenated source text, not structured legal notes or independently coded ancestor headings.\\\",\\\"Descriptions may be truncated; do not complete them or assume absent attributes.\\\",\\\"Code existence does not establish compatibility with the product.\\\",\\\"Tax Resolver keeps its own frozen source and precedences; this index supplies no rates.\\\"],\\\"ncm_count\\\":10504,\\\"ncm_sha256\\\":\\\"feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f\\\",\\\"purpose\\\":\\\"CLASSIFICATION_ONLY; no rates; no legal notes\\\",\\\"record_count\\\":33038,\\\"schema\\\":\\\"pcram-nomenclator-fixed-2134-v1\\\",\\\"source\\\":\\\"https://web.pcram.net/downloads/transf.zip\\\",\\\"source_matches_tax_snapshot\\\":false,\\\"structure_source\\\":\\\"https://www.pcram.net/downloads/estructura.html\\\",\\\"tax_snapshot_sha256\\\":\\\"fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb\\\",\\\"zip_sha256\\\":\\\"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c\\\"},\\\"status\\\":\\\"OK\\\",\\\"query\\\":{\\\"indice\\\":2,\\\"prefijo\\\":\\\"9503\\\",\\\"texto\\\":\\\"\\\",\\\"limite\\\":4},\\\"matched_count\\\":481,\\\"returned_count\\\":4,\\\"partial\\\":true,\\\"coverage\\\":\\\"Only matches of this query; no inference of tax homogeneity or product compatibility\\\",\\\"results\\\":[{\\\"ncm\\\":\\\"95030010\\\",\\\"sim\\\":\\\"95030010111M\\\",\\\"sim_description\\\":\\\"Diseñados para ser impulsados por los pies de los ni?os en el piso. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de\\\",\\\"ncm_context\\\":\\\"Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010111M\\\"},{\\\"ncm\\\":\\\"95030010\\\",\\\"sim\\\":\\\"95030010112P\\\",\\\"sim_description\\\":\\\"A pedal. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas\\\",\\\"ncm_context\\\":\\\"Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":false,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010112P\\\"},{\\\"ncm\\\":\\\"95030010\\\",\\\"sim\\\":\\\"95030010113R\\\",\\\"sim_description\\\":\\\"Con motor electrico. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y silla\\\",\\\"ncm_context\\\":\\\"Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010113R\\\"},{\\\"ncm\\\":\\\"95030010\\\",\\\"sim\\\":\\\"95030010119E\\\",\\\"sim_description\\\":\\\"Los demás. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de rueda\\\",\\\"ncm_context\\\":\\\"Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.\\\",\\\"updated_at\\\":\\\"2026-10-01\\\",\\\"description_limits\\\":{\\\"sim_field_full\\\":true,\\\"ncm_field_full\\\":false,\\\"completeness_not_guaranteed\\\":true},\\\"source_uri\\\":\\\"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E\\\"}]}\"}]"
+        }
+      ]
+    }
+  ],
+  "validator_output": [
+    {
+      "solicitud": {
+        "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+        "productos": [
+          {
+            "link": "https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624",
+            "descripcion": "smartwatch"
+          },
+          {
+            "link": "https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1",
+            "descripcion": "Juguete"
+          }
+        ],
+        "fob_usd": 1250,
+        "cantidad": 200,
+        "bultos": [
+          {
+            "cantidad": 1,
+            "peso_kg": 2.5,
+            "largo_cm": 10.5,
+            "ancho_cm": 30.2,
+            "alto_cm": 40
+          },
+          {
+            "cantidad": 2,
+            "peso_kg": 3.5,
+            "largo_cm": 20.1,
+            "ancho_cm": 40.3,
+            "alto_cm": 50.2
+          }
+        ]
+      },
+      "siguiente": "cotizar",
+      "productos": [
+        {
+          "indice": 1,
+          "producto": "smartwatch",
+          "clasificacion": "8517",
+          "SIM": null,
+          "DIE": 16,
+          "evidencia": [
+            {
+              "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M",
+              "detalle": "Resultados del nomenclador (consulta prefijo 8517) muestran NCM 85171100 y SIM relacionadas con aparatos de emisión/transmisión de voz/imagen/datos; pero las SIM requieren atributos celulares no confirmados en la ficha."
+            }
+          ],
+          "fundamento": "Clasificación sustentada al nivel HS4 (8517) por coincidencia en el nomenclador con aparatos de transmisión/recepción; falta confirmación de capacidad celular/tecnología específica para elegir NCM8 o SIM, por eso SIM=null y DIE estimado 16%."
+        },
+        {
+          "indice": 2,
+          "producto": "Juguete",
+          "clasificacion": "95030010",
+          "SIM": null,
+          "DIE": 14,
+          "evidencia": [
+            {
+              "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E",
+              "detalle": "Resultados del nomenclador (prefijo 9503) incluyen NCM 95030010 para ‘los demás juguetes’, compatible con juguetes tipo bloques/maze descritos en la ficha."
+            }
+          ],
+          "fundamento": "NCM8 95030010 devuelto por el nomenclador y coherente con ‘juguetes; rompecabezas’; atributos del producto encajan suficiente para NCM8; DIE estimado 14%."
+        }
+      ]
+    }
+  ],
+  "calculator_output": [
+    {
+      "respuesta": {
+        "solicitud_id": "er12-watch-toy-5eff7d0a04f245299115c8c2f090999c",
+        "status": "cotizado",
+        "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+        "total_usd": 1146.92,
+        "flete_internacional_usd": 456,
+        "handling_con_iva_usd": 90.75,
+        "impuestos_y_tasas_usd": 600.17,
+        "peso_considerado_kg": 19,
+        "auditoria": {
+          "productos": [
+            {
+              "indice": 1,
+              "producto": "smartwatch",
+              "clasificacion": "8517",
+              "SIM": null,
+              "DIE": 16,
+              "evidencia": [
+                {
+                  "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M",
+                  "detalle": "Resultados del nomenclador (consulta prefijo 8517) muestran NCM 85171100 y SIM relacionadas con aparatos de emisión/transmisión de voz/imagen/datos; pero las SIM requieren atributos celulares no confirmados en la ficha."
+                }
+              ],
+              "fundamento": "Clasificación sustentada al nivel HS4 (8517) por coincidencia en el nomenclador con aparatos de transmisión/recepción; falta confirmación de capacidad celular/tecnología específica para elegir NCM8 o SIM, por eso SIM=null y DIE estimado 16%."
+            },
+            {
+              "indice": 2,
+              "producto": "Juguete",
+              "clasificacion": "95030010",
+              "SIM": null,
+              "DIE": 14,
+              "evidencia": [
+                {
+                  "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E",
+                  "detalle": "Resultados del nomenclador (prefijo 9503) incluyen NCM 95030010 para ‘los demás juguetes’, compatible con juguetes tipo bloques/maze descritos en la ficha."
+                }
+              ],
+              "fundamento": "NCM8 95030010 devuelto por el nomenclador y coherente con ‘juguetes; rompecabezas’; atributos del producto encajan suficiente para NCM8; DIE estimado 14%."
+            }
+          ],
+          "taxResolutions": [
+            {
+              "productIndex": 0,
+              "status": "ESTIMADO",
+              "requestedPosition": null,
+              "ncm": null,
+              "sim": null,
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "rates": {
+                "duty": 0.16,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "reasons": [],
+              "warnings": [
+                "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+                "AGENT_DUTY_ESTIMATE",
+                "GENERAL_TE_ESTIMATE",
+                "GENERAL_VAT_ESTIMATE"
+              ],
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": [
+                  {
+                    "tax": "duty",
+                    "method": "AGENT_ESTIMATE",
+                    "source": "n8n-agent-contract-2026-09-15:product-1",
+                    "basis": "Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot."
+                  },
+                  {
+                    "tax": "statistical",
+                    "method": "GENERAL_RULE",
+                    "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm",
+                    "basis": "Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico."
+                  },
+                  {
+                    "tax": "vat",
+                    "method": "GENERAL_RULE",
+                    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+                  }
+                ]
+              },
+              "dutyEvidence": null,
+              "vatEvidence": null,
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 1,
+                "producto": "smartwatch",
+                "clasificacion": "8517",
+                "SIM": null,
+                "DIE": 16,
+                "fundamento": "Clasificación sustentada al nivel HS4 (8517) por coincidencia en el nomenclador con aparatos de transmisión/recepción; falta confirmación de capacidad celular/tecnología específica para elegir NCM8 o SIM, por eso SIM=null y DIE estimado 16%.",
+                "evidencia": [
+                  {
+                    "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M",
+                    "detalle": "Resultados del nomenclador (consulta prefijo 8517) muestran NCM 85171100 y SIM relacionadas con aparatos de emisión/transmisión de voz/imagen/datos; pero las SIM requieren atributos celulares no confirmados en la ficha."
+                  }
+                ]
+              }
+            },
+            {
+              "productIndex": 1,
+              "status": "ESTIMADO",
+              "requestedPosition": "95030010",
+              "ncm": "95030010",
+              "sim": null,
+              "resolverVersion": "tax-resolver-1.1.0",
+              "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+              "excludedConcepts": [
+                "IVA_ADICIONAL_PERCEPCION",
+                "GANANCIAS",
+                "IMPUESTOS_INTERNOS"
+              ],
+              "rates": {
+                "duty": 0.2,
+                "statistical": 0.03,
+                "vat": 0.21
+              },
+              "dutyEvidence": {
+                "version": "pcram-die-te-fd04e2344db6-v1",
+                "source": {
+                  "id": "pcram-transfer",
+                  "document": "data/pcram-die-te/fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb.json",
+                  "sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+                  "capturedAt": "2026-09-30T14:42:53.148482Z",
+                  "reviewAfter": "2026-10-30T14:42:53.148482Z",
+                  "effectiveDate": null,
+                  "note": "ZIP PCRAM versionado; fecha por SIM es actualización del registro, no vigencia legal. Sólo DIE/TE; IVA permanece en la fuente existente."
+                },
+                "matchedSimCount": 66,
+                "rows": [
+                  {
+                    "sim": "95030010111M"
+                  },
+                  {
+                    "sim": "95030010112P"
+                  },
+                  {
+                    "sim": "95030010113R"
+                  },
+                  {
+                    "sim": "95030010119E"
+                  },
+                  {
+                    "sim": "95030010121Q"
+                  },
+                  {
+                    "sim": "95030010122T"
+                  },
+                  {
+                    "sim": "95030010123V"
+                  },
+                  {
+                    "sim": "95030010129H"
+                  },
+                  {
+                    "sim": "95030010131U"
+                  },
+                  {
+                    "sim": "95030010132W"
+                  }
+                ]
+              },
+              "vatEvidence": null,
+              "reasons": [],
+              "warnings": [
+                "GENERAL_VAT_ESTIMATE"
+              ],
+              "estimation": {
+                "policyVersion": "referential-estimation-2026-09-22-v1",
+                "components": [
+                  {
+                    "tax": "vat",
+                    "method": "GENERAL_RULE",
+                    "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+                    "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+                  }
+                ]
+              },
+              "agentEvidence": {
+                "version": "n8n-agent-contract-2026-09-15",
+                "index": 2,
+                "producto": "Juguete",
+                "clasificacion": "95030010",
+                "SIM": null,
+                "DIE": 14,
+                "fundamento": "NCM8 95030010 devuelto por el nomenclador y coherente con ‘juguetes; rompecabezas’; atributos del producto encajan suficiente para NCM8; DIE estimado 14%.",
+                "evidencia": [
+                  {
+                    "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E",
+                    "detalle": "Resultados del nomenclador (prefijo 9503) incluyen NCM 95030010 para ‘los demás juguetes’, compatible con juguetes tipo bloques/maze descritos en la ficha."
+                  }
+                ]
+              }
+            }
+          ],
+          "tributos_por_producto": [
+            {
+              "indice": 1,
+              "cif_usd": 638.93,
+              "derechos_usd": 102.23,
+              "tasa_estadistica_usd": 19.17,
+              "iva_usd": 159.67
+            },
+            {
+              "indice": 2,
+              "cif_usd": 638.93,
+              "derechos_usd": 127.79,
+              "tasa_estadistica_usd": 19.17,
+              "iva_usd": 165.03
+            }
+          ],
+          "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+          "advertencias": [
+            "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+            "AGENT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ],
+          "DIE_promedio": 18,
+          "peso_real_total_kg": 9.5,
+          "peso_volumetrico_total_kg": 18.8022024,
+          "tarifa_usd_kg": 24,
+          "cif_usd": 1277.85,
+          "derechos_usd": 230.01,
+          "tasa_estadistica_usd": 38.34,
+          "iva_usd": 324.7,
+          "debitos_creditos_usd": 7.12,
+          "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+        }
+      }
+    }
+  ],
+  "error": null,
+  "node_timing": [
+    {
+      "name": "Formulario - POST",
+      "executionTime": [
+        1
+      ]
+    },
+    {
+      "name": "Validar formulario",
+      "executionTime": [
+        1793
+      ]
+    },
+    {
+      "name": "Entrada completa",
+      "executionTime": [
+        5
+      ]
+    },
+    {
+      "name": "Preparar agente",
+      "executionTime": [
+        83
+      ]
+    },
+    {
+      "name": "OpenAI Chat Model",
+      "executionTime": [
+        1702,
+        1207,
+        1492,
+        1079,
+        9029
+      ]
+    },
+    {
+      "name": "Consulta_nomenclador_PCRAM",
+      "executionTime": [
+        403,
+        354,
+        381,
+        226
+      ]
+    },
+    {
+      "name": "Salida estructurada",
+      "executionTime": [
+        1
+      ]
+    },
+    {
+      "name": "Agente Despachante",
+      "executionTime": [
+        9075
+      ]
+    },
+    {
+      "name": "Validar salida del agente",
+      "executionTime": [
+        109
+      ]
+    },
+    {
+      "name": "Clasificado y apto",
+      "executionTime": [
+        2
+      ]
+    },
+    {
+      "name": "Cotizador deterministico",
+      "executionTime": [
+        706
+      ]
+    },
+    {
+      "name": "Responder a la landing",
+      "executionTime": [
+        7
+      ]
+    }
+  ],
+  "status": "TRACE_CAPTURED_PENDING_ACCEPTANCE"
+}
