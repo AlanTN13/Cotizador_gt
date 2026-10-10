@@ -1,0 +1,47 @@
+{
+  "extraction": "Actual validator output UI fields; no branch instrumentation",
+  "solicitud": {
+    "solicitud_id": "1925a88b-dbb9-41d5-baad-f1e660ad4446",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+        "descripcion": "camiseta de running"
+      }
+    ],
+    "fob_usd": 500,
+    "cantidad": 1,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 10,
+        "largo_cm": 20,
+        "ancho_cm": 30,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 5,
+        "largo_cm": 30,
+        "ancho_cm": 40,
+        "alto_cm": 50
+      }
+    ]
+  },
+  "siguiente": "cotizar",
+  "productos": [
+    {
+      "indice": 1,
+      "producto": "camiseta de running",
+      "clasificacion": "6109",
+      "SIM": null,
+      "DIE": 16,
+      "evidencia": [
+        {
+          "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+          "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+        }
+      ],
+      "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas."
+    }
+  ]
+}

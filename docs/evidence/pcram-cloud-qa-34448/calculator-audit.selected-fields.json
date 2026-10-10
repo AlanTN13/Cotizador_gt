@@ -1,0 +1,74 @@
+{
+  "extraction": "Actual displayed calculator audit selected fields, transcribed; no calculation executed",
+  "taxResolver": {
+    "status": "ESTIMADO",
+    "requestedPosition": null,
+    "ncm": null,
+    "sim": null,
+    "resolverVersion": "tax-resolver-1.1.0",
+    "rates": {
+      "duty": 0.16,
+      "statistical": 0.03,
+      "vat": 0.21
+    },
+    "dutyEvidence": null,
+    "vatEvidence": null,
+    "agentEvidence": {
+      "version": "n8n-agent-contract-2026-09-15",
+      "producto": "camiseta de running",
+      "clasificacion": "6109",
+      "SIM": null,
+      "DIE": 16,
+      "evidencia": [
+        {
+          "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+          "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+        }
+      ],
+      "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas.",
+      "index": 1
+    },
+    "warnings": [
+      "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+      "AGENT_DUTY_ESTIMATE",
+      "GENERAL_TE_ESTIMATE",
+      "GENERAL_VAT_ESTIMATE"
+    ],
+    "estimation": {
+      "policyVersion": "referential-estimation-2026-09-22-v1",
+      "components": [
+        {
+          "tax": "duty",
+          "method": "AGENT_ESTIMATE",
+          "source": "n8n-agent-contract-2026-09-15:product-1",
+          "basis": "Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot."
+        },
+        {
+          "tax": "statistical",
+          "method": "GENERAL_RULE",
+          "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm"
+        },
+        {
+          "tax": "vat",
+          "method": "GENERAL_RULE",
+          "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion"
+        }
+      ]
+    }
+  },
+  "quote": {
+    "totalUSD": 906,
+    "applicableWeightKG": 29,
+    "realWeightKG": 20,
+    "volumetricWeightKG": 28.8,
+    "tariffUSDperKG": 20,
+    "internationalFreightUSD": 580,
+    "handlingWithVATUSD": 90.75,
+    "CIFUSD": 528.43,
+    "dutyUSD": 84.55,
+    "statisticalUSD": 15.85,
+    "vatUSD": 132.06,
+    "debitsCreditsUSD": 2.79,
+    "taxesAndFeesUSD": 235.25
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "extraction": "Selected actual fields decoded from displayed Agent intermediateSteps.observation [{response:JSON_string}]; no local search replay",
+  "observations": [
+    {
+      "status": "NO_MATCH",
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "camiseta de running",
+        "limite": 4
+      },
+      "normalization": {
+        "ignored_terms": [
+          "de"
+        ],
+        "terms": [
+          "camiseta",
+          "running"
+        ]
+      },
+      "matched_count": 0,
+      "returned_count": 0,
+      "partial": false,
+      "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+      "results": []
+    },
+    {
+      "status": "OK",
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 4
+      },
+      "matched_count": 10,
+      "returned_count": 4,
+      "partial": true,
+      "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+      "results": [
+        {
+          "ncm": "61091000",
+          "sim": "61091000110Y",
+          "sim_description": "De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000190Z",
+          "sim_description": "Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000210D",
+          "sim_description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000210D"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000290E",
+          "sim_description": "Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000290E"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "extraction": "Verbatim product fields transcribed from actual agent output UI; not raw execution API export",
+  "output": {
+    "productos": [
+      {
+        "indice": 1,
+        "producto": "camiseta de running",
+        "clasificacion": "6109",
+        "SIM": null,
+        "DIE": 16,
+        "evidencia": [
+          {
+            "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+            "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+          }
+        ],
+        "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas."
+      }
+    ]
+  }
+}

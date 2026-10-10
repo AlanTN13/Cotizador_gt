@@ -1,0 +1,259 @@
+{
+  "status": "READONLY_DIAGNOSIS_COMPLETE",
+  "contextRevision": "a042d41",
+  "executionId": 34448,
+  "workflowId": "LO9m0AxSrxRR6JVY",
+  "executionURL": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34448",
+  "versionId": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "versionEvidence": "Execution Autosave link /workflow/LO9m0AxSrxRR6JVY/history/daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "startedAtArgentina": "2026-10-10T10:02:16-03:00",
+  "durationMs": 14260,
+  "access": "Authenticated existing Chrome session, saved execution UI only; API key unavailable, no key creation",
+  "observedUsage": "~7037 Tokens displayed, not billed usage",
+  "input": {
+    "solicitud_id": "1925a88b-dbb9-41d5-baad-f1e660ad4446",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+        "descripcion": "camiseta de running"
+      }
+    ],
+    "fob_usd": 500,
+    "cantidad": 1,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 10,
+        "largo_cm": 20,
+        "ancho_cm": 30,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 5,
+        "largo_cm": 30,
+        "ancho_cm": 40,
+        "alto_cm": 50
+      }
+    ]
+  },
+  "toolCallCount": 2,
+  "tools": [
+    {
+      "status": "NO_MATCH",
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "camiseta de running",
+        "limite": 4
+      },
+      "normalization": {
+        "ignored_terms": [
+          "de"
+        ],
+        "terms": [
+          "camiseta",
+          "running"
+        ]
+      },
+      "matched_count": 0,
+      "returned_count": 0,
+      "partial": false,
+      "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+      "results": []
+    },
+    {
+      "status": "OK",
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 4
+      },
+      "matched_count": 10,
+      "returned_count": 4,
+      "partial": true,
+      "source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+      "results": [
+        {
+          "ncm": "61091000",
+          "sim": "61091000110Y",
+          "sim_description": "De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000190Z",
+          "sim_description": "Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000210D",
+          "sim_description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000210D"
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000290E",
+          "sim_description": "Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000290E"
+        }
+      ]
+    }
+  ],
+  "agent": {
+    "indice": 1,
+    "producto": "camiseta de running",
+    "clasificacion": "6109",
+    "SIM": null,
+    "DIE": 16,
+    "evidencia": [
+      {
+        "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+        "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+      }
+    ],
+    "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas."
+  },
+  "validator": {
+    "clasificacion": "6109",
+    "SIM": null,
+    "DIE": 16,
+    "siguiente": "cotizar",
+    "discardedFullPosition": false
+  },
+  "taxResolver": {
+    "status": "ESTIMADO",
+    "requestedPosition": null,
+    "ncm": null,
+    "sim": null,
+    "resolverVersion": "tax-resolver-1.1.0",
+    "rates": {
+      "duty": 0.16,
+      "statistical": 0.03,
+      "vat": 0.21
+    },
+    "dutyEvidence": null,
+    "vatEvidence": null,
+    "agentEvidence": {
+      "version": "n8n-agent-contract-2026-09-15",
+      "producto": "camiseta de running",
+      "clasificacion": "6109",
+      "SIM": null,
+      "DIE": 16,
+      "evidencia": [
+        {
+          "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+          "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+        }
+      ],
+      "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas.",
+      "index": 1
+    },
+    "warnings": [
+      "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+      "AGENT_DUTY_ESTIMATE",
+      "GENERAL_TE_ESTIMATE",
+      "GENERAL_VAT_ESTIMATE"
+    ],
+    "estimation": {
+      "policyVersion": "referential-estimation-2026-09-22-v1",
+      "components": [
+        {
+          "tax": "duty",
+          "method": "AGENT_ESTIMATE",
+          "source": "n8n-agent-contract-2026-09-15:product-1",
+          "basis": "Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot."
+        },
+        {
+          "tax": "statistical",
+          "method": "GENERAL_RULE",
+          "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm"
+        },
+        {
+          "tax": "vat",
+          "method": "GENERAL_RULE",
+          "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion"
+        }
+      ]
+    }
+  },
+  "quote": {
+    "totalUSD": 906,
+    "applicableWeightKG": 29,
+    "realWeightKG": 20,
+    "volumetricWeightKG": 28.8,
+    "tariffUSDperKG": 20,
+    "internationalFreightUSD": 580,
+    "handlingWithVATUSD": 90.75,
+    "CIFUSD": 528.43,
+    "dutyUSD": 84.55,
+    "statisticalUSD": 15.85,
+    "vatUSD": 132.06,
+    "debitsCreditsUSD": 2.79,
+    "taxesAndFeesUSD": 235.25
+  },
+  "comparison": {
+    "previousExecution": 34404,
+    "previousVersion": "fa8ca4c7-a870-40b3-b3db-d79b37906f45",
+    "previousToolCalls": 1,
+    "previousToolStatus": "NO_MATCH",
+    "previousCandidates": 0,
+    "previousAgentDIE": 20,
+    "previousTaxDutyMethod": "AGENT_ESTIMATE",
+    "previousSIM": null,
+    "previousTotalUSD": 931.88,
+    "dutyDecreaseUSD": 21.14,
+    "vatDecreaseUSD": 4.43,
+    "debitsCreditsDecreaseUSD": 0.31,
+    "totalDecreaseUSD": 25.88,
+    "sameLogisticsAndCIF": true
+  },
+  "conclusion": "RETRY_EXECUTED_AND_RECOVERED_CANDIDATES; PARTIAL_CLASSIFICATION_PRESERVED; DIE16_AGENT_ESTIMATE_NOT_PCRAM_RATE",
+  "limits": [
+    "Returned4 of10, partial=true; do not infer all family candidates require cotton.",
+    "The nomenclator tool supplies no taxes; its pcram URI is classification evidence, not duty evidence.",
+    "Exact internal rationale for choosing16 instead of20 is not observable beyond the agent stated generic estimate; no additional replay or causal isolation.",
+    "No product composition verified in inspected input; no claim Alibaba was accessed or product is cotton/polyester.",
+    "No full position was output or discarded; presence of candidates alone does not certify classification."
+  ],
+  "minimumRecommendation": "Obtener composición textil verificable antes de exigir una apertura NCM/SIM y tasa específica; mantener estimación explícita y no fijar20% por coincidencia con Excel.",
+  "actions": {
+    "newQuotes": 0,
+    "modelCalls": 0,
+    "workflowMutations": 0,
+    "publications": 0,
+    "codeChanges": 0,
+    "indexDownloads": 0,
+    "localTests": 0
+  }
+}
