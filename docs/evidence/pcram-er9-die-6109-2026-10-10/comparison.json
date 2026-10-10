@@ -1,0 +1,188 @@
+{
+  "er": "AlanTN13/Cotizador_gt#9",
+  "recorded_at": "2026-10-10T13:35:06.286825+00:00",
+  "mode": "LOCAL_READ_ONLY",
+  "conclusion": "DIE_UNIFORME_VERIFICADO",
+  "tax_source": {
+    "version": "pcram-die-te-fd04e2344db6-v1",
+    "id": "pcram-transfer",
+    "document": "data/pcram-die-te/fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb.json",
+    "sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+    "capturedAt": "2026-09-30T14:42:53.148482Z",
+    "reviewAfter": "2026-10-30T14:42:53.148482Z",
+    "effectiveDate": null,
+    "note": "ZIP PCRAM versionado; fecha por SIM es actualización del registro, no vigencia legal. Sólo DIE/TE; IVA permanece en la fuente existente.",
+    "global_rows": 33030,
+    "actual_global_rows": 33030,
+    "snapshot_json_sha256": "f3673bbdb74afd15a53dadf1c340a581b85d58599cba1fc6c68ae979c496c9f1",
+    "embedded_dataset_canonical_sha256": "44125dcbd1431f05af39240f6fbe2dc8f086eb617dd0281b01e894508f4f01d3"
+  },
+  "saved_published_workflow": {
+    "artifact": "docs/evidence/pcram-agent-retry-prepared-2026-10-09/publication-api-2026-10-10/published.api-export.json",
+    "artifact_sha256": "5c18724fcd0cf3102758e4fc1b8debf3deb1f5f43e7a0575a5e96a53363925e1",
+    "version_id": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+    "active": true,
+    "node_count": 12,
+    "calculator_js_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "scope": "Saved verified publication export; no new Cloud/live read performed."
+  },
+  "classification_index": {
+    "artifact": "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json",
+    "artifact_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+    "source_zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+    "source_ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+    "schema": "pcram-nomenclator-fixed-2134-v1",
+    "format": "pcram-query-prefix-word-deflate-v3",
+    "source_matches_tax_snapshot": false,
+    "shard": "6109",
+    "decoded_shards": 1,
+    "shard_checksum_valid": true
+  },
+  "coverage": {
+    "tax_6109": 10,
+    "classification_6109": 10,
+    "intersection": 10,
+    "missing_tax": [],
+    "missing_classification": [],
+    "invalid_die": []
+  },
+  "distinct_die_pct": [
+    20.0
+  ],
+  "die_16_present": false,
+  "die_20_present": true,
+  "controls": {
+    "local_tax_equals_embedded": true,
+    "all_die_equals_original_die_extrazona_field": true,
+    "all_source_record_dates_match": true,
+    "all_10_codes_covered": true
+  },
+  "limits": [
+    "Snapshot record update dates do not establish legal effectiveness; effectiveDate is null.",
+    "Classification and tax snapshots are different captures. Family 6109 code coverage coincides, not proof of whole-catalog equivalence.",
+    "Uniformity verified only for all 10 existing positions in these frozen sources; no current online legal verification.",
+    "No product SIM assigned; missing garment composition remains unresolved. Prior QA DIE16 and DIE20 were AGENT_ESTIMATE, not source-backed lookups.",
+    "No HS4 fallback authorized or implemented."
+  ],
+  "operations": {
+    "cloud_reads": 0,
+    "quotes": 0,
+    "ai_calls": 0,
+    "downloads": 0,
+    "test_suite_runs": 0,
+    "production_mutations": 0,
+    "runtime_or_dataset_changes": 0
+  },
+  "rows": [
+    {
+      "sim": "61091000110Y",
+      "description": "De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61091000190Z",
+      "description": "Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61091000210D",
+      "description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61091000290E",
+      "description": "Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000111N",
+      "description": "De talle superior al 16 o sus equivalentes. De fibras sinteticas o artificiales. «T-shirts». - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000119F",
+      "description": "Las demás. De fibras sinteticas o artificiales. «T-shirts». - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000191P",
+      "description": "De talle superior al 16 o sus equivalentes. De las demás materias textiles. «T-shirts». - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000199G",
+      "description": "Las demás. De las demás materias textiles. «T-shirts». - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000210R",
+      "description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-08-07",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    },
+    {
+      "sim": "61099000290T",
+      "description": "Las demás. Camisetas interiores. - De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+      "die_pct": 20.0,
+      "tax_updated_at": "2026-04-13",
+      "classification_updated_at": "2026-10-01",
+      "tax_source_id": "pcram-transfer",
+      "tax_version": "pcram-die-te-fd04e2344db6-v1",
+      "original_field": "die_extrazona_pct",
+      "raw_die_pct": 20.0
+    }
+  ]
+}
