@@ -1,0 +1,18 @@
+{
+  "README.md": "4b96c2af95df86493cacab9d726b1b8c78fb7e7e967e801e98d89db785ed481f",
+  "apply.patch.json": "91485a29bf61d3c6f3b48f1670e060755be4c5b40f73fe373622572ac6321532",
+  "baseline-calculation.offline.json": "a933d375524b8b471e311b1ab7eb3640bf48b8d010f69d6a6c37fe541994eafc",
+  "calculator.after.js": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+  "calculator.before.js": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+  "calculator.diff": "8c996d747a93f74d07efa981429eae0d211d039580a164fbe64adc6cb79d392a",
+  "candidate-calculation.offline.json": "11884256ddf5c5775d75bd5173bfd81d6a77b33ed9c80299eabc078112fc2239",
+  "manifest.json": "ca3110f0e239b26a5a301acd870b04a6aea8766e5fe91025228f5f02f0f5c768",
+  "measure.local.mjs": "1b7d6a0239bfb97d7cf667dcd90a112acd8bdd5b40770241441697e95305bfe0",
+  "prepare.log": "ca3110f0e239b26a5a301acd870b04a6aea8766e5fe91025228f5f02f0f5c768",
+  "receipt.json": "70d4aa54a29214596d9c9eb3ab25f1a61ea471422969de0012eb67e6068a8578",
+  "resources.local.json": "a0680688498b2bcb65aa998110f9a1501d7f3951d8372d4842b23c61e8f4d5ce",
+  "rollback.patch.json": "2135f34ab5717179a44314137199ffe3407a09383a3458d165d4f1dacf1b3741",
+  "source.diff": "ca3eb3c3b727a2e2acee4767f7f0202fae0665bf63a51fd62da1537a89388c29",
+  "tests.tap": "5fec8086ccf164333ed5b1c24675340654e672e5126cafbec9cc9a8cf29fcd5b",
+  "tool-replay.offline.json": "427361dd1202ba89042129fa1e2af6bcd25b8e23c783e3691cc57b3994161d02"
+}

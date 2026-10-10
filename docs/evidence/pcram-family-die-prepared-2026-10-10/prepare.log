@@ -1,0 +1,37 @@
+{
+  "baselinePath": "docs/evidence/pcram-agent-retry-prepared-2026-10-09/publication-api-2026-10-10/published.api-export.json",
+  "indexPath": "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json",
+  "baselineVersion": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "nodeCount": 12,
+  "baselineArtifactSha256": "5c18724fcd0cf3102758e4fc1b8debf3deb1f5f43e7a0575a5e96a53363925e1",
+  "indexArtifactSha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+  "beforeSha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+  "afterSha256": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+  "beforeBytes": 2467098,
+  "afterBytes": 3478959,
+  "proofBytes": 1004392,
+  "eligibleCoveragePrefixes": 6828,
+  "rejectedCoveragePrefixes": [
+    "2306",
+    "230690",
+    "2933",
+    "293339",
+    "3907",
+    "390799",
+    "4403",
+    "440312",
+    "4811",
+    "481110",
+    "9503",
+    "950300"
+  ],
+  "control6109": [
+    10,
+    "e28d29af50b35442b9e63e3c24c03254136da4ee6169b454b98336a457069169",
+    "bea8a7b4fe27652417d42fb9b4de23f116543654175e6ae45bb7b99fb30f6b2d"
+  ],
+  "patchFields": [
+    "Cotizador deterministico.parameters.jsCode"
+  ],
+  "published": false
+}

@@ -1,0 +1,57 @@
+{
+  "er": "AlanTN13/Cotizador_gt#10",
+  "state": "CANDIDATO_LOCAL_PREPARADO",
+  "recorded_at": "2026-10-10T14:01:03.266160+00:00",
+  "canonical_context_commit": "6f7e95b3481320436f4a0de43cfaa475cb9bea8e",
+  "baseline_kind": "saved verified publication export; no new Cloud read",
+  "baseline_version": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "candidate_fields": [
+    "Cotizador deterministico.parameters.jsCode"
+  ],
+  "node_count": 12,
+  "tests": {
+    "pass": 17,
+    "fail": 0,
+    "log": "tests.tap",
+    "command": "node --test tests/family-die-estimate.test.mjs",
+    "scope": "Offline literal frozen tool, validator, calculator; not actual agent behavior",
+    "syntax_checks": "node --check: helper, adapter, preparer and test module PASS",
+    "diff_check": "git diff --check PASS"
+  },
+  "hashes": {
+    "calculator_before_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "calculator_candidate_sha256": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+    "index_sha256": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f",
+    "tax_zip_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb"
+  },
+  "acceptance": {
+    "family6109": "10/10 complete set, DIE20 via FAMILY_SNAPSHOT; ESTIMADO; SIM/NCM null; dutyEvidence null; agentEvidence DIE16 intact",
+    "local_34448": "906 -> 931.88; CIF528.43/freight580/handling90.75 unchanged; TE3 IVA21 same",
+    "specific_smartwatch": "exact SIM 85176272900U unchanged rates 0/0/10.5 and full output",
+    "toy": "NCM95030060 unchanged 20/3 and full output",
+    "real_mixed_family1001": "15 positions, mixed DIE0/9/10 -> original fallback",
+    "real_incomplete_family9503": "code-set mismatch between pinned sources -> original fallback",
+    "uniform_other_family1102": "8 positions actual DIE9, not hardcoded20",
+    "negative_controls": "no family; no valid query; malformed/error/ambiguous/wrong-index observations; absent/invalid/stale/incompatible source; missing/swapped SIM; invalid/mixed/altered rates; source drift -> original fallback",
+    "contract": "existing upstream/commercial Zod schemas unchanged and accept output; provenance in existing estimation/warnings strings",
+    "formula_integrity": "calculate body identical except injection of read-only family context into resolveProductTaxes call; embedded existing tax runtime/datasets untouched",
+    "rollback": "only calculator jsCode; exact inverse hashes and reconstruction of saved workflow verified locally"
+  },
+  "limits": [
+    "No product composition, SIM selection or current legal validity certified.",
+    "Coverage certificates are derived count/code-set SHA/tax-row SHA per HS4/HS6; contain no descriptions, codes list or copied rates. They are not a maintained catalog.",
+    "Classification snapshot and tax snapshot differ; only fully concordant family sets qualify.",
+    "Only family estimation is gated at existing source reviewAfter; full-position behavior/maintenance semantics unchanged.",
+    "No live baseline read, Cloud resource verification, model calls or functional acceptance by Alan. Publication requires separate authorization/live preflight.",
+    "Preexisting unrelated modified/untracked files excluded."
+  ],
+  "operations": {
+    "cloud_reads": 0,
+    "commercial_quotes": 0,
+    "model_calls": 0,
+    "pcram_downloads": 0,
+    "production_mutations": 0,
+    "published": false
+  },
+  "stop": "local preparation and tests complete; no publication authorized"
+}

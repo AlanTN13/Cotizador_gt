@@ -1,5 +1,6 @@
 // Adapt existing agent output; the agent, its schema and external contract stay intact.
-export function resolveProductTaxes(product, index, now, resolver, policy) {
+import {estimateFamilyDuty} from './tax-family-estimate.mjs';
+export function resolveProductTaxes(product, index, now, resolver, policy, familyContext) {
   const {resolveTaxes, normalizePosition, TAX_RESOLVER_VERSION, TAX_SCOPE} = resolver;
   const ncm = normalizePosition(typeof product.clasificacion === 'string' ? product.clasificacion : null);
   const sim = normalizePosition(typeof product.SIM === 'string' ? product.SIM : null);
@@ -46,10 +47,11 @@ export function resolveProductTaxes(product, index, now, resolver, policy) {
   if(+now<Date.parse(te.validFrom) || +now>=Date.parse(te.validUntil) || +now<Date.parse(vat.validFrom))
     return review('GENERAL_RULE_OUTSIDE_LEGAL_PERIOD');
   const result=review('');
-  return {...result,status:'ESTIMADO',reasons:[],rates:{duty:product.DIE/100,statistical:te.rate,vat:vat.rate},
-    warnings:['POSITION_INCOMPLETE_AGENT_ESTIMATE','AGENT_DUTY_ESTIMATE','GENERAL_TE_ESTIMATE','GENERAL_VAT_ESTIMATE'],
+  const family=familyContext ? estimateFamilyDuty(hs,product,now,resolver.taxDataset?.duty,familyContext.proof,familyContext.steps) : null;
+  return {...result,status:'ESTIMADO',reasons:[],rates:{duty:family?.rate ?? product.DIE/100,statistical:te.rate,vat:vat.rate},
+    warnings:[family?'POSITION_INCOMPLETE_FAMILY_ESTIMATE':'POSITION_INCOMPLETE_AGENT_ESTIMATE',family?'FAMILY_SNAPSHOT_DUTY_ESTIMATE':'AGENT_DUTY_ESTIMATE','GENERAL_TE_ESTIMATE','GENERAL_VAT_ESTIMATE'],
     estimation:{policyVersion:policy.version,components:[
-      {tax:'duty',method:'AGENT_ESTIMATE',source:`${source.version}:product-${product.indice}`,basis:'Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot.'},
+      {tax:'duty',method:family?'FAMILY_SNAPSHOT':'AGENT_ESTIMATE',source:family?.source ?? `${source.version}:product-${product.indice}`,basis:family?.basis ?? 'Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot.'},
       {tax:'statistical',method:'GENERAL_RULE',source:te.source,basis:te.basis},
       {tax:'vat',method:'GENERAL_RULE',source:vat.source,basis:vat.basis}]}};
 }

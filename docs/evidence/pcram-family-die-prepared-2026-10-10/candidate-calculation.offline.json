@@ -1,0 +1,122 @@
+{
+  "solicitud_id": "1925a88b-dbb9-41d5-baad-f1e660ad4446",
+  "status": "cotizado",
+  "mensaje": "Esta simulación no representa un presupuesto formal y queda sujeta a revisión y aprobación de Global Trip Logistics.",
+  "total_usd": 931.88,
+  "flete_internacional_usd": 580,
+  "handling_con_iva_usd": 90.75,
+  "impuestos_y_tasas_usd": 261.13,
+  "peso_considerado_kg": 29,
+  "auditoria": {
+    "productos": [
+      {
+        "indice": 1,
+        "producto": "camiseta de running",
+        "clasificacion": "6109",
+        "SIM": null,
+        "DIE": 16,
+        "evidencia": [
+          {
+            "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+            "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+          }
+        ],
+        "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas."
+      }
+    ],
+    "taxResolutions": [
+      {
+        "productIndex": 0,
+        "status": "ESTIMADO",
+        "requestedPosition": null,
+        "ncm": null,
+        "sim": null,
+        "resolverVersion": "tax-resolver-1.1.0",
+        "scope": "DIE_TE_IVA_REFERENCIAL_V1",
+        "rates": {
+          "duty": 0.2,
+          "statistical": 0.03,
+          "vat": 0.21
+        },
+        "reasons": [],
+        "warnings": [
+          "POSITION_INCOMPLETE_FAMILY_ESTIMATE",
+          "FAMILY_SNAPSHOT_DUTY_ESTIMATE",
+          "GENERAL_TE_ESTIMATE",
+          "GENERAL_VAT_ESTIMATE"
+        ],
+        "excludedConcepts": [
+          "IVA_ADICIONAL_PERCEPCION",
+          "GANANCIAS",
+          "IMPUESTOS_INTERNOS"
+        ],
+        "estimation": {
+          "policyVersion": "referential-estimation-2026-09-22-v1",
+          "components": [
+            {
+              "tax": "duty",
+              "method": "FAMILY_SNAPSHOT",
+              "source": "pcram-die-te-fd04e2344db6-v1:HS4:6109:taxZIP=fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb:classificationZIP=4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+              "basis": "Estimación DIE por familia HS4 6109: cobertura íntegra 10/10, DIE extrazona uniforme en snapshot; SIM conjunto SHA-256 e28d29af50b35442b9e63e3c24c03254136da4ee6169b454b98336a457069169. No certifica SIM del producto ni vigencia legal. Captura tributaria 2026-09-30T14:42:53.148482Z; índice 2026-10-07."
+            },
+            {
+              "tax": "statistical",
+              "method": "GENERAL_RULE",
+              "source": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/405000-409999/407914/norma.htm",
+              "basis": "Decreto 1140/2024, art. 1: regla general TE 3% hasta 31/12/2027. Excepciones específicas prevalecen; uso sólo estimativo ante falta de tratamiento específico."
+            },
+            {
+              "tax": "vat",
+              "method": "GENERAL_RULE",
+              "source": "https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion",
+              "basis": "Ley de IVA, art. 28, primer párrafo. Alícuota general aplicada como estimación, sin certificar ausencia de excepciones. Las reglas específicas prevalecen. validFrom es fecha de incorporación al catálogo, no inicio de vigencia legal."
+            }
+          ]
+        },
+        "dutyEvidence": null,
+        "vatEvidence": null,
+        "agentEvidence": {
+          "version": "n8n-agent-contract-2026-09-15",
+          "index": 1,
+          "producto": "camiseta de running",
+          "clasificacion": "6109",
+          "SIM": null,
+          "DIE": 16,
+          "fundamento": "Descripción indica una camiseta (prenda de punto) compatible con la partida HS 6109; la consulta al nomenclador confirmó candidaturas bajo NCM 61091000 pero todas las SIM devueltas exigen algodón, y al no conocerse la composición técnica (p. ej. poliéster deportivo) no es posible asignar SIM; DIE estimado 16% como alícuota ordinaria orientativa para prendas de vestir importadas.",
+          "evidencia": [
+            {
+              "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z",
+              "detalle": "Consulta al nomenclador con prefijo 6109 devolvió candidatos SIM bajo NCM 61091000 (camisetas «T-shirts», de punto) actualizados 2026-10-01; las SIM listadas especifican algodón."
+            }
+          ]
+        }
+      }
+    ],
+    "tributos_por_producto": [
+      {
+        "indice": 1,
+        "cif_usd": 528.43,
+        "derechos_usd": 105.69,
+        "tasa_estadistica_usd": 15.85,
+        "iva_usd": 136.49
+      }
+    ],
+    "asignacion_cif": "PARTES_IGUALES_POR_PRODUCTO_FOB_TOTAL_SIN_DESGLOSE",
+    "advertencias": [
+      "POSITION_INCOMPLETE_FAMILY_ESTIMATE",
+      "FAMILY_SNAPSHOT_DUTY_ESTIMATE",
+      "GENERAL_TE_ESTIMATE",
+      "GENERAL_VAT_ESTIMATE"
+    ],
+    "DIE_promedio": 20,
+    "peso_real_total_kg": 20,
+    "peso_volumetrico_total_kg": 28.8,
+    "tarifa_usd_kg": 20,
+    "cif_usd": 528.43,
+    "derechos_usd": 105.69,
+    "tasa_estadistica_usd": 15.85,
+    "iva_usd": 136.49,
+    "debitos_creditos_usd": 3.1,
+    "reglas_version": "globaltrip-tax-resolver-2026-09-22"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "method": "One separate local Node v22.19.0 process per version; single recorded-input calculation, compilation measured separately; not a Cloud memory/latency guarantee. Measurement harness stored with evidence.",
+  "baseline": {
+    "code_bytes": 2467098,
+    "compile_ms": 41.391083,
+    "evaluate_ms": 21.755875,
+    "max_rss_node_kb": 97584,
+    "heap_used_bytes": 18843536,
+    "total_usd": 906
+  },
+  "candidate": {
+    "code_bytes": 3478959,
+    "compile_ms": 48.182833,
+    "evaluate_ms": 42.597584,
+    "max_rss_node_kb": 93456,
+    "heap_used_bytes": 25381640,
+    "total_usd": 931.88
+  },
+  "interpretation": "Candidate adds coverage digests and integrity checks. Single-process RSS readings do not establish a reduction, n8n Pro safety, concurrency or shared resource impact."
+}

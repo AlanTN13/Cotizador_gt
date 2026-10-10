@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: SHA-256 integrity matches native implementation, including multi-block inputs
+ok 1 - SHA-256 integrity matches native implementation, including multi-block inputs
+  ---
+  duration_ms: 49.399083
+  type: 'test'
+  ...
+# Subtest: one calculator field; 12 nodes, all other fields intact; guarded rollback exact
+ok 2 - one calculator field; 12 nodes, all other fields intact; guarded rollback exact
+  ---
+  duration_ms: 10.917208
+  type: 'test'
+  ...
+# Subtest: local replay of both recorded queries reproduces all selected actual fields
+ok 3 - local replay of both recorded queries reproduces all selected actual fields
+  ---
+  duration_ms: 47.522334
+  type: 'test'
+  ...
+# Subtest: 34448 offline regression: 906 -> 931.88, 20% family provenance, no fabricated SIM
+ok 4 - 34448 offline regression: 906 -> 931.88, 20% family provenance, no fabricated SIM
+  ---
+  duration_ms: 103.603667
+  type: 'test'
+  ...
+# Subtest: existing literal validator unchanged and feeds partial classification into candidate
+ok 5 - existing literal validator unchanged and feeds partial classification into candidate
+  ---
+  duration_ms: 27.812042
+  type: 'test'
+  ...
+# Subtest: confirmed smartwatch SIM precedence and specific 0 / 0 / 10.5 unchanged
+ok 6 - confirmed smartwatch SIM precedence and specific 0 / 0 / 10.5 unchanged
+  ---
+  duration_ms: 34.837667
+  type: 'test'
+  ...
+# Subtest: confirmed toy NCM retains PCRAM 20 / 3 and entire original audit
+ok 7 - confirmed toy NCM retains PCRAM 20 / 3 and entire original audit
+  ---
+  duration_ms: 60.10525
+  type: 'test'
+  ...
+# Subtest: real mixed family 1001 never selects first or highest rate
+ok 8 - real mixed family 1001 never selects first or highest rate
+  ---
+  duration_ms: 122.081666
+  type: 'test'
+  ...
+# Subtest: source coverage mismatch real family 9503 retains original fallback
+ok 9 - source coverage mismatch real family 9503 retains original fallback
+  ---
+  duration_ms: 73.071292
+  type: 'test'
+  ...
+# Subtest: no family or unsupported family never changes original estimate
+ok 10 - no family or unsupported family never changes original estimate
+  ---
+  duration_ms: 191.08575
+  type: 'test'
+  ...
+# Subtest: HS6 supported with full family coverage, no prefix or 20% hardcode
+ok 11 - HS6 supported with full family coverage, no prefix or 20% hardcode
+  ---
+  duration_ms: 59.963166
+  type: 'test'
+  ...
+# Subtest: another real uniform family uses its actual 9%, not a forced 20%
+ok 12 - another real uniform family uses its actual 9%, not a forced 20%
+  ---
+  duration_ms: 54.258792
+  type: 'test'
+  ...
+# Subtest: missing, corrupt, stale, future or incompatible sources fail to original estimate
+ok 13 - missing, corrupt, stale, future or incompatible sources fail to original estimate
+  ---
+  duration_ms: 924.890541
+  type: 'test'
+  ...
+# Subtest: malformed, mismatched-index, NO_MATCH, error or fabricated trace cannot substantiate family
+ok 14 - malformed, mismatched-index, NO_MATCH, error or fabricated trace cannot substantiate family
+  ---
+  duration_ms: 897.32375
+  type: 'test'
+  ...
+# Subtest: failing integrity never alters TE/IVA and keeps original AGENT_ESTIMATE branch
+ok 15 - failing integrity never alters TE/IVA and keeps original AGENT_ESTIMATE branch
+  ---
+  duration_ms: 197.603417
+  type: 'test'
+  ...
+# Subtest: existing upstream/commercial schemas accept honest provenance without contract changes
+ok 16 - existing upstream/commercial schemas accept honest provenance without contract changes
+  ---
+  duration_ms: 118.312417
+  type: 'test'
+  ...
+# Subtest: save explicit local comparison evidence (not live agent behavior)
+ok 17 - save explicit local comparison evidence (not live agent behavior)
+  ---
+  duration_ms: 41.146958
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3860.972209
