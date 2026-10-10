@@ -1,0 +1,15 @@
+{
+  "status": "PASS_CALCULATOR_ONLY",
+  "version_id": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "hashes": {
+    "calculator": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+    "nodes_except_calculator": "0140b549cbaf273867260097455cc79146f2d1cf8e6e2e6f2c44dd804cbcbb4d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "changed_paths": [
+    "/nodes/9/parameters/jsCode"
+  ],
+  "node_count": 12
+}

@@ -1,0 +1,80 @@
+{
+  "candidate_commit": "0d2766541135b58a81f3cacba211bf9881acd7cb",
+  "er": "AlanTN13/Cotizador_gt#11",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "context_revision": "faf2de9aac322c7cfd446a142c50ffe8f059afe8",
+  "production_mutations": 2,
+  "cloud_quotes": 0,
+  "ai_calls": 0,
+  "local_tests_repeated": 0,
+  "candidate_rebuilt": false,
+  "new_credentials": 0,
+  "secret_exposed_or_persisted": false,
+  "preflight": "PASS",
+  "baseline_version_id": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "exact_changed_paths": [
+    "/nodes/9/parameters/jsCode"
+  ],
+  "baseline_hashes": {
+    "calculator": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+    "nodes_except_calculator": "0140b549cbaf273867260097455cc79146f2d1cf8e6e2e6f2c44dd804cbcbb4d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "candidate_expected_hashes": {
+    "calculator": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+    "nodes_except_calculator": "0140b549cbaf273867260097455cc79146f2d1cf8e6e2e6f2c44dd804cbcbb4d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "scoped_rollback_exact": true,
+  "private_backup_path": "/private/tmp/globaltrip-n8n-access-1klaeqzz/er11-calculator-before-ccert4br.private.json",
+  "private_backup_sha256": "4d5984c5ffd2732d5764038f80cda17199ec65e1925c810baaf331de2bac980b",
+  "status": "PASS_PUBLISHED_CALCULATOR_ONLY",
+  "active": true,
+  "published_version_id": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "node_count": 12,
+  "verified_hashes": {
+    "calculator": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+    "nodes_except_calculator": "0140b549cbaf273867260097455cc79146f2d1cf8e6e2e6f2c44dd804cbcbb4d",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d"
+  },
+  "frozen_surfaces_exact": true,
+  "draft_and_active_content_identical": true,
+  "published_export_sha256": "c80aee04173ca35d595152373b2e1c72203f9620cb0c3beb036a47b8a7676a78",
+  "rollback": "../rollback.patch.json; candidate hash and fresh frozen-surface comparison required",
+  "url": "https://cotizador.globaltriplog.com/cotizador",
+  "functional_validation": "NOT_EXECUTED_BY_REQUEST",
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "PUT",
+      "route": "/workflows/LO9m0AxSrxRR6JVY?publishIfActive=false",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "POST",
+      "route": "/workflows/LO9m0AxSrxRR6JVY/activate",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "finished_at_utc": "2026-10-10T14:37:27.828247+00:00"
+}

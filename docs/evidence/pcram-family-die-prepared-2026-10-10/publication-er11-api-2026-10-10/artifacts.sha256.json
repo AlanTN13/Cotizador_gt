@@ -1,0 +1,11 @@
+{
+  "README.md": "e34f21f7d1dff7814f051b9ddc77acb98edf8d4ce15efd23ac33c0494eb7dda3",
+  "draft.api-export.json": "a97fdb62a431d0a73eebc0802da9af4aab8efe5e21012dce011975f1cd678350",
+  "draft.verification.json": "c2de1304a82da6810d991080ef82688b25b67eaf957bbf923dbb7801e1d67a8f",
+  "last-operation.receipt.json": "5342e35bacf78bfc16103f7df4323894bdf048bff079dcc197ae85b6e4d86ba0",
+  "live.before.api-export.json": "5c18724fcd0cf3102758e4fc1b8debf3deb1f5f43e7a0575a5e96a53363925e1",
+  "preflight.verified.json": "c55f8faf581bfefc40d0b76aa5170e3005612e38267908c7b713b418f4f64114",
+  "published.api-export.json": "a97fdb62a431d0a73eebc0802da9af4aab8efe5e21012dce011975f1cd678350",
+  "published.diff.paths.json": "bda39cc3823cdd4f7d9d7265111e0badd75e1632a151db1acf09bd8f7c3c2b8b",
+  "receipt.json": "8cae3a422f386891d35b50144070b8b96433a4eb1992384df216b62579aeb9db"
+}
