@@ -1,0 +1,41 @@
+{
+  "status": "BLOCKED_BEFORE_PUBLICATION",
+  "blocker": "N8N_EXECUTION_READ_ACCESS_HTTP_403",
+  "candidate_commit": "0a9669f",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "live_preflight": {
+    "baseline_export_exact": true,
+    "baseline_version_exact": true,
+    "nodes": 12,
+    "prompt_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+    "prompt_hash_expected": true,
+    "published_content_matches_draft": true
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    },
+    {
+      "method": "GET",
+      "route": "/executions?workflowId=LO9m0AxSrxRR6JVY&limit=30",
+      "http_status": 403
+    },
+    {
+      "method": "GET",
+      "route": "/executions/34453?includeData=true",
+      "http_status": 403
+    }
+  ],
+  "production_mutations": 0,
+  "controlled_e2es": 0,
+  "ai_calls": 0,
+  "tests_repeated": 0,
+  "new_credentials": 0,
+  "secret_exposed_or_persisted": false,
+  "rollback": "Prepared prompt-only rollback unchanged; live full backup saved privately with mode 0600 at /private/tmp/globaltrip-n8n-access-1klaeqzz/er12/workflow.private.json; no rollback needed",
+  "required_permission": "Effective authorization to list executions and read execution data for this workflow via official n8n API. Token inspection did not expose scope claims; exact cause of denial is not asserted.",
+  "publication_permissions_verified": false,
+  "checked_at_utc": "2026-10-10T16:29:44.164028+00:00"
+}
