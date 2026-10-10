@@ -1,0 +1,52 @@
+{
+  "er": "AlanTN13/Cotizador_gt#12",
+  "state": "BLOQUEO_MATERIAL_ESPECIFICO",
+  "phases": {
+    "LOCAL_PREPARADO": true,
+    "VALIDADO_E2E_NO_PRODUCTIVO": false,
+    "PUBLICADO": false,
+    "QA_CLIENTE": "Existing runs inspected only"
+  },
+  "branch": "codex/er12-pcram-agent-contract",
+  "context_revision": "9b9375b",
+  "workflow": "LO9m0AxSrxRR6JVY",
+  "execution_ids": [
+    "34451",
+    "34452",
+    "34453"
+  ],
+  "execution_version": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "node_count": 12,
+  "demonstrated_boundary": "Agent constructs out-of-contract queries (11 and 9 distinct terms, max8) and one NCM8 inconsistent with its stated missing composition; no position lost downstream",
+  "patch_field": "Agente Despachante.parameters.options.systemMessage",
+  "before_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "candidate_sha256": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+  "changed_paths": [
+    "/nodes/4/parameters/options/systemMessage"
+  ],
+  "local_checks": {
+    "pass": 7,
+    "fail": 0,
+    "real_agent_behavior_verified": false
+  },
+  "blocker": "NO_EXISTING_AUTHORIZED_NONPRODUCTION_AGENT_E2E_CHANNEL",
+  "blocker_evidence": [
+    "nomenclator-browser-qa-prepared-2026-10-08/authorization.json:QA not enabled",
+    "Authenticated Global Trip folder: Courier published; other legacy operational workflows, no authorized test channel",
+    "Local OPENAI_API_KEY absent; existing live harness tests another classifier/model",
+    "ER12 forbids production edits/replays or creation of workflows/infrastructure"
+  ],
+  "observability_limits": [
+    "Selected UI fields, not raw API execution export",
+    "No independent Alibaba opening/attribute trace recovered",
+    "No fresh official API export of current workflow; clipboard key unavailable; historical saved export hashes only"
+  ],
+  "n8n_mutations": 0,
+  "new_cloud_quotes": 0,
+  "new_ai_calls": 0,
+  "pcram_downloads": 0,
+  "new_credentials": 0,
+  "rollback": "rollback.patch.json; one prompt field only, conditional on fresh baseline and explicit gate",
+  "acceptance": "Not achieved. Local replay and prompt preparation are not live E2E or new semantic-agent verification. Production not modified.",
+  "stop": true
+}

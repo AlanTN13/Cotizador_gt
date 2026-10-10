@@ -1,0 +1,84 @@
+{
+  "extraction": "Selected fields transcribed from the authenticated n8n execution UI, including complete observations decoded from the rendered Agent V3 JSON. Not a raw API export. Message logs, webhook headers and unrelated fields excluded. No new executions.",
+  "workflow": "LO9m0AxSrxRR6JVY",
+  "version": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "classification_source_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+  "classification_ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+  "tax_source_version": "pcram-die-te-fd04e2344db6-v1",
+  "observation_envelope": "JSON string containing [{response: JSON_string}]",
+  "cotton_candidates": ["61091000110Y", "61091000190Z", "61091000210D", "61091000290E"],
+  "cotton_ncm": "61091000",
+  "cotton_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+  "cases": [
+    {
+      "id": "34451", "started_at_ar": "2026-10-10T11:44:41-03:00", "duration_seconds": 11.723,
+      "url": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34451",
+      "input": {
+        "solicitud_id": "aa9d96bf-b8a9-46b7-ab3f-de15b8719dc0",
+        "productos": [{"link": "https://www.alibaba.com/x/B2UFi4?ck=pdp", "descripcion": "camiseta de running"}],
+        "fob_usd": 500, "cantidad": 1,
+        "bultos": [{"cantidad":1,"peso_kg":10,"largo_cm":20,"ancho_cm":30,"alto_cm":40},{"cantidad":2,"peso_kg":5,"largo_cm":30,"ancho_cm":40,"alto_cm":50}]
+      },
+      "queries": [
+        {"input":{"indice":1,"prefijo":"","texto":"camiseta running","limite":4},"status":"NO_MATCH","matched_count":0,"returned_count":0,"partial":false},
+        {"input":{"indice":1,"prefijo":"6109","texto":"camiseta","limite":4},"status":"OK","matched_count":10,"returned_count":4,"partial":true,"returned_sims":["61091000110Y","61091000190Z","61091000210D","61091000290E"]}
+      ],
+      "agent_products": [{
+        "indice":1,"producto":"camiseta de running","clasificacion":"61091000","SIM":null,"DIE":20,
+        "evidencia":[{"url":"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z","detalle":"Entrada PCRAM para 'T-shirts' y camisetas de punto (61091000) — muestra SIMs relacionadas a camisetas de algodón; consulta realizada con prefijo 6109 y término 'camiseta'."}],
+        "fundamento":"Clasificación sustentada a nivel NCM 61091000 («T-shirts» y camisetas, de punto) por coincidencia en nomenclador; falta información sobre composición (algodón vs fibras sintéticas) para elegir SIM completo, por eso SIM=null; DIE estimado 20% basado en práctica arancelaria para prendas de punto de uso general."
+      }],
+      "validator_kept_agent_products":true,
+      "tax_selected":[{"requestedPosition":"61091000","ncm":"61091000","sim":null,"status":"ESTIMADO","rates":{"duty":0.2,"statistical":0.03,"vat":0.21},"dutyEvidence":{"version":"pcram-die-te-fd04e2344db6-v1","matchedSimCount":4},"estimation_methods":{"vat":"GENERAL_RULE"},"warnings":["GENERAL_VAT_ESTIMATE"]}],
+      "total_usd":931.88,"applicable_weight":29
+    },
+    {
+      "id":"34452","started_at_ar":"2026-10-10T11:48:19-03:00","duration_seconds":13.199,
+      "url":"https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34452",
+      "input":{
+        "solicitud_id":"df34845b-6c0a-4250-baf7-50268e1f5d20",
+        "productos":[
+          {"link":"https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624","descripcion":"smartwatch"},
+          {"link":"https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1","descripcion":"Juguete"}
+        ],
+        "fob_usd":1250,"cantidad":200,
+        "bultos":[{"cantidad":1,"peso_kg":2.5,"largo_cm":10.5,"ancho_cm":30.2,"alto_cm":40},{"cantidad":2,"peso_kg":3.5,"largo_cm":20.1,"ancho_cm":40.3,"alto_cm":50.2}]
+      },
+      "agent_input_rendered_complete":true,
+      "queries":[
+        {"input":{"indice":1,"prefijo":"8517","texto":"smartwatch","limite":4},"status":"NO_MATCH","matched_count":0,"returned_count":0,"partial":false},
+        {"input":{"indice":1,"prefijo":"","texto":"smartwatch reloj inteligente wearable bluetooth pantalla tactil ip68 sensor frecuencia cardiaca","limite":4},"status":"INVALID_QUERY","returned_count":0,"partial":false},
+        {"input":{"indice":2,"prefijo":"9503","texto":"juguete blocks marble race run laberinto cubos plastico madera","limite":4},"status":"INVALID_QUERY","returned_count":0,"partial":false}
+      ],
+      "agent_products":[
+        {"indice":1,"producto":"smartwatch","clasificacion":null,"SIM":null,"DIE":16,"evidencia":[{"url":"https://www.alibaba.com/product-detail/VALDUS-VS13-Smartwatch-IP68-Waterproof-BT_1601456199902.html?spm=a2700.prosearch.normal_offer.d_image.30c167afrI329R&priceId=56bd5331b6b241219907a7f0e3b1b624","detalle":"Ficha del producto recibida (reloj inteligente, IP68, Bluetooth, sensores)."},{"url":"https://web.pcram.net/downloads/transf.zip","detalle":"Consulta al nomenclador PCRAM (consulta inicial con prefijo 8517 devolvió NO_MATCH; segundo intento con texto amplio devolvió INVALID_QUERY)."}],"fundamento":"Producto identificado como reloj inteligente por la ficha; la consulta al nomenclador no arrojó una posición NCM8 verificable (NO_MATCH/INVALID_QUERY), por lo que se deja clasificacion null; DIE estimado 16% basado en alícuotas ordinarias típicas para aparatos electrónicos portátiles importados (estimación orientativa)."},
+        {"indice":2,"producto":"Juguete","clasificacion":null,"SIM":null,"DIE":20,"evidencia":[{"url":"https://www.alibaba.com/product-detail/Chengji-Marble-Race-Run-Blocks-Maze_1601693308003.html?spm=a2700.prosearch.normal_offer.d_image.67b967afQ2wswF&priceId=b6aee9b52bd24eb28dbaf104cd594cf1","detalle":"Ficha del producto recibida (juguete tipo pista/laberinto de canicas, bloques)."},{"url":"https://web.pcram.net/downloads/transf.zip","detalle":"Consulta al nomenclador PCRAM (consulta con prefijo 9503 devolvió INVALID_QUERY)."}],"fundamento":"Producto identificado como juguete (bloques/pista de canicas); la consulta al nomenclador no aportó una posición 8 dígitos verificable, por lo que clasificacion y SIM quedan null; DIE estimado 20% como alícuota orientativa aplicable a juguetes de materia plástica/madera importados (estimación orientativa)."}
+      ],
+      "validator_kept_agent_products":true,
+      "tax_selected":[
+        {"requestedPosition":null,"ncm":null,"sim":null,"status":"ESTIMADO","rates":{"duty":0.16,"statistical":0.03,"vat":0.21},"dutyEvidence":null,"vatEvidence":null,"estimation_methods":{"duty":"AGENT_ESTIMATE","statistical":"GENERAL_RULE","vat":"GENERAL_RULE"},"warnings":["POSITION_INCOMPLETE_AGENT_ESTIMATE","AGENT_DUTY_ESTIMATE","GENERAL_TE_ESTIMATE","GENERAL_VAT_ESTIMATE"]},
+        {"requestedPosition":null,"ncm":null,"sim":null,"status":"ESTIMADO","rates":{"duty":0.2,"statistical":0.03,"vat":0.21},"dutyEvidence":null,"vatEvidence":null,"estimation_methods":{"duty":"AGENT_ESTIMATE","statistical":"GENERAL_RULE","vat":"GENERAL_RULE"},"warnings":["POSITION_INCOMPLETE_AGENT_ESTIMATE","AGENT_DUTY_ESTIMATE","GENERAL_TE_ESTIMATE","GENERAL_VAT_ESTIMATE"]}
+      ],
+      "total_usd":1146.92,"applicable_weight":19,
+      "alibaba_access_proven":false,"access_note":"The agent asserts that it received the fiche, but the selected agent/tool traces do not independently prove an HTTP opening or the source of each attribute. Product names in the URL are not proof of access."
+    },
+    {
+      "id":"34453","started_at_ar":"2026-10-10T11:52:32-03:00","duration_seconds":12.272,
+      "url":"https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34453",
+      "input":{
+        "solicitud_id":"ff329f2d-48c6-4654-a7f4-b3b3c7b9fe15",
+        "productos":[{"link":"https://www.alibaba.com/x/B2UFi4?ck=pdp","descripcion":"camiseta de running"}],
+        "fob_usd":500,"cantidad":1,
+        "bultos":[{"cantidad":2,"peso_kg":5,"largo_cm":30,"ancho_cm":40,"alto_cm":50},{"cantidad":1,"peso_kg":10,"largo_cm":20,"ancho_cm":30,"alto_cm":40}]
+      },
+      "queries":[
+        {"input":{"indice":1,"prefijo":"6109","texto":"camiseta running","limite":4},"status":"NO_MATCH","matched_count":0,"returned_count":0,"partial":false},
+        {"input":{"indice":1,"prefijo":"6109","texto":"","limite":4},"status":"OK","matched_count":10,"returned_count":4,"partial":true,"returned_sims":["61091000110Y","61091000190Z","61091000210D","61091000290E"]}
+      ],
+      "agent_products":[{"indice":1,"producto":"camiseta de running","clasificacion":"6109","SIM":null,"DIE":20,"evidencia":[{"url":"pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y","detalle":"NCM candidato 61091000 («T-shirts» y camisetas, de punto) y varias SIM relacionadas a camisetas de algodón aparecen en la consulta al nomenclador para prefijo 6109."}],"fundamento":"Descripción genérica 'camiseta de running' se ubica en la partida 6109 («T-shirts» y camisetas, de punto) según la consulta al nomenclador; falta información sobre composición (algodón vs fibras sintéticas) que impide elegir un SIM/NCM8 de composición específica, por eso se mantiene HS4 6109 y se estima un DIE orientativo del 20%."}],
+      "validator_kept_agent_products":true,
+      "tax_selected":[{"requestedPosition":null,"ncm":null,"sim":null,"status":"ESTIMADO","rates":{"duty":0.2,"statistical":0.03,"vat":0.21},"dutyEvidence":null,"vatEvidence":null,"estimation_methods":{"duty":"FAMILY_SNAPSHOT","statistical":"GENERAL_RULE","vat":"GENERAL_RULE"},"warnings":["POSITION_INCOMPLETE_FAMILY_ESTIMATE","FAMILY_SNAPSHOT_DUTY_ESTIMATE","GENERAL_TE_ESTIMATE","GENERAL_VAT_ESTIMATE"],"family_coverage":"6109: 10/10; code-set SHA e28d29af50b35442b9e63e3c24c03254136da4ee6169b454b98336a457069169"}],
+      "total_usd":931.88,"applicable_weight":29
+    }
+  ]
+}

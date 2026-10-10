@@ -1,0 +1,41 @@
+{
+  "baselinePath": "docs/evidence/pcram-family-die-prepared-2026-10-10/publication-er11-api-2026-10-10/published.api-export.json",
+  "baselineVersion": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "nodeCount": 12,
+  "beforeSha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "afterSha256": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+  "exactChangedPaths": [
+    "/nodes/4/parameters/options/systemMessage"
+  ],
+  "baselineArtifactSha256": "a97fdb62a431d0a73eebc0802da9af4aab8efe5e21012dce011975f1cd678350",
+  "frozenHashes": {
+    "Formulario - POST": "86dffc0e1d66c5943c5c8a528b26f51070b73a99646dbba96c4273d485868fa2",
+    "Validar formulario": "688e385d2bb4593fb847d087b6121c4cf63cc408a0ec56770156aa333b23753a",
+    "Entrada completa": "54f40f89a13b9c308f3490d11f7398545a067cbee3d28b31b8515a81fc051613",
+    "Preparar agente": "cab87337285d11821e3b201e3d64cc5d4867ac9a7a0f41e4a2084785962a829c",
+    "OpenAI Chat Model": "9448ec43c1b4ce95b28fe23c47a912afb5e9648b0d6a954286ce3696346c8588",
+    "Salida estructurada": "02747ab0d3daf12dfc312893a921dd383223f58abb15ce599d17eea621bbbfcc",
+    "Validar salida del agente": "241d80d5b711ffe22972abb15a59686c9e78dfa93ae62ff91b115b41a71923b4",
+    "Clasificado y apto": "1186305983f71fafda8ef2cc66a74a45f617c85f43b1745e61fe7159ae6d6ada",
+    "Cotizador deterministico": "4c046a4a84753e6b2cdd20456b1ffac5c0f759f2a5534b5416d655798cc95e9f",
+    "Responder a la landing": "7330a377fb0195396aac40b09592f7a125472ec7f5d9cae4d3597986d378bd85",
+    "Consulta_nomenclador_PCRAM": "1c8dc2bc919f8f7c5b3dda459c4312b92cd4e5fba7597d5471a118f513f16741"
+  },
+  "changes": [
+    [
+      "Los campos de entrada son indice, prefijo, texto y limite (1 a 8).",
+      "Los campos de entrada son indice, prefijo, texto y limite. Contrato efectivo del buscador: indice entero de 1 a 100; limite entero de 1 a 8; texto de hasta 160 caracteres, con un máximo de 8 términos distintos de al menos 3 caracteres, excluidas las palabras funcionales reconocidas. Es una conjunción AND, no una búsqueda de sinónimos: cada término agregado debe coincidir. Para la primera consulta usá sólo de 1 a 3 términos genéricos en español realmente sustentados; no concatenes traducciones, sinónimos, marca, modelo y una lista de atributos. Los atributos originales se conservan para contrastar candidatos, no se descartan de la clasificación. Si existe un prefijo sustentado y no un término nomenclador útil, consultá ese prefijo con texto vacío. No envíes una consulta que exceda el contrato."
+    ],
+    [
+      "preferí el prefijo de la familia sustentada con texto vacío;",
+      "si el primer intento ya tenía un prefijo sustentado, conservá ese prefijo y usá texto vacío; si sustentaste una familia después, usá su prefijo con texto vacío;"
+    ],
+    [
+      "Antes de devolver NCM8 o SIM, asegurate de que ese código exacto esté entre los candidatos devueltos para ese producto.",
+      "Antes de devolver NCM8 o SIM, asegurate de que ese código exacto esté entre los candidatos devueltos para ese producto y de que los atributos observados justifiquen las condiciones de su descripción/contexto. La pertenencia al resultado es necesaria pero no suficiente. Los atributos que distinguen NCM8 son obligatorios también cuando SIM=null: si declarás que falta composición, tecnología u otro atributo que distingue ese NCM8, no devuelvas ese NCM8 como sustentado. Conservá únicamente el HS4/HS6 independientemente sustentado o null; no recortes un código elegido para aparentar validación. Con partial=true, varios resultados del mismo NCM8 no acreditan que otras aperturas no existan. Revisá esta coherencia entre clasificacion, evidencia y fundamento antes de entregar la salida."
+    ]
+  ],
+  "productionMutations": 0,
+  "modelCalls": 0,
+  "state": "LOCAL_PREPARADO; AGENT_BEHAVIOR_AND_REAL_E2E_NOT_VERIFIED"
+}

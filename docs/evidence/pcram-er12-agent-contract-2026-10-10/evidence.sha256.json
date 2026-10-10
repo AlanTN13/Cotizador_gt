@@ -1,0 +1,13 @@
+{
+  "README.md": "3633c0ece2d98cec2265e3fce92cab2be931fbc7af3f89603b7c45580bee543a",
+  "apply.patch.json": "3db23184e9287a67f428dab7c37b5ba00db15ea1810a2693230f86a6b4de0393",
+  "executions.selected.json": "04b4c07bc4ec56dfbf45af3a13485a373c2d6e13ebd01a445bdadd1d7c2b9b90",
+  "local-replay.results.json": "15c5b49de5664be56ef2d0334649bc2a3574d516f25a24990b9177c858c3bc42",
+  "local-validation.tap": "1150f5e3159a4ad8cc2547b1abf4baab1f20745b2bc48766eb2eeaa927acbe63",
+  "manifest.json": "efd6d4c2faf0f179919eaae2c6195d962244335a5d05757a236132fd95f7468f",
+  "prompt.after.txt": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+  "prompt.before.txt": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "prompt.diff": "d4cc88ea1df6c92100cf047bf990ee9f481a45249ccb42ddf87b5b41e48c28f6",
+  "receipt.json": "601b9171ee7c36814bd47fdb1986c8247eacd00ecd04ced9d8d5a5efe96c27ce",
+  "rollback.patch.json": "94fcfedd6c077ec712bdce69b05477a87fc47229bf03c52b5151928106d95f1b"
+}

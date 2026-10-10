@@ -1,0 +1,210 @@
+{
+  "mode": "OFFLINE_REPLAY_AND_CONTRACT_CHECKS_NOT_LIVE_AGENT",
+  "queries": [
+    {
+      "input": {
+        "indice": 1,
+        "prefijo": "8517",
+        "texto": "",
+        "limite": 4
+      },
+      "status": "OK",
+      "matched_count": 62,
+      "returned_count": 4,
+      "partial": true,
+      "candidates": [
+        {
+          "ncm": "85171100",
+          "sim": "85171100110M",
+          "context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos."
+        },
+        {
+          "ncm": "85171100",
+          "sim": "85171100190N",
+          "context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos."
+        },
+        {
+          "ncm": "85171100",
+          "sim": "85171100910F",
+          "context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos."
+        },
+        {
+          "ncm": "85171100",
+          "sim": "85171100990G",
+          "context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos."
+        }
+      ]
+    },
+    {
+      "input": {
+        "indice": 2,
+        "prefijo": "9503",
+        "texto": "juguete",
+        "limite": 4
+      },
+      "status": "OK",
+      "matched_count": 481,
+      "returned_count": 4,
+      "partial": true,
+      "candidates": [
+        {
+          "ncm": "95030010",
+          "sim": "95030010111M",
+          "context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios."
+        },
+        {
+          "ncm": "95030010",
+          "sim": "95030010112P",
+          "context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios."
+        },
+        {
+          "ncm": "95030010",
+          "sim": "95030010113R",
+          "context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios."
+        },
+        {
+          "ncm": "95030010",
+          "sim": "95030010119E",
+          "context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios."
+        }
+      ]
+    },
+    {
+      "input": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 4
+      },
+      "status": "OK",
+      "matched_count": 10,
+      "returned_count": 4,
+      "partial": true,
+      "candidates": [
+        {
+          "ncm": "61091000",
+          "sim": "61091000110Y",
+          "context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto."
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000190Z",
+          "context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto."
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000210D",
+          "context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto."
+        },
+        {
+          "ncm": "61091000",
+          "sim": "61091000290E",
+          "context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "34451",
+      "total": 931.88,
+      "products": [
+        {
+          "indice": 1,
+          "clasificacion": "61091000",
+          "SIM": null
+        }
+      ],
+      "taxes": [
+        {
+          "rates": {
+            "duty": 0.2,
+            "statistical": 0.03,
+            "vat": 0.21
+          },
+          "requestedPosition": "61091000",
+          "method": "POSITION_SNAPSHOT",
+          "warnings": [
+            "GENERAL_VAT_ESTIMATE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34452",
+      "total": 1146.92,
+      "products": [
+        {
+          "indice": 1,
+          "clasificacion": null,
+          "SIM": null
+        },
+        {
+          "indice": 2,
+          "clasificacion": null,
+          "SIM": null
+        }
+      ],
+      "taxes": [
+        {
+          "rates": {
+            "duty": 0.16,
+            "statistical": 0.03,
+            "vat": 0.21
+          },
+          "requestedPosition": null,
+          "method": "AGENT_ESTIMATE",
+          "warnings": [
+            "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+            "AGENT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ]
+        },
+        {
+          "rates": {
+            "duty": 0.2,
+            "statistical": 0.03,
+            "vat": 0.21
+          },
+          "requestedPosition": null,
+          "method": "AGENT_ESTIMATE",
+          "warnings": [
+            "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+            "AGENT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34453",
+      "total": 931.88,
+      "products": [
+        {
+          "indice": 1,
+          "clasificacion": "6109",
+          "SIM": null
+        }
+      ],
+      "taxes": [
+        {
+          "rates": {
+            "duty": 0.2,
+            "statistical": 0.03,
+            "vat": 0.21
+          },
+          "requestedPosition": null,
+          "method": "FAMILY_SNAPSHOT",
+          "warnings": [
+            "POSITION_INCOMPLETE_FAMILY_ESTIMATE",
+            "FAMILY_SNAPSHOT_DUTY_ESTIMATE",
+            "GENERAL_TE_ESTIMATE",
+            "GENERAL_VAT_ESTIMATE"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: only systemMessage changes; 12 nodes, entire frozen circuit/model/taxes and scoped rollback exact
+ok 1 - only systemMessage changes; 12 nodes, entire frozen circuit/model/taxes and scoped rollback exact
+  ---
+  duration_ms: 4.739
+  type: 'test'
+  ...
+# Subtest: all seven recorded queries reproduce actual status/source/count/partial and candidates
+ok 2 - all seven recorded queries reproduce actual status/source/count/partial and candidates
+  ---
+  duration_ms: 0.336958
+  type: 'test'
+  ...
+# Subtest: 34452 input failure is the >8-term boundary, not n8n context or missing PCRAM records
+ok 3 - 34452 input failure is the >8-term boundary, not n8n context or missing PCRAM records
+  ---
+  duration_ms: 237.066
+  type: 'test'
+  ...
+# Subtest: original Agent V3 envelope → unchanged guard → unchanged calculator reproduces the three real audits
+ok 4 - original Agent V3 envelope → unchanged guard → unchanged calculator reproduces the three real audits
+  ---
+  duration_ms: 108.392792
+  type: 'test'
+  ...
+# Subtest: bounded query shapes specified by the candidate execute the real frozen tool, without fabricating positions
+ok 5 - bounded query shapes specified by the candidate execute the real frozen tool, without fabricating positions
+  ---
+  duration_ms: 126.226166
+  type: 'test'
+  ...
+# Subtest: partial recording remains partial; invented codes, wrong source/product and malformed observations rejected
+ok 6 - partial recording remains partial; invented codes, wrong source/product and malformed observations rejected
+  ---
+  duration_ms: 36.533
+  type: 'test'
+  ...
+# Subtest: existing integrity gate: nomenclator bytes and tax/calculator/model fields remain untouched
+ok 7 - existing integrity gate: nomenclator bytes and tax/calculator/model fields remain untouched
+  ---
+  duration_ms: 7.97725
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 951.763584
