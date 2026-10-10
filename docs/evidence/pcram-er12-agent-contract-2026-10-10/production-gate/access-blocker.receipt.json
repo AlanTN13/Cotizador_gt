@@ -1,0 +1,28 @@
+{
+  "status": "BLOCKED_BEFORE_PREFLIGHT",
+  "blocker": "EXISTING_AUTHORIZED_N8N_API_KEY_UNAVAILABLE",
+  "candidate_commit": "0a9669f99921754ff072109c86fb83c7cabcf825",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6099631887",
+  "alanos_revision": "c68b2998daf386bdfdfa2921e6963966ee0629f0",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "expected_baseline_version": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "expected_node_count": 12,
+  "prompt_before_sha256": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+  "prompt_candidate_sha256": "90191f1bd5f3e19e6292098fb105c30a52541fc3488e6d29c3f7f0e3bf5d5f1c",
+  "checks": {
+    "clipboard_authorized_api_key_available": false,
+    "N8N_API_KEY_environment_available": false,
+    "existing_secure_input_available": false,
+    "live_preflight_completed": false
+  },
+  "api_requests": 0,
+  "production_mutations": 0,
+  "controlled_e2es": 0,
+  "ai_calls": 0,
+  "local_tests_repeated": 0,
+  "new_credentials": 0,
+  "secrets_exposed_or_persisted": false,
+  "rollback": "Prepared prompt-only rollback unchanged; not required or applied",
+  "next_required_action": "Make existing authorized API key available through approved secure input. No new key creation; perform fresh live preflight before any mutation.",
+  "checked_at_utc": "2026-10-10T16:27:10.960131+00:00"
+}
