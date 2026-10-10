@@ -1,0 +1,34 @@
+{
+  "er": "AlanTN13/Cotizador_gt#11",
+  "state": "BLOCKED_EXTERNAL_NOT_PUBLISHED",
+  "context_revision": "c3e53555d6d4986ca5635ad817d2e99ba3114751",
+  "recorded_at_utc": "2026-10-10T14:33:42.012532+00:00",
+  "candidate_commit": "0d2766541135b58a81f3cacba211bf9881acd7cb",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "expected_baseline_version": "daaff0aa-7fc3-4f01-960a-2a9427531bc1",
+  "expected_calculator_before_sha256": "dd9319fd8ca58633fba944cc31c9d67a1b41a0114453bc68a4c37ea1e91ce7de",
+  "expected_candidate_sha256": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99",
+  "blocker": "No usable existing API credential available to authorized command channel. N8N_API_KEY absent; existing authorized clipboard yields non-UTF8 content, not a textual API key. No new key or alternative channel authorized by ER11.",
+  "access_evidence": {
+    "environment_key_present": false,
+    "known_prior_input_directory": "/private/tmp/globaltrip-n8n-access-1klaeqzz",
+    "prior_helper_mechanism": "Existing clipboard via pbpaste; secret was memory-only in last publication",
+    "clipboard_text_key_available": false,
+    "clipboard_result": "NOT_UTF8_TEXT; raw contents not recorded"
+  },
+  "production_preflight": "NOT_EXECUTED_NO_API_ACCESS",
+  "live_workflow_version": "NOT_READ",
+  "active_candidate_version": "NOT_PUBLISHED_NOT_VERIFIED",
+  "rollback": "Existing rollback.patch.json retained; not needed/applied because no production mutations",
+  "operations": {
+    "api_requests": 0,
+    "workflow_mutations": 0,
+    "quotes": 0,
+    "ai_calls": 0,
+    "local_tests_repeated": 0,
+    "candidate_rebuilt": false,
+    "new_credentials": 0,
+    "secret_exposed_or_persisted": false
+  },
+  "stop": "Required ER11 access gate: STOP, no additional channel/key/architecture attempts."
+}
