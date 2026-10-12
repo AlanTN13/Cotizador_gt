@@ -1,0 +1,412 @@
+--- a/workflow/pcram-nomenclator-packed.mjs
++++ b/workflow/pcram-nomenclator-packed.mjs
+@@ -102,11 +102,14 @@
+   const { packed, catalog, stats } = runtime, source = packed.metadata;
+   const base = { source, status: "INVALID_QUERY", results: [], partial: false };
+   if (!query || typeof query !== "object" || Array.isArray(query)) return base;
+-  const { indice, prefijo = "", texto = "", limite = 6 } = query;
++  const { indice, prefijo = "", texto = "", limite = 6, vista } = query;
++  const extended = vista !== undefined;
++  const branchView = vista === "ramas";
+   if (!Number.isInteger(indice) || indice < 1 || indice > 100 ||
+       typeof prefijo !== "string" || typeof texto !== "string" || texto.length > 160 ||
+       !Number.isInteger(limite) || limite < 1 || limite > 8 ||
+-      Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
++      ("vista" in query && !["ramas", "detalle"].includes(vista)) ||
++      Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite", "vista"].includes(k))) return base;
+   let prefix;
+   if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
+   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
+@@ -124,11 +127,43 @@
+     source_uri: `pcram://${source.zip_sha256}/sim/${row[0]}`,
+   });
+   const response = (matched, results) => ({
+-    source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
++    source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite, ...(extended ? { vista } : {}) },
+     ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
+     matched_count: matched, returned_count: results.length, partial: matched > results.length,
+     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility", results,
+   });
++  // Complete bounded views: no ranking, offsets, excerpts, or first-page bias.
++  // limite retains its legacy meaning only when vista is omitted.
++  const branches = new Map(), maxRecords = 64, maxBytes = 65536;
++  const collectBranch = (ncm, context, full) => {
++    const entry = branches.get(ncm);
++    if (entry) entry.matched_sim_count++;
++    else branches.set(ncm, { ncm, ncm_context: context, ncm_field_full: full, matched_sim_count: 1 });
++  };
++  const finish = (matched, results) => {
++    const value = response(matched, results);
++    if (!extended) return value;
++    const total = branchView ? branches.size : matched;
++    if (branchView) value.branches = [...branches.values()];
++    value.retrieval = { view: vista, unit: branchView ? "NCM" : "SIM", total,
++      returned: branchView ? value.branches.length : results.length, complete: true,
++      max_records: maxRecords, max_response_bytes: maxBytes,
++      evidence: "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes." };
++    // Pure JS UTF-8 length, available in the embedded n8n Code Tool.
++    const bytes = () => encodeURIComponent(JSON.stringify(value)).replace(/%[A-F0-9]{2}/g, "x").length;
++    const reason = total > maxRecords ? "RECORD_BUDGET_EXCEEDED" : bytes() > maxBytes ? "BYTE_BUDGET_EXCEEDED" : null;
++    if (reason) {
++      value.results = [];
++      if (branchView) value.branches = [];
++      value.returned_count = 0;
++      value.partial = matched > 0;
++      value.retrieval.returned = 0;
++      value.retrieval.complete = false;
++      value.retrieval.reason = reason;
++      value.retrieval.next_action = "Refine only with independently supported attributes/prefix if a call remains; otherwise retain partial classification. No candidate subset was shown.";
++    }
++    return value;
++  };
+   let ids;
+   if (prefix) {
+     // Structural lookup only. Full SIM remains intact in the final exact-prefix filter.
+@@ -145,7 +180,8 @@
+     ids = range ? Array.from({ length: range[1] - range[0] }, (_, i) => range[0] + i) : [];
+   } else {
+     // Exact word/subword postings count matches without visiting source descriptions.
+-    const { matched, selected } = textMatches(runtime, terms, limite), results = [];
++    const { matched, selected } = textMatches(runtime, terms, branchView ? source.record_count : extended ? maxRecords : limite), results = [];
++    if (extended && !branchView && matched > maxRecords) return finish(matched, results);
+     let shardCode = null, rows = null;
+     for (const simId of selected) {
+       let lo = 0, hi = catalog.codes.length;
+@@ -153,10 +189,11 @@
+       const ncm = catalog.codes[lo], hs4 = ncm.slice(0, 4);
+       if (hs4 !== shardCode) { rows = unpack(packed.shards[hs4], stats); shardCode = hs4; stats.shards_decoded++; }
+       const [context, full, sims] = rows[lo - catalog.prefixes[hs4][0]];
+-      results.push(resultRow(ncm, context, full, sims[simId - catalog.sim_offsets[lo]]));
++      if (branchView) collectBranch(ncm, context, full);
++      else results.push(resultRow(ncm, context, full, sims[simId - catalog.sim_offsets[lo]]));
+       stats.ncm_checked++; stats.sim_checked++;
+     }
+-    return response(matched, results);
++    return finish(matched, results);
+   }
+ 
+   const results = []; let matched = 0, shardCode = null, rows = null;
+@@ -174,8 +211,9 @@
+       if (prefix && !sim.startsWith(prefix)) continue;
+       if (remaining.length && !remaining.every(t => fold(description).includes(t))) continue;
+       matched++;
+-      if (results.length < limite) results.push(resultRow(ncm, context, contextFull, [sim, description, updatedAt, simFull]));
+-    }
+-  }
+-  return response(matched, results);
+-}
++      if (branchView) collectBranch(ncm, context, contextFull);
++      else if (results.length < (extended ? maxRecords : limite)) results.push(resultRow(ncm, context, contextFull, [sim, description, updatedAt, simFull]));
++    }
++  }
++  return finish(matched, results);
++}
+--- a/workflow/pcram-tool-input.mjs
++++ b/workflow/pcram-tool-input.mjs
+@@ -3,10 +3,12 @@
+   const keys = ["indice", "prefijo", "texto", "limite"];
+   if (!input || typeof input !== "object" || Array.isArray(input) ||
+       !keys.every(key => Object.prototype.hasOwnProperty.call(input, key))) return null;
+-  const { indice, prefijo, texto, limite } = input;
++  const { indice, prefijo, texto, limite, vista } = input;
+   if (!Number.isInteger(indice) || indice < 1 || indice > 100 ||
+       typeof prefijo !== "string" || prefijo.length > 15 ||
+       typeof texto !== "string" || texto.length > 160 ||
+-      !Number.isInteger(limite) || limite < 1 || limite > 8) return null;
+-  return { indice, prefijo, texto, limite };
++      !Number.isInteger(limite) || limite < 1 || limite > 8 ||
++      Object.prototype.hasOwnProperty.call(input, "offset") ||
++      (Object.prototype.hasOwnProperty.call(input, "vista") && !["ramas", "detalle"].includes(vista))) return null;
++  return { indice, prefijo, texto, limite, ...(vista !== undefined ? { vista } : {}) };
+ }
+--- a/workflow/pcram-classification-guard.mjs
++++ b/workflow/pcram-classification-guard.mjs
+@@ -23,6 +23,30 @@
+         !Array.isArray(result.results) || result.results.some(row =>
+           !row || typeof row !== "object" || Array.isArray(row) ||
+           typeof row.ncm !== "string" || typeof row.sim !== "string")) continue;
++    // New complete-view contract only. Preserve legacy observations unchanged.
++    if (Object.hasOwn(input, "vista") || Object.hasOwn(result.query, "vista") || result.retrieval) {
++      if (!["indice", "prefijo", "texto", "limite", "vista"].every(k => input[k] === result.query[k]) ||
++          Object.hasOwn(input, "offset") || Object.hasOwn(result.query, "offset") ||
++          result.query.vista !== "detalle" || result.retrieval?.view !== "detalle" ||
++          result.retrieval?.complete !== true || result.retrieval?.unit !== "SIM" ||
++          result.retrieval.total !== result.matched_count || result.retrieval.returned !== result.results.length ||
++          result.returned_count !== result.results.length || result.matched_count !== result.results.length ||
++          result.partial !== false || result.results.length > 64) continue;
++      const prefix = typeof input.prefijo === "string" ? input.prefijo.replaceAll(".", "") : "";
++      // Family detail may substantiate FAMILY_SNAPSHOT, but cannot authorize NCM8/SIM.
++      if (!/^(?:\d{8}|\d{11}[A-Z])$/.test(prefix)) continue;
++      if (result.results.some(r => !/^\d{11}[A-Z]$/.test(r.sim) || r.ncm !== r.sim.slice(0,8) ||
++          !r.sim.startsWith(prefix) || r.source_uri !== `pcram://${sourceSha}/sim/${r.sim}` ||
++          typeof r.ncm_context !== "string" || !r.ncm_context ||
++          typeof r.sim_description !== "string" || !r.sim_description)) continue;
++      const entries = consulted.get(result.query.indice) || [];
++      // A full-width source field signals possible truncation. Never repair its text.
++      // Keep NCM support when its context is not flagged; do not support a flagged SIM.
++      entries.push(...result.results.filter(r => r.description_limits?.ncm_field_full === false)
++        .map(r => ({ ...r, sim: r.description_limits?.sim_field_full === false ? r.sim : null })));
++      consulted.set(result.query.indice, entries);
++      continue;
++    }
+     const entries = consulted.get(result.query.indice) || [];
+     entries.push(...result.results);
+     consulted.set(result.query.indice, entries);
+--- /dev/null
++++ b/scripts/prepare-pcram-coverage.mjs
+@@ -0,0 +1,68 @@
++// Offline only. Generates field-scoped candidate and recovery; never publishes.
++import fs from 'node:fs';
++import assert from 'node:assert/strict';
++import {execFileSync} from 'node:child_process';
++import {createHash} from 'node:crypto';
++import {fileURLToPath} from 'node:url';
++export const root = new URL('../', import.meta.url);
++export const out = new URL('docs/evidence/pcram-coverage-local/', root);
++export const baselinePath = 'docs/evidence/pcram-family-die-prepared-2026-10-10/publication-er11-api-2026-10-10/published.api-export.json';
++export const sha = x => createHash('sha256').update(x).digest('hex');
++const read = x => fs.readFileSync(new URL(x, root), 'utf8');
++const embed = x => x.replace(/^import[^\n]+\n/, '').replaceAll('export function', 'function');
++export function prepare() {
++  const baseline = JSON.parse(read(baselinePath)), candidate = structuredClone(baseline);
++  assert.equal(baseline.nodes.length, 12);
++  const tool = candidate.nodes.find(n => n.name === 'Consulta_nomenclador_PCRAM');
++  const agent = candidate.nodes.find(n => n.name === 'Agente Despachante');
++  assert.equal(sha(agent.parameters.options.systemMessage), '0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7');
++  for (const file of ['workflow/pcram-nomenclator-packed.mjs', 'workflow/pcram-tool-input.mjs']) {
++    const before = embed(execFileSync('git', ['show', `d91415a:${file}`], {cwd:fileURLToPath(root), encoding:'utf8'}));
++    assert.equal(tool.parameters.jsCode.split(before).length, 2, `Unique frozen anchor: ${file}`);
++    tool.parameters.jsCode = tool.parameters.jsCode.replace(before, embed(read(file)));
++  }
++  const validator = candidate.nodes.find(n => n.name === 'Validar salida del agente');
++  const guardFile = 'workflow/pcram-classification-guard.mjs';
++  const guardBefore = embed(execFileSync('git', ['show', `d91415a:${guardFile}`], {cwd:fileURLToPath(root), encoding:'utf8'}));
++  assert.equal(validator.parameters.jsCode.split(guardBefore).length, 2, 'Unique frozen guard anchor');
++  validator.parameters.jsCode = validator.parameters.jsCode.replace(guardBefore, embed(read(guardFile)));
++  const schema = JSON.parse(tool.parameters.inputSchema);
++  schema.properties.vista = {type:'string', enum:['ramas','detalle'], description:'ramas: todas las NCM con contexto íntegro disponible; detalle: todas las SIM coincidentes. Máximo fijo 64 registros/65536 bytes; si no caben no se muestra una muestra. Sin offsets.'};
++  schema.properties.limite.description = '1..8, contrato legacy. Si vista está presente, el límite de filas pasa a ser el presupuesto fijo 64/65536 de la vista completa; este campo se conserva para compatibilidad.';
++  tool.parameters.inputSchema = JSON.stringify(schema);
++  tool.parameters.description += ' Preferir vista=ramas con prefijo sustentado y texto vacío, después vista=detalle de una NCM observada. Vistas completas hasta 64 registros/65536 bytes; no hay páginas ni offsets. Si no cabe todo, no devuelve subconjunto y declara retrieval.complete=false. branches no acredita NCM/SIM.';
++  const before = agent.parameters.options.systemMessage;
++  const start = before.indexOf('Los campos de entrada son indice, prefijo, texto y limite (1 a 8).');
++  const end = before.indexOf('\nLa consulta devuelve códigos existentes', start);
++  assert.ok(start >= 0 && end > start);
++  const instructions = 'Los campos obligatorios siguen siendo indice, prefijo, texto y limite (1 a 8); se agrega vista: ramas o detalle. Cuando vista está presente, la herramienta devuelve el conjunto completo dentro de un presupuesto fijo de 64 registros y 65536 bytes, independientemente de limite; si no cabe, no muestra un subconjunto y declara retrieval.complete=false con la causa. No existen offsets ni páginas. Máximo dos consultas por producto, incluidos reintentos; nunca hagas una tercera. maxIterations=8 permanece sin cambios. Si hay una familia sustentada, primera llamada vista=ramas con ese prefijo y texto vacío: no gastes la llamada en concatenar palabras comerciales. Si no hay prefijo sustentado, usá sólo un término genérico verificable del producto; texto es AND, hasta 160 caracteres y ocho términos distintos de al menos tres caracteres, excluidas palabras funcionales reconocidas. No inventes prefijos para evitar NO_MATCH. El panorama contiene contexto literal íntegro disponible y counts, no una clasificación ni jerarquías reconstruidas. Con retrieval.complete=true, contrastá las condiciones completas de las ramas con los atributos observados y, si alguna está sustentada, segunda llamada vista=detalle con su NCM observada, texto vacío y el mismo indice. El detalle devuelve todas sus SIM que quepan, incluidas las últimas; no elijas la primera ni una apertura residual por descarte. Si faltan atributos para elegir rama, segunda llamada vista=detalle al HS4/HS6 independientemente sustentado para conservar evidencia de familia y clasificación parcial. Si la primera dio NO_MATCH, el único reintento puede ser detalle de la familia independientemente sustentada o del término principal verificable; si no cabe todo o sigue sin coincidencias, conservá parcialidad sin buscar un código externo. No reintentes INVALID_QUERY ni errores. Con retrieval.complete=false no hay candidatos precisos acreditados: declaralo y refiná sólo si resta una llamada y hay atributos que lo justifiquen; si no, HS4/HS6 sustentado o null, SIM=null. No confundas encabezados generales con condiciones específicas ni partes/accesorios con producto completo. No declares atributos o consultas no observados. Los indicadores de campo de origen lleno señalan posible truncamiento: no completes texto faltante; una SIM marcada no puede ser acreditada, aunque la rama tenga contexto íntegro disponible.';
++  agent.parameters.options.systemMessage = before.slice(0,start) + instructions + before.slice(end);
++  agent.parameters.options.systemMessage = agent.parameters.options.systemMessage.replace(
++    'Antes de devolver NCM8 o SIM, asegurate de que ese código exacto esté entre los candidatos devueltos para ese producto.',
++    'Antes de devolver NCM8 o SIM, asegurate de que ese código exacto esté en results de una consulta dirigida vista=detalle con retrieval.complete=true para ese producto, y que los atributos observados sustenten las condiciones específicas. branches nunca acredita códigos. Si falta composición, tecnología, material u otro atributo decisivo, no devuelvas la apertura que lo exige, aunque aparezca en results; conservá únicamente el nivel parcial independientemente sustentado.');
++  const changes = [];
++  for (const [name,fields] of [['Consulta_nomenclador_PCRAM',['jsCode','inputSchema','description']],['Agente Despachante',['options.systemMessage']],['Validar salida del agente',['jsCode']]]) {
++    const index = candidate.nodes.findIndex(n=>n.name===name);
++    for (const field of fields) {
++      const get = w => field.split('.').reduce((o,k)=>o[k],w.nodes[index].parameters);
++      changes.push({nodeId:candidate.nodes[index].id,path:`/nodes/${index}/parameters/${field.replaceAll('.','/')}`,before:get(baseline),after:get(candidate),beforeSha256:sha(get(baseline)),afterSha256:sha(get(candidate))});
++    }
++  }
++  const restored = structuredClone(candidate);
++  for (const c of changes) {const keys=c.path.split('/').slice(1);const key=keys.pop();keys.reduce((o,k)=>o[k],restored)[key]=c.before;}
++  assert.deepEqual(restored,baseline);
++  return {baseline,candidate,changes,instructions};
++}
++if (process.argv[1] === fileURLToPath(import.meta.url)) {
++  const p=prepare();fs.mkdirSync(out,{recursive:true});
++  const manifest={status:'LOCAL_COMPLETE_VIEWS_PREPARED_NOT_AGENT_VERIFIED',baselinePath,
++    baselineArtifactSha256:sha(read(baselinePath)),baselineSavedVersion:p.baseline.versionId,
++    lastRecordedRollbackVersion:'9a87b6f0-4f1f-41ab-8530-68419b48b1d3',freshLiveRead:false,
++    note:'Saved ER11 functional baseline; ER12 receipt records prompt-only recovery to this content. Future publication needs fresh live identity/content verification.',
++    changedPaths:p.changes.map(c=>c.path),frozenSurfacesIdentical:true,scopedRecoveryExact:true,
++    toolBytes:Buffer.byteLength(p.candidate.nodes.find(n=>n.name==='Consulta_nomenclador_PCRAM').parameters.jsCode),
++    productionMutations:0,modelCalls:0};
++  for(const [name,obj] of Object.entries({'manifest.json':manifest,'apply.patch.json':{neverImportWholeWorkflow:true,changes:p.changes},'rollback.patch.json':{requireFreshCandidateHashes:true,changes:p.changes.map(c=>({...c,before:c.after,after:c.before,beforeSha256:c.afterSha256,afterSha256:c.beforeSha256}))}}))fs.writeFileSync(new URL(name,out),JSON.stringify(obj,null,2)+'\n');
++  fs.writeFileSync(new URL('prompt.after.txt',out),p.candidate.nodes.find(n=>n.name==='Agente Despachante').parameters.options.systemMessage);
++  console.log(JSON.stringify(manifest,null,2));
++}
+--- /dev/null
++++ b/tests/pcram-coverage.test.mjs
+@@ -0,0 +1,128 @@
++import {test} from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {runInNewContext} from 'node:vm';
++import {performance} from 'node:perf_hooks';
++import {z} from 'zod';
++import {loadPackedNomenclator,queryPackedNomenclator} from '../workflow/pcram-nomenclator-packed.mjs';
++import {pcramSearchInput} from '../workflow/pcram-tool-input.mjs';
++import {guardClassification} from '../workflow/pcram-classification-guard.mjs';
++import {prepare,root,out} from '../scripts/prepare-pcram-coverage.mjs';
++const read=p=>JSON.parse(fs.readFileSync(new URL(p,root),'utf8'));
++const stem='data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c';
++const packed=read(stem+'.indexed-v3.json'),index=read(stem+'.json'),p=prepare();
++const q=(prefijo='',vista='detalle',texto='',indice=1)=>({indice,prefijo,texto,limite:8,vista});
++const search=query=>queryPackedNomenclator(loadPackedNomenclator(packed),query);
++const code=(w,name)=>w.nodes.find(n=>n.name===name).parameters.jsCode;
++const vmQuery=(w,query)=>JSON.parse(runInNewContext(`(function(){${code(w,'Consulta_nomenclador_PCRAM')}})()`,{query},{timeout:5000}));
++const wrap=(query,response)=>({action:{tool:'Consulta_nomenclador_PCRAM',toolInput:query},observation:JSON.stringify([{response:JSON.stringify(response)}])});
++const guard=(product,input,r)=>guardClassification([product],[wrap(input,r)],packed.metadata.zip_sha256)[0];
++
++test('six legacy recorded queries remain exactly equivalent to frozen tool',()=>{
++ for(const f of ['shirt','watch-toy'])for(const recorded of read(`docs/evidence/pcram-er12-agent-contract-2026-10-10/production-gate/${f}.acceptance.json`).queries)assert.deepEqual(search(recorded.input),vmQuery(p.baseline,recorded.input));
++});
++
++test('complete branch views contain full source text and independent source counts, no first-branch sample',()=>{
++ for(const prefix of ['6109','8517','9503']){
++  const r=search(q(prefix,'ramas')),sims=index.sims.filter(x=>x[0].startsWith(prefix));
++  const codes=[...new Set(sims.map(x=>x[0].slice(0,8)))];
++  assert.deepEqual(r.results,[]);assert.deepEqual(r.branches.map(x=>x.ncm),codes);
++  assert.equal(r.matched_count,sims.length);assert.equal(r.retrieval.total,codes.length);assert.equal(r.retrieval.complete,true);
++  for(const b of r.branches){assert.equal(b.ncm_context,index.ncms[b.ncm][0]);assert.equal(b.ncm_field_full,index.ncms[b.ncm][1]);assert.equal(b.matched_sim_count,sims.filter(x=>x[0].startsWith(b.ncm)).length);}
++ }
++ const r=search(q('8517','ramas'));assert.ok(r.branches.find(b=>b.ncm==='85176272').ncm_context.includes('distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528'));
++});
++
++test('complete detail reaches all 18 toy SIM in one call, preserving descriptions and limits',()=>{
++ const r=search(q('95030060')),rows=index.sims.filter(x=>x[0].startsWith('95030060'));
++ assert.equal(r.retrieval.complete,true);assert.equal(r.partial,false);assert.equal(r.results.length,18);
++ assert.deepEqual(r.results.map(x=>x.sim),rows.map(x=>x[0]));
++ r.results.forEach((r,i)=>{assert.equal(r.sim_description,rows[i][1]);assert.equal(r.ncm_context,index.ncms[r.ncm][0]);assert.equal(r.description_limits.sim_field_full,rows[i][3]);});
++ assert.equal(r.results[10].sim,'95030060912G');assert.equal(r.results[15].sim,'95030060992H');
++});
++
++test('record and byte overflow return no sample and explicit incomplete coverage',()=>{
++ for(const [input,reason] of [[q('9503'),'RECORD_BUDGET_EXCEEDED'],[q('85','ramas'),'RECORD_BUDGET_EXCEEDED'],[q('8517'),'BYTE_BUDGET_EXCEEDED'],[q('','ramas','los'),'RECORD_BUDGET_EXCEEDED']]){
++  const r=search(input);assert.equal(r.status,'OK');assert.equal(r.retrieval.complete,false);assert.equal(r.retrieval.reason,reason);assert.deepEqual(r.results,[]);assert.deepEqual(r.branches||[],[]);assert.equal(r.partial,true);assert.ok(Buffer.byteLength(JSON.stringify(r))<=65536);
++ }
++});
++
++test('text-only views count AND matches completely when bounded; unsupported modes and all offsets fail closed',()=>{
++ const r=search(q('','ramas','camiseta'));
++ const rows=index.sims.filter(x=>(x[1]+' '+index.ncms[x[0].slice(0,8)][0]).toLowerCase().includes('camiseta'));
++ assert.equal(r.retrieval.complete,true);assert.equal(r.matched_count,rows.length);assert.deepEqual(r.branches.map(b=>b.ncm),[...new Set(rows.map(x=>x[0].slice(0,8)))]);
++ for(const change of [{offset:0},{offset:8},{offset:'8'},{vista:'sim'},{vista:null},{limite:64}])assert.equal(search({...q('95030060'),...change}).status,'INVALID_QUERY');
++ assert.equal(pcramSearchInput({...q('95030060'),offset:8}),null);
++ assert.deepEqual(pcramSearchInput({...q('95030060'),solicitud:{ignore:true}}),q('95030060'));
++ assert.equal(search(q('9999')).status,'NO_MATCH');assert.equal(search(q('9999')).retrieval.complete,true);
++});
++
++test('new guard binds every business query field, product, complete detail and URI; stale responses cannot authorize',()=>{
++ const input=q('95030060'),r=search(input),row=r.results[10],product={indice:1,clasificacion:row.ncm,SIM:row.sim};
++ assert.deepEqual(guard(product,input,r),product);
++ for(const changed of [{indice:2},{prefijo:'85176272'},{texto:'plastico'},{limite:4},{vista:'ramas'},{offset:8}])assert.equal(guard(product,{...input,...changed},r).SIM,null);
++ for(const mutate of [x=>{x.retrieval.complete=false;},x=>{x.partial=true;},x=>{x.results[10].source_uri='pcram://wrong';},x=>{delete x.query.vista;},x=>{x.returned_count--;},x=>{x.retrieval.total--;},x=>{x.results[10].description_limits.ncm_field_full=true;}]){const bad=structuredClone(r);mutate(bad);assert.equal(guard(product,input,bad).SIM,null);}
++ assert.equal(guard({...product,indice:2},input,r).SIM,null);
++});
++
++test('source truncation flags block precise SIM while preserving non-flagged NCM support',()=>{
++ for(const [prefix,sim] of [['85176272','85176272900U'],['95030060','95030060992H']]){
++  const input=q(prefix),r=search(input),row=r.results.find(x=>x.sim===sim);assert.equal(row.description_limits.sim_field_full,true);
++  const checked=guard({indice:1,clasificacion:prefix,SIM:sim},input,r);assert.equal(checked.SIM,null);assert.equal(checked.clasificacion,prefix);
++ }
++});
++
++test('overview and broad-family detail cannot authorize cotton or wheeled NCM; supplied partial remains supported',()=>{
++ for(const [prefix,precise] of [['6109','61091000'],['9503','95030010']])for(const vista of ['ramas','detalle']){
++  const input=q(prefix,vista),r=search(input),product={indice:1,clasificacion:precise,SIM:null};
++  assert.equal(guard(product,input,r).clasificacion,null);
++  const partial={...product,clasificacion:prefix};assert.deepEqual(guard(partial,input,r),partial);
++ }
++ // Boundary: directed branch can still be semantically wrong; this remains the agent's unproven decision.
++ const input=q('95030010');const r=search(input);
++ assert.equal(r.retrieval.complete,false); // branch itself exceeds fixed budget; cannot be selected through this oversized response.
++});
++
++test('embedded schema/tool/guard agree and exact five-field restoration preserves frozen circuit',()=>{
++ for(const input of [q('8517','ramas'),q('95030060'),q('6109')])assert.deepEqual(vmQuery(p.candidate,input),search(input));
++ const restored=structuredClone(p.candidate);for(const c of p.changes){const keys=c.path.split('/').slice(1),key=keys.pop();keys.reduce((v,k)=>v[k],restored)[key]=c.before;}
++ assert.deepEqual(restored,p.baseline);assert.equal(p.changes.length,5);
++ assert.doesNotMatch(p.instructions,/6109|8517|9503|\d+%/);assert.match(p.instructions,/Máximo dos consultas por producto/);
++ assert.doesNotMatch(code(p.candidate,'Consulta_nomenclador_PCRAM'),/(?:^|\n)\s*(?:import\s|require\s*\()/);
++ const schema=JSON.parse(p.candidate.nodes.find(n=>n.name==='Consulta_nomenclador_PCRAM').parameters.inputSchema);
++ const validator=z.object(Object.fromEntries(Object.entries(schema.properties).map(([k,r])=>{let v=r.type==='integer'?z.number().int().min(r.minimum).max(r.maximum):r.enum?z.enum(r.enum):z.string().max(r.maxLength);return [k,schema.required.includes(k)?v:v.optional()];}))).catchall(z.any());
++ for(const input of [q('8517','ramas'),q('95030060')])assert.deepEqual(vmQuery(p.candidate,validator.parse({...input,toolCallId:'local'})),search(input));
++});
++
++test('literal candidate validator rejects stale new-query responses and flagged SIM without changing supported NCM',()=>{
++ const fixture=read('docs/evidence/pcram-er12-agent-contract-2026-10-10/executions.selected.json').cases.find(c=>c.id==='34453');
++ const input=q('95030060'),r=vmQuery(p.candidate,input),row=r.results[10];
++ const run=(product,query,response)=>JSON.parse(JSON.stringify(runInNewContext(`(function(){${code(p.candidate,'Validar salida del agente')}})()`,{
++  $input:{first:()=>({json:{output:{productos:[product]},intermediateSteps:[wrap(query,response)]}})},$:()=>({first:()=>({json:{solicitud:fixture.input}})})
++ },{timeout:5000})))[0].json.productos[0];
++ const product={...fixture.agent_products[0],clasificacion:row.ncm,SIM:row.sim};
++ assert.equal(run(product,input,r).SIM,row.sim);
++ assert.equal(run(product,{...input,prefijo:'85176272'},r).SIM,null);
++ const watch=q('85176272'),w=vmQuery(p.candidate,watch);
++ const checked=run({...product,clasificacion:'85176272',SIM:'85176272900U'},watch,w);
++ assert.equal(checked.SIM,null);assert.equal(checked.clasificacion,'85176272');
++});
++
++test('two-query route plus supplied partial fixture preserves actual candidate guard/calculator FAMILY_SNAPSHOT',()=>{
++ const fixture=read('docs/evidence/pcram-er12-agent-contract-2026-10-10/executions.selected.json').cases.find(c=>c.id==='34453');
++ const steps=['ramas','detalle'].map(vista=>{const input=q('6109',vista);return wrap(input,vmQuery(p.candidate,input));});
++ const guarded=JSON.parse(JSON.stringify(runInNewContext(`(function(){${code(p.candidate,'Validar salida del agente')}})()`,{$input:{first:()=>({json:{output:{productos:fixture.agent_products},intermediateSteps:steps}})},$:()=>({first:()=>({json:{solicitud:fixture.input}})})},{timeout:5000})))[0].json;
++ assert.deepEqual(guarded.productos,fixture.agent_products);
++ const now=+new Date(fixture.started_at_ar);class FixedDate extends Date{constructor(x){super(x??now);}static now(){return now;}}
++ const response=JSON.parse(JSON.stringify(runInNewContext(`(function(){${code(p.candidate,'Cotizador deterministico')}})()`,{$input:{first:()=>({json:guarded})},$:()=>({first:()=>({json:{intermediateSteps:steps}})}),Date:FixedDate},{timeout:5000})))[0].json.respuesta;
++ assert.equal(response.total_usd,fixture.total_usd);assert.equal(response.auditoria.taxResolutions[0].estimation.components.find(x=>x.tax==='duty').method,'FAMILY_SNAPSHOT');
++});
++
++test('bounded-view single sample measurements include worst broad text and budget refusals',()=>{
++ const measurements=[];
++ for(const input of [q('6109','ramas'),q('8517','ramas'),q('9503','ramas'),q('95030060'),q('85176272'),q('6109'),q('85','ramas'),q('8517'),q('','ramas','los')]){
++  const start=performance.now(),runtime=loadPackedNomenclator(packed),r=queryPackedNomenclator(runtime,input),ms=performance.now()-start,bytes=Buffer.byteLength(JSON.stringify(r));
++  assert.ok(bytes<=65536);assert.ok(ms<5000);measurements.push({query:input,ms,bytes,retrieval:r.retrieval,stats:runtime.stats});
++ }
++ fs.mkdirSync(out,{recursive:true});fs.writeFileSync(new URL('measurements.json',out),JSON.stringify({mode:'LOCAL_SINGLE_SAMPLE_NOT_PRODUCTION_SLA',node:process.version,measurements},null,2)+'\n');
++});
+--- /dev/null
++++ b/tests/pcram-coverage-review.test.mjs
+@@ -0,0 +1,53 @@
++// Deterministic bounded tool routes with explicit navigation decisions, not an agent/classifier.
++import {test,after} from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {runInNewContext} from 'node:vm';
++import {prepare,out} from '../scripts/prepare-pcram-coverage.mjs';
++const p=prepare(),q=(prefijo,vista='detalle',indice=1,texto='')=>({indice,prefijo,texto,limite:8,vista});
++const tool=p.candidate.nodes.find(n=>n.name==='Consulta_nomenclador_PCRAM').parameters.jsCode;
++const report={status:'LOCAL_TWO_QUERY_RETRIEVAL_VERIFIED_NOT_AGENT_CLASSIFICATION',node:process.version,scope:'Explicit navigation fixtures; no new product attributes claimed; source limits retained',routes:[]};
++function route(){const calls=[];return {calls,call(input){assert.ok(calls.filter(c=>c.input.indice===input.indice).length<2,'TWO_QUERY_BUDGET_EXHAUSTED');const response=JSON.parse(runInNewContext(`(function(){${tool}})()`,{query:input},{timeout:5000}));calls.push({input,response});return response;}};}
++
++test('toy: overview then complete detail exposes positions 11/16 within two calls without offset or code injection',()=>{
++ const run=route(),overview=run.call(q('9503','ramas',2));
++ const branch=overview.branches.find(b=>b.ncm_context.startsWith('Los demás juegos o surtidos y juguetes para construcción.'));
++ assert.ok(branch);const detail=run.call(q(branch.ncm,'detalle',2));
++ assert.equal(detail.retrieval.complete,true);assert.equal(detail.results.length,18);
++ assert.ok(['95030060912G','95030060992H'].every(sim=>detail.results.some(r=>r.sim===sim)));
++ assert.ok(detail.results.slice(0,4).every(r=>r.sim_description.includes('Partes y accesorios')));
++ assert.ok(!detail.results[10].sim_description.includes('Partes y accesorios'));
++ assert.throws(()=>run.call(q(branch.ncm,'detalle',2)),/TWO_QUERY_BUDGET_EXHAUSTED/);
++ report.routes.push({id:'toy',initialDecision:'Existing supported family9503; no commercial lexical query',refinementDecision:'Inspect returned construction-toy branch by literal source description. This is a navigation hypothesis, not proof the real product belongs there.',calls:run.calls,finalClassification:'NOT_GENERATED',availableSIMs:18,sourceFlaggedControls:['95030060992H']});
++});
++
++test('watch: branch38 is visible with entire exclusion, two-call detail shows both SIM without certifying truncated source',()=>{
++ const run=route(),overview=run.call(q('8517','ramas'));
++ const branch=overview.branches.find(b=>b.ncm_context.startsWith('De frecuencia inferior a 15 GHz y tasa de transmisión inferior o igual a 34 Mbit/s, excepto los intercomunicadores.'));
++ assert.ok(branch);assert.ok(overview.branches.indexOf(branch)>8);
++ assert.ok(branch.ncm_context.includes('distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528'));
++ const detail=run.call(q(branch.ncm));assert.equal(detail.results.length,2);assert.ok(detail.results.some(r=>r.sim==='85176272900U'));
++ assert.ok(detail.results.every(r=>r.description_limits.sim_field_full));
++ report.routes.push({id:'watch',initialDecision:'Existing family8517 is supplied as a hypothesis; no new factual technology claim',refinementDecision:'Inspect a returned branch with explicit frequency/data-rate/exclusion conditions; actual product attributes remain unverified.',calls:run.calls,finalClassification:'NOT_GENERATED; exact SIM remains unsupported because source fields are flagged and real attributes are missing'});
++});
++
++test('shirt: no composition decision required to expose both materials and every SIM in two calls',()=>{
++ const run=route(),overview=run.call(q('6109','ramas'));assert.equal(overview.branches.length,2);
++ const details=run.call(q('6109'));assert.equal(details.results.length,10);assert.equal(details.retrieval.complete,true);
++ assert.ok(details.results.some(r=>r.sim==='61099000119F'));
++ report.routes.push({id:'shirt',initialDecision:'HS6109 already supplied by recorded fixture; composition unknown',refinementDecision:'No branch selected: inspect full supported family to retain family evidence and partiality',calls:run.calls,finalClassification:'NOT_GENERATED; separate regression test supplies historical HS6109/SIMnull and verifies FAMILY_SNAPSHOT'});
++});
++
++test('NO_MATCH contingency preserves two-call cap and admits insufficient coverage rather than guessing offsets',()=>{
++ const run=route();assert.equal(run.call(q('','ramas',2,'juguete bloques')).status,'NO_MATCH');
++ const second=run.call(q('9503','detalle',2));assert.equal(second.retrieval.complete,false);assert.deepEqual(second.results,[]);
++ assert.throws(()=>run.call(q('9503','detalle',2)),/TWO_QUERY_BUDGET_EXHAUSTED/);
++ report.routes.push({id:'no_match_contingency',initialDecision:'Deliberate replay of prior bad commercial conjunction, not preferred new route',calls:run.calls,finalClassification:'NOT_GENERATED; must remain independently justified partial or null; coverage unavailable within remaining call'});
++});
++
++test('first response above budget contains no misleading leading branch subset',()=>{
++ const run=route(),first=run.call(q('85','ramas'));assert.equal(first.retrieval.complete,false);assert.deepEqual(first.branches,[]);
++ report.routes.push({id:'oversized_family',initialDecision:'Deliberately broad supported chapter',calls:run.calls,finalClassification:'NOT_GENERATED; refine only with independent evidence, otherwise partial. No useful-coverage claim.'});
++});
++
++after(()=>{fs.mkdirSync(out,{recursive:true});report.candidateFieldHashes=p.changes.map(c=>({path:c.path,before:c.beforeSha256,after:c.afterSha256}));fs.writeFileSync(new URL('two-query-routes.json',out),JSON.stringify(report,null,2)+'\n');});

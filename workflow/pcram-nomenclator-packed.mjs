@@ -102,11 +102,14 @@ export function queryPackedNomenclator(runtime, query) {
   const { packed, catalog, stats } = runtime, source = packed.metadata;
   const base = { source, status: "INVALID_QUERY", results: [], partial: false };
   if (!query || typeof query !== "object" || Array.isArray(query)) return base;
-  const { indice, prefijo = "", texto = "", limite = 6 } = query;
+  const { indice, prefijo = "", texto = "", limite = 6, vista } = query;
+  const extended = vista !== undefined;
+  const branchView = vista === "ramas";
   if (!Number.isInteger(indice) || indice < 1 || indice > 100 ||
       typeof prefijo !== "string" || typeof texto !== "string" || texto.length > 160 ||
       !Number.isInteger(limite) || limite < 1 || limite > 8 ||
-      Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite"].includes(k))) return base;
+      ("vista" in query && !["ramas", "detalle"].includes(vista)) ||
+      Object.keys(query).some(k => !["indice", "prefijo", "texto", "limite", "vista"].includes(k))) return base;
   let prefix;
   if (prefijo === "" || /^(?:\d{2}|\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(prefijo)) prefix = prefijo;
   else if (/^\d{4}\.\d{2}(?:\.\d{2}(?:\.\d{3}[A-Z])?)?$/.test(prefijo)) prefix = prefijo.replaceAll(".", "");
@@ -124,11 +127,43 @@ export function queryPackedNomenclator(runtime, query) {
     source_uri: `pcram://${source.zip_sha256}/sim/${row[0]}`,
   });
   const response = (matched, results) => ({
-    source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite },
+    source, status: matched ? "OK" : "NO_MATCH", query: { indice, prefijo, texto, limite, ...(extended ? { vista } : {}) },
     ...(ignoredTerms.length ? { normalization: { ignored_terms: ignoredTerms, terms } } : {}),
     matched_count: matched, returned_count: results.length, partial: matched > results.length,
     coverage: "Only matches of this query; no inference of tax homogeneity or product compatibility", results,
   });
+  // Complete bounded views: no ranking, offsets, excerpts, or first-page bias.
+  // limite retains its legacy meaning only when vista is omitted.
+  const branches = new Map(), maxRecords = 64, maxBytes = 65536;
+  const collectBranch = (ncm, context, full) => {
+    const entry = branches.get(ncm);
+    if (entry) entry.matched_sim_count++;
+    else branches.set(ncm, { ncm, ncm_context: context, ncm_field_full: full, matched_sim_count: 1 });
+  };
+  const finish = (matched, results) => {
+    const value = response(matched, results);
+    if (!extended) return value;
+    const total = branchView ? branches.size : matched;
+    if (branchView) value.branches = [...branches.values()];
+    value.retrieval = { view: vista, unit: branchView ? "NCM" : "SIM", total,
+      returned: branchView ? value.branches.length : results.length, complete: true,
+      max_records: maxRecords, max_response_bytes: maxBytes,
+      evidence: "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes." };
+    // Pure JS UTF-8 length, available in the embedded n8n Code Tool.
+    const bytes = () => encodeURIComponent(JSON.stringify(value)).replace(/%[A-F0-9]{2}/g, "x").length;
+    const reason = total > maxRecords ? "RECORD_BUDGET_EXCEEDED" : bytes() > maxBytes ? "BYTE_BUDGET_EXCEEDED" : null;
+    if (reason) {
+      value.results = [];
+      if (branchView) value.branches = [];
+      value.returned_count = 0;
+      value.partial = matched > 0;
+      value.retrieval.returned = 0;
+      value.retrieval.complete = false;
+      value.retrieval.reason = reason;
+      value.retrieval.next_action = "Refine only with independently supported attributes/prefix if a call remains; otherwise retain partial classification. No candidate subset was shown.";
+    }
+    return value;
+  };
   let ids;
   if (prefix) {
     // Structural lookup only. Full SIM remains intact in the final exact-prefix filter.
@@ -145,7 +180,8 @@ export function queryPackedNomenclator(runtime, query) {
     ids = range ? Array.from({ length: range[1] - range[0] }, (_, i) => range[0] + i) : [];
   } else {
     // Exact word/subword postings count matches without visiting source descriptions.
-    const { matched, selected } = textMatches(runtime, terms, limite), results = [];
+    const { matched, selected } = textMatches(runtime, terms, branchView ? source.record_count : extended ? maxRecords : limite), results = [];
+    if (extended && !branchView && matched > maxRecords) return finish(matched, results);
     let shardCode = null, rows = null;
     for (const simId of selected) {
       let lo = 0, hi = catalog.codes.length;
@@ -153,10 +189,11 @@ export function queryPackedNomenclator(runtime, query) {
       const ncm = catalog.codes[lo], hs4 = ncm.slice(0, 4);
       if (hs4 !== shardCode) { rows = unpack(packed.shards[hs4], stats); shardCode = hs4; stats.shards_decoded++; }
       const [context, full, sims] = rows[lo - catalog.prefixes[hs4][0]];
-      results.push(resultRow(ncm, context, full, sims[simId - catalog.sim_offsets[lo]]));
+      if (branchView) collectBranch(ncm, context, full);
+      else results.push(resultRow(ncm, context, full, sims[simId - catalog.sim_offsets[lo]]));
       stats.ncm_checked++; stats.sim_checked++;
     }
-    return response(matched, results);
+    return finish(matched, results);
   }
 
   const results = []; let matched = 0, shardCode = null, rows = null;
@@ -174,8 +211,9 @@ export function queryPackedNomenclator(runtime, query) {
       if (prefix && !sim.startsWith(prefix)) continue;
       if (remaining.length && !remaining.every(t => fold(description).includes(t))) continue;
       matched++;
-      if (results.length < limite) results.push(resultRow(ncm, context, contextFull, [sim, description, updatedAt, simFull]));
+      if (branchView) collectBranch(ncm, context, contextFull);
+      else if (results.length < (extended ? maxRecords : limite)) results.push(resultRow(ncm, context, contextFull, [sim, description, updatedAt, simFull]));
     }
   }
-  return response(matched, results);
+  return finish(matched, results);
 }

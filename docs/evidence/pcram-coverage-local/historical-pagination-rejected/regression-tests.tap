@@ -1,0 +1,370 @@
+TAP version 13
+# Subtest: only systemMessage changes; 12 nodes, entire frozen circuit/model/taxes and scoped rollback exact
+ok 1 - only systemMessage changes; 12 nodes, entire frozen circuit/model/taxes and scoped rollback exact
+  ---
+  duration_ms: 8.353833
+  type: 'test'
+  ...
+# Subtest: all seven recorded queries reproduce actual status/source/count/partial and candidates
+ok 2 - all seven recorded queries reproduce actual status/source/count/partial and candidates
+  ---
+  duration_ms: 1.112792
+  type: 'test'
+  ...
+# Subtest: 34452 input failure is the >8-term boundary, not n8n context or missing PCRAM records
+ok 3 - 34452 input failure is the >8-term boundary, not n8n context or missing PCRAM records
+  ---
+  duration_ms: 346.170583
+  type: 'test'
+  ...
+# Subtest: original Agent V3 envelope → unchanged guard → unchanged calculator reproduces the three real audits
+ok 4 - original Agent V3 envelope → unchanged guard → unchanged calculator reproduces the three real audits
+  ---
+  duration_ms: 139.019916
+  type: 'test'
+  ...
+# Subtest: bounded query shapes specified by the candidate execute the real frozen tool, without fabricating positions
+ok 5 - bounded query shapes specified by the candidate execute the real frozen tool, without fabricating positions
+  ---
+  duration_ms: 206.4575
+  type: 'test'
+  ...
+# Subtest: partial recording remains partial; invented codes, wrong source/product and malformed observations rejected
+ok 6 - partial recording remains partial; invented codes, wrong source/product and malformed observations rejected
+  ---
+  duration_ms: 61.95375
+  type: 'test'
+  ...
+# Subtest: existing integrity gate: nomenclator bytes and tax/calculator/model fields remain untouched
+ok 7 - existing integrity gate: nomenclator bytes and tax/calculator/model fields remain untouched
+  ---
+  duration_ms: 7.13075
+  type: 'test'
+  ...
+# Subtest: SHA-256 integrity matches native implementation, including multi-block inputs
+ok 8 - SHA-256 integrity matches native implementation, including multi-block inputs
+  ---
+  duration_ms: 42.967666
+  type: 'test'
+  ...
+# Subtest: one calculator field; 12 nodes, all other fields intact; guarded rollback exact
+ok 9 - one calculator field; 12 nodes, all other fields intact; guarded rollback exact
+  ---
+  duration_ms: 16.658375
+  type: 'test'
+  ...
+# Subtest: local replay of both recorded queries reproduces all selected actual fields
+ok 10 - local replay of both recorded queries reproduces all selected actual fields
+  ---
+  duration_ms: 53.596708
+  type: 'test'
+  ...
+# Subtest: 34448 offline regression: 906 -> 931.88, 20% family provenance, no fabricated SIM
+ok 11 - 34448 offline regression: 906 -> 931.88, 20% family provenance, no fabricated SIM
+  ---
+  duration_ms: 153.547291
+  type: 'test'
+  ...
+# Subtest: existing literal validator unchanged and feeds partial classification into candidate
+ok 12 - existing literal validator unchanged and feeds partial classification into candidate
+  ---
+  duration_ms: 27.403
+  type: 'test'
+  ...
+# Subtest: confirmed smartwatch SIM precedence and specific 0 / 0 / 10.5 unchanged
+ok 13 - confirmed smartwatch SIM precedence and specific 0 / 0 / 10.5 unchanged
+  ---
+  duration_ms: 51.503834
+  type: 'test'
+  ...
+# Subtest: confirmed toy NCM retains PCRAM 20 / 3 and entire original audit
+ok 14 - confirmed toy NCM retains PCRAM 20 / 3 and entire original audit
+  ---
+  duration_ms: 89.547042
+  type: 'test'
+  ...
+# Subtest: real mixed family 1001 never selects first or highest rate
+ok 15 - real mixed family 1001 never selects first or highest rate
+  ---
+  duration_ms: 150.351833
+  type: 'test'
+  ...
+# Subtest: source coverage mismatch real family 9503 retains original fallback
+ok 16 - source coverage mismatch real family 9503 retains original fallback
+  ---
+  duration_ms: 84.510042
+  type: 'test'
+  ...
+# Subtest: no family or unsupported family never changes original estimate
+ok 17 - no family or unsupported family never changes original estimate
+  ---
+  duration_ms: 215.902459
+  type: 'test'
+  ...
+# Subtest: HS6 supported with full family coverage, no prefix or 20% hardcode
+ok 18 - HS6 supported with full family coverage, no prefix or 20% hardcode
+  ---
+  duration_ms: 70.617208
+  type: 'test'
+  ...
+# Subtest: another real uniform family uses its actual 9%, not a forced 20%
+ok 19 - another real uniform family uses its actual 9%, not a forced 20%
+  ---
+  duration_ms: 58.969416
+  type: 'test'
+  ...
+# Subtest: missing, corrupt, stale, future or incompatible sources fail to original estimate
+ok 20 - missing, corrupt, stale, future or incompatible sources fail to original estimate
+  ---
+  duration_ms: 959.486166
+  type: 'test'
+  ...
+# Subtest: malformed, mismatched-index, NO_MATCH, error or fabricated trace cannot substantiate family
+ok 21 - malformed, mismatched-index, NO_MATCH, error or fabricated trace cannot substantiate family
+  ---
+  duration_ms: 860.357
+  type: 'test'
+  ...
+# Subtest: failing integrity never alters TE/IVA and keeps original AGENT_ESTIMATE branch
+ok 22 - failing integrity never alters TE/IVA and keeps original AGENT_ESTIMATE branch
+  ---
+  duration_ms: 157.169708
+  type: 'test'
+  ...
+# Subtest: existing upstream/commercial schemas accept honest provenance without contract changes
+ok 23 - existing upstream/commercial schemas accept honest provenance without contract changes
+  ---
+  duration_ms: 91.238792
+  type: 'test'
+  ...
+# Subtest: save explicit local comparison evidence (not live agent behavior)
+ok 24 - save explicit local comparison evidence (not live agent behavior)
+  ---
+  duration_ms: 32.036667
+  type: 'test'
+  ...
+# Subtest: one prompt field only; hashes and guarded prompt-only rollback
+ok 25 - one prompt field only; hashes and guarded prompt-only rollback
+  ---
+  duration_ms: 31.315584
+  type: 'test'
+  ...
+# Subtest: static policy: one retry after NO_MATCH, existing two-call budget and prudence retained
+ok 26 - static policy: one retry after NO_MATCH, existing two-call budget and prudence retained
+  ---
+  duration_ms: 2.053583
+  type: 'test'
+  ...
+# Subtest: actual frozen Code Tool: commercial NO_MATCH and both permitted broad-query shapes
+ok 27 - actual frozen Code Tool: commercial NO_MATCH and both permitted broad-query shapes
+  ---
+  duration_ms: 732.515709
+  type: 'test'
+  ...
+# Subtest: literal frozen validator: broad candidates do not force a SIM; unaudited identifiers rejected
+ok 28 - literal frozen validator: broad candidates do not force a SIM; unaudited identifiers rejected
+  ---
+  duration_ms: 24.398125
+  type: 'test'
+  ...
+# Subtest: same exact responses for reference cases, text-only, substrings, accent and broad query
+ok 29 - same exact responses for reference cases, text-only, substrings, accent and broad query
+  ---
+  duration_ms: 1075.591666
+  type: 'test'
+  ...
+# Subtest: prefix and text indexes limit visited records; checksum errors fail closed
+ok 30 - prefix and text indexes limit visited records; checksum errors fail closed
+  ---
+  duration_ms: 204.2465
+  type: 'test'
+  ...
+# Subtest: only tool jsCode changes; no model/prompt/taxes/topology changes; exact candidate recovery
+ok 31 - only tool jsCode changes; no model/prompt/taxes/topology changes; exact candidate recovery
+  ---
+  duration_ms: 4.315458
+  type: 'test'
+  ...
+# Subtest: literal optimized tool executes in isolated local VM with no Buffer/require/network
+ok 32 - literal optimized tool executes in isolated local VM with no Buffer/require/network
+  ---
+  duration_ms: 79.86075
+  type: 'test'
+  ...
+# Subtest: prefix + lexical text: real candidates, context, dates, no taxes
+ok 33 - prefix + lexical text: real candidates, context, dates, no taxes
+  ---
+  duration_ms: 226.567417
+  type: 'test'
+  ...
+# Subtest: query bounds and invalid codes fail closed, without truncating or padding
+ok 34 - query bounds and invalid codes fail closed, without truncating or padding
+  ---
+  duration_ms: 0.372667
+  type: 'test'
+  ...
+# Subtest: snapshot data are immutable and lookup repeatable
+ok 35 - snapshot data are immutable and lookup repeatable
+  ---
+  duration_ms: 104.183333
+  type: 'test'
+  ...
+# Subtest: membership guard uses actual observations per product, not claimed citations
+ok 36 - membership guard uses actual observations per product, not claimed citations
+  ---
+  duration_ms: 5.89025
+  type: 'test'
+  ...
+# Subtest: partial classification and estimated DIE unchanged; inconsistent positions not repaired
+ok 37 - partial classification and estimated DIE unchanged; inconsistent positions not repaired
+  ---
+  duration_ms: 27.9825
+  type: 'test'
+  ...
+# Subtest: 12 nodes; exactly one read-only tool edge, unchanged model/calc/main surfaces; scoped rollback
+ok 38 - 12 nodes; exactly one read-only tool edge, unchanged model/calc/main surfaces; scoped rollback
+  ---
+  duration_ms: 130.527541
+  type: 'test'
+  ...
+# Subtest: execute literal embedded Code Tool and validator offline (not n8n/model behavior)
+ok 39 - execute literal embedded Code Tool and validator offline (not n8n/model behavior)
+  ---
+  duration_ms: 137.579041
+  type: 'test'
+  ...
+# Subtest: frozen resolver contract: position returned by tool -> PCRAM + current IVA; no claim of VALDUS classification
+ok 40 - frozen resolver contract: position returned by tool -> PCRAM + current IVA; no claim of VALDUS classification
+  ---
+  duration_ms: 144.975625
+  type: 'test'
+  ...
+# Subtest: exact \#34375 inputs: reproduce both baseline INVALID_QUERY, corrected authentic NO_MATCH
+ok 41 - exact \#34375 inputs: reproduce both baseline INVALID_QUERY, corrected authentic NO_MATCH
+  ---
+  duration_ms: 684.564125
+  type: 'test'
+  ...
+# Subtest: HS2 reuses HS4 ranges; only chapter records visited, no global SIM traversal
+ok 42 - HS2 reuses HS4 ranges; only chapter records visited, no global SIM traversal
+  ---
+  duration_ms: 137.505125
+  type: 'test'
+  ...
+# Subtest: only explicit short function words omitted; original input and ignored terms traceable
+ok 43 - only explicit short function words omitted; original input and ignored terms traceable
+  ---
+  duration_ms: 344.818834
+  type: 'test'
+  ...
+# Subtest: prior supported searches remain byte-equivalent at response level
+ok 44 - prior supported searches remain byte-equivalent at response level
+  ---
+  duration_ms: 2038.216167
+  type: 'test'
+  ...
+# Subtest: invalid short content, malformed prefixes, extra search keys and bounds stay rejected
+ok 45 - invalid short content, malformed prefixes, extra search keys and bounds stay rejected
+  ---
+  duration_ms: 29.99125
+  type: 'test'
+  ...
+# Subtest: real rows and source/date/limits immutable; no fabricated positions or rates
+ok 46 - real rows and source/date/limits immutable; no fabricated positions or rates
+  ---
+  duration_ms: 114.702125
+  type: 'test'
+  ...
+# Subtest: literal candidate input projection -> search -> wrapped response -> unchanged guard
+ok 47 - literal candidate input projection -> search -> wrapped response -> unchanged guard
+  ---
+  duration_ms: 194.654875
+  type: 'test'
+  ...
+# Subtest: guard preserves source, SHA, product index and candidate membership checks
+ok 48 - guard preserves source, SHA, product index and candidate membership checks
+  ---
+  duration_ms: 55.574334
+  type: 'test'
+  ...
+# Subtest: 12 nodes, only tool jsCode changes; embedded index/decoder/adapter intact; exact rollback
+ok 49 - 12 nodes, only tool jsCode changes; embedded index/decoder/adapter intact; exact rollback
+  ---
+  duration_ms: 11.216083
+  type: 'test'
+  ...
+# Subtest: reproduces \#34366 strict-schema rejection of four observed context keys
+ok 50 - reproduces \#34366 strict-schema rejection of four observed context keys
+  ---
+  duration_ms: 2.559542
+  type: 'test'
+  ...
+# Subtest: permissive schema alone still fails the unchanged search; adapter forwards only four keys
+ok 51 - permissive schema alone still fails the unchanged search; adapter forwards only four keys
+  ---
+  duration_ms: 675.336375
+  type: 'test'
+  ...
+# Subtest: literal candidate returns unchanged real PCRAM rows, source/version and bounded results
+ok 52 - literal candidate returns unchanged real PCRAM rows, source/version and bounded results
+  ---
+  duration_ms: 396.942667
+  type: 'test'
+  ...
+# Subtest: all four required fields stay strict at schema and adapter, no defaulting/coercion
+ok 53 - all four required fields stay strict at schema and adapter, no defaulting/coercion
+  ---
+  duration_ms: 696.042583
+  type: 'test'
+  ...
+# Subtest: search format controls remain unchanged; nonexistent SIM is NO_MATCH, not repaired
+ok 54 - search format controls remain unchanged; nonexistent SIM is NO_MATCH, not repaired
+  ---
+  duration_ms: 256.280916
+  type: 'test'
+  ...
+# Subtest: direct JSON string returned by Code Tool passes literal candidate validator
+ok 55 - direct JSON string returned by Code Tool passes literal candidate validator
+  ---
+  duration_ms: 42.617666
+  type: 'test'
+  ...
+# Subtest: wrong product index or SHA still rejects provenance; guard not weakened
+ok 56 - wrong product index or SHA still rejects provenance; guard not weakened
+  ---
+  duration_ms: 41.917375
+  type: 'test'
+  ...
+# Subtest: reused input plus guard normalization only; frozen surfaces and both scoped rollbacks exact
+ok 57 - reused input plus guard normalization only; frozen surfaces and both scoped rollbacks exact
+  ---
+  duration_ms: 26.093167
+  type: 'test'
+  ...
+# Subtest: integral contract: input -> search -> Agent V3 wrapped response -> literal candidate validator
+ok 58 - integral contract: input -> search -> Agent V3 wrapped response -> literal candidate validator
+  ---
+  duration_ms: 46.403583
+  type: 'test'
+  ...
+# Subtest: malformed, error, ambiguous and nested observations cannot provide membership
+ok 59 - malformed, error, ambiguous and nested observations cannot provide membership
+  ---
+  duration_ms: 56.938041
+  type: 'test'
+  ...
+# Subtest: membership stays per-product; unsupported/inconsistent codes rejected; partial estimate unchanged
+ok 60 - membership stays per-product; unsupported/inconsistent codes rejected; partial estimate unchanged
+  ---
+  duration_ms: 138.174834
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4441.821042

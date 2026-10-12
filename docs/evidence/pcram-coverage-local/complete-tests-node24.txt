@@ -1,0 +1,25 @@
+✔ toy: overview then complete detail exposes positions 11/16 within two calls without offset or code injection (99.74825ms)
+✔ watch: branch38 is visible with entire exclusion, two-call detail shows both SIM without certifying truncated source (70.892625ms)
+✔ shirt: no composition decision required to expose both materials and every SIM in two calls (75.316958ms)
+✔ NO_MATCH contingency preserves two-call cap and admits insufficient coverage rather than guessing offsets (160.328292ms)
+✔ first response above budget contains no misleading leading branch subset (63.662125ms)
+✔ six legacy recorded queries remain exactly equivalent to frozen tool (1089.152833ms)
+✔ complete branch views contain full source text and independent source counts, no first-branch sample (111.110375ms)
+✔ complete detail reaches all 18 toy SIM in one call, preserving descriptions and limits (29.772292ms)
+✔ record and byte overflow return no sample and explicit incomplete coverage (634.828625ms)
+✔ text-only views count AND matches completely when bounded; unsupported modes and all offsets fail closed (320.421333ms)
+✔ new guard binds every business query field, product, complete detail and URI; stale responses cannot authorize (30.236333ms)
+✔ source truncation flags block precise SIM while preserving non-flagged NCM support (54.010125ms)
+✔ overview and broad-family detail cannot authorize cotton or wheeled NCM; supplied partial remains supported (132.285625ms)
+✔ embedded schema/tool/guard agree and exact five-field restoration preserves frozen circuit (312.733459ms)
+✔ literal candidate validator rejects stale new-query responses and flagged SIM without changing supported NCM (77.146208ms)
+✔ two-query route plus supplied partial fixture preserves actual candidate guard/calculator FAMILY_SNAPSHOT (128.149542ms)
+✔ bounded-view single sample measurements include worst broad text and budget refusals (754.044708ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3873.548209

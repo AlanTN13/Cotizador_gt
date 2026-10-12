@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: legacy recorded six ER12 queries remain byte-structure equivalent to frozen tool
+ok 1 - legacy recorded six ER12 queries remain byte-structure equivalent to frozen tool
+  ---
+  duration_ms: 1134.125334
+  type: 'test'
+  ...
+# Subtest: full branch coverage matches source independently, preserving literal context and counts
+ok 2 - full branch coverage matches source independently, preserving literal context and counts
+  ---
+  duration_ms: 90.446583
+  type: 'test'
+  ...
+# Subtest: SIM pagination reaches all toy openings, including complete-product controls outside first eight
+ok 3 - SIM pagination reaches all toy openings, including complete-product controls outside first eight
+  ---
+  duration_ms: 186.151041
+  type: 'test'
+  ...
+# Subtest: branch and text-only pages have no omissions, duplicates or invented hierarchy
+ok 4 - branch and text-only pages have no omissions, duplicates or invented hierarchy
+  ---
+  duration_ms: 3128.692375
+  type: 'test'
+  ...
+# Subtest: invalid paging/limits fail closed; empty and out-of-range pages terminate honestly
+ok 5 - invalid paging/limits fail closed; empty and out-of-range pages terminate honestly
+  ---
+  duration_ms: 282.17475
+  type: 'test'
+  ...
+# Subtest: overview cannot authorize cotton without composition or wheeled toy; honest partial survives guard
+ok 6 - overview cannot authorize cotton without composition or wheeled toy; honest partial survives guard
+  ---
+  duration_ms: 56.171959
+  type: 'test'
+  ...
+# Subtest: directed later-page SIM stays guard-compatible and cannot cross product indices; guard remains membership-only
+ok 7 - directed later-page SIM stays guard-compatible and cannot cross product indices; guard remains membership-only
+  ---
+  duration_ms: 63.587916
+  type: 'test'
+  ...
+# Subtest: embedded candidate runs with no imports/network and all frozen fields recover exactly
+ok 8 - embedded candidate runs with no imports/network and all frozen fields recover exactly
+  ---
+  duration_ms: 391.995959
+  type: 'test'
+  ...
+# Subtest: new optional schema fields survive representative Zod conversion and runtime context stripping
+ok 9 - new optional schema fields survive representative Zod conversion and runtime context stripping
+  ---
+  duration_ms: 144.805959
+  type: 'test'
+  ...
+# Subtest: overview plus required partial-family SIM query preserves frozen FAMILY_SNAPSHOT fixture
+ok 10 - overview plus required partial-family SIM query preserves frozen FAMILY_SNAPSHOT fixture
+  ---
+  duration_ms: 130.5895
+  type: 'test'
+  ...
+# Subtest: offline budget measurements cover broad text, chapter, families and within-branch pages
+ok 11 - offline budget measurements cover broad text, chapter, families and within-branch pages
+  ---
+  duration_ms: 776.100042
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6561.587375

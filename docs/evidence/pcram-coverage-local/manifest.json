@@ -1,0 +1,21 @@
+{
+  "status": "LOCAL_COMPLETE_VIEWS_PREPARED_NOT_AGENT_VERIFIED",
+  "baselinePath": "docs/evidence/pcram-family-die-prepared-2026-10-10/publication-er11-api-2026-10-10/published.api-export.json",
+  "baselineArtifactSha256": "a97fdb62a431d0a73eebc0802da9af4aab8efe5e21012dce011975f1cd678350",
+  "baselineSavedVersion": "7739824e-8248-4e7e-8534-72a96d7004d0",
+  "lastRecordedRollbackVersion": "9a87b6f0-4f1f-41ab-8530-68419b48b1d3",
+  "freshLiveRead": false,
+  "note": "Saved ER11 functional baseline; ER12 receipt records prompt-only recovery to this content. Future publication needs fresh live identity/content verification.",
+  "changedPaths": [
+    "/nodes/11/parameters/jsCode",
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/description",
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "frozenSurfacesIdentical": true,
+  "scopedRecoveryExact": true,
+  "toolBytes": 2305944,
+  "productionMutations": 0,
+  "modelCalls": 0
+}

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: two-query contract is retained; best-case visible toy branch still cannot reach controls
+ok 1 - two-query contract is retained; best-case visible toy branch still cannot reach controls
+  ---
+  duration_ms: 125.227625
+  type: 'test'
+  ...
+# Subtest: recorded lexical NO_MATCH plus panorama exhausts budget before directed query
+ok 2 - recorded lexical NO_MATCH plus panorama exhausts budget before directed query
+  ---
+  duration_ms: 168.557792
+  type: 'test'
+  ...
+# Subtest: literal 240-character excerpt omits an exclusion present in the source full context
+ok 3 - literal 240-character excerpt omits an exclusion present in the source full context
+  ---
+  duration_ms: 79.267125
+  type: 'test'
+  ...
+# Subtest: copied numeric offset is not query-bound; actual response is scoped to new query, not old provenance
+ok 4 - copied numeric offset is not query-bound; actual response is scoped to new query, not old provenance
+  ---
+  duration_ms: 120.251917
+  type: 'test'
+  ...
+# Subtest: mismatched same-product observation passes frozen guard, including legacy baseline: pre-existing provenance gap
+ok 5 - mismatched same-product observation passes frozen guard, including legacy baseline: pre-existing provenance gap
+  ---
+  duration_ms: 186.775167
+  type: 'test'
+  ...
+# Subtest: partial tests supply the decision; membership guard still accepts incompatible supplied precise codes
+ok 6 - partial tests supply the decision; membership guard still accepts incompatible supplied precise codes
+  ---
+  duration_ms: 88.400209
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 891.696583

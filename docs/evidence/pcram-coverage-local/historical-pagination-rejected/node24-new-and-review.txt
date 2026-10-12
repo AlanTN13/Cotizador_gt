@@ -1,0 +1,25 @@
+✔ two-query contract is retained; best-case visible toy branch still cannot reach controls (344.816833ms)
+✔ recorded lexical NO_MATCH plus panorama exhausts budget before directed query (413.828959ms)
+✔ literal 240-character excerpt omits an exclusion present in the source full context (218.911792ms)
+✔ copied numeric offset is not query-bound; actual response is scoped to new query, not old provenance (241.469ms)
+✔ mismatched same-product observation passes frozen guard, including legacy baseline: pre-existing provenance gap (265.200958ms)
+✔ partial tests supply the decision; membership guard still accepts incompatible supplied precise codes (193.502625ms)
+✔ legacy recorded six ER12 queries remain byte-structure equivalent to frozen tool (2307.633167ms)
+✔ full branch coverage matches source independently, preserving literal context and counts (102.336917ms)
+✔ SIM pagination reaches all toy openings, including complete-product controls outside first eight (198.214541ms)
+✔ branch and text-only pages have no omissions, duplicates or invented hierarchy (3183.562208ms)
+✔ invalid paging/limits fail closed; empty and out-of-range pages terminate honestly (267.038333ms)
+✔ guard rejects unsupported precise codes and preserves supplied partial codes; no agent decision is tested (52.553ms)
+✔ directed later-page SIM stays guard-compatible and cannot cross product indices; guard remains membership-only (56.999292ms)
+✔ embedded candidate runs with no imports/network and all frozen fields recover exactly (361.436667ms)
+✔ new optional schema fields survive representative Zod conversion and runtime context stripping (126.185209ms)
+✔ supplied historical partial classification plus two queries preserves FAMILY_SNAPSHOT; no model decision claim (121.092834ms)
+✔ offline budget measurements cover broad text, chapter, families and within-branch pages (734.976041ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8054.571375

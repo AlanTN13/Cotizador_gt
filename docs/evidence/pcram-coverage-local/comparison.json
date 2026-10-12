@@ -1,0 +1,791 @@
+{
+  "status": "COMPLETE_AVAILABLE_CONTEXT_NOT_SEMANTIC_CLASSIFICATION",
+  "comparisons": [
+    {
+      "prefix": "6109",
+      "before": {
+        "matched_count": 10,
+        "results": [
+          {
+            "ncm": "61091000",
+            "sim": "61091000110Y",
+            "sim_description": "De talle superior al 16 o sus equivalentes. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": false,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000110Y"
+          },
+          {
+            "ncm": "61091000",
+            "sim": "61091000190Z",
+            "sim_description": "Las demás. «T-shirts». - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": false,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000190Z"
+          },
+          {
+            "ncm": "61091000",
+            "sim": "61091000210D",
+            "sim_description": "De talle superior al 16 o sus equivalentes. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": false,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000210D"
+          },
+          {
+            "ncm": "61091000",
+            "sim": "61091000290E",
+            "sim_description": "Las demás. Camisetas interiores. - De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": false,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61091000290E"
+          }
+        ]
+      },
+      "after": {
+        "source": {
+          "fields": {
+            "ncm": [
+              1,
+              10
+            ],
+            "ncm_context": [
+              15,
+              1538
+            ],
+            "sim": [
+              11,
+              14
+            ],
+            "sim_description": [
+              1539,
+              1792
+            ],
+            "updated_at": [
+              2089,
+              2094
+            ]
+          },
+          "importer_version": "pcram-ncm-fixed-2134-v1",
+          "limitations": [
+            "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+            "Descriptions may be truncated; do not complete them or assume absent attributes.",
+            "Code existence does not establish compatibility with the product.",
+            "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+          ],
+          "ncm_count": 10504,
+          "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+          "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+          "record_count": 33038,
+          "schema": "pcram-nomenclator-fixed-2134-v1",
+          "source": "https://web.pcram.net/downloads/transf.zip",
+          "source_matches_tax_snapshot": false,
+          "structure_source": "https://www.pcram.net/downloads/estructura.html",
+          "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+          "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+        },
+        "status": "OK",
+        "query": {
+          "indice": 1,
+          "prefijo": "6109",
+          "texto": "",
+          "limite": 4,
+          "vista": "ramas"
+        },
+        "matched_count": 10,
+        "returned_count": 0,
+        "partial": true,
+        "coverage": "Only matches of this query; no inference of tax homogeneity or product compatibility",
+        "results": [],
+        "branches": [
+          {
+            "ncm": "61091000",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_field_full": false,
+            "matched_sim_count": 4
+          },
+          {
+            "ncm": "61099000",
+            "ncm_context": "- De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "ncm_field_full": false,
+            "matched_sim_count": 6
+          }
+        ],
+        "retrieval": {
+          "view": "ramas",
+          "unit": "NCM",
+          "total": 2,
+          "returned": 2,
+          "complete": true,
+          "max_records": 64,
+          "max_response_bytes": 65536,
+          "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+        }
+      }
+    },
+    {
+      "prefix": "8517",
+      "before": {
+        "matched_count": 62,
+        "results": [
+          {
+            "ncm": "85171100",
+            "sim": "85171100110M",
+            "sim_description": "De frecuencia superior o igual a 1880 MHz pero inferior o igual a 1900 MHz. Combinados con otros aparatos. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulare",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100110M"
+          },
+          {
+            "ncm": "85171100",
+            "sim": "85171100190N",
+            "sim_description": "Los demás. Combinados con otros aparatos. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos lo",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100190N"
+          },
+          {
+            "ncm": "85171100",
+            "sim": "85171100910F",
+            "sim_description": "De frecuencia superior o igual a 1880 MHz pero inferior o igual a 1900 MHz. Los demás. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los d",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100910F"
+          },
+          {
+            "ncm": "85171100",
+            "sim": "85171100990G",
+            "sim_description": "Los demás. Los demás. - - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos intelige",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/85171100990G"
+          }
+        ]
+      },
+      "after": {
+        "source": {
+          "fields": {
+            "ncm": [
+              1,
+              10
+            ],
+            "ncm_context": [
+              15,
+              1538
+            ],
+            "sim": [
+              11,
+              14
+            ],
+            "sim_description": [
+              1539,
+              1792
+            ],
+            "updated_at": [
+              2089,
+              2094
+            ]
+          },
+          "importer_version": "pcram-ncm-fixed-2134-v1",
+          "limitations": [
+            "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+            "Descriptions may be truncated; do not complete them or assume absent attributes.",
+            "Code existence does not establish compatibility with the product.",
+            "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+          ],
+          "ncm_count": 10504,
+          "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+          "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+          "record_count": 33038,
+          "schema": "pcram-nomenclator-fixed-2134-v1",
+          "source": "https://web.pcram.net/downloads/transf.zip",
+          "source_matches_tax_snapshot": false,
+          "structure_source": "https://www.pcram.net/downloads/estructura.html",
+          "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+          "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+        },
+        "status": "OK",
+        "query": {
+          "indice": 1,
+          "prefijo": "8517",
+          "texto": "",
+          "limite": 4,
+          "vista": "ramas"
+        },
+        "matched_count": 62,
+        "returned_count": 0,
+        "partial": true,
+        "coverage": "Only matches of this query; no inference of tax homogeneity or product compatibility",
+        "results": [],
+        "branches": [
+          {
+            "ncm": "85171100",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 4
+          },
+          {
+            "ncm": "85171300",
+            "ncm_context": "- - Teléfonos inteligentes. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171410",
+            "ncm_context": "De radiotelefonía, analógicos. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171431",
+            "ncm_context": "Portátiles. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171432",
+            "ncm_context": "Fijos, sin fuente propia de energía. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171439",
+            "ncm_context": "Las demás. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171441",
+            "ncm_context": "Digitales, operando en banda C, Ku, L o S. De telecomunicaciones por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171449",
+            "ncm_context": "Los demás. De telecomunicaciones por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171490",
+            "ncm_context": "Los demás. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 3
+          },
+          {
+            "ncm": "85171830",
+            "ncm_context": "Sin combinar con otros aparatos. - - Los demás. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85171890",
+            "ncm_context": "Los demás. - - Los demás. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176130",
+            "ncm_context": "De telefonía celular. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176141",
+            "ncm_context": "Principal terrestre fija sin conjunto antena-reflector. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176142",
+            "ncm_context": "VSAT («Very Small Aperture Terminal»), sin conjunto antena-reflector. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176143",
+            "ncm_context": "Digitales, operando en banda C, Ku, L o S. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176149",
+            "ncm_context": "Las demás. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176191",
+            "ncm_context": "Numéricas (digitales) de frecuencia superior o igual a 15 GHz pero inferior o igual a 23 GHz, y tasa de transmisión inferior o igual 8 Mbit/s. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176192",
+            "ncm_context": "Numéricas (digitales) de frecuencia superior a 23 GHz. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176199",
+            "ncm_context": "Las demás. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176214",
+            "ncm_context": ".",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176215",
+            "ncm_context": "Multiplexadores. Concentradores de líneas de abonados (terminal de central o terminal remota) y multiplexadores. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176221",
+            "ncm_context": "Centrales automáticas públicas, incluidas las de tránsito. Aparatos para conmutación de líneas telefónicas. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176229",
+            "ncm_context": "Los demás. Aparatos para conmutación de líneas telefónicas. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176234",
+            "ncm_context": "Aparatos para conmutación de paquetes de datos («switches»). Los demás aparatos de conmutación. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176239",
+            "ncm_context": "Los demás. Los demás aparatos de conmutación. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176241",
+            "ncm_context": "Con capacidad de conexión inalámbrica. Ruteadores digitales en redes con o sin cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176249",
+            "ncm_context": "Los demás. Ruteadores digitales en redes con o sin cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176251",
+            "ncm_context": "Terminales o repetidores sobre líneas metálicas. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176252",
+            "ncm_context": "Terminales o repetidores sobre líneas de fibras ópticas, con velocidad de transmisión superior a 2,5 Gbit/s. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176253",
+            "ncm_context": "Terminales de textos que operen con código de transmisión Baudot, provista de teclado alfanumérico y pantalla («display»), incluso con teléfono incorporado. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176254",
+            "ncm_context": "Distribuidores de conexiones para redes («hubs»). Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176255",
+            "ncm_context": "Moduladores-demoduladores de señales («modems»). Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176256",
+            "ncm_context": "Intercomunicadores. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176259",
+            "ncm_context": "Los demás. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176262",
+            "ncm_context": "De tecnología celular. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176264",
+            "ncm_context": "Por satélite, digitales, operando en banda C, Ku, L o S. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176265",
+            "ncm_context": "Los demás, por satélite. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176272",
+            "ncm_context": "De frecuencia inferior a 15 GHz y tasa de transmisión inferior o igual a 34 Mbit/s, excepto los intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176273",
+            "ncm_context": "Intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176277",
+            "ncm_context": "Los demás de frecuencia inferior a 15 GHz. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176278",
+            "ncm_context": "De frecuencia superior o igual a 15 GHz, pero inferior o igual a 23 GHz, y tasa de transmisión inferior o igual a 8 Mbit/s. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176279",
+            "ncm_context": "Los demás. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176291",
+            "ncm_context": "Aparatos emisores. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176294",
+            "ncm_context": "Traductores (conversores) de protocolos para interconexión de redes («gateway»). Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176296",
+            "ncm_context": "Los demás, analógicos. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85176299",
+            "ncm_context": "Los demás. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          },
+          {
+            "ncm": "85176900",
+            "ncm_context": "- - Los demás. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85177110",
+            "ncm_context": "Antenas para teléfonos celulares portátiles. - - Antenas y reflectores de antena de cualquier tipo; partes identificables para ser utilizadas con dichos artículos. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85177190",
+            "ncm_context": "Las demás. - - Antenas y reflectores de antena de cualquier tipo; partes identificables para ser utilizadas con dichos artículos. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 1
+          },
+          {
+            "ncm": "85177900",
+            "ncm_context": "- - Las demás. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)), distintos de los aparatos de emisión, transmisión o recepción de las partidas 8443, 8525, 8527 u 8528. Máquinas, aparatos y material eléctrico, y sus partes; aparatos de grabación o reproducción de sonido, aparatos de grabación o reproducción de imagen y sonido en televisión, y las partes y accesorios de estos aparatos.",
+            "ncm_field_full": false,
+            "matched_sim_count": 2
+          }
+        ],
+        "retrieval": {
+          "view": "ramas",
+          "unit": "NCM",
+          "total": 50,
+          "returned": 50,
+          "complete": true,
+          "max_records": 64,
+          "max_response_bytes": 65536,
+          "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+        }
+      }
+    },
+    {
+      "prefix": "9503",
+      "before": {
+        "matched_count": 481,
+        "results": [
+          {
+            "ncm": "95030010",
+            "sim": "95030010111M",
+            "sim_description": "Diseñados para ser impulsados por los pies de los ni?os en el piso. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010111M"
+          },
+          {
+            "ncm": "95030010",
+            "sim": "95030010112P",
+            "sim_description": "A pedal. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": false,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010112P"
+          },
+          {
+            "ncm": "95030010",
+            "sim": "95030010113R",
+            "sim_description": "Con motor electrico. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y silla",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010113R"
+          },
+          {
+            "ncm": "95030010",
+            "sim": "95030010119E",
+            "sim_description": "Los demás. De metal común. Triciclos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de rueda",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "updated_at": "2026-10-01",
+            "description_limits": {
+              "sim_field_full": true,
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030010119E"
+          }
+        ]
+      },
+      "after": {
+        "source": {
+          "fields": {
+            "ncm": [
+              1,
+              10
+            ],
+            "ncm_context": [
+              15,
+              1538
+            ],
+            "sim": [
+              11,
+              14
+            ],
+            "sim_description": [
+              1539,
+              1792
+            ],
+            "updated_at": [
+              2089,
+              2094
+            ]
+          },
+          "importer_version": "pcram-ncm-fixed-2134-v1",
+          "limitations": [
+            "Context is concatenated source text, not structured legal notes or independently coded ancestor headings.",
+            "Descriptions may be truncated; do not complete them or assume absent attributes.",
+            "Code existence does not establish compatibility with the product.",
+            "Tax Resolver keeps its own frozen source and precedences; this index supplies no rates."
+          ],
+          "ncm_count": 10504,
+          "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+          "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+          "record_count": 33038,
+          "schema": "pcram-nomenclator-fixed-2134-v1",
+          "source": "https://web.pcram.net/downloads/transf.zip",
+          "source_matches_tax_snapshot": false,
+          "structure_source": "https://www.pcram.net/downloads/estructura.html",
+          "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb",
+          "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c"
+        },
+        "status": "OK",
+        "query": {
+          "indice": 1,
+          "prefijo": "9503",
+          "texto": "",
+          "limite": 4,
+          "vista": "ramas"
+        },
+        "matched_count": 481,
+        "returned_count": 0,
+        "partial": true,
+        "coverage": "Only matches of this query; no inference of tax homogeneity or product compatibility",
+        "results": [],
+        "branches": [
+          {
+            "ncm": "95030010",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 66
+          },
+          {
+            "ncm": "95030021",
+            "ncm_context": "Muñecas y muñecos, incluso vestidos, con mecanismo a cuerda o eléctrico. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 28
+          },
+          {
+            "ncm": "95030022",
+            "ncm_context": "Las demás muñecas y muñecos, incluso vestidos. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 34
+          },
+          {
+            "ncm": "95030029",
+            "ncm_context": "Partes y accesorios. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 12
+          },
+          {
+            "ncm": "95030031",
+            "ncm_context": "Rellenos. Juguetes que representen animales o seres no humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 25
+          },
+          {
+            "ncm": "95030039",
+            "ncm_context": "Los demás. Juguetes que representen animales o seres no humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 33
+          },
+          {
+            "ncm": "95030040",
+            "ncm_context": "Trenes eléctricos, incluidos los carriles (rieles), señales y demás accesorios. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 46
+          },
+          {
+            "ncm": "95030050",
+            "ncm_context": "Modelos reducidos para ensamblar, incluso animados, excepto los del ítem 9503.00.40. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 16
+          },
+          {
+            "ncm": "95030060",
+            "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 18
+          },
+          {
+            "ncm": "95030070",
+            "ncm_context": "Rompecabezas. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 10
+          },
+          {
+            "ncm": "95030080",
+            "ncm_context": "Los demás juguetes presentados en juegos o surtidos o en panoplias. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 47
+          },
+          {
+            "ncm": "95030091",
+            "ncm_context": "Instrumentos y aparatos, de música, de juguete. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 19
+          },
+          {
+            "ncm": "95030097",
+            "ncm_context": "Los demás, con motor eléctrico. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 13
+          },
+          {
+            "ncm": "95030098",
+            "ncm_context": "Los demás, con motor no eléctrico. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 45
+          },
+          {
+            "ncm": "95030099",
+            "ncm_context": "Los demás. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+            "ncm_field_full": false,
+            "matched_sim_count": 69
+          }
+        ],
+        "retrieval": {
+          "view": "ramas",
+          "unit": "NCM",
+          "total": 15,
+          "returned": 15,
+          "complete": true,
+          "max_records": 64,
+          "max_response_bytes": 65536,
+          "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+        }
+      }
+    }
+  ]
+}

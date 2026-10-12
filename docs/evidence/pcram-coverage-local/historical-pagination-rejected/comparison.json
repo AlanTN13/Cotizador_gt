@@ -1,0 +1,1186 @@
+{
+  "mode": "OFFLINE_TOOL_ONLY_NOT_AGENT_CLASSIFICATION",
+  "comparisons": [
+    {
+      "prefix": "6109",
+      "before": {
+        "matched": 10,
+        "sims": [
+          "61091000110Y",
+          "61091000190Z",
+          "61091000210D",
+          "61091000290E"
+        ],
+        "ncms": [
+          "61091000"
+        ]
+      },
+      "after": {
+        "matched": 10,
+        "branches": [
+          {
+            "ncm": "61091000",
+            "ncm_context": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "context_truncated": false,
+            "context_characters": 105,
+            "matched_sim_count": 4,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/61091000"
+          },
+          {
+            "ncm": "61099000",
+            "ncm_context": "- De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+            "context_truncated": false,
+            "context_characters": 125,
+            "matched_sim_count": 6,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/61099000"
+          }
+        ],
+        "pagination": {
+          "unit": "NCM",
+          "offset": 0,
+          "total": 2,
+          "returned": 2,
+          "next_offset": null,
+          "has_more": false,
+          "complete": true,
+          "order": "code; not relevance",
+          "max_response_bytes": 32768
+        },
+        "bytes": 2539
+      }
+    },
+    {
+      "prefix": "8517",
+      "before": {
+        "matched": 62,
+        "sims": [
+          "85171100110M",
+          "85171100190N",
+          "85171100910F",
+          "85171100990G"
+        ],
+        "ncms": [
+          "85171100"
+        ]
+      },
+      "after": {
+        "matched": 62,
+        "branches": [
+          {
+            "ncm": "85171100",
+            "ncm_context": "- - Teléfonos de auricular inalámbrico combinado con micrófono. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y d",
+            "context_truncated": true,
+            "context_characters": 823,
+            "matched_sim_count": 4,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171100"
+          },
+          {
+            "ncm": "85171300",
+            "ncm_context": "- - Teléfonos inteligentes. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* ",
+            "context_truncated": true,
+            "context_characters": 787,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171300"
+          },
+          {
+            "ncm": "85171410",
+            "ncm_context": "De radiotelefonía, analógicos. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Telé",
+            "context_truncated": true,
+            "context_characters": 870,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171410"
+          },
+          {
+            "ncm": "85171431",
+            "ncm_context": "Portátiles. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras ",
+            "context_truncated": true,
+            "context_characters": 895,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171431"
+          },
+          {
+            "ncm": "85171432",
+            "ncm_context": "Fijos, sin fuente propia de energía. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (",
+            "context_truncated": true,
+            "context_characters": 920,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171432"
+          },
+          {
+            "ncm": "85171439",
+            "ncm_context": "Las demás. De telefonía celular, excepto por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras r",
+            "context_truncated": true,
+            "context_characters": 894,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171439"
+          },
+          {
+            "ncm": "85171441",
+            "ncm_context": "Digitales, operando en banda C, Ku, L o S. De telecomunicaciones por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (mó",
+            "context_truncated": true,
+            "context_characters": 918,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171441"
+          },
+          {
+            "ncm": "85171449",
+            "ncm_context": "Los demás. De telecomunicaciones por satélite. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes ina",
+            "context_truncated": true,
+            "context_characters": 886,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171449"
+          },
+          {
+            "ncm": "85171490",
+            "ncm_context": "Los demás. - - Los demás teléfonos celulares (móviles)* y los de otras redes inalámbricas. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los",
+            "context_truncated": true,
+            "context_characters": 850,
+            "matched_sim_count": 3,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171490"
+          },
+          {
+            "ncm": "85171830",
+            "ncm_context": "Sin combinar con otros aparatos. - - Los demás. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos c",
+            "context_truncated": true,
+            "context_characters": 807,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171830"
+          },
+          {
+            "ncm": "85171890",
+            "ncm_context": "Los demás. - - Los demás. - Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y ",
+            "context_truncated": true,
+            "context_characters": 785,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85171890"
+          },
+          {
+            "ncm": "85176130",
+            "ncm_context": "De telefonía celular. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. T",
+            "context_truncated": true,
+            "context_characters": 873,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176130"
+          },
+          {
+            "ncm": "85176141",
+            "ncm_context": "Principal terrestre fija sin conjunto antena-reflector. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red c",
+            "context_truncated": true,
+            "context_characters": 943,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176141"
+          },
+          {
+            "ncm": "85176142",
+            "ncm_context": "VSAT («Very Small Aperture Terminal»), sin conjunto antena-reflector. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunic",
+            "context_truncated": true,
+            "context_characters": 957,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176142"
+          },
+          {
+            "ncm": "85176143",
+            "ncm_context": "Digitales, operando en banda C, Ku, L o S. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cabl",
+            "context_truncated": true,
+            "context_characters": 930,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176143"
+          },
+          {
+            "ncm": "85176149",
+            "ncm_context": "Las demás. De telecomunicaciones por satélite. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN",
+            "context_truncated": true,
+            "context_characters": 898,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176149"
+          },
+          {
+            "ncm": "85176191",
+            "ncm_context": "Numéricas (digitales) de frecuencia superior o igual a 15 GHz pero inferior o igual a 23 GHz, y tasa de transmisión inferior o igual 8 Mbit/s. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz",
+            "context_truncated": true,
+            "context_characters": 1005,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176191"
+          },
+          {
+            "ncm": "85176192",
+            "ncm_context": "Numéricas (digitales) de frecuencia superior a 23 GHz. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como",
+            "context_truncated": true,
+            "context_characters": 917,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176192"
+          },
+          {
+            "ncm": "85176199",
+            "ncm_context": "Las demás. Las demás. - - Estaciones base. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. T",
+            "context_truncated": true,
+            "context_characters": 873,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176199"
+          },
+          {
+            "ncm": "85176214",
+            "ncm_context": ".",
+            "context_truncated": false,
+            "context_characters": 1,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176214"
+          },
+          {
+            "ncm": "85176215",
+            "ncm_context": "Multiplexadores. Concentradores de líneas de abonados (terminal de central o terminal remota) y multiplexadores. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de",
+            "context_truncated": true,
+            "context_characters": 1137,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176215"
+          },
+          {
+            "ncm": "85176221",
+            "ncm_context": "Centrales automáticas públicas, incluidas las de tránsito. Aparatos para conmutación de líneas telefónicas. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conm",
+            "context_truncated": true,
+            "context_characters": 1132,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176221"
+          },
+          {
+            "ncm": "85176229",
+            "ncm_context": "Los demás. Aparatos para conmutación de líneas telefónicas. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing",
+            "context_truncated": true,
+            "context_characters": 1084,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176229"
+          },
+          {
+            "ncm": "85176234",
+            "ncm_context": "Aparatos para conmutación de paquetes de datos («switches»). Los demás aparatos de conmutación. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y en",
+            "context_truncated": true,
+            "context_characters": 1120,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176234"
+          },
+          {
+            "ncm": "85176239",
+            "ncm_context": "Los demás. Los demás aparatos de conmutación. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). ",
+            "context_truncated": true,
+            "context_characters": 1070,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176239"
+          },
+          {
+            "ncm": "85176241",
+            "ncm_context": "Con capacidad de conexión inalámbrica. Ruteadores digitales en redes con o sin cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamien",
+            "context_truncated": true,
+            "context_characters": 1110,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176241"
+          },
+          {
+            "ncm": "85176249",
+            "ncm_context": "Los demás. Ruteadores digitales en redes con o sin cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing a",
+            "context_truncated": true,
+            "context_characters": 1082,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176249"
+          },
+          {
+            "ncm": "85176251",
+            "ncm_context": "Terminales o repetidores sobre líneas metálicas. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regenera",
+            "context_truncated": true,
+            "context_characters": 1188,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176251"
+          },
+          {
+            "ncm": "85176252",
+            "ncm_context": "Terminales o repetidores sobre líneas de fibras ópticas, con velocidad de transmisión superior a 2,5 Gbit/s. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos par",
+            "context_truncated": true,
+            "context_characters": 1248,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176252"
+          },
+          {
+            "ncm": "85176253",
+            "ncm_context": "Terminales de textos que operen con código de transmisión Baudot, provista de teclado alfanumérico y pantalla («display»), incluso con teléfono incorporado. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u o",
+            "context_truncated": true,
+            "context_characters": 1296,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176253"
+          },
+          {
+            "ncm": "85176254",
+            "ncm_context": "Distribuidores de conexiones para redes («hubs»). Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regener",
+            "context_truncated": true,
+            "context_characters": 1189,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176254"
+          },
+          {
+            "ncm": "85176255",
+            "ncm_context": "Moduladores-demoduladores de señales («modems»). Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regenera",
+            "context_truncated": true,
+            "context_characters": 1188,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176255"
+          },
+          {
+            "ncm": "85176256",
+            "ncm_context": "Intercomunicadores. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros d",
+            "context_truncated": true,
+            "context_characters": 1159,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176256"
+          },
+          {
+            "ncm": "85176259",
+            "ncm_context": "Los demás. Los demás aparatos para la recepción, transmisión o regeneración de voz, imagen u otros datos, en redes con cable. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, inc",
+            "context_truncated": true,
+            "context_characters": 1150,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176259"
+          },
+          {
+            "ncm": "85176262",
+            "ncm_context": "De tecnología celular. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutac",
+            "context_truncated": true,
+            "context_characters": 1128,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176262"
+          },
+          {
+            "ncm": "85176264",
+            "ncm_context": "Por satélite, digitales, operando en banda C, Ku, L o S. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otro",
+            "context_truncated": true,
+            "context_characters": 1162,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176264"
+          },
+          {
+            "ncm": "85176265",
+            "ncm_context": "Los demás, por satélite. Aparatos emisores con receptor incorporado de tecnología celular o por satélite. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmut",
+            "context_truncated": true,
+            "context_characters": 1130,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176265"
+          },
+          {
+            "ncm": "85176272",
+            "ncm_context": "De frecuencia inferior a 15 GHz y tasa de transmisión inferior o igual a 34 Mbit/s, excepto los intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emi",
+            "context_truncated": true,
+            "context_characters": 1217,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176272"
+          },
+          {
+            "ncm": "85176273",
+            "ncm_context": "Intercomunicadores. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y e",
+            "context_truncated": true,
+            "context_characters": 1121,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176273"
+          },
+          {
+            "ncm": "85176277",
+            "ncm_context": "Los demás de frecuencia inferior a 15 GHz. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos",
+            "context_truncated": true,
+            "context_characters": 1144,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176277"
+          },
+          {
+            "ncm": "85176278",
+            "ncm_context": "De frecuencia superior o igual a 15 GHz, pero inferior o igual a 23 GHz, y tasa de transmisión inferior o igual a 8 Mbit/s. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, convers",
+            "context_truncated": true,
+            "context_characters": 1225,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176278"
+          },
+          {
+            "ncm": "85176279",
+            "ncm_context": "Los demás. Los demás aparatos emisores con receptor incorporado, numéricos (digitales). - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminami",
+            "context_truncated": true,
+            "context_characters": 1112,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176279"
+          },
+          {
+            "ncm": "85176291",
+            "ncm_context": "Aparatos emisores. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás apar",
+            "context_truncated": true,
+            "context_characters": 1054,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176291"
+          },
+          {
+            "ncm": "85176294",
+            "ncm_context": "Traductores (conversores) de protocolos para interconexión de redes («gateway»). Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encami",
+            "context_truncated": true,
+            "context_characters": 1116,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176294"
+          },
+          {
+            "ncm": "85176296",
+            "ncm_context": "Los demás, analógicos. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás ",
+            "context_truncated": true,
+            "context_characters": 1058,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176296"
+          },
+          {
+            "ncm": "85176299",
+            "ncm_context": "Los demás. Los demás. - - Aparatos para la recepción, conversión, emisión y transmisión o regeneración de voz, imagen u otros datos, incluidos los de conmutación y encaminamiento («switching and routing apparatus»). - Los demás aparatos par",
+            "context_truncated": true,
+            "context_characters": 1046,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176299"
+          },
+          {
+            "ncm": "85176900",
+            "ncm_context": "- - Los demás. - Los demás aparatos para emisión, transmisión o recepción de voz, imagen u otros datos, incluidos los de comunicación en red con o sin cable (tales como redes locales (LAN) o extendidas (WAN)):. Teléfonos, incluidos los telé",
+            "context_truncated": true,
+            "context_characters": 845,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85176900"
+          },
+          {
+            "ncm": "85177110",
+            "ncm_context": "Antenas para teléfonos celulares portátiles. - - Antenas y reflectores de antena de cualquier tipo; partes identificables para ser utilizadas con dichos artículos. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos",
+            "context_truncated": true,
+            "context_characters": 809,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85177110"
+          },
+          {
+            "ncm": "85177190",
+            "ncm_context": "Las demás. - - Antenas y reflectores de antena de cualquier tipo; partes identificables para ser utilizadas con dichos artículos. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otr",
+            "context_truncated": true,
+            "context_characters": 775,
+            "matched_sim_count": 1,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85177190"
+          },
+          {
+            "ncm": "85177900",
+            "ncm_context": "- - Las demás. - Partes:. Teléfonos, incluidos los teléfonos inteligentes y demás teléfonos celulares (móviles)* y los de otras redes inalámbricas; los demás aparatos de emisión, transmisión o recepción de voz, imagen u otros datos, incluid",
+            "context_truncated": true,
+            "context_characters": 660,
+            "matched_sim_count": 2,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/85177900"
+          }
+        ],
+        "pagination": {
+          "unit": "NCM",
+          "offset": 0,
+          "total": 50,
+          "returned": 50,
+          "next_offset": null,
+          "has_more": false,
+          "complete": true,
+          "order": "code; not relevance",
+          "max_response_bytes": 32768
+        },
+        "bytes": 28460
+      }
+    },
+    {
+      "prefix": "9503",
+      "before": {
+        "matched": 481,
+        "sims": [
+          "95030010111M",
+          "95030010112P",
+          "95030010113R",
+          "95030010119E"
+        ],
+        "ncms": [
+          "95030010"
+        ]
+      },
+      "after": {
+        "matched": 481,
+        "branches": [
+          {
+            "ncm": "95030010",
+            "ncm_context": "Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos",
+            "context_truncated": true,
+            "context_characters": 469,
+            "matched_sim_count": 66,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030010"
+          },
+          {
+            "ncm": "95030021",
+            "ncm_context": "Muñecas y muñecos, incluso vestidos, con mecanismo a cuerda o eléctrico. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñeca",
+            "context_truncated": true,
+            "context_characters": 480,
+            "matched_sim_count": 28,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030021"
+          },
+          {
+            "ncm": "95030022",
+            "ncm_context": "Las demás muñecas y muñecos, incluso vestidos. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñ",
+            "context_truncated": true,
+            "context_characters": 454,
+            "matched_sim_count": 34,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030022"
+          },
+          {
+            "ncm": "95030029",
+            "ncm_context": "Partes y accesorios. Muñecas y muñecos que representen solamente seres humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; ",
+            "context_truncated": true,
+            "context_characters": 428,
+            "matched_sim_count": 12,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030029"
+          },
+          {
+            "ncm": "95030031",
+            "ncm_context": "Rellenos. Juguetes que representen animales o seres no humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducido",
+            "context_truncated": true,
+            "context_characters": 412,
+            "matched_sim_count": 25,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030031"
+          },
+          {
+            "ncm": "95030039",
+            "ncm_context": "Los demás. Juguetes que representen animales o seres no humanos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducid",
+            "context_truncated": true,
+            "context_characters": 413,
+            "matched_sim_count": 33,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030039"
+          },
+          {
+            "ncm": "95030040",
+            "ncm_context": "Trenes eléctricos, incluidos los carriles (rieles), señales y demás accesorios. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; ",
+            "context_truncated": true,
+            "context_characters": 428,
+            "matched_sim_count": 46,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030040"
+          },
+          {
+            "ncm": "95030050",
+            "ncm_context": "Modelos reducidos para ensamblar, incluso animados, excepto los del ítem 9503.00.40. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás jugue",
+            "context_truncated": true,
+            "context_characters": 433,
+            "matched_sim_count": 16,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030050"
+          },
+          {
+            "ncm": "95030060",
+            "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y mo",
+            "context_truncated": true,
+            "context_characters": 406,
+            "matched_sim_count": 18,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030060"
+          },
+          {
+            "ncm": "95030070",
+            "ncm_context": "Rompecabezas. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, inclu",
+            "context_truncated": true,
+            "context_characters": 362,
+            "matched_sim_count": 10,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030070"
+          },
+          {
+            "ncm": "95030080",
+            "ncm_context": "Los demás juguetes presentados en juegos o surtidos o en panoplias. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos redu",
+            "context_truncated": true,
+            "context_characters": 416,
+            "matched_sim_count": 47,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030080"
+          },
+          {
+            "ncm": "95030091",
+            "ncm_context": "Instrumentos y aparatos, de música, de juguete. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; mo",
+            "context_truncated": true,
+            "context_characters": 426,
+            "matched_sim_count": 19,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030091"
+          },
+          {
+            "ncm": "95030097",
+            "ncm_context": "Los demás, con motor eléctrico. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos ",
+            "context_truncated": true,
+            "context_characters": 410,
+            "matched_sim_count": 13,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030097"
+          },
+          {
+            "ncm": "95030098",
+            "ncm_context": "Los demás, con motor no eléctrico. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducid",
+            "context_truncated": true,
+            "context_characters": 413,
+            "matched_sim_count": 45,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030098"
+          },
+          {
+            "ncm": "95030099",
+            "ncm_context": "Los demás. Los demás juguetes y modelos. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, ",
+            "context_truncated": true,
+            "context_characters": 389,
+            "matched_sim_count": 69,
+            "description_limits": {
+              "ncm_field_full": false,
+              "completeness_not_guaranteed": true
+            },
+            "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/ncm/95030099"
+          }
+        ],
+        "pagination": {
+          "unit": "NCM",
+          "offset": 0,
+          "total": 15,
+          "returned": 15,
+          "next_offset": null,
+          "has_more": false,
+          "complete": true,
+          "order": "code; not relevance",
+          "max_response_bytes": 32768
+        },
+        "bytes": 9789
+      }
+    }
+  ],
+  "toyDirectedPages": [
+    {
+      "pagination": {
+        "unit": "SIM",
+        "offset": 0,
+        "total": 18,
+        "returned": 8,
+        "next_offset": 8,
+        "has_more": true,
+        "complete": false,
+        "order": "code; not relevance",
+        "max_response_bytes": 32768
+      },
+      "results": [
+        {
+          "ncm": "95030060",
+          "sim": "95030060111L",
+          "sim_description": "De metal común. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060111L"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060112N",
+          "sim_description": "De plástico. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sil",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060112N"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060113Q",
+          "sim_description": "De madera. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y silla",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060113Q"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060119D",
+          "sim_description": "Los demás. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y silla",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060119D"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060191M",
+          "sim_description": "De metal común. Los demás. Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060191M"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060192P",
+          "sim_description": "De plástico. Los demás. Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o m",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060192P"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060193R",
+          "sim_description": "De madera. Los demás. Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñ",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060193R"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060199E",
+          "sim_description": "Los demás. Los demás. Partes y accesorios (R. 457/96 ex ANA). Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñ",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060199E"
+        }
+      ]
+    },
+    {
+      "pagination": {
+        "unit": "SIM",
+        "offset": 8,
+        "total": 18,
+        "returned": 8,
+        "next_offset": 16,
+        "has_more": true,
+        "complete": false,
+        "order": "code; not relevance",
+        "max_response_bytes": 32768
+      },
+      "results": [
+        {
+          "ncm": "95030060",
+          "sim": "95030060200L",
+          "sim_description": "De peso unitario inferior o igual a 130 g, destinados a ser obsequiados en locales gastronomicos de comida rapida. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y s",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060200L"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060911E",
+          "sim_description": "De metal común. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060911E"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060912G",
+          "sim_description": "De plástico. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": false,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060912G"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060913J",
+          "sim_description": "De madera. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o mu",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060913J"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060919X",
+          "sim_description": "Los demás. De peso unitario superior a 1,2 kg (R. 24/99 MEOSP). Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o mu",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060919X"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060920F",
+          "sim_description": "De peso unitario inferior o igual a 10 g. Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060920F"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060991F",
+          "sim_description": "De metal común. Los demás. Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060991F"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060992H",
+          "sim_description": "De plástico. Los demás. Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; m",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060992H"
+        }
+      ]
+    },
+    {
+      "pagination": {
+        "unit": "SIM",
+        "offset": 16,
+        "total": 18,
+        "returned": 2,
+        "next_offset": null,
+        "has_more": false,
+        "complete": false,
+        "order": "code; not relevance",
+        "max_response_bytes": 32768
+      },
+      "results": [
+        {
+          "ncm": "95030060",
+          "sim": "95030060993K",
+          "sim_description": "De madera. Los demás. Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; mod",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060993K"
+        },
+        {
+          "ncm": "95030060",
+          "sim": "95030060999Y",
+          "sim_description": "Los demás. Los demás. Los demás. Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; mod",
+          "ncm_context": "Los demás juegos o surtidos y juguetes para construcción. Triciclos, patinetes, coches de pedal y juguetes similares con ruedas; coches y sillas de ruedas para muñecas o muñecos; muñecas o muñecos; los demás juguetes; modelos reducidos y modelos similares, para entretenimiento, incluso animados; rompecabezas de cualquier clase. Juguetes, juegos y artículos para recreo o deporte; sus partes y accesorios.",
+          "updated_at": "2026-10-01",
+          "description_limits": {
+            "sim_field_full": true,
+            "ncm_field_full": false,
+            "completeness_not_guaranteed": true
+          },
+          "source_uri": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/95030060999Y"
+        }
+      ]
+    }
+  ]
+}

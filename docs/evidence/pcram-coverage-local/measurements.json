@@ -1,0 +1,264 @@
+{
+  "mode": "LOCAL_SINGLE_SAMPLE_NOT_PRODUCTION_SLA",
+  "node": "v24.21.0",
+  "measurements": [
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 8,
+        "vista": "ramas"
+      },
+      "ms": 23.299332999999933,
+      "bytes": 2041,
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 2,
+        "returned": 2,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 556890,
+        "shards_decoded": 1,
+        "ncm_checked": 2,
+        "sim_checked": 10,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "8517",
+        "texto": "",
+        "limite": 8,
+        "vista": "ramas"
+      },
+      "ms": 28.45337500000005,
+      "bytes": 56933,
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 50,
+        "returned": 50,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 633151,
+        "shards_decoded": 1,
+        "ncm_checked": 50,
+        "sim_checked": 62,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "9503",
+        "texto": "",
+        "limite": 8,
+        "vista": "ramas"
+      },
+      "ms": 30.16420799999969,
+      "bytes": 9337,
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 15,
+        "returned": 15,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 714451,
+        "shards_decoded": 1,
+        "ncm_checked": 15,
+        "sim_checked": 481,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "95030060",
+        "texto": "",
+        "limite": 8,
+        "vista": "detalle"
+      },
+      "ms": 29.004500000000007,
+      "bytes": 19332,
+      "retrieval": {
+        "view": "detalle",
+        "unit": "SIM",
+        "total": 18,
+        "returned": 18,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 714451,
+        "shards_decoded": 1,
+        "ncm_checked": 1,
+        "sim_checked": 18,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "85176272",
+        "texto": "",
+        "limite": 8,
+        "vista": "detalle"
+      },
+      "ms": 26.447499999999764,
+      "bytes": 5274,
+      "retrieval": {
+        "view": "detalle",
+        "unit": "SIM",
+        "total": 2,
+        "returned": 2,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 633151,
+        "shards_decoded": 1,
+        "ncm_checked": 1,
+        "sim_checked": 2,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 8,
+        "vista": "detalle"
+      },
+      "ms": 23.609208000000308,
+      "bytes": 7759,
+      "retrieval": {
+        "view": "detalle",
+        "unit": "SIM",
+        "total": 10,
+        "returned": 10,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes."
+      },
+      "stats": {
+        "inflated_bytes": 556890,
+        "shards_decoded": 1,
+        "ncm_checked": 2,
+        "sim_checked": 10,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "85",
+        "texto": "",
+        "limite": 8,
+        "vista": "ramas"
+      },
+      "ms": 50.83899999999994,
+      "bytes": 1847,
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 644,
+        "returned": 0,
+        "complete": false,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes.",
+        "reason": "RECORD_BUDGET_EXCEEDED",
+        "next_action": "Refine only with independently supported attributes/prefix if a call remains; otherwise retain partial classification. No candidate subset was shown."
+      },
+      "stats": {
+        "inflated_bytes": 1370726,
+        "shards_decoded": 48,
+        "ncm_checked": 644,
+        "sim_checked": 1254,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "8517",
+        "texto": "",
+        "limite": 8,
+        "vista": "detalle"
+      },
+      "ms": 27.364708000000064,
+      "bytes": 1834,
+      "retrieval": {
+        "view": "detalle",
+        "unit": "SIM",
+        "total": 62,
+        "returned": 0,
+        "complete": false,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes.",
+        "reason": "BYTE_BUDGET_EXCEEDED",
+        "next_action": "Refine only with independently supported attributes/prefix if a call remains; otherwise retain partial classification. No candidate subset was shown."
+      },
+      "stats": {
+        "inflated_bytes": 633151,
+        "shards_decoded": 1,
+        "ncm_checked": 50,
+        "sim_checked": 62,
+        "term_index_loaded": false
+      }
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "los",
+        "limite": 8,
+        "vista": "ramas"
+      },
+      "ms": 513.8348329999999,
+      "bytes": 1850,
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 8173,
+        "returned": 0,
+        "complete": false,
+        "max_records": 64,
+        "max_response_bytes": 65536,
+        "evidence": "Full available source text, not reconstructed legal hierarchy; original truncation/completeness limits remain. Branches never authorize precise codes.",
+        "reason": "RECORD_BUDGET_EXCEEDED",
+        "next_action": "Refine only with independently supported attributes/prefix if a call remains; otherwise retain partial classification. No candidate subset was shown."
+      },
+      "stats": {
+        "inflated_bytes": 16154976,
+        "shards_decoded": 1055,
+        "ncm_checked": 27623,
+        "sim_checked": 27623,
+        "term_index_loaded": true
+      }
+    }
+  ]
+}
