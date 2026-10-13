@@ -23,7 +23,11 @@ const realQuery = diagnosis.tool.real_calls[0].action.toolInput;
 const context = { solicitud: { productos: [] }, siguiente: "cotizar", agent_input: JSON.stringify(diagnosis.input.agent_input), toolCallId: diagnosis.tool.real_calls[0].action.toolCallId };
 const envelope = { ...context, ...realQuery };
 const output = { environment: "LOCAL_ONLY_NO_N8N_NO_MODEL", schema_validation: "Representative Zod 3 object conversion; existing installed zod, no n8n or LangChain package installed", context_values: "Representative; exact extra key names and business query from #34366", controls: {} };
-const save = (name, value) => fs.writeFileSync(new URL(name, dir), JSON.stringify(value, null, 2) + "\n");
+const save = (name, value) => {
+  // Focused checks of the current guard must not overwrite historical candidate evidence.
+  if (process.env.PCRAM_SKIP_HISTORICAL_EVIDENCE_WRITE === "1") return;
+  fs.writeFileSync(new URL(name, dir), JSON.stringify(value, null, 2) + "\n");
+};
 const hash = text => createHash("sha256").update(text).digest("hex");
 
 // Same primitive/object operations as official json-schema-to-zod parse-object:
@@ -111,15 +115,16 @@ test("search format controls remain unchanged; nonexistent SIM is NO_MATCH, not 
   output.controls.search_format = { passed: true, negative_cases: 6, nonexistent_code_status: "NO_MATCH" };
 });
 
-test("direct JSON string returned by Code Tool passes literal candidate validator", () => {
+test("current guard rejects legacy direct JSON; frozen historical literal candidate behavior stays documented", () => {
   const observation = invoke({ ...context, ...query });
-  assert.deepEqual(guardClassification([product], [step(query, observation)], sourceSha), [product]);
+  const guarded = guardClassification([product], [step(query, observation)], sourceSha)[0];
+  assert.equal(guarded.clasificacion, null); assert.equal(guarded.SIM, null); assert.equal(guarded.DIE, product.DIE);
   const validator = candidate.nodes.find(n => n.name === "Validar salida del agente").parameters.jsCode;
   const raw = { output: { productos: [product] }, intermediateSteps: [step(query, observation)] };
   const solicitud = { productos: [{ descripcion: "Contract fixture", link: "" }], solicitud_id: "local-contract-only" };
   const result = JSON.parse(JSON.stringify(runInNewContext(`(function(){${validator}})()`, { $input: { first: () => ({ json: raw }) }, $: () => ({ first: () => ({ json: { solicitud } }) }) }, { timeout: 5000 })));
   assert.equal(result[0].json.productos[0].SIM, product.SIM);
-  output.controls.direct_result_guard = { passed: true, source_sha_matches: true, indice_matches: true };
+  output.controls.direct_result_guard = { passed: true, current_guard_rejects_legacy_precision: true, historical_literal_candidate_preserved: true, source_sha_matches: true, indice_matches: true };
 });
 
 test("wrong product index or SHA still rejects provenance; guard not weakened", () => {

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: new guard binds every business query field, product, complete detail and URI; stale responses cannot authorize
+ok 1 - new guard binds every business query field, product, complete detail and URI; stale responses cannot authorize
+  ---
+  duration_ms: 48.113292
+  type: 'test'
+  ...
+# Subtest: source truncation flags block precise SIM while preserving non-flagged NCM support
+ok 2 - source truncation flags block precise SIM while preserving non-flagged NCM support
+  ---
+  duration_ms: 62.373084
+  type: 'test'
+  ...
+# Subtest: overview and broad-family detail cannot authorize cotton or wheeled NCM; supplied partial remains supported
+ok 3 - overview and broad-family detail cannot authorize cotton or wheeled NCM; supplied partial remains supported
+  ---
+  duration_ms: 138.082542
+  type: 'test'
+  ...
+# Subtest: embedded schema/tool/guard agree and exact five-field restoration preserves frozen circuit
+ok 4 - embedded schema/tool/guard agree and exact five-field restoration preserves frozen circuit
+  ---
+  duration_ms: 326.675625
+  type: 'test'
+  ...
+# Subtest: literal candidate validator rejects stale new-query responses and flagged SIM without changing supported NCM
+ok 5 - literal candidate validator rejects stale new-query responses and flagged SIM without changing supported NCM
+  ---
+  duration_ms: 69.714333
+  type: 'test'
+  ...
+# Subtest: two-query route plus supplied partial fixture preserves actual candidate guard/calculator FAMILY_SNAPSHOT
+ok 6 - two-query route plus supplied partial fixture preserves actual candidate guard/calculator FAMILY_SNAPSHOT
+  ---
+  duration_ms: 122.876292
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 963.070291

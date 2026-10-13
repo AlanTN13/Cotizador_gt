@@ -1,8 +1,11 @@
 {
   "workflow/pcram-nomenclator-packed.mjs": "559493fabb746238664477131af17f26d266215798a3145636dfd52685abddf6",
   "workflow/pcram-tool-input.mjs": "df8549f039ec974f32c743b4410802e3e1b8e5f29e5121e7d0e17d90dec90ba2",
-  "workflow/pcram-classification-guard.mjs": "773f719571857240d22b1d3b5159aa098dea914d858a2d3c4da67d8313a7dd96",
+  "workflow/pcram-classification-guard.mjs": "12f7b28122079931ce9df0fa2e9d429e4c907e9022d00084c9272870a086288f",
   "scripts/prepare-pcram-coverage.mjs": "fc218bfd64f8a5cc1afe345cfd7fc64e8988b5264ee66260e67ac20770d00726",
   "tests/pcram-coverage.test.mjs": "621b90ea11f96b1fade0fdf7410d9c9805404984b2ace9a7b25c617e86d5b9fd",
-  "tests/pcram-coverage-review.test.mjs": "bda24c97d1fe91dbae413af173b28dbf3b27fc6f9ca497ae6ac9d1c117969bf4"
+  "tests/pcram-coverage-review.test.mjs": "bda24c97d1fe91dbae413af173b28dbf3b27fc6f9ca497ae6ac9d1c117969bf4",
+  "tests/pcram-guard-legacy-bypass.test.mjs": "a376f914a954246a0d299f35fd20b0cf8621130b121aa99ba0b2449cbfa8a0d7",
+  "tests/pcram-nomenclator.test.mjs": "21260cb9b84c95715490f5e9e87c7c303ed2c8fce10f0ec68a0a5c86339f9802",
+  "tests/pcram-tool-input-contract.test.mjs": "d0f46b88bfac0372629552fbfc5542a59bfd713d199ffed5b536e00f2fc1efae"
 }

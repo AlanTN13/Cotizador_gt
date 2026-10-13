@@ -1,0 +1,46 @@
+{
+  "status": "LOCAL_GUARD_LEGACY_BYPASS_CLOSED_ROLLBACK_VERIFIED",
+  "baseCommit": "c9b279cd829b3170cfa0720ab01b29c2db65344e",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6145246810",
+  "contextRevision": "8d6d541e64a0e02d58a868f089fe27bb64c929fb",
+  "codeChanged": [
+    "workflow/pcram-classification-guard.mjs"
+  ],
+  "testsAdded": [
+    "tests/pcram-guard-legacy-bypass.test.mjs"
+  ],
+  "testsModified": [
+    "tests/pcram-nomenclator.test.mjs",
+    "tests/pcram-tool-input-contract.test.mjs"
+  ],
+  "workflowChangedPaths": [
+    "/nodes/7/parameters/jsCode"
+  ],
+  "change": "Removed legacy precise membership accreditation; every precise NCM8/SIM support now passes existing complete directed vista=detalle checks. HS4/HS6 estimates unchanged. No semantic classifier added.",
+  "localTests": {
+    "runtime": "v24.21.0",
+    "new": 11,
+    "relevantRegression": 11,
+    "pass": 22,
+    "fail": 0,
+    "fullPriorSuitesRepeated": false,
+    "commands": [
+      "node --test --test-reporter=tap tests/pcram-guard-legacy-bypass.test.mjs",
+      "node --test --test-reporter=tap --test-name-pattern='new guard binds|source truncation flags|overview and broad-family|embedded schema/tool/guard|literal candidate validator|FAMILY_SNAPSHOT' tests/pcram-coverage.test.mjs",
+      "PCRAM_SKIP_HISTORICAL_EVIDENCE_WRITE=1 node --test --test-reporter=tap --test-name-pattern='legacy precise codes|partial classification|current guard rejects|wrong product index|membership stays' tests/pcram-nomenclator.test.mjs tests/pcram-tool-input-contract.test.mjs"
+    ],
+    "initialHarnessIssue": "Rollback-test git-show buffer default overflowed on existing large patch (ENOBUFS); only test buffer raised to16MiB; rerun11PASS. No product/production/resource change."
+  },
+  "realSavedLegacyRun": "34455 bypass reproduced with c9 guard, then rejected by corrected guard. Camiseta legacy cotton opening from34451 fixture rejected; no replacement code invented. Directed positive supplied-attribute fixture preserved. Literal candidate FAMILY_SNAPSHOT fixture6109 preserved atUSD931.88.",
+  "rollback": "guard-fix.rollback.patch.json restores only validator field to c9 prepared candidate; rollback.patch.json separately restores original five-field preparation to saved ER11 baseline. Both verified exactly in memory.",
+  "artifactProvenance": "Prior c9 preparation QA logs/measurements/routes retained as historical evidence; only new guard-fix logs certify this correction. Historical Vitest binding failure not repaired or counted PASS.",
+  "limits": "Guard certifies query provenance, completeness and directed candidate membership, not universal semantic product compatibility. No new real agent behavior or live workflow baseline verification.",
+  "productionMutations": 0,
+  "cloudQuotes": 0,
+  "modelCalls": 0,
+  "pcramDownloads": 0,
+  "mergePerformed": false,
+  "publicationAuthorized": false,
+  "finishedAtUtc": "2026-10-13T12:25:24.812Z",
+  "stop": true
+}

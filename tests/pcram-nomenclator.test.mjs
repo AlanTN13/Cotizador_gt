@@ -45,9 +45,10 @@ test("snapshot data are immutable and lookup repeatable", () => {
   assert.equal(createHash("sha256").update(JSON.stringify(index)).digest("hex"), hash);
 });
 
-test("membership guard uses actual observations per product, not claimed citations", () => {
+test("legacy precise codes are rejected despite observed membership; citations cannot bypass detail contract", () => {
   const r = lookup("85176272900U"); const p = product("85176272", r.results[0].sim);
-  assert.deepEqual(guardClassification([p], [step(r)], sha), [p]);
+  const legacy = guardClassification([p], [step(r)], sha)[0];
+  assert.equal(legacy.SIM, null); assert.equal(legacy.clasificacion, null); assert.equal(legacy.DIE, p.DIE);
   const rejected = guardClassification([p], [], sha)[0];
   assert.equal(rejected.SIM, null); assert.equal(rejected.clasificacion, null); assert.equal(rejected.DIE, 35);
   const other = lookup("85176272900U", "", 6, 2);

@@ -93,3 +93,12 @@ Plan mínimo condicionado:
 - Preflight vivo: identidad/12nodos/hashes, superficies congeladas, baseline vigente y backup protegido. Aplicar exclusivamente cinco campos; si baseline divergente, STOP antes de mutar.
 - Aceptación: recorrido dentro de dos llamadas, contexto disponible íntegro, fuente/índice correctos, nada de algodón/ruedas sin sustento, SIM marcadas no acreditadas, parcialidad razonada y FAMILY_SNAPSHOT donde corresponda. Los SIM de referencia no son respuestas obligatorias.
 - Falla material: STOP, sin tercera ejecución ni ronda adicional. Rollback exclusivo de cinco campos tras lectura fresca que confirme candidato y ausencia de concurrencia; verificar recuperación. Nunca importar workflow completo.
+
+
+## Corrección local del bypass legacy — 2026-10-13
+
+Autorización ER12 comentario6145246810; base c9b279c. Sólo cambia el validador y se agregan pruebas focalizadas. Las observaciones sin vista ya no acreditan NCM8/SIM; se exigen los controles existentes de detalle completo y dirigido para todo respaldo preciso. HS4/HS6, estimaciones y FAMILY_SNAPSHOT permanecen intactos.
+
+11 nuevos +11 regresiones relevantes PASS Node24.21.0,0FAIL. No repetición de suites generales, Cloud, IA, n8n ni publicación. Resultado/casos/comandos/limitaciones en guard-fix.receipt.json; hashes e integridad en guard-fix.integrity.json. Los logs y mediciones anteriores se conservan como evidencia de preparación c9b279c, no como tests reejecutados de este cambio.
+
+guard-fix.diff y guard-fix.apply/rollback.patch.json corresponden exclusivamente al incremento de un campo respecto de c9b279c. apply.patch.json/rollback.patch.json/manifest y source.sha256/source.diff se regeneraron para el candidato completo de cinco campos original; no confundir recuperación incremental con restauración de todo el candidato. Ambos rollback exactos verificados. El guard sigue sin certificar semántica universal; E2E del agente y producción no autorizados. STOP.

@@ -1,0 +1,51 @@
+{
+  "baseCommit": "c9b279c",
+  "nodeCount": 12,
+  "incrementalChangedPaths": [
+    "/nodes/7/parameters/jsCode"
+  ],
+  "frozenFiles": {
+    "workflow/pcram-nomenclator-packed.mjs": "559493fabb746238664477131af17f26d266215798a3145636dfd52685abddf6",
+    "workflow/pcram-tool-input.mjs": "df8549f039ec974f32c743b4410802e3e1b8e5f29e5121e7d0e17d90dec90ba2",
+    "scripts/prepare-pcram-coverage.mjs": "fc218bfd64f8a5cc1afe345cfd7fc64e8988b5264ee66260e67ac20770d00726",
+    "tests/pcram-coverage.test.mjs": "621b90ea11f96b1fade0fdf7410d9c9805404984b2ace9a7b25c617e86d5b9fd",
+    "tests/pcram-coverage-review.test.mjs": "bda24c97d1fe91dbae413af173b28dbf3b27fc6f9ca497ae6ac9d1c117969bf4",
+    "data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json": "0af99430268dcdeaa1c7db6af7caf33ffba4481bf523a6f386ed96a6aeee903f"
+  },
+  "workflowFrozenHash": "42cfc5c0dafbce7460b31f3740f434e6852fae398941d93b0fe85c0e7b164ac7",
+  "unchangedWorkflowFields": true,
+  "rollbackToC9CandidateExact": true,
+  "fullPreparedRollbackToER11BaselineExact": true,
+  "beforeValidatorJsSha256": "ec59230d0b438f7a281abb153930c3afdab63d9d2e0f818151da094da03adf93",
+  "afterValidatorJsSha256": "66013a31679d1ccc7188eb3ab1e22b6c37db1157b1f76e6a9f7f0a1d51696829",
+  "beforeGuardSourceSha256": "773f719571857240d22b1d3b5159aa098dea914d858a2d3c4da67d8313a7dd96",
+  "afterGuardSourceSha256": "12f7b28122079931ce9df0fa2e9d429e4c907e9022d00084c9272870a086288f",
+  "workflowNodeHashesBefore": {
+    "Formulario - POST": "86dffc0e1d66c5943c5c8a528b26f51070b73a99646dbba96c4273d485868fa2",
+    "Validar formulario": "688e385d2bb4593fb847d087b6121c4cf63cc408a0ec56770156aa333b23753a",
+    "Entrada completa": "54f40f89a13b9c308f3490d11f7398545a067cbee3d28b31b8515a81fc051613",
+    "Preparar agente": "cab87337285d11821e3b201e3d64cc5d4867ac9a7a0f41e4a2084785962a829c",
+    "Agente Despachante": "3d14f39752005261de04f90a04398a7f03da9d0cf479bb6a442688198cd86779",
+    "OpenAI Chat Model": "9448ec43c1b4ce95b28fe23c47a912afb5e9648b0d6a954286ce3696346c8588",
+    "Salida estructurada": "02747ab0d3daf12dfc312893a921dd383223f58abb15ce599d17eea621bbbfcc",
+    "Validar salida del agente": "7e8d625931cf0921e9ff245b057f32c418142ac51b7232179944f759748c809b",
+    "Clasificado y apto": "1186305983f71fafda8ef2cc66a74a45f617c85f43b1745e61fe7159ae6d6ada",
+    "Cotizador deterministico": "4c046a4a84753e6b2cdd20456b1ffac5c0f759f2a5534b5416d655798cc95e9f",
+    "Responder a la landing": "7330a377fb0195396aac40b09592f7a125472ec7f5d9cae4d3597986d378bd85",
+    "Consulta_nomenclador_PCRAM": "487b8f06c961a73d515d06549b6414f8a7c1dee2ba828c80a540db6917901a52"
+  },
+  "workflowNodeHashesAfter": {
+    "Formulario - POST": "86dffc0e1d66c5943c5c8a528b26f51070b73a99646dbba96c4273d485868fa2",
+    "Validar formulario": "688e385d2bb4593fb847d087b6121c4cf63cc408a0ec56770156aa333b23753a",
+    "Entrada completa": "54f40f89a13b9c308f3490d11f7398545a067cbee3d28b31b8515a81fc051613",
+    "Preparar agente": "cab87337285d11821e3b201e3d64cc5d4867ac9a7a0f41e4a2084785962a829c",
+    "Agente Despachante": "3d14f39752005261de04f90a04398a7f03da9d0cf479bb6a442688198cd86779",
+    "OpenAI Chat Model": "9448ec43c1b4ce95b28fe23c47a912afb5e9648b0d6a954286ce3696346c8588",
+    "Salida estructurada": "02747ab0d3daf12dfc312893a921dd383223f58abb15ce599d17eea621bbbfcc",
+    "Validar salida del agente": "11bc6e8d949326c755dcb4aa6be9b0407d7fe9a9d22d1eac4a0974367917ae2f",
+    "Clasificado y apto": "1186305983f71fafda8ef2cc66a74a45f617c85f43b1745e61fe7159ae6d6ada",
+    "Cotizador deterministico": "4c046a4a84753e6b2cdd20456b1ffac5c0f759f2a5534b5416d655798cc95e9f",
+    "Responder a la landing": "7330a377fb0195396aac40b09592f7a125472ec7f5d9cae4d3597986d378bd85",
+    "Consulta_nomenclador_PCRAM": "487b8f06c961a73d515d06549b6414f8a7c1dee2ba828c80a540db6917901a52"
+  }
+}
