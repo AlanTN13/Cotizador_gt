@@ -1,0 +1,39 @@
+{
+  "candidate_commit": "61dee7603397b3e5562db07cde2294e1467bcbe1",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "mode": "preflight",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6146385837",
+  "context_revision": "2c9c4f3584b2f67218426d6b24d6d1baf745cabb",
+  "production_mutations": 0,
+  "quotes": 0,
+  "model_calls": 0,
+  "local_tests_repeated": 0,
+  "new_credentials_created_by_executor": 0,
+  "secret_exposed_or_persisted": false,
+  "status": "LIVE_BASELINE_PASS",
+  "active_version": "9a87b6f0-4f1f-41ab-8530-68419b48b1d3",
+  "node_count": 12,
+  "baseline_hashes": {
+    "fields": {
+      "/nodes/11/parameters/jsCode": "2732532f986dc19258d8602b718c47222edbd2d88a3583240986031f82edd8a5",
+      "/nodes/11/parameters/inputSchema": "654bd0733d6b3afb3dee593ebae7ab0b8160f3873d615790d23a0b61ea4ef9c6",
+      "/nodes/11/parameters/description": "ad642344909433f98a6724041c24ff27f081d45b902fee9d26c57c3d846339ee",
+      "/nodes/4/parameters/options/systemMessage": "0764c384010bb6bd69b56a8b69bb4ce54209a428f532237be3adb56fb3b912b7",
+      "/nodes/7/parameters/jsCode": "b1b8b96ddd952d36bf8eb68c8c5b75575f106ebc0a9fc58a87ac2b25bceac673"
+    },
+    "frozen_functional": "aadaeb321deaf799b941c5b92af873b56dc61f1cfec39ff0d1a9a3d959f4a068",
+    "frozen_nodes": "f686b8f3795936bac4a68a3f2feb64a69eff8e5e6dab6544263d2238311bc056",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d",
+    "calculator_jsCode": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "at_utc": "2026-10-13T14:32:48.648086+00:00"
+}

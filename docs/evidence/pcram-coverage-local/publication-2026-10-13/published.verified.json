@@ -1,0 +1,31 @@
+{
+  "status": "PUBLISHED_PENDING_USER_QA",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "active_version": "6be26506-7879-4d13-a635-bb2fc3579a05",
+  "node_count": 12,
+  "hashes": {
+    "fields": {
+      "/nodes/11/parameters/jsCode": "2c526415d055254767e725d63c1d84031461f6e02b9f191e6d4a489d64425e42",
+      "/nodes/11/parameters/inputSchema": "e0ae4db8caa81aa543cd647a9e873f6e3785538c3ab1cab2742cb191e03dd31c",
+      "/nodes/11/parameters/description": "735955b0c04baddeab37a2c061d258f953ce188c491aedf1c83f64dc84433372",
+      "/nodes/4/parameters/options/systemMessage": "698f6ac6ef538a2811dd5ccae8dd802c86744a056f77d0178cca27588a0aebce",
+      "/nodes/7/parameters/jsCode": "66013a31679d1ccc7188eb3ab1e22b6c37db1157b1f76e6a9f7f0a1d51696829"
+    },
+    "frozen_functional": "aadaeb321deaf799b941c5b92af873b56dc61f1cfec39ff0d1a9a3d959f4a068",
+    "frozen_nodes": "f686b8f3795936bac4a68a3f2feb64a69eff8e5e6dab6544263d2238311bc056",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d",
+    "calculator_jsCode": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99"
+  },
+  "exact_changed_paths": [
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/7/parameters/jsCode",
+    "/nodes/11/parameters/description",
+    "/nodes/11/parameters/inputSchema",
+    "/nodes/11/parameters/jsCode"
+  ],
+  "frozen_surfaces_exact": true,
+  "active_content_equals_verified_draft": true,
+  "verified_at_utc": "2026-10-13T14:33:55.925888+00:00"
+}
