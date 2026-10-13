@@ -1,0 +1,208 @@
+{
+  "capture": {
+    "method": "Selected rendered n8n execution JSON via authenticated Chrome UI; not a raw API export. NBSP normalized to ordinary spaces; collapsed messageLog omitted. No new execution or replay.",
+    "date": "2026-10-13",
+    "canonical_revision": "8d8caee6d874d2b7cbf49a296ab3e19216667412"
+  },
+  "execution": {
+    "id": "34575",
+    "workflow_id": "LO9m0AxSrxRR6JVY",
+    "url": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/executions/34575",
+    "started_at_visible": "2026-10-13 11:39:53 ART",
+    "status_visible": "Succeeded",
+    "duration_seconds_visible": 14.978,
+    "data_size_visible": "6 MB",
+    "workflow_version_from_autosaved_link": "6be26506-7879-4d13-a635-bb2fc3579a05",
+    "version_evidence_url": "https://nexops.app.n8n.cloud/workflow/LO9m0AxSrxRR6JVY/history/6be26506-7879-4d13-a635-bb2fc3579a05"
+  },
+  "input": {
+    "solicitud_id": "c8efd1ed-4c0b-4a42-bda8-3a1c411849c8",
+    "productos": [
+      {
+        "link": "https://www.alibaba.com/x/B2UFi4?ck=pdp",
+        "descripcion": "Camiseta de runnig"
+      }
+    ],
+    "fob_usd": 500,
+    "cantidad": 1,
+    "bultos": [
+      {
+        "cantidad": 1,
+        "peso_kg": 10,
+        "largo_cm": 20,
+        "ancho_cm": 30,
+        "alto_cm": 40
+      },
+      {
+        "cantidad": 2,
+        "peso_kg": 5,
+        "largo_cm": 30,
+        "ancho_cm": 40,
+        "alto_cm": 50
+      }
+    ]
+  },
+  "source": {
+    "zip_sha256": "4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c",
+    "ncm_sha256": "feefcbde81920aa2a73e989804328df522053c424a87ff47f6c763a27c04171f",
+    "schema": "pcram-nomenclator-fixed-2134-v1",
+    "importer_version": "pcram-ncm-fixed-2134-v1",
+    "record_count": 33038,
+    "ncm_count": 10504,
+    "source": "https://web.pcram.net/downloads/transf.zip",
+    "purpose": "CLASSIFICATION_ONLY; no rates; no legal notes",
+    "source_matches_tax_snapshot": false,
+    "tax_snapshot_sha256": "fd04e2344db684fef46e5fd65d6c8c384fc2ce220054fe063c24f2fd629663eb"
+  },
+  "tool_calls": [
+    {
+      "tool": "Consulta_nomenclador_PCRAM",
+      "toolInput": {
+        "indice": 1,
+        "prefijo": "",
+        "texto": "camiseta running ropa deportiva camiseta",
+        "limite": 1,
+        "vista": "ramas"
+      },
+      "observation_envelope": "[{response: JSON_string}]",
+      "status": "NO_MATCH",
+      "matched_count": 0,
+      "returned_count": 0,
+      "partial": false,
+      "results": [],
+      "branches": [],
+      "retrieval": {
+        "view": "ramas",
+        "unit": "NCM",
+        "total": 0,
+        "returned": 0,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536
+      }
+    },
+    {
+      "tool": "Consulta_nomenclador_PCRAM",
+      "toolInput": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 1,
+        "vista": "detalle"
+      },
+      "observation_envelope": "[{response: JSON_string}]",
+      "status": "OK",
+      "matched_count": 10,
+      "returned_count": 10,
+      "partial": false,
+      "retrieval": {
+        "view": "detalle",
+        "unit": "SIM",
+        "total": 10,
+        "returned": 10,
+        "complete": true,
+        "max_records": 64,
+        "max_response_bytes": 65536
+      },
+      "candidate_codes": [
+        "61091000110Y",
+        "61091000190Z",
+        "61091000210D",
+        "61091000290E",
+        "61099000111N",
+        "61099000119F",
+        "61099000191P",
+        "61099000199G",
+        "61099000210R",
+        "61099000290T"
+      ],
+      "ncm_contexts": {
+        "61091000": "- De algodón. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto.",
+        "61099000": "- De las demás materias textiles. «T-shirts» y camisetas, de punto. Prendas y complementos (accesorios), de vestir, de punto."
+      },
+      "all_candidate_updated_at": "2026-10-01",
+      "all_candidate_description_limits": {
+        "sim_field_full": false,
+        "ncm_field_full": false,
+        "completeness_not_guaranteed": true
+      }
+    }
+  ],
+  "agent_original": {
+    "indice": 1,
+    "producto": "Camiseta de runnig",
+    "clasificacion": "61099000",
+    "SIM": null,
+    "DIE": 20,
+    "evidencia": [
+      {
+        "url": "pcram://4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c/sim/61099000111N",
+        "detalle": "Entrada SIM bajo NCM 61099000 para \"T-shirts\" y camisetas de punto, de fibras sintéticas o artificiales; listado completo de SIMs para 61099000 disponible (retrieval.complete=true, updated_at 2026-10-01)."
+      }
+    ],
+    "fundamento": "Descripción breve indica camiseta deportiva (running) — atributo material no declarado; por probabilidad comercial se eligió NCM 61099000 (\"T-shirts\" de demás materias textiles) y se estima un DIE orientativo del 20%; falta composición exacta impide asignar SIM específico."
+  },
+  "validator_output": {
+    "siguiente": "cotizar",
+    "producto": {
+      "indice": 1,
+      "producto": "Camiseta de runnig",
+      "clasificacion": null,
+      "SIM": null,
+      "DIE": 20,
+      "evidencia": [],
+      "fundamento": "Descripción breve indica camiseta deportiva (running) — atributo material no declarado; por probabilidad comercial se eligió NCM 61099000 (\"T-shirts\" de demás materias textiles) y se estima un DIE orientativo del 20%; falta composición exacta impide asignar SIM específico. Estimación: identificador no acreditado en la consulta del producto o identificadores incompatibles; no se completó ni recortó ningún código."
+    }
+  },
+  "tax_resolution": {
+    "productIndex": 0,
+    "status": "ESTIMADO",
+    "requestedPosition": null,
+    "ncm": null,
+    "sim": null,
+    "resolverVersion": "tax-resolver-1.1.0",
+    "rates": {
+      "duty": 0.2,
+      "statistical": 0.03,
+      "vat": 0.21
+    },
+    "dutyEvidence": null,
+    "vatEvidence": null,
+    "warnings": [
+      "POSITION_INCOMPLETE_AGENT_ESTIMATE",
+      "AGENT_DUTY_ESTIMATE",
+      "GENERAL_TE_ESTIMATE",
+      "GENERAL_VAT_ESTIMATE"
+    ],
+    "estimation_methods": {
+      "duty": "AGENT_ESTIMATE",
+      "statistical": "GENERAL_RULE",
+      "vat": "GENERAL_RULE"
+    },
+    "duty_source": "n8n-agent-contract-2026-09-15:product-1",
+    "duty_basis": "Producto identificado por el agente; DIE estimado individualmente, sin posición completa ni consulta específica al snapshot."
+  },
+  "commercial_result": {
+    "total_usd": 931.88,
+    "flete_internacional_usd": 580,
+    "handling_con_iva_usd": 90.75,
+    "impuestos_y_tasas_usd": 261.13,
+    "peso_considerado_kg": 29
+  },
+  "diagnosis": {
+    "tool_integration": "Two successful calls, wrapped responses interpreted, all 10 SIM of family returned. No truncation to first four. No live PCRAM lookup.",
+    "agent": "Selected 61099000 by commercial probability despite acknowledged missing material. No directed NCM8/SIM detail call.",
+    "validator": "HS4 prefix 6109 fails directed-prefix regex; no precise membership accredited; supportedNcm=false for 61099000, so code and PCRAM citation removed. No shorter code manufactured.",
+    "tax": "DIE20 is AGENT_ESTIMATE, not specific PCRAM or FAMILY_SNAPSHOT.",
+    "acceptance": "Tool execution and complete retrieval observed; precise classification/provenance not accepted. ER12 not declared PASS."
+  },
+  "scope": {
+    "n8n_mutations": 0,
+    "new_quotes": 0,
+    "new_model_calls": 0,
+    "local_tests": 0,
+    "pcram_downloads": 0,
+    "rollback_applied": false,
+    "code_changes": 0
+  }
+}
