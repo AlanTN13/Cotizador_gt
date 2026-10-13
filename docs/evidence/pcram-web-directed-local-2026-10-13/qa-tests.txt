@@ -1,0 +1,9 @@
+
+ RUN  v5.0.0 /Users/alanfernandez/Documents/Codex/2026-10-10/task-2/Cotizador_gt-local
+
+
+ Test Files  3 passed (3)
+      Tests  47 passed (47)
+   Start at  13:53:26
+   Duration  3.11s (tests 45%, transform 32%, import 23%, worker 1%)
+

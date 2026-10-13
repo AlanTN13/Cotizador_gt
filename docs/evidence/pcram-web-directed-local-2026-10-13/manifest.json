@@ -1,0 +1,16 @@
+{
+  "status": "LOCAL_PREPARED_E2E_NOT_VERIFIED_NOT_PUBLISHED",
+  "baselineCommit": "577519385712e09b3e0126dd3b8929c83ea150b7",
+  "baselinePublishedVersion": "6be26506-7879-4d13-a635-bb2fc3579a05",
+  "freshLiveRead": false,
+  "nodes": 12,
+  "changedPaths": [
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/6/parameters/inputSchema",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "frozenIdentical": true,
+  "rollbackExact": true,
+  "modelCalls": 0,
+  "cloudExecutions": 0
+}

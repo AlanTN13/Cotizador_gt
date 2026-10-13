@@ -1,0 +1,12 @@
+{
+  "workflow/pcram-nomenclator-packed.mjs": "559493fabb746238664477131af17f26d266215798a3145636dfd52685abddf6",
+  "workflow/pcram-nomenclator-query.mjs": "e660eafa3e466b02e9106912b038a086a628a2ff84b18608e47fec457858097a",
+  "workflow/pcram-tool-input.mjs": "df8549f039ec974f32c743b4410802e3e1b8e5f29e5121e7d0e17d90dec90ba2",
+  "data/tax-die-te.json": "ce19ca7da86c73312345993ab7450d24ed7e3055edd9864ac87c043745e801a2",
+  "data/tax-vat.json": "4403245eae6f82f2ca13a1cb269d58aa5a07d6e5e4636d3d709a4036d30b9986",
+  "workflow/tax-family-estimate.mjs": "cb05b669457b5318d8b1f9f8d020c502d8289f5dc8e6915418805904d08b7e07",
+  "app/api/cotizador/route.ts": "a29a47202ea5746d80449b068e3c7d9235f7d83d71425f4d2b848b606857f882",
+  "app/cotizador/page.tsx": "75628d66b98df17ff99f0a2d7adbc8310d34d8011939c5c601188ffd4e5405c8",
+  "package.json": "5feb8005c53e792b75de66462c4a175a3385473f7e89a6e76beec3790e287084",
+  "vitest.config.mts": "d35f58af51ab1d994a3bb6bbbc5069e186251e5b987709826cde3ad473c82215"
+}

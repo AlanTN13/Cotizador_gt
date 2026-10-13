@@ -1,0 +1,485 @@
+diff --git a/app/cotizador/calculation-breakdown.tsx b/app/cotizador/calculation-breakdown.tsx
+index 186cf1e..8bd8f70 100644
+--- a/app/cotizador/calculation-breakdown.tsx
++++ b/app/cotizador/calculation-breakdown.tsx
+@@ -15,7 +15,14 @@ export default function CalculationBreakdown({ detail }: { detail: CalculationDe
+     <div className={styles.auditTitle}><p>Modo QA · período de pruebas</p><h3 id="audit-title">Desglose del cálculo</h3></div>
+     <Rows rows={detail.resumen} />
+     {detail.productos.map((product, index) => <section className={styles.auditProduct} key={`${product.producto}-${index}`}>
+-      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p><Rows rows={product.lineas} />
++      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p>
++      {product.coincidencia && <div>
++        <p><strong>{product.coincidencia}</strong> · QA de precotización</p>
++        <p>{product.motivo_coincidencia}</p>
++        <p>Código candidato: {product.codigo_candidato || "No informado"} · Código/familia conservado: {product.codigo_validado || "No informado"}</p>
++        <p>Origen del DIE: <strong>{product.origen_die}</strong> · {product.fuente_die}</p>
++      </div>}
++      <Rows rows={product.lineas} />
+     </section>)}
+     <section className={styles.auditProduct}><h4>Totales</h4><Rows rows={detail.totales} /></section>
+   </section>;
+diff --git a/lib/courier/calculation-detail.ts b/lib/courier/calculation-detail.ts
+index d066517..2449eb0 100644
+--- a/lib/courier/calculation-detail.ts
++++ b/lib/courier/calculation-detail.ts
+@@ -32,7 +32,17 @@ export function buildCalculationDetail(request: CourierRequest, response: Extrac
+       const tax = taxByIndex.get(item.indice)!;
+       const product = productByIndex.get(item.indice)!;
+       const vatBase = item.cif_usd + item.derechos_usd + item.tasa_estadistica_usd;
+-      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: tax.sim || tax.ncm || "No informado", lineas: [
++      const qa = product.clasificacion_qa;
++      const actualCode = tax.sim || tax.ncm || (typeof product.clasificacion === "string" ? product.clasificacion : null);
++      const exact = qa?.nivel === "COINCIDENCIA_EXACTA" && qa.codigo_validado === actualCode && !!actualCode && actualCode.length >= 8;
++      const duty = tax.estimation?.components.find(component => component.tax === "duty");
++      const origenDie = duty?.method || (tax.dutyEvidence ? "SNAPSHOT_ESPECIFICO" : "NO_ACREDITADO");
++      const fuenteDie = duty?.source || (tax.dutyEvidence ? `${tax.dutyEvidence.version}:sha256=${tax.dutyEvidence.source.sha256}` : "Sin evidencia tributaria en la respuesta");
++      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: actualCode || "No informado",
++        coincidencia: exact ? "Coincidencia exacta" : "Coincidencia aproximada",
++        motivo_coincidencia: qa?.motivo || (exact ? "Condiciones y posición contrastadas; no es un dictamen legal." : "Sin evidencia suficiente para acreditar coincidencia exacta."),
++        codigo_candidato: qa?.candidato ?? null, codigo_validado: actualCode,
++        origen_die: origenDie, fuente_die: fuenteDie, lineas: [
+         { concepto: "Derecho de importación (DIE)", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.duty), importe: usd(item.derechos_usd) },
+         { concepto: "Tasa de Estadística", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.statistical), importe: usd(item.tasa_estadistica_usd) },
+         { concepto: "Base imponible de IVA", base_formula: "CIF asignado + DIE + Tasa de Estadística", tasa: "—", importe: usd(vatBase) },
+diff --git a/lib/courier/n8n-contract.ts b/lib/courier/n8n-contract.ts
+index e3f8cac..e68faa5 100644
+--- a/lib/courier/n8n-contract.ts
++++ b/lib/courier/n8n-contract.ts
+@@ -27,9 +27,21 @@ export const courierResponseSchema = z.discriminatedUnion("status", [
+   base.extend({ status: z.literal("error") }),
+ ]);
+ const rate = z.number().finite().min(0).max(1);
+-const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000) }).passthrough();
++const classificationQa = z.object({
++  nivel: z.enum(["COINCIDENCIA_EXACTA", "COINCIDENCIA_APROXIMADA"]),
++  candidato: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
++  codigo_validado: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
++  motivo: z.string().max(2000), source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
++  verificador: z.literal("literal-product-evidence-v1"),
++});
++const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000),
++  clasificacion_qa: classificationQa.optional(),
++}).passthrough();
+ const taxResolution = z.object({ productIndex: z.number().int().nonnegative(), ncm: z.string().nullable(), sim: z.string().nullable(),
+-  rates: z.object({ duty: rate, statistical: rate, vat: rate }), agentEvidence: z.object({ producto: text(8000) }).passthrough(),
++  rates: z.object({ duty: rate, statistical: rate, vat: rate }),
++  dutyEvidence: z.object({ version: z.string(), source: z.object({ sha256: z.string(), id: z.string() }).passthrough() }).passthrough().nullable().optional(),
++  estimation: z.object({ components: z.array(z.object({ tax: z.string(), method: z.string(), source: z.string(), basis: z.string() })) }).passthrough().optional(),
++  agentEvidence: z.object({ producto: text(8000) }).passthrough(),
+ }).passthrough();
+ const productTax = z.object({ indice: z.number().int().positive(), cif_usd: money, derechos_usd: money,
+   tasa_estadistica_usd: money, iva_usd: money });
+@@ -44,7 +56,11 @@ export const courierUpstreamResponseSchema = z.discriminatedUnion("status", [
+   base.extend({ status: z.literal("error") }).passthrough(),
+ ]);
+ const detailLine = z.object({ concepto: z.string(), base_formula: z.string(), tasa: z.string(), importe: z.string() });
+-export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(), lineas: z.array(detailLine) })), totales: z.array(detailLine) });
++export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(),
++  coincidencia: z.enum(["Coincidencia exacta", "Coincidencia aproximada"]).optional(),
++  motivo_coincidencia: z.string().optional(), codigo_candidato: z.string().nullable().optional(),
++  codigo_validado: z.string().nullable().optional(), origen_die: z.string().optional(), fuente_die: z.string().optional(),
++  lineas: z.array(detailLine) })), totales: z.array(detailLine) });
+ export const courierDebugResponseSchema = z.discriminatedUnion("status", [
+   courierResponseSchema.options[0].extend({ detalle_calculo: calculationDetailSchema }),
+   courierResponseSchema.options[1],
+diff --git a/scripts/prepare-pcram-web-directed.mjs b/scripts/prepare-pcram-web-directed.mjs
+new file mode 100644
+index 0000000..9764f8d
+--- /dev/null
++++ b/scripts/prepare-pcram-web-directed.mjs
+@@ -0,0 +1,55 @@
++// Offline field-scoped preparation only; no requests, models or deployment.
++import fs from 'node:fs';
++import assert from 'node:assert/strict';
++import {createHash} from 'node:crypto';
++import {execFileSync} from 'node:child_process';
++import {fileURLToPath} from 'node:url';
++export const root = new URL('../',import.meta.url);
++export const out = new URL('docs/evidence/pcram-web-directed-local-2026-10-13/',root);
++const read = p => fs.readFileSync(new URL(p,root),'utf8');
++export const sha = x => createHash('sha256').update(x).digest('hex');
++const assign = (w,path,value) => {const keys=path.split('/').slice(1),key=keys.pop(); keys.reduce((o,k)=>o[k],w)[key]=value;};
++export function prepare() {
++ const baseline = JSON.parse(read('docs/evidence/pcram-family-die-prepared-2026-10-10/publication-er11-api-2026-10-10/published.api-export.json'));
++ const oldPatch=JSON.parse(execFileSync('git',['show','5775193:docs/evidence/pcram-coverage-local/apply.patch.json'],{cwd:fileURLToPath(root),encoding:'utf8',maxBuffer:16*1024*1024}));
++ for(const c of oldPatch.changes) {assert.equal(sha(c.before),c.beforeSha256);assign(baseline,c.path,c.after);assert.equal(sha(c.after),c.afterSha256);}
++ assert.equal(baseline.nodes.length,12);
++ const candidate=structuredClone(baseline);
++ const agent=candidate.nodes.find(n=>n.name==='Agente Despachante');
++ const before=agent.parameters.options.systemMessage;
++ assert.equal(sha(before),'698f6ac6ef538a2811dd5ccae8dd802c86744a056f77d0178cca27588a0aebce');
++ const start=before.indexOf('Consulta local al nomenclador:');assert.ok(start>0);
++ agent.parameters.options.systemMessage=before.slice(0,start)+read('workflow/pcram-web-directed-instructions.txt');
++ agent.parameters.options.systemMessage=agent.parameters.options.systemMessage.replace('elegí la variante más probable y un DIE estimado numérico','entregá un DIE estimado numérico');
++ agent.parameters.options.systemMessage=agent.parameters.options.systemMessage.replace('No incluyas estados, precios, preguntas ni texto fuera del JSON.',
++   'No incluyas estados, precios, preguntas ni texto fuera del JSON. Agregá únicamente verificacion por producto con codigo_candidato, familia_sustentada, atributos [{fuente,cita}] y motivo_aproximacion. No devuelvas etiquetas exacta/aproximada: las deriva el validador.');
++ const parser=candidate.nodes.find(n=>n.name==='Salida estructurada');
++ const schema=JSON.parse(parser.parameters.inputSchema),item=schema.properties.productos.items;
++ item.properties.verificacion={type:'object',additionalProperties:false,properties:{
++   codigo_candidato:{type:['string','null']},familia_sustentada:{type:['string','null']},
++   atributos:{type:'array',maxItems:8,items:{type:'object',additionalProperties:false,properties:{fuente:{type:'string',maxLength:2048},cita:{type:'string',minLength:8,maxLength:1600}},required:['fuente','cita']}},
++   motivo_aproximacion:{type:'string',maxLength:800}},required:['codigo_candidato','familia_sustentada','atributos','motivo_aproximacion']};
++ // Optional for fail-safe compatibility with old valid agent responses.
++ parser.parameters.inputSchema=JSON.stringify(schema);
++ const validator=candidate.nodes.find(n=>n.name==='Validar salida del agente');
++ const old=execFileSync('git',['show','5775193:workflow/pcram-classification-guard.mjs'],{cwd:fileURLToPath(root),encoding:'utf8'}).replaceAll('export function','function');
++ assert.equal(validator.parameters.jsCode.split(old).length,2);
++ validator.parameters.jsCode=validator.parameters.jsCode.replace(old,read('workflow/pcram-classification-guard.mjs').replaceAll('export function','function'));
++ const anchor='guardClassification(ordered,raw.intermediateSteps,"4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c")';
++ assert.equal(validator.parameters.jsCode.split(anchor).length,2);
++ validator.parameters.jsCode=validator.parameters.jsCode.replace(anchor,anchor.replace('guardClassification','auditClassification').replace(/\)$/,',s.solicitud)'));
++ const paths=['/nodes/4/parameters/options/systemMessage','/nodes/6/parameters/inputSchema','/nodes/7/parameters/jsCode'];
++ const changes=paths.map(path=>{const get=w=>path.split('/').slice(1).reduce((o,k)=>o[k],w);return {path,nodeId:candidate.nodes[Number(path.split('/')[2])].id,before:get(baseline),after:get(candidate),beforeSha256:sha(get(baseline)),afterSha256:sha(get(candidate))};});
++ const recovered=structuredClone(candidate);for(const c of changes)assign(recovered,c.path,c.before);assert.deepEqual(recovered,baseline);
++ for(const name of ['Consulta_nomenclador_PCRAM','Cotizador deterministico','OpenAI Chat Model'])assert.deepEqual(candidate.nodes.find(n=>n.name===name),baseline.nodes.find(n=>n.name===name));
++ assert.deepEqual(candidate.connections,baseline.connections);assert.deepEqual(candidate.settings,baseline.settings);
++ return {baseline,candidate,changes};
++}
++if(process.argv[1]===fileURLToPath(import.meta.url)){
++ const p=prepare();fs.mkdirSync(out,{recursive:true});
++ const manifest={status:'LOCAL_PREPARED_E2E_NOT_VERIFIED_NOT_PUBLISHED',baselineCommit:'577519385712e09b3e0126dd3b8929c83ea150b7',baselinePublishedVersion:'6be26506-7879-4d13-a635-bb2fc3579a05',freshLiveRead:false,nodes:12,changedPaths:p.changes.map(c=>c.path),frozenIdentical:true,rollbackExact:true,modelCalls:0,cloudExecutions:0};
++ fs.writeFileSync(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');
++ for(const [name,changes]of [['apply.patch.json',p.changes],['rollback.patch.json',p.changes.map(c=>({...c,before:c.after,after:c.before,beforeSha256:c.afterSha256,afterSha256:c.beforeSha256}))]])fs.writeFileSync(new URL(name,out),JSON.stringify({neverImportWholeWorkflow:true,requireFreshBaselineHashes:true,changes},null,2)+'\n');
++ fs.writeFileSync(new URL('prompt.after.txt',out),p.candidate.nodes[4].parameters.options.systemMessage);
++ console.log(JSON.stringify(manifest,null,2));
++}
+diff --git a/tests/classification-qa.test.ts b/tests/classification-qa.test.ts
+new file mode 100644
+index 0000000..567f1b4
+--- /dev/null
++++ b/tests/classification-qa.test.ts
+@@ -0,0 +1,50 @@
++import React from "react";
++import {renderToStaticMarkup} from "react-dom/server";
++import {describe,it,expect,vi} from "vitest";
++import {readFileSync} from "node:fs";
++import {buildCalculationDetail} from "../lib/courier/calculation-detail";
++import {courierUpstreamResponseSchema,courierResponseSchema,courierDebugResponseSchema,courierRequestSchema} from "../lib/courier/n8n-contract";
++import ts from "typescript";
++import * as jsxRuntime from "react/jsx-runtime";
++import {runInNewContext} from "node:vm";
++// Existing Next tsconfig preserves JSX; compile this component in-memory for
++// the focalized render test without changing project/test configuration.
++const compiled=ts.transpileModule(readFileSync(new URL("../app/cotizador/calculation-breakdown.tsx",import.meta.url),"utf8"),{compilerOptions:{jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.CommonJS}}).outputText;
++const componentExports: {default?: React.ComponentType<{detail:ReturnType<typeof buildCalculationDetail>}>}={};
++runInNewContext(compiled,{exports:componentExports,require:(name:string)=>name==="react/jsx-runtime"?jsxRuntime:{default:{}}});
++const CalculationBreakdown=componentExports.default!;
++const trace=JSON.parse(readFileSync(new URL("../docs/evidence/pcram-user-qa-34575-2026-10-13/selected-trace.json",import.meta.url),"utf8"));
++const raw={solicitud_id:trace.input.solicitud_id,status:"cotizado",mensaje:"Fixture de QA",...trace.commercial_result,
++ auditoria:{productos:[{...trace.validator_output.producto}],taxResolutions:[trace.tax_resolution],tributos_por_producto:[{indice:1,cif_usd:528.43,derechos_usd:105.69,tasa_estadistica_usd:15.85,iva_usd:136.49}],peso_real_total_kg:20,peso_volumetrico_total_kg:28.8,tarifa_usd_kg:20,cif_usd:528.43,derechos_usd:105.69,tasa_estadistica_usd:15.85,iva_usd:136.49,debitos_creditos_usd:3.1}};
++raw.auditoria.taxResolutions[0]={...raw.auditoria.taxResolutions[0],agentEvidence:{producto:"Camiseta de runnig"},estimation:{components:[{tax:"duty",method:"AGENT_ESTIMATE",source:"n8n-agent-contract-2026-09-15:product-1",basis:"Estimación individual"}]}};
++const qa={nivel:"COINCIDENCIA_APROXIMADA",candidato:"61099000",codigo_validado:"6109",motivo:"Falta composición",source_sha256:trace.source.zip_sha256,verificador:"literal-product-evidence-v1"};
++const request=courierRequestSchema.parse(trace.input);
++function detail(data=raw){const response=courierUpstreamResponseSchema.parse(data);if(response.status!=="cotizado")throw Error("Expected quote");return buildCalculationDetail(request,response);}
++describe("classification QA without changing commercial behavior",()=>{
++ it("legacy response remains approximate; matching amount does not manufacture exact or PCRAM evidence",()=>{
++  const d=detail();expect(d.productos[0].coincidencia).toBe("Coincidencia aproximada");expect(d.productos[0].origen_die).toBe("AGENT_ESTIMATE");
++  expect(d.productos[0].ncm_sim).toBe("No informado");expect(d.totales.at(-1)?.importe).toBe("USD 931,88");
++ });
++ it("partial family, candidate and tax method are independent and allowlisted only in QA",()=>{
++  const data=structuredClone(raw);Object.assign(data.auditoria.productos[0],{clasificacion:"6109",clasificacion_qa:qa});
++  data.auditoria.taxResolutions[0].estimation.components[0].method="FAMILY_SNAPSHOT";
++  const d=detail(data);expect(d.productos[0]).toMatchObject({coincidencia:"Coincidencia aproximada",ncm_sim:"6109",codigo_candidato:"61099000",codigo_validado:"6109",origen_die:"FAMILY_SNAPSHOT"});
++  expect(courierResponseSchema.parse(data)).toEqual(courierResponseSchema.parse(raw));
++  expect(JSON.stringify(courierResponseSchema.parse(data))).not.toMatch(/coincidencia|clasificacion_qa|auditoria|FAMILY_SNAPSHOT/);
++  expect(courierDebugResponseSchema.parse({...courierResponseSchema.parse(data),detalle_calculo:d}).status).toBe("cotizado");
++ });
++ it("exact classification requires matching validated code, never depends on low tax rate",()=>{
++  const data=structuredClone(raw);Object.assign(data.auditoria.productos[0],{clasificacion:"61091000",clasificacion_qa:{...qa,nivel:"COINCIDENCIA_EXACTA",codigo_validado:"61091000",motivo:""}});
++  data.auditoria.taxResolutions[0].ncm="61091000";
++  expect(detail(data).productos[0].coincidencia).toBe("Coincidencia exacta");
++  expect(detail(data).productos[0].origen_die).toBe("AGENT_ESTIMATE");
++  data.auditoria.taxResolutions[0].ncm="95030060";
++  expect(detail(data).productos[0].coincidencia).toBe("Coincidencia aproximada");
++ });
++ it("renders verdict, fallback and origin in existing QA component without formula duplication",()=>{
++  vi.stubGlobal("React",React);
++  try{const html=renderToStaticMarkup(React.createElement(CalculationBreakdown,{detail:detail()}));
++   expect(html).toContain("Coincidencia aproximada");expect(html).toContain("Origen del DIE");expect(html).toContain("AGENT_ESTIMATE");expect(html).toContain("931,88");
++  }finally{vi.unstubAllGlobals();}
++ });
++});
+diff --git a/tests/pcram-web-directed.test.mjs b/tests/pcram-web-directed.test.mjs
+new file mode 100644
+index 0000000..7483297
+--- /dev/null
++++ b/tests/pcram-web-directed.test.mjs
+@@ -0,0 +1,150 @@
++// Local contract fixtures, not new model output or observed web requests.
++import {test} from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import {runInNewContext} from 'node:vm';
++import {performance} from 'node:perf_hooks';
++import {prepare,out,root,sha} from '../scripts/prepare-pcram-web-directed.mjs';
++import {auditClassification} from '../workflow/pcram-classification-guard.mjs';
++import {loadPackedNomenclator,queryPackedNomenclator} from '../workflow/pcram-nomenclator-packed.mjs';
++const packed=JSON.parse(fs.readFileSync(new URL('data/pcram-nomenclator/4cd912aa9f8843421bbe18dbf990fbecd2a5a070ba59723137d81f938f18079c.indexed-v3.json',root)));
++const source=packed.metadata.zip_sha256,p=prepare();
++const q=(prefijo,indice=1)=>({indice,prefijo,texto:'',limite:1,vista:'detalle'});
++const query=input=>structuredClone(queryPackedNomenclator(loadPackedNomenclator(packed),input));
++const step=(input,r=query(input))=>({action:{tool:'Consulta_nomenclador_PCRAM',toolInput:input},observation:JSON.stringify([{response:JSON.stringify(r)}])});
++const trace=JSON.parse(fs.readFileSync(new URL('docs/evidence/pcram-user-qa-34575-2026-10-13/selected-trace.json',root)));
++const input=trace.input;
++const fullCotton=query(q('61091000')).results[0].ncm_context;
++// Genuine catalog text, explicitly declared in a controlled product-description
++// fixture. NOT proof of an actual Alibaba product, model response or Web Search.
++const cottonRequest={...input,productos:[{link:'https://www.alibaba.com/product-detail/fixture-cotton.html',descripcion:fullCotton}]};
++const product=(clasificacion='6109',SIM=null,verificacion)=>({indice:1,producto:'Camiseta',clasificacion,SIM,DIE:20,evidencia:[],fundamento:'Controlled fixture',...(verificacion?{verificacion}:{})});
++const cottonProof={codigo_candidato:'61091000',familia_sustentada:'6109',atributos:[{fuente:'descripcion',cita:fullCotton}],motivo_aproximacion:''};
++const audit=(prod,steps,request=input)=>auditClassification([prod],steps,source,request)[0];
++const runValidator=(w,prod,steps,request=input)=>JSON.parse(JSON.stringify(runInNewContext(`(function(){${w.nodes[7].parameters.jsCode}})()`,{
++ $input:{first:()=>({json:{output:{productos:[prod]},intermediateSteps:steps}})},$:()=>({first:()=>({json:{solicitud:request}})}),URL
++},{timeout:5000})))[0].json;
++const calculate=(parsed,steps)=>{
++ class FixedDate extends Date {constructor(v){super(v??'2026-10-13T14:39:53Z');}static now(){return +new Date('2026-10-13T14:39:53Z');}}
++ return JSON.parse(JSON.stringify(runInNewContext(`(function(){${p.candidate.nodes[9].parameters.jsCode}})()`,{
++  $input:{first:()=>({json:parsed})},$:()=>({first:()=>({json:{intermediateSteps:steps}})}),Date:FixedDate
++ },{timeout:5000})))[0].json.respuesta;
++};
++
++test('recorded #34575 precise inference remains rejected; explicit HS4 fallback is preserved without trimming',()=>{
++ const steps=trace.tool_calls.map(c=>step(c.toolInput));
++ const before=runValidator(p.baseline,trace.agent_original,steps).productos[0];
++ assert.equal(before.clasificacion,null);
++ const implicit=audit(trace.agent_original,steps);assert.equal(implicit.clasificacion,null);
++ const explicit={...trace.agent_original,clasificacion:'6109',SIM:null,verificacion:{codigo_candidato:'61099000',familia_sustentada:'6109',atributos:[],motivo_aproximacion:'Composición no declarada'}};
++ const after=runValidator(p.candidate,explicit,steps).productos[0];
++ assert.equal(after.clasificacion,'6109');assert.equal(after.SIM,null);assert.equal(after.DIE,20);
++ assert.equal(after.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(after.clasificacion_qa.consultas[1].returned_count,10);
++});
++
++test('explicit partial fixture passes unchanged FAMILY_SNAPSHOT calculator, not numeric-target patch',()=>{
++ const steps=[step(q('6109'))];
++ const prod=product('6109',null,{codigo_candidato:null,familia_sustentada:'6109',atributos:[],motivo_aproximacion:'Falta composición'});
++ const parsed=runValidator(p.candidate,prod,steps),r=calculate(parsed,steps);
++ assert.equal(r.status,'cotizado');assert.equal(r.total_usd,931.88);assert.equal(r.flete_internacional_usd,580);assert.equal(r.handling_con_iva_usd,90.75);
++ assert.equal(r.auditoria.taxResolutions[0].estimation.components[0].method,'FAMILY_SNAPSHOT');
++ assert.equal(r.auditoria.productos[0].clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++});
++
++test('positive exact NCM requires real directed complete index rows and literal input product attributes',()=>{
++ const result=audit(product('61091000',null,cottonProof),[step(q('61091000'))],cottonRequest);
++ assert.equal(result.clasificacion,'61091000');assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_EXACTA');
++ assert.equal(result.clasificacion_qa.atributos_verificados.length,1);
++ assert.ok(!Object.hasOwn(result,'verificacion'));
++ const quoted=calculate(runValidator(p.candidate,product('61091000',null,cottonProof),[step(q('61091000'))],cottonRequest),[step(q('61091000'))]);
++ assert.equal(quoted.status,'cotizado');assert.equal(quoted.auditoria.taxResolutions[0].rates.duty,.2);assert.ok(quoted.auditoria.taxResolutions[0].dutyEvidence);
++});
++
++test('Web Search quote fixtures require surfaced URL citation bound to product page, not agent claim or URL name',()=>{
++ const link=cottonRequest.productos[0].link,request={...input,productos:[{link,descripcion:'Camiseta running'}]};
++ const proof={...cottonProof,atributos:[{fuente:link,cita:fullCotton}]};
++ const s=step(q('61091000'));s.action.messageLog=[{content:[{type:'text',text:fullCotton,annotations:[{type:'url_citation',url:link,start_index:0,end_index:fullCotton.length}]}]}];
++ assert.equal(audit(product('61091000',null,proof),[s],request).clasificacion_qa.nivel,'COINCIDENCIA_EXACTA');
++ for(const bad of [step(q('61091000')),{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:fullCotton}]}]}},{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:fullCotton,annotations:[{type:'url_citation',url:'https://other.example/',start_index:0,end_index:fullCotton.length}]}]}]}}]){
++  const result=audit(product('61091000',null,proof),[bad],request);assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(result.clasificacion,null);
++ }
++});
++
++test('real missing-composition description cannot accredit cotton or residual opening with model-only declarations',()=>{
++ for(const ncm of ['61091000','61099000']){
++  const proof={...cottonProof,codigo_candidato:ncm,atributos:[{fuente:'descripcion',cita:fullCotton}]};
++  const result=audit(product(ncm,null,proof),[step(q(ncm))]);
++  assert.equal(result.clasificacion,null);assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++ }
++});
++
++test('foreign/unsupported smartwatch classification and truncated SIM stay approximate, no rates from nomenclator',()=>{
++ const request={...input,productos:[{link:'https://www.alibaba.com/product-detail/VALDUS-VS13.html',descripcion:'Smartwatch VALDUS VS13'}]};
++ const result=audit(product('85176272','85176272900U',{codigo_candidato:'85176272900U',familia_sustentada:'851762',atributos:[],motivo_aproximacion:'Tecnología no verificada; SIM truncado'}),[step(q('85176272'))],request);
++ assert.equal(result.SIM,null);assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(result.DIE,20);
++ const foreign=audit(product('91021200',null,{codigo_candidato:'91021200',atributos:[],motivo_aproximacion:'HS extranjero no acreditado en Argentina'}),[step(q('91021200'))],request);
++ assert.equal(foreign.clasificacion,null);
++});
++
++test('construction blocks do not become wheeled toy NCM by presence of a candidate',()=>{
++ const request={...input,productos:[{link:'https://www.alibaba.com/product-detail/Chengji.html',descripcion:'Juego de bloques para construcción de plástico'}]};
++ const result=audit(product('95030010',null,{codigo_candidato:'95030010',familia_sustentada:'9503',atributos:[{fuente:'descripcion',cita:request.productos[0].descripcion}],motivo_aproximacion:'No se acreditan ruedas'}),[step(q('95030010'))],request);
++ assert.equal(result.clasificacion,null);assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++});
++
++test('NO_MATCH or inaccessible web preserves estimate and commercial continuity without inventing precise/family code',()=>{
++ const prod=product('99999999',null,{codigo_candidato:'99999999',familia_sustentada:'9999',atributos:[],motivo_aproximacion:'Ficha inaccesible'});
++ const steps=[step(q('99999999')),step(q('9999'))],parsed=runValidator(p.candidate,prod,steps);
++ assert.equal(parsed.productos[0].clasificacion,null);assert.equal(parsed.productos[0].DIE,20);
++ const r=calculate(parsed,steps);assert.equal(r.status,'cotizado');assert.equal(r.auditoria.taxResolutions[0].estimation.components[0].method,'AGENT_ESTIMATE');
++});
++
++test('source/product/query/URI/completeness/offset/errors and malformed observations cannot produce exact verdict',()=>{
++ const valid=step(q('61091000'));
++ const bads=[{...valid,observation:'{'}, {...valid,observation:JSON.stringify([{error:'fail'}])}, {...valid,observation:JSON.stringify([{response:valid.observation},{response:valid.observation}])}];
++ for(const mutate of [r=>r.source.zip_sha256='wrong',r=>r.query.indice=2,r=>r.retrieval.complete=false,r=>r.partial=true,r=>r.results[0].source_uri='pcram://wrong',r=>r.returned_count--,r=>r.results[0].description_limits.ncm_field_full=true]){
++  const r=query(q('61091000'));mutate(r);bads.push(step(q('61091000'),r));
++ }
++ bads.push(step({...q('61091000'),offset:0},query(q('61091000'))));
++ for(const s of bads){const r=audit(product('61091000',null,cottonProof),[s],cottonRequest);assert.equal(r.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(r.clasificacion,null);}
++ const other={...product('61091000',null,cottonProof),indice:2};assert.equal(audit(other,[valid],cottonRequest).clasificacion,null);
++});
++
++test('unverified family is not fabricated; contradictory attributes and excessive calls fail exact safely',()=>{
++ const exact=product('61091000',null,cottonProof),s=step(q('61091000'));
++ assert.equal(audit(exact,[s,s,s],cottonRequest).clasificacion,null);
++ assert.equal(audit(exact,[s,{...s,observation:'{'},{...s,observation:'{'}],cottonRequest).clasificacion,null);
++ assert.equal(audit({...exact,verificacion:{...cottonProof,motivo_aproximacion:'No se confirmó composición'}},[s],cottonRequest).clasificacion,null);
++ const contradictoryRequest={...cottonRequest,productos:[{...cottonRequest.productos[0],descripcion:fullCotton+' No es algodón.'}]};
++ assert.equal(audit(exact,[s],contradictoryRequest).clasificacion,null);
++ const mixed={...exact,verificacion:{...cottonProof,atributos:[...cottonProof.atributos,{fuente:'descripcion',cita:'Dato inventado ausente'}]}};
++ assert.equal(audit(mixed,[s],cottonRequest).clasificacion,null);
++ const noClaim=audit({...exact,verificacion:undefined},[s],cottonRequest);assert.equal(noClaim.clasificacion,null);
++ const badFamily={...exact,verificacion:{...cottonProof,familia_sustentada:'8517'}};
++ const r=audit(badFamily,[s,step(q('6109'))]);assert.equal(r.clasificacion,null);assert.equal(r.SIM,null);
++});
++
++test('optional output proof schema and literal validator operate together; model-supplied QA verdict overwritten',()=>{
++ const result=runValidator(p.candidate,{...product('6109'),clasificacion_qa:{nivel:'COINCIDENCIA_EXACTA'}},[step(q('6109'))]);
++ assert.equal(result.productos[0].clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++ const parser=JSON.parse(p.candidate.nodes[6].parameters.inputSchema);
++ assert.equal(parser.properties.productos.items.additionalProperties,false);assert.ok(!parser.properties.productos.items.required.includes('verificacion'));
++ assert.equal(p.candidate.nodes[4].parameters.options.maxIterations,p.baseline.nodes[4].parameters.options.maxIterations);
++});
++
++test('exact three-field rollback preserves 12 nodes and every frozen field byte for byte',()=>{
++ const restored=structuredClone(p.candidate);
++ for(const c of p.changes){const keys=c.path.split('/').slice(1),key=keys.pop();keys.reduce((o,k)=>o[k],restored)[key]=c.before;assert.equal(sha(c.after),c.afterSha256);}
++ assert.deepEqual(restored,p.baseline);assert.equal(p.changes.length,3);assert.equal(p.candidate.nodes.length,12);
++ for(const i of [0,1,2,3,5,8,9,10,11])assert.deepEqual(p.candidate.nodes[i],p.baseline.nodes[i]);
++ assert.deepEqual(p.candidate.connections,p.baseline.connections);assert.deepEqual(p.candidate.settings,p.baseline.settings);
++ assert.equal(sha(p.candidate.nodes[9].parameters.jsCode),'2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99');
++});
++
++test('measure local query bytes/latency and prompt delta without claiming model token cost or performance improvement',()=>{
++ const samples=[];
++ for(const input of [q('6109'),q('61091000'),q('85176272'),q('95030060')]){
++  const start=performance.now(),result=query(input);samples.push({query:input,ms:performance.now()-start,bytes:Buffer.byteLength(JSON.stringify(result)),count:result.returned_count,complete:result.retrieval.complete});
++ }
++ fs.mkdirSync(out,{recursive:true});fs.writeFileSync(new URL('local-measurements.json',out),JSON.stringify({node:process.version,mode:'single_local_sample_no_model_calls',baseline_real_execution_seconds:14.978,prompt_before_bytes:Buffer.byteLength(p.baseline.nodes[4].parameters.options.systemMessage),prompt_after_bytes:Buffer.byteLength(p.candidate.nodes[4].parameters.options.systemMessage),samples,token_use_measured:false,warning:'Fixtures do not establish real agent effectiveness; no cloud/model time or cost measured.'},null,2)+'\n');
++});
+diff --git a/workflow/pcram-classification-guard.mjs b/workflow/pcram-classification-guard.mjs
+index eb568ce..6303c57 100644
+--- a/workflow/pcram-classification-guard.mjs
++++ b/workflow/pcram-classification-guard.mjs
+@@ -70,3 +70,112 @@ export function guardClassification(products, steps, sourceSha) {
+     };
+   });
+ }
++
++// QA evidence boundary; never chooses a replacement code or changes a rate.
++// A model claim/citation alone is not a verified product attribute.
++export function auditClassification(products, steps, sourceSha, solicitud) {
++  const clean = guardClassification(products, steps, sourceSha);
++  const normalize = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
++    .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
++  const code = value => typeof value === 'string' && /^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/.test(value) ? value : null;
++  const responses = [];
++  for (const step of Array.isArray(steps) ? steps : []) {
++    if (step?.action?.tool !== 'Consulta_nomenclador_PCRAM') continue;
++    try {
++      let r = JSON.parse(step.observation);
++      if (Array.isArray(r)) {
++        if (r.length !== 1 || Object.keys(r[0] || {}).length !== 1 || typeof r[0].response !== 'string') continue;
++        r = JSON.parse(r[0].response);
++      }
++      const q = step.action.toolInput;
++      if (!r || Array.isArray(r) || r.error || r.errors || r.response || r.source?.zip_sha256 !== sourceSha ||
++          !['OK','NO_MATCH'].includes(r.status) || !Number.isInteger(r.query?.indice) ||
++          !q || typeof q.prefijo !== 'string' || typeof q.texto !== 'string' || !Number.isInteger(q.limite) || q.limite<1 || q.limite>8 || !['indice','prefijo','texto','limite','vista'].every(k => q[k] === r.query[k]) ||
++          Object.hasOwn(q,'offset') || Object.hasOwn(r.query,'offset') || !Array.isArray(r.results)) continue;
++      responses.push(r);
++    } catch { /* malformed or ambiguous observations do not substantiate QA */ }
++  }
++  // Only literal text associated with a real citation in a surfaced model trace.
++  // Built-in Web Search is not assumed to appear as a separate ai_tool step.
++  const webQuotes = [];
++  for (const step of Array.isArray(steps) ? steps : []) {
++    for (const message of Array.isArray(step?.action?.messageLog) ? step.action.messageLog : []) {
++      for (const block of Array.isArray(message?.content) ? message.content : []) {
++        if (block?.type !== 'text' || typeof block.text !== 'string') continue;
++        for (const a of Array.isArray(block.annotations) ? block.annotations : []) {
++          if (a?.type !== 'url_citation' || typeof a.url !== 'string' ||
++              !Number.isInteger(a.start_index) || !Number.isInteger(a.end_index) ||
++              a.start_index < 0 || a.end_index <= a.start_index || a.end_index > block.text.length) continue;
++          webQuotes.push({indice:step?.action?.toolInput?.indice,url:a.url,text:block.text.slice(a.start_index,a.end_index)});
++        }
++      }
++    }
++  }
++  const sameUrl = (a,b) => {
++    try { const x=new URL(a),y=new URL(b); return x.protocol==='https:' && y.protocol==='https:' && x.href===y.href; }
++    catch { return false; }
++  };
++  const complete = r => r?.status === 'OK' && r.query.vista === 'detalle' && r.retrieval?.view === 'detalle' &&
++    r.retrieval?.complete === true && r.retrieval.unit === 'SIM' && r.partial === false &&
++    r.results.length > 0 && r.results.length <= 64 && r.retrieval.total === r.matched_count &&
++    r.retrieval.returned === r.results.length && r.returned_count === r.results.length && r.matched_count === r.results.length &&
++    r.results.every(x => /^\d{11}[A-Z]$/.test(x?.sim) && x.ncm === x.sim.slice(0,8) &&
++      x.source_uri === `pcram://${sourceSha}/sim/${x.sim}` && x.sim.startsWith(r.query.prefijo.replaceAll('.','')));
++  return clean.map((p,i) => {
++    const original = products[i], proof = original.verificacion;
++    const input = solicitud?.productos?.[p.indice-1];
++    const own = responses.filter(r => r.query.indice === p.indice);
++    const callCount = (Array.isArray(steps) ? steps : []).filter(s => s?.action?.tool === 'Consulta_nomenclador_PCRAM' && s.action.toolInput?.indice === p.indice).length;
++    const claims = Array.isArray(proof?.atributos) && proof.atributos.length <= 8 ? proof.atributos : [];
++    const verified = claims.filter(a => {
++      if (!a || typeof a.cita !== 'string' || a.cita.length < 8 || a.cita.length > 1600) return false;
++      if (a.fuente === 'descripcion') return typeof input?.descripcion === 'string' && input.descripcion.includes(a.cita);
++      return sameUrl(a.fuente,input?.link) && webQuotes.some(w => w.indice === p.indice && sameUrl(w.url,a.fuente) && w.text.includes(a.cita));
++    });
++    const facts = normalize(verified.map(a=>a.cita).join(' '));
++    const selected = code(p.SIM) || code(p.clasificacion);
++    const directed = callCount <= 2 && own.find(r => complete(r) && /^(?:\d{8}|\d{11}[A-Z])$/.test(r.query.prefijo.replaceAll('.','')) &&
++      r.results.some(row => row.sim === selected || row.ncm === selected));
++    const row = directed ? directed.results.find(row => row.sim === selected || row.ncm === selected) : null;
++    // Conservative literal coverage, not a semantic/AI classifier. All significant
++    // words of the available source context must be grounded in product quotes.
++    // Unknown/contradictory/range conditions cannot be certified by token overlap.
++    const context = selected?.length === 12 ? row?.sim_description : row?.ncm_context;
++    const stop = new Set(['de','del','la','las','el','los','y','o','a','al','en','por','para','con']);
++    const terms = [...new Set(normalize(context).split(' ').filter(t=>t && !stop.has(t)))];
++    const restricted = /\b(?:no|sin|excepto|salvo|superior|inferior|hasta|demas|restantes)\b|\d/.test(normalize(context));
++    const fullText = !!row && row.description_limits?.ncm_field_full === false &&
++      (selected?.length !== 12 || row.description_limits?.sim_field_full === false);
++    const grounded = verified.length > 0 && verified.length === claims.length && terms.length > 1 && terms.every(t => facts.split(' ').includes(t)) && !restricted;
++    const contradictory = /\b(?:no|sin|desconocid|inciert|estimad|probab|supuest|falta|incomplet)/.test(normalize(input?.descripcion) + ' ' + facts) ||
++      (typeof proof?.motivo_aproximacion === 'string' && proof.motivo_aproximacion.trim().length > 0);
++    const exact = !!selected && selected.length >= 8 && !!directed && fullText && grounded && !contradictory;
++    let result = p, reason = '';
++    if (!exact && selected?.length >= 8) {
++      result = {...p,clasificacion:null,SIM:null,
++        evidencia:(Array.isArray(p.evidencia)?p.evidencia:[]).filter(e=>!e.url?.startsWith('pcram://'))};
++      reason = 'Atributos del producto no acreditan todas las condiciones disponibles de la posición específica.';
++    }
++    // Preserve only an explicit family supplied by the agent and corroborated by
++    // complete PCRAM detail. Never truncate the rejected precise candidate.
++    const family = code(proof?.familia_sustentada);
++    const familyQuery = callCount <= 2 && family?.length <= 6 && own.find(r => complete(r) && r.query.prefijo.replaceAll('.','') === family);
++    if (!exact && !result.clasificacion && familyQuery) result = {...result,clasificacion:family,SIM:null};
++    if (!exact && !reason) reason = !own.length ? 'Sin consulta PCRAM acreditada para este producto.' :
++      own.every(r=>r.status==='NO_MATCH') ? 'El código consultado no aparece en PCRAM.' :
++      !fullText && selected?.length >= 8 ? 'Fuente incompleta o posición específica no acreditada.' :
++      proof?.motivo_aproximacion || 'Clasificación parcial: no se verificaron todos los atributos discriminantes.';
++    if (!exact && result !== p) result = {...result,fundamento:`${result.fundamento || ''} Aproximación QA: ${reason}`};
++    // The model never supplies this computed QA verdict. Taxes remain separate.
++    const {verificacion:ignored,...publicProduct} = result;
++    return {...publicProduct,clasificacion_qa:{
++      nivel:exact?'COINCIDENCIA_EXACTA':'COINCIDENCIA_APROXIMADA',
++      candidato:code(proof?.codigo_candidato) || code(original.SIM) || code(original.clasificacion),
++      codigo_validado:code(result.SIM) || code(result.clasificacion),motivo:reason,
++      atributos_verificados:verified.map(a=>({fuente:a.fuente,cita:a.cita})),
++      consultas:own.map(r=>({query:r.query,status:r.status,complete:r.retrieval?.complete===true,
++        matched_count:r.matched_count,returned_count:r.returned_count,source_sha256:r.source.zip_sha256})),
++      source_sha256:sourceSha,verificador:'literal-product-evidence-v1',
++    }};
++  });
++}
+diff --git a/workflow/pcram-web-directed-instructions.txt b/workflow/pcram-web-directed-instructions.txt
+new file mode 100644
+index 0000000..650cf78
+--- /dev/null
++++ b/workflow/pcram-web-directed-instructions.txt
+@@ -0,0 +1,5 @@
++Investigación y contraste dirigido (precotización, no dictamen): usá Web Search ya conectado con link + nombre/descripción para obtener características realmente observadas y un código arancelario candidato argentino. Preferí una búsqueda web por producto cuando haga falta. No asumas acceso a Alibaba por reconocer la URL; si la ficha o búsqueda falla, registrá la limitación y continuá estimando. Un HS extranjero sólo orienta: no lo conviertas automáticamente en NCM/SIM argentino ni copies sus tasas. No hace falta buscar de nuevo atributos expresamente aportados en la descripción.
++Cuando exista un código candidato concreto sustentado, la primera consulta Consulta_nomenclador_PCRAM es dirigida a ese código/prefijo, texto="", vista="detalle", indice original y limite entre1y8. Este orden dirigido sustituye la recomendación anterior de panorama en la descripción de la herramienta cuando ya hay un código sustentado. No gastes el primer intento en AND de nombre+marca+uso comercial. Si sólo hay familia sustentada o faltan atributos discriminantes, consultá directamente esa familia HS4/HS6 con texto vacío y conservá exactamente ese nivel, SIM=null: no seleccionés algodón, sintético o «los demás» por probabilidad comercial. Si la posición específica no aparece o no se puede acreditar, un único segundo lookup de la familia sustentada o candidato pertinente está permitido. Máximo dos consultas PCRAM por producto, nunca una tercera; maxIterations=8, 64registros/65536bytes, sin offsets/paginación. No reintentes errores o INVALID_QUERY; ante límite incompleto, declaralo y conservá aproximación. No elijas la primera SIM ni infieras homogeneidad tributaria por los resultados.
++Antes de devolver NCM8/SIM, exigí una consulta dirigida detalle completa del mismo producto/fuente/código, coincidencia entre resultados y condiciones comprobadas de la mercadería. El índice local no devuelve tasas ni notas legales y sus textos pueden estar truncados; no reconstruyas esos textos ni completes códigos. La mera existencia del código o una cita arancelaria no acredita composición, material, función o tecnología del producto. Si falta un atributo decisivo, devolvé familia HS4/HS6 sustentada y SIM=null, o null si no podés sostener familia, con DIE numérico estimado y advertencia en fundamento. No cambies la política estimativa ni fuerces tasas.
++En verificacion.codigo_candidato conservá el código argentino investigado si existe. En familia_sustentada escribí únicamente el HS4/HS6 que realmente podés defender, nunca un recorte automático para salvar un candidato rechazado. En atributos incluí citas literales de datos del producto: fuente="descripcion" para texto efectivamente incluido en la entrada o URL de la ficha del producto para texto observado mediante Web Search; no cites la descripción del nomenclador como si describiera el producto concreto. No inventes citas ni fuentes; si no hay traza literal verificable, atributos=[]. En motivo_aproximacion registrá el atributo ausente, fuente inaccesible, candidato no encontrado o límite relevante; dejalo vacío solamente si la posición y sus condiciones están respaldadas. No declares por vos mismo coincidencia exacta ni aproximada.
++El validador conserva la procedencia de consultas y verifica citas contra la descripción original o textos citados expuestos por Web Search. Si esa traza no está disponible, no se presume verificación web. La validación literal es conservadora: condiciones negativas, residuales, cuantitativas o textos incompletos no se certifican por parecido. Clasificación exacta QA y fuente tributaria son independientes. Los impuestos siguen exclusivamente en el Tax Resolver congelado: FAMILY_SNAPSHOT cuando se cumplen sus controles, o estimación del agente honestamente identificada. No inventes SIM, tasas, fuentes ni acceso web. No calcules impuestos ni importes.

@@ -1,0 +1,84 @@
+diff --git b/app/cotizador/calculation-breakdown.tsx a/app/cotizador/calculation-breakdown.tsx
+index 8bd8f70..186cf1e 100644
+--- b/app/cotizador/calculation-breakdown.tsx
++++ a/app/cotizador/calculation-breakdown.tsx
+@@ -15,14 +15,7 @@ export default function CalculationBreakdown({ detail }: { detail: CalculationDe
+     <div className={styles.auditTitle}><p>Modo QA · período de pruebas</p><h3 id="audit-title">Desglose del cálculo</h3></div>
+     <Rows rows={detail.resumen} />
+     {detail.productos.map((product, index) => <section className={styles.auditProduct} key={`${product.producto}-${index}`}>
+-      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p>
+-      {product.coincidencia && <div>
+-        <p><strong>{product.coincidencia}</strong> · QA de precotización</p>
+-        <p>{product.motivo_coincidencia}</p>
+-        <p>Código candidato: {product.codigo_candidato || "No informado"} · Código/familia conservado: {product.codigo_validado || "No informado"}</p>
+-        <p>Origen del DIE: <strong>{product.origen_die}</strong> · {product.fuente_die}</p>
+-      </div>}
+-      <Rows rows={product.lineas} />
++      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p><Rows rows={product.lineas} />
+     </section>)}
+     <section className={styles.auditProduct}><h4>Totales</h4><Rows rows={detail.totales} /></section>
+   </section>;
+diff --git b/lib/courier/calculation-detail.ts a/lib/courier/calculation-detail.ts
+index 2449eb0..d066517 100644
+--- b/lib/courier/calculation-detail.ts
++++ a/lib/courier/calculation-detail.ts
+@@ -32,17 +32,7 @@ export function buildCalculationDetail(request: CourierRequest, response: Extrac
+       const tax = taxByIndex.get(item.indice)!;
+       const product = productByIndex.get(item.indice)!;
+       const vatBase = item.cif_usd + item.derechos_usd + item.tasa_estadistica_usd;
+-      const qa = product.clasificacion_qa;
+-      const actualCode = tax.sim || tax.ncm || (typeof product.clasificacion === "string" ? product.clasificacion : null);
+-      const exact = qa?.nivel === "COINCIDENCIA_EXACTA" && qa.codigo_validado === actualCode && !!actualCode && actualCode.length >= 8;
+-      const duty = tax.estimation?.components.find(component => component.tax === "duty");
+-      const origenDie = duty?.method || (tax.dutyEvidence ? "SNAPSHOT_ESPECIFICO" : "NO_ACREDITADO");
+-      const fuenteDie = duty?.source || (tax.dutyEvidence ? `${tax.dutyEvidence.version}:sha256=${tax.dutyEvidence.source.sha256}` : "Sin evidencia tributaria en la respuesta");
+-      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: actualCode || "No informado",
+-        coincidencia: exact ? "Coincidencia exacta" : "Coincidencia aproximada",
+-        motivo_coincidencia: qa?.motivo || (exact ? "Condiciones y posición contrastadas; no es un dictamen legal." : "Sin evidencia suficiente para acreditar coincidencia exacta."),
+-        codigo_candidato: qa?.candidato ?? null, codigo_validado: actualCode,
+-        origen_die: origenDie, fuente_die: fuenteDie, lineas: [
++      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: tax.sim || tax.ncm || "No informado", lineas: [
+         { concepto: "Derecho de importación (DIE)", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.duty), importe: usd(item.derechos_usd) },
+         { concepto: "Tasa de Estadística", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.statistical), importe: usd(item.tasa_estadistica_usd) },
+         { concepto: "Base imponible de IVA", base_formula: "CIF asignado + DIE + Tasa de Estadística", tasa: "—", importe: usd(vatBase) },
+diff --git b/lib/courier/n8n-contract.ts a/lib/courier/n8n-contract.ts
+index e68faa5..e3f8cac 100644
+--- b/lib/courier/n8n-contract.ts
++++ a/lib/courier/n8n-contract.ts
+@@ -27,21 +27,9 @@ export const courierResponseSchema = z.discriminatedUnion("status", [
+   base.extend({ status: z.literal("error") }),
+ ]);
+ const rate = z.number().finite().min(0).max(1);
+-const classificationQa = z.object({
+-  nivel: z.enum(["COINCIDENCIA_EXACTA", "COINCIDENCIA_APROXIMADA"]),
+-  candidato: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
+-  codigo_validado: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
+-  motivo: z.string().max(2000), source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+-  verificador: z.literal("literal-product-evidence-v1"),
+-});
+-const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000),
+-  clasificacion_qa: classificationQa.optional(),
+-}).passthrough();
++const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000) }).passthrough();
+ const taxResolution = z.object({ productIndex: z.number().int().nonnegative(), ncm: z.string().nullable(), sim: z.string().nullable(),
+-  rates: z.object({ duty: rate, statistical: rate, vat: rate }),
+-  dutyEvidence: z.object({ version: z.string(), source: z.object({ sha256: z.string(), id: z.string() }).passthrough() }).passthrough().nullable().optional(),
+-  estimation: z.object({ components: z.array(z.object({ tax: z.string(), method: z.string(), source: z.string(), basis: z.string() })) }).passthrough().optional(),
+-  agentEvidence: z.object({ producto: text(8000) }).passthrough(),
++  rates: z.object({ duty: rate, statistical: rate, vat: rate }), agentEvidence: z.object({ producto: text(8000) }).passthrough(),
+ }).passthrough();
+ const productTax = z.object({ indice: z.number().int().positive(), cif_usd: money, derechos_usd: money,
+   tasa_estadistica_usd: money, iva_usd: money });
+@@ -56,11 +44,7 @@ export const courierUpstreamResponseSchema = z.discriminatedUnion("status", [
+   base.extend({ status: z.literal("error") }).passthrough(),
+ ]);
+ const detailLine = z.object({ concepto: z.string(), base_formula: z.string(), tasa: z.string(), importe: z.string() });
+-export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(),
+-  coincidencia: z.enum(["Coincidencia exacta", "Coincidencia aproximada"]).optional(),
+-  motivo_coincidencia: z.string().optional(), codigo_candidato: z.string().nullable().optional(),
+-  codigo_validado: z.string().nullable().optional(), origen_die: z.string().optional(), fuente_die: z.string().optional(),
+-  lineas: z.array(detailLine) })), totales: z.array(detailLine) });
++export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(), lineas: z.array(detailLine) })), totales: z.array(detailLine) });
+ export const courierDebugResponseSchema = z.discriminatedUnion("status", [
+   courierResponseSchema.options[0].extend({ detalle_calculo: calculationDetailSchema }),
+   courierResponseSchema.options[1],

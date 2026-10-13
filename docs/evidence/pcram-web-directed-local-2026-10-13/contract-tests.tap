@@ -1,0 +1,32 @@
+✔ reproduce c9b279c legacy bypass on real #34455; corrected guard rejects toy precise NCM (10.52325ms)
+✔ legacy generic first four cannot accredit toy SIM either, in direct or Agent V3 envelope (1.287041ms)
+✔ legacy cotton opening with missing composition is rejected; no synthetic alternative manufactured (99.716625ms)
+✔ even legacy exact-SIM complete lookup cannot support a precise code without vista (96.285917ms)
+✔ legacy/new response mixing cannot bypass explicit query/detail contract (1.664292ms)
+✔ legitimate directed complete detail preserves supported precise NCM/SIM and existing source checks (2.865125ms)
+✔ source truncation still prevents precise SIM; safe NCM remains supported (117.364ms)
+✔ HS4/HS6 estimates remain unchanged with legacy observations or no precise supporting response (252.844917ms)
+✔ malformed/ambiguous/error observations cannot restore precise support (2.10425ms)
+✔ literal n8n validator rejects the real legacy position and preserves directed detail support (19.845458ms)
+✔ candidate delta and rollback relative to c9b279c are exactly one validator jsCode field (341.874ms)
+✔ recorded #34575 precise inference remains rejected; explicit HS4 fallback is preserved without trimming (586.755125ms)
+✔ explicit partial fixture passes unchanged FAMILY_SNAPSHOT calculator, not numeric-target patch (672.412834ms)
+✔ positive exact NCM requires real directed complete index rows and literal input product attributes (680.193667ms)
+✔ Web Search quote fixtures require surfaced URL citation bound to product page, not agent claim or URL name (214.639792ms)
+✔ real missing-composition description cannot accredit cotton or residual opening with model-only declarations (246.292209ms)
+✔ foreign/unsupported smartwatch classification and truncated SIM stay approximate, no rates from nomenclator (205.741042ms)
+✔ construction blocks do not become wheeled toy NCM by presence of a candidate (177.396666ms)
+✔ NO_MATCH or inaccessible web preserves estimate and commercial continuity without inventing precise/family code (1199.051416ms)
+✔ source/product/query/URI/completeness/offset/errors and malformed observations cannot produce exact verdict (1171.302916ms)
+✔ unverified family is not fabricated; contradictory attributes and excessive calls fail exact safely (232.509708ms)
+✔ optional output proof schema and literal validator operate together; model-supplied QA verdict overwritten (93.168833ms)
+✔ exact three-field rollback preserves 12 nodes and every frozen field byte for byte (80.97375ms)
+✔ measure local query bytes/latency and prompt delta without claiming model token cost or performance improvement (443.302834ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7009.866583

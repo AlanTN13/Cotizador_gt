@@ -1,0 +1,49 @@
+{
+  "status": "LOCAL_PREPARED / E2E_NOT_VERIFIED / NOT_PUBLISHED / STOP",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6149094351",
+  "canonical_revision": "67eb6a1",
+  "baseline_commit": "577519385712e09b3e0126dd3b8929c83ea150b7",
+  "baseline_published_version": "6be26506-7879-4d13-a635-bb2fc3579a05",
+  "fresh_cloud_read": false,
+  "checks": {
+    "node_contract_tests_pass": 24,
+    "vitest_qa_regression_tests_pass": 47,
+    "fail": 0,
+    "focused_typecheck_diagnostics": 0,
+    "three_field_n8n_rollback_exact": true,
+    "three_file_qa_rollback_exact": true,
+    "nodes": 12,
+    "frozen_identical": true
+  },
+  "changes": {
+    "n8n_paths": [
+      "/nodes/4/parameters/options/systemMessage",
+      "/nodes/6/parameters/inputSchema",
+      "/nodes/7/parameters/jsCode"
+    ],
+    "qa_files": [
+      "app/cotizador/calculation-breakdown.tsx",
+      "lib/courier/calculation-detail.ts",
+      "lib/courier/n8n-contract.ts"
+    ]
+  },
+  "limits": [
+    "No real model behavior established by mocks.",
+    "No new Web Search, Alibaba, PCRAM or Cloud requests. Built-in citations may not be surfaced; no exact verdict from missing trace.",
+    "Conservative literal coverage is not a semantic classifier: residual/negative/quantitative conditions and incomplete text cannot be certified. Correct candidates can remain approximate.",
+    "Positive exact test declares genuine catalog text in controlled input. Not a newly observed product or real agent response.",
+    "Tax resolution provenance is independent of classification grade. FAMILY_SNAPSHOT unchanged."
+  ],
+  "initial_local_failures_resolved": [
+    "New JSX render test compiled in-memory under existing configuration; no config change.",
+    "Focused typecheck roots include existing Next CSS types.",
+    "Over-budget rejection false.find fixed and fixture mutations isolated; final tests PASS.",
+    "QA rollback regenerated with correct -R flag and applied to temporary files; exact recovery verified."
+  ],
+  "production_mutations": 0,
+  "cloud_executions": 0,
+  "model_calls": 0,
+  "new_real_quotes": 0,
+  "pcram_downloads": 0,
+  "rollback": "rollback.patch.json: three n8n fields; qa.rollback.patch: three QA files. Require new authorization and fresh hashes for later publication/recovery."
+}

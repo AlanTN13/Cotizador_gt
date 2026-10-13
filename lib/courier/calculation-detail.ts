@@ -32,7 +32,17 @@ export function buildCalculationDetail(request: CourierRequest, response: Extrac
       const tax = taxByIndex.get(item.indice)!;
       const product = productByIndex.get(item.indice)!;
       const vatBase = item.cif_usd + item.derechos_usd + item.tasa_estadistica_usd;
-      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: tax.sim || tax.ncm || "No informado", lineas: [
+      const qa = product.clasificacion_qa;
+      const actualCode = tax.sim || tax.ncm || (typeof product.clasificacion === "string" ? product.clasificacion : null);
+      const exact = qa?.nivel === "COINCIDENCIA_EXACTA" && qa.codigo_validado === actualCode && !!actualCode && actualCode.length >= 8;
+      const duty = tax.estimation?.components.find(component => component.tax === "duty");
+      const origenDie = duty?.method || (tax.dutyEvidence ? "SNAPSHOT_ESPECIFICO" : "NO_ACREDITADO");
+      const fuenteDie = duty?.source || (tax.dutyEvidence ? `${tax.dutyEvidence.version}:sha256=${tax.dutyEvidence.source.sha256}` : "Sin evidencia tributaria en la respuesta");
+      return { producto: product?.producto || tax.agentEvidence.producto, ncm_sim: actualCode || "No informado",
+        coincidencia: exact ? "Coincidencia exacta" : "Coincidencia aproximada",
+        motivo_coincidencia: qa?.motivo || (exact ? "Condiciones y posición contrastadas; no es un dictamen legal." : "Sin evidencia suficiente para acreditar coincidencia exacta."),
+        codigo_candidato: qa?.candidato ?? null, codigo_validado: actualCode,
+        origen_die: origenDie, fuente_die: fuenteDie, lineas: [
         { concepto: "Derecho de importación (DIE)", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.duty), importe: usd(item.derechos_usd) },
         { concepto: "Tasa de Estadística", base_formula: usd(item.cif_usd), tasa: pct(tax.rates.statistical), importe: usd(item.tasa_estadistica_usd) },
         { concepto: "Base imponible de IVA", base_formula: "CIF asignado + DIE + Tasa de Estadística", tasa: "—", importe: usd(vatBase) },

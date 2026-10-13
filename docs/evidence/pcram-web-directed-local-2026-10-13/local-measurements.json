@@ -1,0 +1,63 @@
+{
+  "node": "v24.19.0",
+  "mode": "single_local_sample_no_model_calls",
+  "baseline_real_execution_seconds": 14.978,
+  "prompt_before_bytes": 8311,
+  "prompt_after_bytes": 7811,
+  "samples": [
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "6109",
+        "texto": "",
+        "limite": 1,
+        "vista": "detalle"
+      },
+      "ms": 108.93362500000057,
+      "bytes": 7759,
+      "count": 10,
+      "complete": true
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "61091000",
+        "texto": "",
+        "limite": 1,
+        "vista": "detalle"
+      },
+      "ms": 71.12820900000042,
+      "bytes": 3937,
+      "count": 4,
+      "complete": true
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "85176272",
+        "texto": "",
+        "limite": 1,
+        "vista": "detalle"
+      },
+      "ms": 112.05462499999976,
+      "bytes": 5274,
+      "count": 2,
+      "complete": true
+    },
+    {
+      "query": {
+        "indice": 1,
+        "prefijo": "95030060",
+        "texto": "",
+        "limite": 1,
+        "vista": "detalle"
+      },
+      "ms": 121.67341699999997,
+      "bytes": 19332,
+      "count": 18,
+      "complete": true
+    }
+  ],
+  "token_use_measured": false,
+  "warning": "Fixtures do not establish real agent effectiveness; no cloud/model time or cost measured."
+}
