@@ -1,0 +1,148 @@
+diff --git a/tests/pcram-web-directed.test.mjs b/tests/pcram-web-directed.test.mjs
+index 7483297..2afa303 100644
+--- a/tests/pcram-web-directed.test.mjs
++++ b/tests/pcram-web-directed.test.mjs
+@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
+ import fs from 'node:fs';
+ import {runInNewContext} from 'node:vm';
+ import {performance} from 'node:perf_hooks';
++import {execFileSync} from 'node:child_process';
+ import {prepare,out,root,sha} from '../scripts/prepare-pcram-web-directed.mjs';
+ import {auditClassification} from '../workflow/pcram-classification-guard.mjs';
+ import {loadPackedNomenclator,queryPackedNomenclator} from '../workflow/pcram-nomenclator-packed.mjs';
+@@ -15,11 +16,12 @@ const step=(input,r=query(input))=>({action:{tool:'Consulta_nomenclador_PCRAM',t
+ const trace=JSON.parse(fs.readFileSync(new URL('docs/evidence/pcram-user-qa-34575-2026-10-13/selected-trace.json',root)));
+ const input=trace.input;
+ const fullCotton=query(q('61091000')).results[0].ncm_context;
+-// Genuine catalog text, explicitly declared in a controlled product-description
+-// fixture. NOT proof of an actual Alibaba product, model response or Web Search.
+-const cottonRequest={...input,productos:[{link:'https://www.alibaba.com/product-detail/fixture-cotton.html',descripcion:fullCotton}]};
++// Natural product attributes in a controlled input fixture; no catalog text
++// copied into the description. Not a new Alibaba observation or model response.
++const naturalCotton='Remera de running 100% algodón';
++const cottonRequest={...input,productos:[{link:'https://www.alibaba.com/product-detail/fixture-cotton.html',descripcion:naturalCotton}]};
+ const product=(clasificacion='6109',SIM=null,verificacion)=>({indice:1,producto:'Camiseta',clasificacion,SIM,DIE:20,evidencia:[],fundamento:'Controlled fixture',...(verificacion?{verificacion}:{})});
+-const cottonProof={codigo_candidato:'61091000',familia_sustentada:'6109',atributos:[{fuente:'descripcion',cita:fullCotton}],motivo_aproximacion:''};
++const cottonProof={codigo_candidato:'61091000',familia_sustentada:'6109',atributos:[{fuente:'descripcion',cita:naturalCotton}],motivo_aproximacion:''};
+ const audit=(prod,steps,request=input)=>auditClassification([prod],steps,source,request)[0];
+ const runValidator=(w,prod,steps,request=input)=>JSON.parse(JSON.stringify(runInNewContext(`(function(){${w.nodes[7].parameters.jsCode}})()`,{
+  $input:{first:()=>({json:{output:{productos:[prod]},intermediateSteps:steps}})},$:()=>({first:()=>({json:{solicitud:request}})}),URL
+@@ -51,7 +53,12 @@ test('explicit partial fixture passes unchanged FAMILY_SNAPSHOT calculator, not
+  assert.equal(r.auditoria.productos[0].clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
+ });
+ 
+-test('positive exact NCM requires real directed complete index rows and literal input product attributes',()=>{
++test('natural garment and verified composition retain directed NCM without generic PCRAM headings',()=>{
++ const beforeSource=execFileSync('git',['show','da9c226:workflow/pcram-classification-guard.mjs'],{encoding:'utf8'}).replaceAll('export function','function');
++ const before=runInNewContext(`(()=>{${beforeSource};return auditClassification;})()`,{URL});
++ assert.equal(before([product('61091000',null,cottonProof)],[step(q('61091000'))],source,cottonRequest)[0].clasificacion,null);
++ assert.ok(!naturalCotton.includes('complementos'));assert.ok(!naturalCotton.includes('vestir'));
++ assert.match(fullCotton,/De algodón/);assert.match(fullCotton,/T-shirts/);
+  const result=audit(product('61091000',null,cottonProof),[step(q('61091000'))],cottonRequest);
+  assert.equal(result.clasificacion,'61091000');assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_EXACTA');
+  assert.equal(result.clasificacion_qa.atributos_verificados.length,1);
+@@ -62,10 +69,10 @@ test('positive exact NCM requires real directed complete index rows and literal
+ 
+ test('Web Search quote fixtures require surfaced URL citation bound to product page, not agent claim or URL name',()=>{
+  const link=cottonRequest.productos[0].link,request={...input,productos:[{link,descripcion:'Camiseta running'}]};
+- const proof={...cottonProof,atributos:[{fuente:link,cita:fullCotton}]};
+- const s=step(q('61091000'));s.action.messageLog=[{content:[{type:'text',text:fullCotton,annotations:[{type:'url_citation',url:link,start_index:0,end_index:fullCotton.length}]}]}];
++ const proof={...cottonProof,atributos:[{fuente:link,cita:naturalCotton}]};
++ const s=step(q('61091000'));s.action.messageLog=[{content:[{type:'text',text:naturalCotton,annotations:[{type:'url_citation',url:link,start_index:0,end_index:naturalCotton.length}]}]}];
+  assert.equal(audit(product('61091000',null,proof),[s],request).clasificacion_qa.nivel,'COINCIDENCIA_EXACTA');
+- for(const bad of [step(q('61091000')),{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:fullCotton}]}]}},{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:fullCotton,annotations:[{type:'url_citation',url:'https://other.example/',start_index:0,end_index:fullCotton.length}]}]}]}}]){
++ for(const bad of [step(q('61091000')),{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:naturalCotton}]}]}},{...s,action:{...s.action,messageLog:[{content:[{type:'text',text:naturalCotton,annotations:[{type:'url_citation',url:'https://other.example/',start_index:0,end_index:naturalCotton.length}]}]}]}}]){
+   const result=audit(product('61091000',null,proof),[bad],request);assert.equal(result.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(result.clasificacion,null);
+  }
+ });
+@@ -115,7 +122,7 @@ test('unverified family is not fabricated; contradictory attributes and excessiv
+  assert.equal(audit(exact,[s,s,s],cottonRequest).clasificacion,null);
+  assert.equal(audit(exact,[s,{...s,observation:'{'},{...s,observation:'{'}],cottonRequest).clasificacion,null);
+  assert.equal(audit({...exact,verificacion:{...cottonProof,motivo_aproximacion:'No se confirmó composición'}},[s],cottonRequest).clasificacion,null);
+- const contradictoryRequest={...cottonRequest,productos:[{...cottonRequest.productos[0],descripcion:fullCotton+' No es algodón.'}]};
++ const contradictoryRequest={...cottonRequest,productos:[{...cottonRequest.productos[0],descripcion:naturalCotton+' No es algodón.'}]};
+  assert.equal(audit(exact,[s],contradictoryRequest).clasificacion,null);
+  const mixed={...exact,verificacion:{...cottonProof,atributos:[...cottonProof.atributos,{fuente:'descripcion',cita:'Dato inventado ausente'}]}};
+  assert.equal(audit(mixed,[s],cottonRequest).clasificacion,null);
+@@ -141,6 +148,45 @@ test('exact three-field rollback preserves 12 nodes and every frozen field byte
+  assert.equal(sha(p.candidate.nodes[9].parameters.jsCode),'2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99');
+ });
+ 
++
++test('natural cotton check requires both actual garment type and complete observed composition',()=>{
++ for(const descripcion of ['Remera running','Pantalón 100% algodón','Algodón 100%','Remera 50% algodón 50% poliéster','Remera sin algodón','Remera 100 gramos algodón','Pantalón con etiqueta remera 100% algodón','Remera 100% algodón de tejido plano','Remera 100% algodón y 5% poliéster']){
++  const request={...cottonRequest,productos:[{...cottonRequest.productos[0],descripcion}]};
++  const proof={...cottonProof,atributos:[{fuente:'descripcion',cita:descripcion}]};
++  const checked=audit(product('61091000',null,proof),[step(q('61091000'))],request);
++  assert.equal(checked.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA',descripcion);
++  assert.equal(checked.clasificacion,null,descripcion);assert.equal(checked.DIE,20);
++ }
++ const steps=[step(q('6109'))],request={...cottonRequest,productos:[{...cottonRequest.productos[0],descripcion:'Remera running'}]};
++ const partial=audit(product('6109',null,{...cottonProof,familia_sustentada:'6109',atributos:[{fuente:'descripcion',cita:'Remera running'}],motivo_aproximacion:'Falta composición'}),steps,request);
++ assert.equal(partial.clasificacion,'6109');assert.equal(partial.SIM,null);assert.equal(partial.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++});
++
++test('natural input cannot bypass source exceptions, numeric conditions or a truncated field',()=>{
++ for(const mutate of [r=>r.results.forEach(x=>x.ncm_context+=' Excepto determinadas prendas.'),r=>r.results.forEach(x=>x.ncm_context+=' De peso superior a 1 kg.'),r=>r.results.forEach(x=>x.description_limits.ncm_field_full=true)]){
++  const r=query(q('61091000'));mutate(r);
++  const checked=audit(product('61091000',null,cottonProof),[step(q('61091000'),r)],cottonRequest);
++  assert.equal(checked.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');assert.equal(checked.clasificacion,null);
++ }
++ const indirect=audit(product('61091000',null,cottonProof),[step(q('6109'))],cottonRequest);
++ assert.equal(indirect.clasificacion,'6109');assert.equal(indirect.SIM,null);
++ assert.equal(indirect.clasificacion_qa.nivel,'COINCIDENCIA_APROXIMADA');
++});
++
++test('microfix rollback is one validator field; total three-field patch still restores production baseline',()=>{
++ const patch=JSON.parse(execFileSync('git',['show','da9c226:docs/evidence/pcram-web-directed-local-2026-10-13/apply.patch.json'],{encoding:'utf8'}));
++ const old=structuredClone(p.baseline);
++ for(const c of patch.changes){const k=c.path.split('/').slice(1),last=k.pop();k.reduce((x,key)=>x[key],old)[last]=c.after;}
++ const restored=structuredClone(p.candidate);restored.nodes[7].parameters.jsCode=old.nodes[7].parameters.jsCode;
++ assert.deepEqual(restored,old);assert.equal(restored.nodes.length,12);
++ assert.equal(p.candidate.nodes[4].parameters.options.systemMessage,old.nodes[4].parameters.options.systemMessage);
++ assert.equal(p.candidate.nodes[6].parameters.inputSchema,old.nodes[6].parameters.inputSchema);
++ const whole=structuredClone(p.candidate);for(const c of p.changes){const k=c.path.split('/').slice(1),last=k.pop();k.reduce((x,key)=>x[key],whole)[last]=c.before;}
++ assert.deepEqual(whole,p.baseline);
++ const beforeSource=execFileSync('git',['show','da9c226:workflow/pcram-classification-guard.mjs'],{encoding:'utf8'});
++ assert.equal(fs.readFileSync(new URL('workflow/pcram-classification-guard.mjs',root),'utf8').split('// QA evidence boundary')[0],beforeSource.split('// QA evidence boundary')[0]);
++});
++
+ test('measure local query bytes/latency and prompt delta without claiming model token cost or performance improvement',()=>{
+  const samples=[];
+  for(const input of [q('6109'),q('61091000'),q('85176272'),q('95030060')]){
+diff --git a/workflow/pcram-classification-guard.mjs b/workflow/pcram-classification-guard.mjs
+index 6303c57..48184e0 100644
+--- a/workflow/pcram-classification-guard.mjs
++++ b/workflow/pcram-classification-guard.mjs
+@@ -137,16 +137,27 @@ export function auditClassification(products, steps, sourceSha, solicitud) {
+     const directed = callCount <= 2 && own.find(r => complete(r) && /^(?:\d{8}|\d{11}[A-Z])$/.test(r.query.prefijo.replaceAll('.','')) &&
+       r.results.some(row => row.sim === selected || row.ncm === selected));
+     const row = directed ? directed.results.find(row => row.sim === selected || row.ncm === selected) : null;
+-    // Conservative literal coverage, not a semantic/AI classifier. All significant
+-    // words of the available source context must be grounded in product quotes.
+-    // Unknown/contradictory/range conditions cannot be certified by token overlap.
++    // Source conditions, not generic ancestor vocabulary, determine compatibility.
++    // Keep conservative literal coverage for contexts without a supported natural
++    // attribute check; exceptions/ranges still cannot be certified by word overlap.
+     const context = selected?.length === 12 ? row?.sim_description : row?.ncm_context;
+     const stop = new Set(['de','del','la','las','el','los','y','o','a','al','en','por','para','con']);
+     const terms = [...new Set(normalize(context).split(' ').filter(t=>t && !stop.has(t)))];
+     const restricted = /\b(?:no|sin|excepto|salvo|superior|inferior|hasta|demas|restantes)\b|\d/.test(normalize(context));
+     const fullText = !!row && row.description_limits?.ncm_field_full === false &&
+       (selected?.length !== 12 || row.description_limits?.sim_field_full === false);
+-    const grounded = verified.length > 0 && verified.length === claims.length && terms.length > 1 && terms.every(t => facts.split(' ').includes(t)) && !restricted;
++    // This derives the required type/material from the actual source wording,
++    // never from a code/rate mapping. Only NCM context, not SIM conditions.
++    const cottonTshirtContext = selected?.length === 8 &&
++      /^de algodon t shirts y camisetas de punto(?: prendas y complementos accesorios de vestir de punto)?$/.test(normalize(context));
++    const naturalTypeAndMaterial = cottonTshirtContext && verified.some(a => {
++      const wording = normalize(a.cita);
++      const typeObserved = /^(?:remeras?|camisetas?|t shirts?)\b/.test(wording);
++      const compositionObserved = /\b100\s*%\s*(?:de\s+)?algodon\b/.test(a.cita.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase());
++      return typeObserved && compositionObserved && (a.cita.match(/\d+(?:[.,]\d+)?\s*%/g) || []).length === 1;
++    }) && !/\b(?:pantalon(?:es)?|tejido plano)\b/.test(normalize(input?.descripcion) + ' ' + facts);
++    const grounded = verified.length > 0 && verified.length === claims.length && terms.length > 1 &&
++      (naturalTypeAndMaterial || terms.every(t => facts.split(' ').includes(t))) && !restricted;
+     const contradictory = /\b(?:no|sin|desconocid|inciert|estimad|probab|supuest|falta|incomplet)/.test(normalize(input?.descripcion) + ' ' + facts) ||
+       (typeof proof?.motivo_aproximacion === 'string' && proof.motivo_aproximacion.trim().length > 0);
+     const exact = !!selected && selected.length >= 8 && !!directed && fullText && grounded && !contradictory;

@@ -8,5 +8,10 @@
   "app/api/cotizador/route.ts": "a29a47202ea5746d80449b068e3c7d9235f7d83d71425f4d2b848b606857f882",
   "app/cotizador/page.tsx": "75628d66b98df17ff99f0a2d7adbc8310d34d8011939c5c601188ffd4e5405c8",
   "package.json": "5feb8005c53e792b75de66462c4a175a3385473f7e89a6e76beec3790e287084",
-  "vitest.config.mts": "d35f58af51ab1d994a3bb6bbbc5069e186251e5b987709826cde3ad473c82215"
+  "vitest.config.mts": "d35f58af51ab1d994a3bb6bbbc5069e186251e5b987709826cde3ad473c82215",
+  "app/cotizador/calculation-breakdown.tsx": "8eb443a503e0d676e4270f4d36919133566434f7358825943a8131b11f8dbafa",
+  "lib/courier/calculation-detail.ts": "500c68ddb99043df3827f9fe1a8f5310d439dc378e6a35438ca9655e78cf153c",
+  "lib/courier/n8n-contract.ts": "2fcbb2bb12497fcc14ff504d0cccfebc975c1c954331750dcb05c4fd06106bdc",
+  "scripts/prepare-pcram-web-directed.mjs": "aad1e7fc38376ec727a12f84f0ca024a1baa9b746c650d1b5c96b1d49a023dea",
+  "workflow/pcram-web-directed-instructions.txt": "f1afaf286bdfaee4c3b9389d006d0fe1dfd59fd5cfe5f74bfce79ed5a6834fd4"
 }

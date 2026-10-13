@@ -1,23 +1,21 @@
-# ER12 — implementación local: web → código → PCRAM dirigido
+# ER12 — microcorrección local sobre da9c226
 
-Baseline5775193 / versión previamente acreditada6be26506. Autorización6149094351. **LOCAL_PREPARED / E2E_NOT_VERIFIED / NOT_PUBLISHED.**
+**LOCAL_GUARD_FIX_READY / E2E_NOT_VERIFIED / NOT_PUBLISHED.** Autorización [6151117626](https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6151117626), contextoAlanOS d7fe40c; baseline técnico exacto da9c226.
 
-Tres camposn8n: prompt del agente, contrato opcionalverificacion del parser y validador. Instrucciones: usarWebSearch existente cuando hace falta, código argentino candidato y detallePCRAM dirigido; aproximar conHS4/HS6 sustentado si faltan atributos. Modelo/maxIterations8 y consultasPCRAMmáximo2 se mantienen. Índice/buscador/tool,12nodos, conexiones/settings/credenciales, TaxResolver,China/Germán yFAMILY_SNAPSHOT intactos.
+## Microdelta
 
-Validador conserva guard original y agrega auditoría de citas literales ligadas alproducto. No permiteexacta por mera declaraciónIA ni presencia delcódigo. La fuente deatributos es descripción original o cita expuesta en messageLog para mismoíndice/URLproducto. Si el proveedor no expone esa traza, no se presume accesoweb. La coberturaliteral conservadora de contexto no es unclasificador semántico; condiciones residuales/negativas/cuantitativas e incompletitud quedanaproximadas. Esto puede rechazar precisiones reales y se documenta como límite, sin nueva infraestructura.
+Sólo auditClassification y tests focalizados. Para contexto real PCRAM que identifica T-shirts/camisetas de algodón, NCM8 dirigido y evidencia válida: reconoce el tipo de prenda expresado naturalmente como remera/camiseta/T-shirt y composición observada100%algodón. Ambos atributos deben venir de cita comprobada del producto; no se inventan atributos ni se usa una tabla de códigos/tasas. No exige repetir encabezados genéricos prendas/complementos/accesorios/vestir. No cambia guardClassification, SIM, límites, fuente/citas/cobertura, buscador ni índice. Otros contextos mantienen criterio conservador anterior; no es clasificador semántico universal.
 
-QA existente muestra exacta/aproximada,motivo,candidato,código/familia conservado y método/fuenteDIE. Contrato comercial/gateway/formulario sin cambios. Clasificación exacta no implica impuesto específico; métodoDIE se toma exclusivamente de auditoríaTaxResolver.
+## Controles ejecutados
 
-| Caso local | Resultado comprobado |
-|---|---|
-| Camiseta #34575 sin composición | Misma inferencia61099000 sigue rechazada; fixture de salida explícita6109 conserva aproximada yFAMILY_SNAPSHOT20, total931,88. No se probó que elagente real produzcaese fallback. |
-| Algodón, evidencia controlada | Positivo con texto realPCRAM aportado como input verificaNCM61091000; sin atributos/citas/contexto completo permaneceaproximada. No es fichaAlibabaobservada. |
-| Smartwatch/código extranjero | No fuerzaSIM85176272900U; flagdetruncamiento yatributosausentes impidenexacta. |
-| Juguete bloques |95030010 no se acredita conatributos deconstrucción ni porcódigo listado. |
-| Sinmatch/webinaccesible | Cotizaciónestimativa local continúa; nofabricarSIM/familia. |
+27PASS /0FAIL nuevos, Node24: `node --test tests/pcram-web-directed.test.mjs tests/pcram-guard-legacy-bypass.test.mjs`. Positivo **Remera de running100%algodón**: da9c226 rechaza; microfix conserva61091000/exacta con índice real. El input del positivo no copia ncm_context. Fuentelegítima de este test es descripción original controlada; no fichaAlibaba real.
 
-24PASS contrato/guard,47PASS QA/render/regresióncomercial,0diagnósticostypecheckfocalizado. Fixture/mocks no acreditan eficacia real delagente. Logs finales incluidos. Single-samplelocalmeasurement registra bytes/tiempos; no tokens/costo/latenciaCloudmedidos. Baseline observado34575:14,978s; no afirmar ahorroIA.
+Sincomposición, materialaislado, pantalónalgodón, mezcla/inconsistencia de porcentajes o tejidoplano contradictorio →aproximada. Sincomposición confamilia sustentada conserva6109/SIMnull yFAMILY_SNAPSHOT20. Bloques nohabilitantriciclo; smartwatch sinatributos/SIMtruncado sigueaproximado. SHA/fuente/índice/consulta/citas completas dirigidas y flags se mantienen; errores, URLsajenas, límite deintentosexcedido, fuenteconexcepciones/rangos/números relevantes o truncada nohabilitanexacta. Total/fórmulas intactos.
 
-Reproducir: Node24 `node scripts/prepare-pcram-web-directed.mjs`; `node --test tests/pcram-web-directed.test.mjs tests/pcram-guard-legacy-bypass.test.mjs`; Vitest classification-qa/calculation-breakdown/n8n-gateway. Preparador sólo genera patches de campos/hashes, no publica.
+47testsQA ytypecheck son evidencia histórica da9c226, reutilizada porque los3archivosQA y sus tests permanecen idénticos; no se repitieron. No declarar74tests nuevos ni eficacia delmodelo.
 
-Recuperación comprobada: rollback.patch.json restaura3camposn8n; qa.rollback.patch restaura3archivosQA exactamentebaseline en directorio temporal. Nunca importarworkflowcompleto. Futurodeploy exige autorizaciónseparada yGET/hashesfrescos. **Sinproducción/Cloud/IA/cotizacionesreales/descargasPCRAM. STOP.**
+## Artefactos y recuperación
+
+microfix.apply/rollback.patch.json: **un campo validador** relativo a da9c226. apply/rollback.patch.json siguen siendo el candidato completo de3campos relativo a última producción acreditada6be26506. Ambos rollbackexactos probadoslocalmente; no restaurarworkflowcompleto. qa.rollback.patch no cambia. microfix.diff,source.diff,n8n.fields.diff,logs,hashes ymanifest regenerados. Prompt/esquema/QA/modelo/tool/índice/TaxResolver/FAMILY_SNAPSHOT/fórmulas y12nodos/conexiones/settings/credenciales permanecenidénticos.
+
+Pendiente exclusivamente validaciónreal delagente/citasWebSearch bajo autorización separada. Losmocks no acreditan forma real deurl_citation ni accesoAlibaba. **0Cloud/producción/IA/cotizaciones reales/descargasPCRAM. STOP.**

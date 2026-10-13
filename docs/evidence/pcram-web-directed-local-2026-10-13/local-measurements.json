@@ -13,7 +13,7 @@
         "limite": 1,
         "vista": "detalle"
       },
-      "ms": 108.93362500000057,
+      "ms": 35.98458399999981,
       "bytes": 7759,
       "count": 10,
       "complete": true
@@ -26,7 +26,7 @@
         "limite": 1,
         "vista": "detalle"
       },
-      "ms": 71.12820900000042,
+      "ms": 34.03800000000001,
       "bytes": 3937,
       "count": 4,
       "complete": true
@@ -39,7 +39,7 @@
         "limite": 1,
         "vista": "detalle"
       },
-      "ms": 112.05462499999976,
+      "ms": 38.43320900000026,
       "bytes": 5274,
       "count": 2,
       "complete": true
@@ -52,7 +52,7 @@
         "limite": 1,
         "vista": "detalle"
       },
-      "ms": 121.67341699999997,
+      "ms": 41.28233399999999,
       "bytes": 19332,
       "count": 18,
       "complete": true

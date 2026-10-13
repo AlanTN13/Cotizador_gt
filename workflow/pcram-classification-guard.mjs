@@ -137,16 +137,27 @@ export function auditClassification(products, steps, sourceSha, solicitud) {
     const directed = callCount <= 2 && own.find(r => complete(r) && /^(?:\d{8}|\d{11}[A-Z])$/.test(r.query.prefijo.replaceAll('.','')) &&
       r.results.some(row => row.sim === selected || row.ncm === selected));
     const row = directed ? directed.results.find(row => row.sim === selected || row.ncm === selected) : null;
-    // Conservative literal coverage, not a semantic/AI classifier. All significant
-    // words of the available source context must be grounded in product quotes.
-    // Unknown/contradictory/range conditions cannot be certified by token overlap.
+    // Source conditions, not generic ancestor vocabulary, determine compatibility.
+    // Keep conservative literal coverage for contexts without a supported natural
+    // attribute check; exceptions/ranges still cannot be certified by word overlap.
     const context = selected?.length === 12 ? row?.sim_description : row?.ncm_context;
     const stop = new Set(['de','del','la','las','el','los','y','o','a','al','en','por','para','con']);
     const terms = [...new Set(normalize(context).split(' ').filter(t=>t && !stop.has(t)))];
     const restricted = /\b(?:no|sin|excepto|salvo|superior|inferior|hasta|demas|restantes)\b|\d/.test(normalize(context));
     const fullText = !!row && row.description_limits?.ncm_field_full === false &&
       (selected?.length !== 12 || row.description_limits?.sim_field_full === false);
-    const grounded = verified.length > 0 && verified.length === claims.length && terms.length > 1 && terms.every(t => facts.split(' ').includes(t)) && !restricted;
+    // This derives the required type/material from the actual source wording,
+    // never from a code/rate mapping. Only NCM context, not SIM conditions.
+    const cottonTshirtContext = selected?.length === 8 &&
+      /^de algodon t shirts y camisetas de punto(?: prendas y complementos accesorios de vestir de punto)?$/.test(normalize(context));
+    const naturalTypeAndMaterial = cottonTshirtContext && verified.some(a => {
+      const wording = normalize(a.cita);
+      const typeObserved = /^(?:remeras?|camisetas?|t shirts?)\b/.test(wording);
+      const compositionObserved = /\b100\s*%\s*(?:de\s+)?algodon\b/.test(a.cita.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase());
+      return typeObserved && compositionObserved && (a.cita.match(/\d+(?:[.,]\d+)?\s*%/g) || []).length === 1;
+    }) && !/\b(?:pantalon(?:es)?|tejido plano)\b/.test(normalize(input?.descripcion) + ' ' + facts);
+    const grounded = verified.length > 0 && verified.length === claims.length && terms.length > 1 &&
+      (naturalTypeAndMaterial || terms.every(t => facts.split(' ').includes(t))) && !restricted;
     const contradictory = /\b(?:no|sin|desconocid|inciert|estimad|probab|supuest|falta|incomplet)/.test(normalize(input?.descripcion) + ' ' + facts) ||
       (typeof proof?.motivo_aproximacion === 'string' && proof.motivo_aproximacion.trim().length > 0);
     const exact = !!selected && selected.length >= 8 && !!directed && fullText && grounded && !contradictory;

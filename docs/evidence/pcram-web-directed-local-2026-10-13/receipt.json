@@ -1,49 +1,36 @@
 {
-  "status": "LOCAL_PREPARED / E2E_NOT_VERIFIED / NOT_PUBLISHED / STOP",
-  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6149094351",
-  "canonical_revision": "67eb6a1",
-  "baseline_commit": "577519385712e09b3e0126dd3b8929c83ea150b7",
-  "baseline_published_version": "6be26506-7879-4d13-a635-bb2fc3579a05",
-  "fresh_cloud_read": false,
+  "status": "LOCAL_GUARD_FIX_READY / E2E_NOT_VERIFIED / NOT_PUBLISHED / STOP",
+  "authorization": "https://github.com/AlanTN13/Cotizador_gt/issues/12#issuecomment-6151117626",
+  "canonical_revision": "d7fe40c",
+  "microfix_base": "da9c2263bc81e06eadb697c6eb0a443e7354861b",
+  "functional_delta": "Only auditClassification type/material check. Natural garment synonym plus literal observed 100% cotton, against actual NCM source conditions, without requiring generic ancestor words. No code/rate mapping. SIM conditions not relaxed.",
   "checks": {
-    "node_contract_tests_pass": 24,
-    "vitest_qa_regression_tests_pass": 47,
+    "fresh_local_tests": 27,
     "fail": 0,
-    "focused_typecheck_diagnostics": 0,
-    "three_field_n8n_rollback_exact": true,
-    "three_file_qa_rollback_exact": true,
+    "historical_qa_tests_reused_unchanged_files": 47,
+    "historical_typecheck_reused_unchanged_files": true,
+    "core_guard_byte_exact": true,
+    "incremental_one_field_rollback_exact": true,
+    "total_three_field_rollback_exact": true,
     "nodes": 12,
     "frozen_identical": true
   },
-  "changes": {
-    "n8n_paths": [
-      "/nodes/4/parameters/options/systemMessage",
-      "/nodes/6/parameters/inputSchema",
-      "/nodes/7/parameters/jsCode"
-    ],
-    "qa_files": [
-      "app/cotizador/calculation-breakdown.tsx",
-      "lib/courier/calculation-detail.ts",
-      "lib/courier/n8n-contract.ts"
-    ]
-  },
-  "limits": [
-    "No real model behavior established by mocks.",
-    "No new Web Search, Alibaba, PCRAM or Cloud requests. Built-in citations may not be surfaced; no exact verdict from missing trace.",
-    "Conservative literal coverage is not a semantic classifier: residual/negative/quantitative conditions and incomplete text cannot be certified. Correct candidates can remain approximate.",
-    "Positive exact test declares genuine catalog text in controlled input. Not a newly observed product or real agent response.",
-    "Tax resolution provenance is independent of classification grade. FAMILY_SNAPSHOT unchanged."
+  "changed_paths_incremental": [
+    "/nodes/7/parameters/jsCode"
   ],
-  "initial_local_failures_resolved": [
-    "New JSX render test compiled in-memory under existing configuration; no config change.",
-    "Focused typecheck roots include existing Next CSS types.",
-    "Over-budget rejection false.find fixed and fixture mutations isolated; final tests PASS.",
-    "QA rollback regenerated with correct -R flag and applied to temporary files; exact recovery verified."
+  "validator_before_sha256": "549c6dd1fc14e19cb9c23649ab2b10872f828b63e8e3172039b19a83ab5b34dd",
+  "validator_after_sha256": "7d48a06378f50cb0ca0498a4b7fcff43ec37f054df716e9d2956babecf3b0133",
+  "limits": [
+    "Natural product description is a controlled local input fixture, not a new Alibaba/Web Search observation.",
+    "Real Web Search citation shape and actual model behavior remain unverified.",
+    "Natural attribute path applies only to source context clearly describing cotton T-shirts/camisetas and NCM8, not SIM. Other source contexts retain previous conservative handling.",
+    "Ranges/exceptions/negative conditions, incomplete/truncated source, unsupported composition, wrong type and unverified citations cannot become exact.",
+    "First new indirect-detail test expected null but legitimate explicit HS4 fallback was preserved; expectation corrected, no product relaxation. Final tests 27PASS."
   ],
   "production_mutations": 0,
   "cloud_executions": 0,
   "model_calls": 0,
   "new_real_quotes": 0,
   "pcram_downloads": 0,
-  "rollback": "rollback.patch.json: three n8n fields; qa.rollback.patch: three QA files. Require new authorization and fresh hashes for later publication/recovery."
+  "rollback": "microfix.rollback.patch.json restores only validator to da9c226; rollback.patch.json restores full three-field candidate to recorded production baseline. QA recovery unchanged. Require fresh live state and separate authorization for future deployment."
 }
