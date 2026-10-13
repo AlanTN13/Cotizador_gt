@@ -1,0 +1,24 @@
+{
+  "status": "THREE_FIELD_DRAFT_PASS",
+  "draft_version": "f25077ba-8c75-49a5-99f2-8473a70d1fd9",
+  "node_count": 12,
+  "changed_paths": [
+    "/nodes/4/parameters/options/systemMessage",
+    "/nodes/6/parameters/inputSchema",
+    "/nodes/7/parameters/jsCode"
+  ],
+  "hashes": {
+    "fields": {
+      "/nodes/4/parameters/options/systemMessage": "2aef79b5933f07ea5ea98d525275a67e21bcf36fa098c43f6def5577be21fc2c",
+      "/nodes/6/parameters/inputSchema": "e1a06ce5d25d19859750f7bec633dfd7b260f85aa329d38495242f4a7a2e1afd",
+      "/nodes/7/parameters/jsCode": "7d48a06378f50cb0ca0498a4b7fcff43ec37f054df716e9d2956babecf3b0133"
+    },
+    "frozen_functional": "a3fd8b4a32f5b97a7554002e3c54dd6332698c1e83a28a0b33acf8245d499886",
+    "frozen_nodes": "2506c9a9ee962c43cf2ec354b98fffafe14053fdd9f2bbaaf2d57dacc0d1c2bb",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d",
+    "calculator_jsCode": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99"
+  },
+  "frozen_surfaces_exact": true
+}

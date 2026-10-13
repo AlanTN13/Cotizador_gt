@@ -1,0 +1,35 @@
+{
+  "status": "WEB_SOURCE_BASELINE_PASS",
+  "project_id": "prj_ForvYYAAi2CXboN3X1wdROszScfl",
+  "team_id": "team_Dd84rleycBIFoY84LaXy5BYj",
+  "alias": "cotizador.globaltriplog.com",
+  "baseline_deployment_id": "dpl_5LsZGXgWsPBGYTV6bHkeSZLMWmAU",
+  "baseline_commit": "25e7ccb30b20b74b81a0a754cbaa135412a7773f",
+  "candidate_commit": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "runtime_source_changed_paths": [
+    "app/cotizador/calculation-breakdown.tsx",
+    "lib/courier/calculation-detail.ts",
+    "lib/courier/n8n-contract.ts"
+  ],
+  "files": [
+    {
+      "path": "app/cotizador/calculation-breakdown.tsx",
+      "before_sha256": "8b283b53e1e21263900461f78b8c0305960b55107f17448460c5816e9b542791",
+      "after_sha256": "8eb443a503e0d676e4270f4d36919133566434f7358825943a8131b11f8dbafa"
+    },
+    {
+      "path": "lib/courier/calculation-detail.ts",
+      "before_sha256": "9d0d7ace1ad4ff2bacf17cf9fabfad13c20563d6395fe0479e61c819ac618e6a",
+      "after_sha256": "500c68ddb99043df3827f9fe1a8f5310d439dc378e6a35438ca9655e78cf153c"
+    },
+    {
+      "path": "lib/courier/n8n-contract.ts",
+      "before_sha256": "a2bd073f6992a7cc046cbbc96d36292860d21993e9ce758e43437da53c9f7b71",
+      "after_sha256": "2fcbb2bb12497fcc14ff504d0cccfebc975c1c954331750dcb05c4fd06106bdc"
+    }
+  ],
+  "rollback_deployment_preserved": true,
+  "evidence_method": "Vercel live alias+deployment READY/production/Git commit metadata, compared against immutable Git source. Source-file API unavailable404 for Git deployment; no claim of direct source export.",
+  "production_mutations": 0,
+  "quotes": 0
+}

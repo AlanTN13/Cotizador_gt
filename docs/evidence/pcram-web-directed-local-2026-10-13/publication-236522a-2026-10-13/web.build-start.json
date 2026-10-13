@@ -1,0 +1,12 @@
+{
+  "deployment_id": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh",
+  "deployment_url": "https://cotizador-gj7k2xxlq-alan-fernandezs-projects-f6e1f457.vercel.app",
+  "project_id": "prj_ForvYYAAi2CXboN3X1wdROszScfl",
+  "team_id": "team_Dd84rleycBIFoY84LaXy5BYj",
+  "target": "production",
+  "commit": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "initial_state": "INITIALIZING",
+  "source_mode": "configured Git connection via Vercel MCP API",
+  "env_or_settings_changes": 0,
+  "quotes": 0
+}

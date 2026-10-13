@@ -1,0 +1,37 @@
+{
+  "candidate_commit": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "workflow_id": "LO9m0AxSrxRR6JVY",
+  "mode": "preflight",
+  "authorization": "Direct user authorization: publish 236522a, three n8n fields and three QA files, no quotes",
+  "context_revision": "6fdba5c141f91232d8889b3aa1529c638a3151c1",
+  "production_mutations": 0,
+  "quotes": 0,
+  "model_calls": 0,
+  "local_tests_repeated": 0,
+  "new_credentials_created_by_executor": 0,
+  "secret_exposed_or_persisted": false,
+  "status": "LIVE_BASELINE_PASS",
+  "active_version": "6be26506-7879-4d13-a635-bb2fc3579a05",
+  "node_count": 12,
+  "baseline_hashes": {
+    "fields": {
+      "/nodes/4/parameters/options/systemMessage": "698f6ac6ef538a2811dd5ccae8dd802c86744a056f77d0178cca27588a0aebce",
+      "/nodes/6/parameters/inputSchema": "3d70039177cb422e829be76b73674bbb92687d3c3c46e5e4bcd2e95d30c0f3d8",
+      "/nodes/7/parameters/jsCode": "66013a31679d1ccc7188eb3ab1e22b6c37db1157b1f76e6a9f7f0a1d51696829"
+    },
+    "frozen_functional": "a3fd8b4a32f5b97a7554002e3c54dd6332698c1e83a28a0b33acf8245d499886",
+    "frozen_nodes": "2506c9a9ee962c43cf2ec354b98fffafe14053fdd9f2bbaaf2d57dacc0d1c2bb",
+    "connections": "42521f091138660152d254c99369d0dc247188ed2ec2df1f565955883d53ee4e",
+    "settings": "4ed9c1bb9c28539a399ee87621a1248690617706ca5daa63ce96ce678805102d",
+    "credential_references": "71266d634eecb51fa4261cadda878901d5f32be53ae314e4964eb0e29d329b5d",
+    "calculator_jsCode": "2530f19f9fe18b928cbeb0cf4d2cbadc8c005e0a139f29d19c5fbf72bdc5be99"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "route": "/workflows/LO9m0AxSrxRR6JVY",
+      "http_status": 200
+    }
+  ],
+  "at_utc": "2026-10-13T17:46:29.930938+00:00"
+}
