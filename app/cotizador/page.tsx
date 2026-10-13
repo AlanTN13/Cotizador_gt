@@ -29,7 +29,7 @@ export default function Page() {
       <div className={styles.headerBoundary}>
         <GlobalTripHeader />
       </div>
-      <CourierForm />
+      <CourierForm debug />
       <GlobalTripFooter />
       </LanguageProvider>
     </div>

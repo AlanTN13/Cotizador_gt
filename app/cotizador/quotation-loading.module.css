@@ -63,6 +63,25 @@
 .primaryAction:hover { background: #161865; }
 .primaryAction:focus-visible { outline: 3px solid #819ac3; outline-offset: 3px; }
 .errorMessage { font-size: .95rem; line-height: 1.7; color: #526078; margin-top: 1rem; }
+.audit { margin-top: 1.5rem; border: 2px solid #d6b459; border-radius: 1rem; padding: 1rem; background: #fffdf5; color: #17203a; }
+.auditTitle p { color: #775d16; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.auditTitle h3 { margin-top: .2rem; font-size: 1.25rem; font-weight: 800; color: #0b0c49; }
+.auditTable { margin-top: .8rem; border: 1px solid #e3e7ee; border-radius: .7rem; overflow: hidden; background: #fff; }
+.auditHeader, .auditRow { display: grid; grid-template-columns: 1.25fr 1.8fr .6fr 1fr; gap: .75rem; padding: .65rem .75rem; font-size: .75rem; line-height: 1.4; }
+.auditHeader { background: #eef2f9; color: #526078; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.auditRow + .auditRow { border-top: 1px solid #edf0f5; }
+.auditRow span:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
+.auditProduct { margin-top: 1.25rem; }
+.auditProduct h4 { color: #0b0c49; font-size: .95rem; font-weight: 800; }
+.auditProduct > p { margin-top: .25rem; color: #526078; font-size: .78rem; }
+@media (max-width: 680px) {
+  .auditHeader { display: none; }
+  .auditRow { grid-template-columns: 1fr 1fr; gap: .3rem .75rem; }
+  .auditRow strong { grid-column: 1 / -1; }
+  .auditRow span:nth-child(2)::before { content: "Base: "; color: #6a7890; }
+  .auditRow span:nth-child(3)::before { content: "Tasa: "; color: #6a7890; }
+  .auditRow span:last-child { text-align: right; }
+}
 @media (max-width: 540px) {
   .dialog { width: calc(100% - 1rem); max-height: calc(100dvh - 1rem); border-radius: 1.25rem; }
   .dialog .panel, .result { padding: 1.5rem 1rem; }

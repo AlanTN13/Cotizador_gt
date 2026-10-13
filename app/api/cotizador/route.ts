@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { courierRequestSchema, courierResponseSchema } from "@/lib/courier/n8n-contract";
+import { courierRequestSchema, courierResponseSchema, courierUpstreamResponseSchema } from "@/lib/courier/n8n-contract";
+import { buildCalculationDetail } from "@/lib/courier/calculation-detail";
 import { isLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
@@ -72,13 +73,21 @@ export async function POST(req: Request) {
     if (response.status === 404)
       throw new GatewayError("N8N_TEST_NOT_LISTENING", "La prueba todavía no está disponible. Cuando se habilite, podés reintentar con estos mismos datos.", 503);
     if (!response.ok) throw new GatewayError("N8N_UNAVAILABLE", "No pudimos completar el análisis. Tus datos se conservan; reintentá en unos minutos.");
-    let result;
-    try { result = courierResponseSchema.safeParse(JSON.parse(await readLimited(response.body, 200000))); }
+    let rawResult: unknown;
+    try { rawResult = JSON.parse(await readLimited(response.body, 200000)); }
     catch { throw new GatewayError("N8N_INVALID_RESPONSE", "Recibimos una respuesta incompleta. Tus datos se conservan para reintentar."); }
-    if (!result.success || result.data.solicitud_id !== solicitudId)
+    const publicResult = courierResponseSchema.safeParse(rawResult);
+    if (!publicResult.success || publicResult.data.solicitud_id !== solicitudId)
       throw new GatewayError("N8N_INVALID_RESPONSE", "Recibimos una respuesta incompleta. Tus datos se conservan para reintentar.");
-    // Only contract fields reach the browser, never raw upstream diagnostics.
-    return NextResponse.json(result.data, { headers });
+    // Only explicit contract fields reach the browser, never raw upstream diagnostics.
+    const debug = new URL(req.url).searchParams.get("detalle") === "1";
+    if (debug && publicResult.data.status === "cotizado") {
+      const audited = courierUpstreamResponseSchema.safeParse(rawResult);
+      if (!audited.success || audited.data.status !== "cotizado")
+        throw new GatewayError("N8N_INVALID_RESPONSE", "El detalle de cálculo está incompleto. Tus datos se conservan para reintentar.");
+      return NextResponse.json({ ...publicResult.data, detalle_calculo: buildCalculationDetail(parsed.data, audited.data) }, { headers });
+    }
+    return NextResponse.json(publicResult.data, { headers });
   } catch (e) {
     const error = e instanceof GatewayError ? e : e instanceof Error && (e.name === "TimeoutError" || e.name === "AbortError")
       ? new GatewayError("N8N_TIMEOUT", "El análisis demoró más de lo esperado. Tus datos se conservan para reintentar.", 504)
