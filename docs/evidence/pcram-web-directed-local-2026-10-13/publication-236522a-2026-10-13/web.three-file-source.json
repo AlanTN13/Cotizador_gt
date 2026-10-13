@@ -1,0 +1,13 @@
+{
+  "web_source_commit": "e011ce4ba179960a3d15524349d35d11aaa3d73c",
+  "parent_production_commit": "25e7ccb30b20b74b81a0a754cbaa135412a7773f",
+  "functional_candidate": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "changed_paths_entire_tree": [
+    "app/cotizador/calculation-breakdown.tsx",
+    "lib/courier/calculation-detail.ts",
+    "lib/courier/n8n-contract.ts"
+  ],
+  "qa_blobs_exactly_match_candidate": true,
+  "branch": "codex/debug-calculation-breakdown",
+  "no_other_source_changes": true
+}

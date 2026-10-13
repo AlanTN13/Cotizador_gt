@@ -1,16 +1,14 @@
 {
-  "status": "READ_ONLY_PAGE_AND_BUNDLE_PASS",
+  "status": "READ_ONLY_FINAL_PAGE_AND_BUNDLE_PASS",
   "url": "https://cotizador.globaltriplog.com/cotizador",
-  "page_get_success": true,
   "qa_asset": "/_next/static/chunks/app/cotizador/page-bfda073982fefb8e.js",
   "qa_bundle_sha256": "b0cf109ef7e46e6b8a3722c275c1525634fd0546850fafea43d2b5c0c7a1b86f",
-  "contains_new_qa_component_fields": true,
+  "new_qa_fields_present": true,
   "http_requests": [
     "GET /cotizador",
     "GET /_next/static/chunks/app/cotizador/page-bfda073982fefb8e.js"
   ],
-  "post_requests": 0,
   "quotes": 0,
-  "at_utc": "2026-10-13T17:49:57.465671+00:00",
-  "limit": "Static delivery verification only; no result submitted, no functional classification test."
+  "at_utc": "2026-10-13T17:59:30.761526+00:00",
+  "limit": "Static delivery only, no form POST or classification validation."
 }

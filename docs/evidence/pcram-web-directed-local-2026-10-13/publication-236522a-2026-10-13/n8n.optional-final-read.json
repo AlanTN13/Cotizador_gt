@@ -1,0 +1,8 @@
+{
+  "status": "OPTIONAL_READ_NOT_PERFORMED_ACCESS_NO_LONGER_AVAILABLE",
+  "requests": 0,
+  "mutations": 0,
+  "required_post_publish_verification": "PASS",
+  "verified_version": "f25077ba-8c75-49a5-99f2-8473a70d1fd9",
+  "required_evidence": "published.verified.json"
+}

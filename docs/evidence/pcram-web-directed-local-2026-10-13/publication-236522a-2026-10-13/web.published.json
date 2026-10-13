@@ -1,15 +1,18 @@
 {
   "status": "READY_PRODUCTION_VERIFIED",
-  "deployment_id": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh",
+  "deployment_id": "dpl_Df7uEi2XJWVuUUptA97bVU326nXX",
   "project_id": "prj_ForvYYAAi2CXboN3X1wdROszScfl",
   "team_id": "team_Dd84rleycBIFoY84LaXy5BYj",
   "candidate_commit": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
   "alias": "cotizador.globaltriplog.com",
-  "deployment_url": "https://cotizador-gj7k2xxlq-alan-fernandezs-projects-f6e1f457.vercel.app",
+  "deployment_url": "https://cotizador-344cdugls-alan-fernandezs-projects-f6e1f457.vercel.app",
   "alias_points_to_candidate": true,
   "baseline_deployment_for_rollback": "dpl_5LsZGXgWsPBGYTV6bHkeSZLMWmAU",
   "build": "Compiled successfully; types checked; static generation completed",
   "env_settings_credentials_changes": 0,
   "quotes": 0,
-  "source_integrity_evidence": "Provider Git commit metadata and immutable Git diff: exactly three runtime QA files; deployed page bundle checked via GET. No direct source export claimed."
+  "source_integrity_evidence": "Provider Git commit metadata + exact entire Git tree diff: original production25e7ccb plus only three QA files. Each QA blob equals236522a. Static deployed bundle checked by GET.",
+  "web_source_commit": "e011ce4ba179960a3d15524349d35d11aaa3d73c",
+  "functional_candidate": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "initial_packaging_deployment_superseded": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh"
 }

@@ -13,18 +13,21 @@
   "n8n_frozen_identical": true,
   "web": {
     "status": "READY_PRODUCTION_VERIFIED",
-    "deployment_id": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh",
+    "deployment_id": "dpl_Df7uEi2XJWVuUUptA97bVU326nXX",
     "project_id": "prj_ForvYYAAi2CXboN3X1wdROszScfl",
     "team_id": "team_Dd84rleycBIFoY84LaXy5BYj",
     "candidate_commit": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
     "alias": "cotizador.globaltriplog.com",
-    "deployment_url": "https://cotizador-gj7k2xxlq-alan-fernandezs-projects-f6e1f457.vercel.app",
+    "deployment_url": "https://cotizador-344cdugls-alan-fernandezs-projects-f6e1f457.vercel.app",
     "alias_points_to_candidate": true,
     "baseline_deployment_for_rollback": "dpl_5LsZGXgWsPBGYTV6bHkeSZLMWmAU",
     "build": "Compiled successfully; types checked; static generation completed",
     "env_settings_credentials_changes": 0,
     "quotes": 0,
-    "source_integrity_evidence": "Provider Git commit metadata and immutable Git diff: exactly three runtime QA files; deployed page bundle checked via GET. No direct source export claimed."
+    "source_integrity_evidence": "Provider Git commit metadata + exact entire Git tree diff: original production25e7ccb plus only three QA files. Each QA blob equals236522a. Static deployed bundle checked by GET.",
+    "web_source_commit": "e011ce4ba179960a3d15524349d35d11aaa3d73c",
+    "functional_candidate": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+    "initial_packaging_deployment_superseded": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh"
   },
   "backup_private_path": "/private/tmp/globaltrip-n8n-access-1klaeqzz/classification-236522a-live-before.private.json",
   "backup_sha256": "c8af755340e3131515aea6abf79f5728fe3af397ddd3d754fdb663d46b9e0766",
@@ -38,5 +41,9 @@
   "local_tests_repeated": 0,
   "pcram_downloads": 0,
   "functional_qa": "NOT_EXECUTED; Alan will perform one manual running-shirt quotation from habitual URL. Real agent effectiveness not accepted by this deployment.",
-  "at_utc": "2026-10-13T17:51:24.097161+00:00"
+  "at_utc": "2026-10-13T17:59:30.831812+00:00",
+  "n8n_post_publish_verification_at_utc": "2026-10-13T17:49:40.240828+00:00",
+  "packaging_correction": "Initial technical-branch deployment contained unreferenced offline PCRAM artifacts. Final web source rebuilt from original production25e7ccb plus exactly three QA files. No functional code changed or n8n re-publication.",
+  "optional_final_n8n_read": "Not performed: clipboard key no longer available; zero extra API requests. Required GET after n8n activation already PASS, retained in published.verified.json. No workflow changes after that read.",
+  "production_web_builds": 2
 }

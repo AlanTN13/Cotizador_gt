@@ -1,0 +1,12 @@
+{
+  "deployment_id": "dpl_Df7uEi2XJWVuUUptA97bVU326nXX",
+  "web_source_commit": "e011ce4ba179960a3d15524349d35d11aaa3d73c",
+  "functional_candidate": "236522a2a42cbd3041a3a6dc7e57b9ccb5c37fc7",
+  "project_id": "prj_ForvYYAAi2CXboN3X1wdROszScfl",
+  "target": "production",
+  "reason": "Strict source packaging: baseline production tree plus exactly three QA files, byte-identical to candidate. No offline nomenclator artifacts deployed.",
+  "supersedes_first_web_deployment": "dpl_9cFp4hz2LuFtVYDVXnM3JtrdGawh",
+  "n8n_republished": false,
+  "new_functional_changes": 0,
+  "quotes": 0
+}
