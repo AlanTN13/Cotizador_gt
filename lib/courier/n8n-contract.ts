@@ -27,9 +27,21 @@ export const courierResponseSchema = z.discriminatedUnion("status", [
   base.extend({ status: z.literal("error") }),
 ]);
 const rate = z.number().finite().min(0).max(1);
-const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000) }).passthrough();
+const classificationQa = z.object({
+  nivel: z.enum(["COINCIDENCIA_EXACTA", "COINCIDENCIA_APROXIMADA"]),
+  candidato: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
+  codigo_validado: z.string().regex(/^(?:\d{4}|\d{6}|\d{8}|\d{11}[A-Z])$/).nullable(),
+  motivo: z.string().max(2000), source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  verificador: z.literal("literal-product-evidence-v1"),
+});
+const auditProduct = z.object({ indice: z.number().int().positive(), producto: text(8000),
+  clasificacion_qa: classificationQa.optional(),
+}).passthrough();
 const taxResolution = z.object({ productIndex: z.number().int().nonnegative(), ncm: z.string().nullable(), sim: z.string().nullable(),
-  rates: z.object({ duty: rate, statistical: rate, vat: rate }), agentEvidence: z.object({ producto: text(8000) }).passthrough(),
+  rates: z.object({ duty: rate, statistical: rate, vat: rate }),
+  dutyEvidence: z.object({ version: z.string(), source: z.object({ sha256: z.string(), id: z.string() }).passthrough() }).passthrough().nullable().optional(),
+  estimation: z.object({ components: z.array(z.object({ tax: z.string(), method: z.string(), source: z.string(), basis: z.string() })) }).passthrough().optional(),
+  agentEvidence: z.object({ producto: text(8000) }).passthrough(),
 }).passthrough();
 const productTax = z.object({ indice: z.number().int().positive(), cif_usd: money, derechos_usd: money,
   tasa_estadistica_usd: money, iva_usd: money });
@@ -44,7 +56,11 @@ export const courierUpstreamResponseSchema = z.discriminatedUnion("status", [
   base.extend({ status: z.literal("error") }).passthrough(),
 ]);
 const detailLine = z.object({ concepto: z.string(), base_formula: z.string(), tasa: z.string(), importe: z.string() });
-export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(), lineas: z.array(detailLine) })), totales: z.array(detailLine) });
+export const calculationDetailSchema = z.object({ resumen: z.array(detailLine), productos: z.array(z.object({ producto: z.string(), ncm_sim: z.string(),
+  coincidencia: z.enum(["Coincidencia exacta", "Coincidencia aproximada"]).optional(),
+  motivo_coincidencia: z.string().optional(), codigo_candidato: z.string().nullable().optional(),
+  codigo_validado: z.string().nullable().optional(), origen_die: z.string().optional(), fuente_die: z.string().optional(),
+  lineas: z.array(detailLine) })), totales: z.array(detailLine) });
 export const courierDebugResponseSchema = z.discriminatedUnion("status", [
   courierResponseSchema.options[0].extend({ detalle_calculo: calculationDetailSchema }),
   courierResponseSchema.options[1],

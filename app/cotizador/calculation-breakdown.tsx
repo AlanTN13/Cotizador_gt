@@ -15,7 +15,14 @@ export default function CalculationBreakdown({ detail }: { detail: CalculationDe
     <div className={styles.auditTitle}><p>Modo QA · período de pruebas</p><h3 id="audit-title">Desglose del cálculo</h3></div>
     <Rows rows={detail.resumen} />
     {detail.productos.map((product, index) => <section className={styles.auditProduct} key={`${product.producto}-${index}`}>
-      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p><Rows rows={product.lineas} />
+      <h4>Producto {index + 1}: {product.producto}</h4><p>NCM/SIM: <strong>{product.ncm_sim}</strong></p>
+      {product.coincidencia && <div>
+        <p><strong>{product.coincidencia}</strong> · QA de precotización</p>
+        <p>{product.motivo_coincidencia}</p>
+        <p>Código candidato: {product.codigo_candidato || "No informado"} · Código/familia conservado: {product.codigo_validado || "No informado"}</p>
+        <p>Origen del DIE: <strong>{product.origen_die}</strong> · {product.fuente_die}</p>
+      </div>}
+      <Rows rows={product.lineas} />
     </section>)}
     <section className={styles.auditProduct}><h4>Totales</h4><Rows rows={detail.totales} /></section>
   </section>;
