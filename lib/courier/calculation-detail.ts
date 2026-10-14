@@ -22,7 +22,7 @@ export function buildCalculationDetail(request: CourierRequest, response: Extrac
       { concepto: "Peso bruto redondeado", base_formula: "Presentación QA: hacia arriba cada 0,5 kg", tasa: "—", importe: kg(roundHalfUp(a.peso_real_total_kg)) },
       { concepto: "Peso volumétrico redondeado", base_formula: "Presentación QA: hacia arriba cada 0,5 kg", tasa: "—", importe: kg(roundHalfUp(a.peso_volumetrico_total_kg)) },
       { concepto: "Peso aplicable", base_formula: "Máximo entre ambos pesos redondeados", tasa: "—", importe: kg(response.peso_considerado_kg) },
-      { concepto: "Tarifa", base_formula: "Escala China 24 / 20 / 19", tasa: "—", importe: `${usd(a.tarifa_usd_kg)}/kg` },
+      { concepto: "Tarifa", base_formula: "Escala China 26,88 / 22,40 / 21,28", tasa: "—", importe: `${usd(a.tarifa_usd_kg)}/kg` },
       { concepto: "Flete internacional", base_formula: `${kg(response.peso_considerado_kg)} × ${usd(a.tarifa_usd_kg)}`, tasa: "—", importe: usd(response.flete_internacional_usd) },
       { concepto: "Flete a fines aduaneros", base_formula: "Derivado de CIF ÷ 1,01 − FOB", tasa: "—", importe: usd(customsFreight) },
       { concepto: "Seguro a fines aduaneros", base_formula: "CIF − FOB − flete aduanero", tasa: "1%", importe: usd(customsInsurance) },
